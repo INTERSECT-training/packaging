@@ -10,7 +10,7 @@ objectives:
 - "Create and install a Python package"
 - "Create and run a test"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Use a `pyproject.toml` file to describe a Python package"
 ---
 
 Much research software is initially developed by hacking away in an interactive setting, such as in a [Jupyter Notebook](https://jupyter.org) or a Python shell. However, at some point when you have a more-complicated workflow that you want to repeat, and/or make available to others, it makes sense to package your functions into modules and ultimately a software package that can be installed. This lesson will walk you through that process.
@@ -116,6 +116,8 @@ build-backend = "hatchling.build"
 name = "package"
 version = "0.1.0"
 ```
+
+The package name given here, "package," matches the directory `package` that contains our project's code. We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning, and how to specify this without manually writing it here.
 
 The only elements of your package truly **required** to install and import it are the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
 
