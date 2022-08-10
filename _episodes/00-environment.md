@@ -169,7 +169,8 @@ Sessions defined in /github/pypa/packaging.python.org/noxfile.py:
 - preview -> Make and preview the website.
 - linkcheck -> Check for broken links.
 
-sessions marked with * are selected, sessions marked with - are skipped.```
+sessions marked with * are selected, sessions marked with - are skipped.
+```
 {:.output}
 
 You can see that there are several different sessions. You can run them with `-s`:
