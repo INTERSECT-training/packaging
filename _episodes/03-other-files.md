@@ -10,9 +10,9 @@ objectives:
 - "Choose a software license for a software package"
 - "Create a CHANGELOG for a package"
 keypoints:
-- "In addition to the source code and project specification, packages should include a README, LICENSE, CHANGELOG, and `.gitignore`."
+- "In addition to the source code and project specification, packages should include a README, LICENSE, and CHANGELOG."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
-- "You can also include `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
+- "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
 ---
 
 We now have an installed, working Python package that provides some functionality.
@@ -119,9 +119,10 @@ These two categories are "permissive" and "copyleft" licenses.
 Common permissive licenses include the [MIT License](https://choosealicense.com/licenses/mit/) and [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
 The [GNU General Public License v3.0 (or GNU GPLv3) License](https://choosealicense.com/licenses/gpl-3.0/) is a common copyleft license.
 
-Most research software uses permissive licenses like the MIT or BSD 3-clause license.
+Most research software uses permissive licenses like the [MIT License](https://choosealicense.com/licenses/mit/), [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), or the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
 For an easy choice, we recommend using the **BSD 3-Clause License**, which includes a specific clause preventing the names of creators/contributors from being used to endorse or promote derivatives, without permission.
 However, you should choose the specific license that best fits your needs.
+In addition, when working on a project with others or as part of a larger effort, you should check if your collaborators have already determined an appropriate license; for example, on work funded by a grant, a particular license may be mandated by the proposal/agreement.
 
 Create a `LICENSE.txt` file using
 
@@ -162,6 +163,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
 
+That's it!
+
 > ## Do not write your own license!
 >
 > You should never try to write your own software license, or modify the text of an existing
@@ -173,12 +176,154 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 > legally valid.
 {: .callout}
 
+> ## Adding a license badge to README
+>
+> Badges are a fun and informative way to quickly show information about your software package
+> in the README. [Shields.io](https://shields.io) is a resource for generating badge images
+> in SVG format, which can easily be added to the top of your README as links pointing to more
+> information.
+>
+> Using [Shields.io](https://shields.io) (or an example found elsewhere), generate the Markdown
+> syntax for adding a badge describing the BSD 3-Clause License we chose for this example package.
+>
+> > ## Solution
+> >
+> > The Markdown syntax for adding a badge describing the BSD 3-Clause License is:
+> >
+> > ```markdown
+> > [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+> > ```
+> > and will render as [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+> {: .solution}
+{: .challenge}
+
 ## Keeping a CHANGELOG
 
-TODO
+Over time, our package will likely evolve, whether through bug fixes, improvements, or
+feature changes. For example, the `rescale` function in our package does not have a way
+of properly treating cases where the max and min of the array are the same (i.e., when
+the array holds the same number repeated). For example:
+
+```python
+import numpy as np
+from package.rescale import rescale
+a = 2 * np.ones(5)
+rescale(a)
+```
+
+gives
+
+```
+rescale.py:11: RuntimeWarning: invalid value encountered in divide
+  output_array = (input_array - L) / (H - L)
+array([nan, nan, nan, nan, nan])
+```
+{: .output}
+
+This is probably not the desired output; instead, let's say we want to rescale all the
+values in this array to 1. We can modify the function to properly handle this situation:
+
+```python
+def rescale(input_array):
+    """Rescales an array from 0 to 1.
+
+    Takes an array as input, and returns a corresponding array scaled so that 0
+    corresponds to the minimum and 1 to the maximum value of the input array.
+    """
+    L = np.min(input_array)
+    H = np.max(input_array)
+    if np.allclose(L, H):
+        output_array = input_array / L
+    else:
+        output_array = (input_array - L) / (H - L)
+    return output_array
+```
+
+Now, when we call rescale (no need to reinstall or upgrade the package, since we previously installed using editable mode):
+
+```python
+import numpy as np
+from package.rescale import rescale
+a = 2 * np.ones(5)
+rescale(a)
+```
+
+we get the desired behavior:
+
+```
+array([1., 1., 1., 1., 1.])
+```
+{: .output}
+
+Great! Let's commit that change using Git, with a message and perhaps update the version to 0.1.1 to
+indicate the package has changed (more to come on that in a later episode on versioning).
+
+That may be enough for us to record the change, but how will a user of your package know that the
+functionality has changed? It's not exactly easy to hunt through Git logs and try to find which
+commit message(s) align with the changes since the last version.
+
+Instead, we can should [keep a changelog](https://keepachangelog.com) in a `CHANGELOG.md` file,
+also at the top level of your package's directory. In this Markdown-formatted file, you should
+record major changes to the package made since the last released version. Then, when you decide
+to release a new version, you add a new section to the file above this list of changes.
+
+Changes should be grouped together based on the type; suggestions for these come from the
+[Keep a Changelog project](https://keepachangelog.com/en/1.0.0/) by
+[Olivier Lacan](http://olivierlacan.com/):
+ - `Added` for new features,
+ - `Changed` for changes in existing functionality,
+ - `Deprecated` for soon-to-be removed features,
+ - `Removed` for now-removed features,
+ - `Fixed` for any bug fixes, and
+ - `Security` in case of vulnerabilities.
+
+For example, our initial release was version 0.1.0, and we have now changed the functionality.
+Our CHANGELOG should look something like:
+
+```markdown
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## Unreleased
+### Changed
+- rescale function now scales constant arrays to 1
+
+## [0.1.0] - 2022-08-09
+### Added
+- Created rescale() function and released package
+```
+
+If at this point you want to increment the version to 0.1.1 to indicate this small fix
+to the behavior, you would add a new section for this version:
+
+```markdown
+## Unreleased
+
+## [0.1.1] - 2022-08-10
+### Changed
+- rescale function now scales constant arrays to 1
+
+## [0.1.0] - 2022-08-09
+### Added
+- Created rescale() function and released package
+```
+
+Note that the version numbers are shown as links in these examples, although the links
+are not included in the file snippets. You should add definitions of these links
+at the bottom of the file, using (for example) GitHub's ability to compare between
+tagged versions:
+
+```markdown
+[0.1.1]: https://github.com/<username>/package/compare/v0.1.1...v0.1.0
+```
 
 ## Additional files for Git
 
 TODO
+
+
 
 {% include links.md %}
