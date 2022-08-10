@@ -6,6 +6,15 @@ It was initially written by Henry Schreiner and Kyle Niemeyer during the [INTERS
 
 This repository builds a website that is live [here](https://intersect-training.org/packaging/).
 
+You can build this website with the following commands if you use rbenv:
+
+```bash
+rbenv install 3.1.2  # Build Ruby 3.1.2 from source
+rbenv local 3.1.2  # Use Ruby 3.1.2 in this folder
+bundle install  # Install all the Ruby requirements for Jekyll
+bundle exec jekyll serve  # build and serve the website
+```
+
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
