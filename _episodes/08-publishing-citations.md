@@ -3,12 +3,25 @@ title: "Publishing package and citation"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "How do I publish a package?"
+- "How do I make my work citable?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Learn about publishing a package on PyPI"
+- "Learn about making work citable"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "CI can publish Python packages"
+- "Tagging and GitHub Releases are used to publish versions"
+- "Zenodo and CITATION.cff are useful for citations"
 ---
-FIXME
+
+## Building SDists and wheels
+
+## Building in GitHub Actions
+
+## Making a release
+
+## Adding Zenodo
+
+## The CITATION.cff file
 
 {% include links.md %}
