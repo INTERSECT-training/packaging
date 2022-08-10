@@ -15,13 +15,13 @@ keypoints:
 
 Much research software is initially developed by hacking away in an interactive setting, such as in a [Jupyter Notebook](https://jupyter.org) or a Python shell. However, at some point when you have a more-complicated workflow that you want to repeat, and/or make available to others, it makes sense to package your functions into modules and ultimately a software package that can be installed. This lesson will walk you through that process.
 
-Consider the `rescale()` function written as an exercise in the Software Carpentry [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson. 
+Consider the `rescale()` function written as an exercise in the Software Carpentry [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson.
 
-First, as needed, create your virtual environment and install NumPy with 
+First, as needed, create your virtual environment and install NumPy with
 ```bash
 virtualenv .venv
 source .venv/bin/activate
-pip install numpy 
+pip install numpy
 ```
 
 Then, in a Python shell or Jupyter Notebook, declare the function:
@@ -31,8 +31,8 @@ import numpy as np
 
 def rescale(input_array):
     """Rescales an array from 0 to 1.
-    
-    Takes an array as input, and returns a corresponding array scaled so that 0 
+
+    Takes an array as input, and returns a corresponding array scaled so that 0
     corresponds to the minimum and 1 to the maximum value of the input array.
     """
     L = np.min(input_array)
@@ -64,16 +64,16 @@ $ mkdir package
 $ cd package
 ```
 
-You should immediately initialize an empty Git repository in this directory; if you need a refresher on using Git for version control, check out the Software Carpentry [Version Control with Git](https://swcarpentry.github.io/git-novice/) lesson. 
+You should immediately initialize an empty Git repository in this directory; if you need a refresher on using Git for version control, check out the Software Carpentry [Version Control with Git](https://swcarpentry.github.io/git-novice/) lesson.
 (This lesson will not explicitly remind you to commit your work after this point.)
 
 ```bash
 $ git init
 ```
 
-Next, we want to create the necessary directory structure for your package. 
+Next, we want to create the necessary directory structure for your package.
 This includes:
-- a `src` directory, which will contain another directory called `rescale` for the source files of your package itself; 
+- a `src` directory, which will contain another directory called `rescale` for the source files of your package itself;
 - a `tests` directory, which will hold tests for your package and its modules/functions (this can also go inside the `rescale` directory, but we recommend keeping it at the top level so that your test suite is not installed along with the package itself);
 - a `docs` directory, which will hold the files necessary for documenting your software package.
 
@@ -84,7 +84,7 @@ $ mkdir -p src/rescale tests docs
 (The `-p` flag tells `mkdir` to create the `src` parent directory for `rescale`.)
 
 Putting the package directory and source code inside the `src` directory is not actually *required*;
-instead, if you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location. 
+instead, if you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
 However, this can cause several issues, such as running tests with the local version instead of the installed version.
 In addition, this package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
 
@@ -95,7 +95,7 @@ $ touch src/rescale/__init__.py src/rescale/rescale.py
 ```
 
 `__init__.py` is required to import this directory as a package, and should remain empty (for now).
-`rescale.py` is the module inside this package that will contain the `rescale()` function; 
+`rescale.py` is the module inside this package that will contain the `rescale()` function;
 copy the contents of that function into this file. (Don't forget the NumPy import!)
 
 The last element your package needs is a `pyproject.toml` file. Create this with
@@ -126,7 +126,7 @@ The only elements of your package truly **required** to install and import it ar
 Now that your package has the necessary elements, you can install it into your virtual environment (which should already be active). From the top level of your project's directory, enter
 
 ```bash
-$ pip install -e . 
+$ pip install -e .
 ```
 
 The `-e` flag tells `pip` to install in editable mode, meaning that you can continue developing your package on your computer as you test it.
@@ -170,7 +170,7 @@ def test_rescale():
 ```
 
 Next, update your `noxfile.py` to:
- - install `numpy`, necessary to run the package; 
+ - install `numpy`, necessary to run the package;
  - install `pytest`, necessary to automatically find and run the test(s);
  - install the package itself; and
  - run the test(s)
@@ -194,17 +194,17 @@ and run using
 $ nox
 ```
 
-This should give you some information about what `nox` is doing, and show output along the lines of 
+This should give you some information about what `nox` is doing, and show output along the lines of
 ```
 nox > Running session tests
 nox > Creating virtual environment (virtualenv) using python in .nox/tests
 nox > python -m pip install numpy pytest
 nox > python -m pip install .
-nox > pytest 
+nox > pytest
 ======================================================================= test session starts =================================================
 platform darwin -- Python 3.9.13, pytest-7.1.2, pluggy-1.0.0
 rootdir: /Users/niemeyek/Desktop/rescale
-collected 1 item                                                
+collected 1 item
 
 tests/test_rescale.py .                                                                                                                [100%]
 
@@ -219,4 +219,3 @@ We now have a package that is installed, can be interacted with properly, and ha
 Next, we'll look at other files that should be included with your package.
 
 {% include links.md %}
-

@@ -31,4 +31,3 @@ keypoints:
 
 
 {% include links.md %}
-

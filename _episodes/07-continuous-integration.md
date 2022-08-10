@@ -10,7 +10,7 @@ keypoints:
 - "Set up GitHub Actions on your project"
 ---
 
-Continuous Integration (CI) allows you to preform tasks on a server
+Continuous Integration (CI) allows you to perform tasks on a server
 for various events on your repository (called triggers). For example,
 you can use GitHub Actions (GHA) to run a test suite on every pull request.
 
@@ -135,4 +135,3 @@ And many other useful ones:
 
 
 {% include links.md %}
-
