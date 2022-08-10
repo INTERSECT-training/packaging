@@ -53,7 +53,7 @@ array([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])
 ```
 {: .output}
 
-## Creating our package
+## Creating our package in six lines
 
 Let's create a Python package that contains this function.
 
@@ -120,6 +120,18 @@ version = "0.1.0"
 The package name given here, "package," matches the directory `package` that contains our project's code. We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning, and how to specify this without manually writing it here.
 
 The only elements of your package truly **required** to install and import it are the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
+At this point, your package's file structure should look like this:
+
+```bash
+.
+├── docs
+├── pyproject.toml
+├── src
+│   └── package
+│   │   ├── __init__.py
+│   │   └── rescale.py
+└── tests
+```
 
 ## Installing and using your package
 
@@ -169,7 +181,7 @@ def test_rescale():
         )
 ```
 
-Next, update your `noxfile.py` to:
+Next, take the `noxfile.py` you created in an earlier episode, and modify it to
  - install `numpy`, necessary to run the package;
  - install `pytest`, necessary to automatically find and run the test(s);
  - install the package itself; and
@@ -188,7 +200,24 @@ def tests(session):
     session.run('pytest')
 ```
 
-and run using
+Now, with the added test file and `noxfile.py`, your package's directory structure should look like:
+
+```bash
+.
+├── docs
+├── noxfile.py
+├── pyproject.toml
+├── src
+│   └── package
+│   │   ├── __init__.py
+│   │   └── rescale.py
+└── tests
+    └── test_rescale.py
+```
+
+(You may also see some `__pycache__` directories, which contain compiled Python bytecode that was generated when calling your package.)
+
+Have `nox` run your tests with the command
 
 ```bash
 $ nox
