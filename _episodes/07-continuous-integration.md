@@ -28,13 +28,11 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 ```
 
-This will run on all pull requests, pushes to main, and if manually started
-from the GitHub UI (workflow dispach). You can also specify specific branches for
-pull requests instead of running on all PRs (will run on PRs targeting those
-branches only).
+This will run on all pull requests and pushes to main. You can also specify
+specific branches for pull requests instead of running on all PRs (will run on
+PRs targeting those branches only).
 
 ## Running unit tests
 
