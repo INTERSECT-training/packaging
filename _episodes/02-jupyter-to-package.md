@@ -204,7 +204,7 @@ nox > pytest
 ======================================================================= test session starts =================================================
 platform darwin -- Python 3.9.13, pytest-7.1.2, pluggy-1.0.0
 rootdir: /Users/niemeyek/Desktop/rescale
-collected 1 item                                                                                                                                                  
+collected 1 item                                                
 
 tests/test_rescale.py .                                                                                                                [100%]
 
