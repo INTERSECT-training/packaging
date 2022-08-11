@@ -1,7 +1,7 @@
 ---
 title: "Publishing package and citation"
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 20
 questions:
 - "How do I publish a package?"
 - "How do I make my work citable?"
