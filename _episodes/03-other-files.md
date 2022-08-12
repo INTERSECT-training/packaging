@@ -322,8 +322,309 @@ tagged versions:
 
 ## Additional files for Git
 
-TODO
+At this point, your package has most of the supplemental files that it needs to be
+shared with the world. However, there are some additional files you can add to help
+with your Git workflow.
 
+### gitignore
 
+After adding and committing the files above, you might have noticed that `git status`
+points out a few files/directories that you do not want it to track:
+
+```
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	__pycache__/
+	src/package/__pycache__/
+	tests/__pycache__/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+{: .output}
+
+Fortunately, you can instruct Git to ignore these files, and others that you will never
+want to track, using a `.gitignore` file, which goes at the main directory level of your package.
+
+This file tells Git to ignore either specific files or directories, or those that match a certain
+pattern via the wildcard character (e.g., `*.so`). The [Git reference manual](https://git-scm.com)
+has very [detailed documentation](https://git-scm.com/docs/gitignore) of possible `.gitignore`
+file syntax, but for convenience GitHub maintains a
+[collection of `.gitignore` files](https://github.com/github/gitignore) for various languages
+and tools.
+
+For your project, you should copy or download the [Python-specific `.gitignore` file](https://github.com/github/gitignore/blob/main/Python.gitignore) file into a local `.gitignore`:
+
+```
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+```
+
+You can see that a few patterns are commented out, and can be uncommented if they apply to
+your project and/or workflow. You can also clean up sections of the file that do not apply
+to your situation, but there's no real need to do so since you likely won't look at this
+file again.
+
+Once you have added this to the top level of your project (alongside the `.git` directory),
+and told Git to track it (`git add .gitignore`, `git commit -m 'adds gitignore file'`),
+Git will automatically begin following your rules:
+
+```bash
+$ git status
+```
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+{: .gitignore}
+
+### pre-commit hook
+
+Adding the `.gitignore` file is helpful both for keeping your `git status` messages clean
+and also avoiding accidentally committing compiled or cache files.
+Another helpful step is to have Git run some checks prior to committing, to ensure things
+that go against standards and style preferences are not committed (and need to be fixed later).
+
+One way to do this is to use the [pre-commit](https://pre-commit.com) framework, which when
+installed can check for things like trailing whitespace, merge conflicts, and so on.
+It can also even perform a spellcheck for you.
+
+There are three steps needed: installing the pre-commit framework, creating the configuration
+file for pre-commit (`.pre-commit-config.yaml`), and then installing the Git hook scripts.
+
+You can install pre-commit itself using `pip`, [homebrew](https://brew.sh/) (on a Mac), or
+[conda](https://conda.io/). Let's assume you'll install with pip or pipx:
+
+```bash
+pip install pre-commit
+```
+
+Then, create a `.pre-commit-config.yaml` file. You can copy this example file:
+
+```yaml
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-case-conflict
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: debug-statements
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
+  - id: trailing-whitespace
+
+- repo: https://github.com/codespell-project/codespell
+  rev: 'v2.1.0'
+  hooks:
+  - id: codespell
+```
+
+In this YAML file, we have a `repos` list, which has one or more items. Each `repo` points
+to a repository that holds a [supported hook](https://pre-commit.com/hooks.html). Here, we
+are using the hooks that come with `pre-commit` along with the `codespell` project.
+For each, you specify the version with the `rev` field, and then a list of `hooks`.
+
+For the `pre-commit` plugin,
+ - `check-added-large-files`: checks for very large files being added
+ - `check-case-conflict`: checks for file case conflicts on case-sensitive filesystems
+ - `check-merge-conflict`: checks for text related to merge conflicts
+ - `check-symlinks`: checks for symlinks to nowhere
+ - `debug-statements`: checks for Python debugger imports and breakpoint calls
+ - `end-of-file-fixer`: makes sure files end with newline
+ - `mixed-line-ending`: fixes mixes between CRLF and LF line endings
+ - `trailing-whitespace`: trims trailing whitespace from lines
+
+The `codespell` hook checks for common mispellings in source code and related files.
+
+There are additional plugins and hooks available, and there are also lots of
+[configuration options](https://pre-commit.com/#usage) you can customize.
+
+## Summary
+
+At this point, if you have added all of these files, your package's file structure
+should look something like this:
+
+```bash
+.
+├── .git
+├── .gitignore
+├── .nox
+├── .pre-commit-config.yaml
+├── .venv
+├── docs
+├── noxfile.py
+├── pyproject.toml
+├── src
+│   └── package
+│   │   ├── __init__.py
+│   │   └── rescale.py
+└── tests
+    └── test_rescale.py
+```
+
+The `.git`, `.nox`. and `.venv` directories would have been automatically generated
+by Git, Nox, and Virtualenv, respectively. You may also see additional directories
+like `__pycache__` and `.pytest_cache`.
 
 {% include links.md %}
