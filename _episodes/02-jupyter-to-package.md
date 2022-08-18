@@ -1,5 +1,5 @@
 ---
-title: "Jupyter to package"
+title: "Python to package"
 teaching: 20
 exercises: 5
 questions:
@@ -42,6 +42,7 @@ def rescale(input_array):
 ```
 
 and call the function with:
+
 ```python
 >>> rescale(np.linspace(0, 100, 5))
 ```
