@@ -131,8 +131,8 @@ license = {file = "LICENSE"}
 > Always verify the contents of your SDist and Wheel(s) manually to make sure the license file is included.
 >
 > ```bash
-> tar -tvf package-0.0.1.tar.gz
-> unzip -l package-0.0.1-py3-none-any.whl
+> tar -tvf dist/package-0.0.1.tar.gz
+> unzip -l dist/package-0.0.1-py3-none-any.whl
 > ```
 {:.callout}
 
