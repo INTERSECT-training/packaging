@@ -75,7 +75,25 @@ By default, if any step fails, the run immediately quits and fails.
 
 ## Running in a matrix
 
-TODO.
+You can parametrize values, such as Python version or operating system. Do do this, make a `strategy: matrix:` dict. Every key in that dict (except `include:` and `exclude` should be set with a list, and a job will be generated with every possible combination of values. You can access these values via the `matrix` variable; they do not "automatically" change anything.
+
+For example:
+
+{% raw %}
+```yaml
+example:
+  strategy:
+    matrix:
+      onetwothree: [1, 2, 3]
+  name: Job ${{ matrix.onetwothree }}
+```
+{% endraw %}
+
+
+would produce three jobs, with names `Job 1`, `Job 2`, and `Job 3`. Elsewhere,
+if you refer to the `exmaple` job, it will implicitly refer to all three.
+
+This is commonly used to set Python and operating system versions:
 
 {% raw %}
 
@@ -84,7 +102,7 @@ tests:
   strategy:
     fail-fast: false
     matrix:
-      python-version: ["3.7", "3.10"]
+      python-version: ["3.7", "3.11"]
       runs-on: [ubuntu-latest, windows-latest, macos-latest]
   name: Check Python ${{ matrix.python-version }} on ${{ matrix.runs-on }}
   runs-on: ${{ matrix.runs-on }}
@@ -106,6 +124,20 @@ tests:
 ```
 
 {% endraw %}
+
+There are two special keys: `include:` will take a list of jobs to include one
+at a time. For example, you could add Python 3.9 on Linux (but not the others):
+
+```yaml
+include:
+  - python-version: 3.9
+    runs-on: ubuntu-latest
+```
+
+`include` can also list more keys than were present in the original
+parametrization; this will add a key to an existing job.
+
+The `exclude:` key does the opposite, and lets you remove jobs from the matrix.
 
 ## Other actions
 
@@ -130,6 +162,10 @@ And many other useful ones:
 - [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages): Deploy built files to to GitHub Pages
 - [ruby/setup-miniconda](https://github.com/ruby/setup-ruby) Setup Ruby if you need it for something.
 
+
+## Exercise
+
+Add a CI file for your package.
 
 
 {% include links.md %}
