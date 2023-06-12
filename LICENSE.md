@@ -5,7 +5,7 @@ root: .
 ---
 ## Instructional Material
 
-All Software Carpentry, Data Carpentry, and Library Carpentry instructional material is
+All INTERSECT instructional material is
 made available under the [Creative Commons Attribution
 license][cc-by-human]. The following is a human-readable summary of
 (and not a substitute for) the [full legal text of the CC BY 4.0
@@ -25,11 +25,8 @@ Under the following terms:
 
 * **Attribution**---You must give appropriate credit by:
   - mentioning that your work is derived from work that is
-    Copyright © Software Carpentry, Data Carpentry, Library Carpentry,
-    or The Carpentries.
-  - where practical, linking to the respective lesson program website
-    (https://software-carpentry.org/, https://datacarpentry.org, https://librarycarpentry.org, or
-    https://carpentries.org), provide a [link to the license][cc-by-human]
+    Copyright © INTERSECT.
+  - where practical, linking to the lesson program website (https://intersect-training.org), provide a [link to the license][cc-by-human]
   - and indicate if changes were made. You may do so in any reasonable manner, but not in any way
     that suggests the licensor endorses you or your use.
 
@@ -50,7 +47,7 @@ Notices:
 ## Software
 
 Except where otherwise noted, the example programs and other software
-provided by Software Carpentry and Data Carpentry are made available under the
+provided by INTERSECT are made available under the
 [OSI][osi]-approved
 [MIT license][mit-license].
 
@@ -73,10 +70,6 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Trademark
-
-"The Carpentries", "Software Carpentry" and "Data Carpentry" and their respective logos are
-registered trademarks of [Community Initiatives][CI].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
