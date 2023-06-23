@@ -38,7 +38,9 @@ The contributing author(s) to this lesson are:
 
 ## Maintainer(s)
 
-There are no current maintainers of this lesson. If you would like to serve as a maintainer please [contact us](https://intersect-training.org/contact/).
+[Henry Schreiner](https://github.com/henryiii)
+
+If you would like to serve as a maintainer please [contact us](https://intersect-training.org/contact/).
 
 ## Citation
 
