@@ -192,6 +192,7 @@ this file in a local directory:
 ```python
 # test_nox.py
 
+
 def test_runs():
     assert True
 ```
@@ -203,6 +204,7 @@ minimal session that runs pytest:
 ```python
 # noxfile.py
 import nox
+
 
 @nox.session()
 def tests(session):
@@ -229,6 +231,7 @@ Let's expand this a little:
 ```python
 # noxfile.py
 import nox
+
 
 @nox.session()
 def tests(session: nox.Session) -> None:

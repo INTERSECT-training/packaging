@@ -285,4 +285,9 @@ ref-names: $Format:%D$
 Now `git archive`'s output (like the tarballs GitHub provides) will also include
 the version information (for recent versions of git)!
 
+> ## Add a versioning system
+> Add one of the two single-version systems listed above to your package.
+>
+{:.challenge}
+
 {% include links.md %}

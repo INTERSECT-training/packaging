@@ -57,7 +57,7 @@ readme = "README.rst"
 
 This is a list of authors (or maintainers) as (usually inline) tables. A TOML table is very much like a Python dict.
 
-```python
+```toml
 authors = [
     {name="Me Myself", email="email@mail.com"},
     {name="You Yourself", email="email2@mail.com"},
@@ -121,11 +121,20 @@ classifiers = [
 
 ### License (special mention)
 
-There also is a license field, but that was rather inadequate; it didn't support multiple licenses, for example. Currently, it's best to indicate the license with a Trove Classifier, and make sure your file is called `LICENSE*` so build backends pick it up and include it in SDist and wheels. There's work on standardizing an update to the format in the future. You can manually specify a license file if you want:
+There also is a license field, but that was rather inadequate; it didn't support
+multiple licenses, for example. Currently, it's best to indicate the license
+with a Trove Classifier, and make sure your file is called `LICENSE*` so build
+backends pick it up and include it in SDist and wheels. There's work on
+standardizing an update to the format in the future. You can manually specify a
+license file if you want:
 
 ```toml
 license = {file = "LICENSE"}
 ```
+
+However, some backends (like flit-core) ignore this field entirely. The
+canonical location for a standard license since the early 2000's has been trove
+classifiers.
 
 > ## Verify file contents
 > Always verify the contents of your SDist and Wheel(s) manually to make sure the license file is included.
@@ -234,7 +243,6 @@ authors = [
 ]
 description = "A small example package"
 readme = "README.md"
-license = { file="LICENSE" }
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -246,6 +254,19 @@ classifiers = [
 "Homepage" = "https://github.com/pypa/sampleproject"
 "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 ````
+
+> ## Add metadata and check it.
+> Take your existing package and add more metadata to it. Install it, then use
+> `pip show -v <package>` to see the metadata. You can also look inside the wheel
+> or SDist to see the metadata.
+>
+> > ## Solution
+> > ```bash
+> > pip install -e .
+> > pip show -v <package-name>
+> > ```
+> {:.solution}
+{:.challenge}
 
 
 {% include links.md %}

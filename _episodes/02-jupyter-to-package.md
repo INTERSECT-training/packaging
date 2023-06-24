@@ -29,6 +29,7 @@ Then, in a Python shell or Jupyter Notebook, declare the function:
 ```python
 import numpy as np
 
+
 def rescale(input_array):
     """Rescales an array from 0 to 1.
 
@@ -44,7 +45,7 @@ def rescale(input_array):
 and call the function with:
 
 ```python
->>> rescale(np.linspace(0, 100, 5))
+rescale(np.linspace(0, 100, 5))
 ```
 
 which provides the output:
@@ -147,9 +148,10 @@ The `-e` flag tells `pip` to install in editable mode, meaning that you can cont
 Then, in a Python shell or Jupyter Notebook, import your package and call the (single) function:
 
 ```python
->>> import numpy as np
->>> from package.rescale import rescale
->>> rescale(np.linspace(0, 100, 5))
+import numpy as np
+from package.rescale import rescale
+
+rescale(np.linspace(0, 100, 5))
 ```
 
 ```
@@ -175,11 +177,12 @@ In this file, we need to import the package, and check that a call to the `resca
 import numpy as np
 from package.rescale import rescale
 
+
 def test_rescale():
     np.testing.assert_allclose(
         rescale(np.linspace(0, 100, 5)),
-        np.array([0., 0.25, 0.5, 0.75, 1.0 ]),
-        )
+        np.array([0.0, 0.25, 0.5, 0.75, 1.0]),
+    )
 ```
 
 Next, take the `noxfile.py` you created in an earlier episode, and modify it to
@@ -194,11 +197,12 @@ with:
 # contents of noxfile.py
 import nox
 
+
 @nox.session
 def tests(session):
-    session.install('numpy', 'pytest')
-    session.install('.')
-    session.run('pytest')
+    session.install("numpy", "pytest")
+    session.install(".")
+    session.run("pytest")
 ```
 
 Now, with the added test file and `noxfile.py`, your package's directory structure should look like:

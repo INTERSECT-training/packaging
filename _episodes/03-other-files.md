@@ -207,6 +207,7 @@ the array holds the same number repeated). For example:
 ```python
 import numpy as np
 from package.rescale import rescale
+
 a = 2 * np.ones(5)
 rescale(a)
 ```
@@ -244,6 +245,7 @@ Now, when we call rescale (no need to reinstall or upgrade the package, since we
 ```python
 import numpy as np
 from package.rescale import rescale
+
 a = 2 * np.ones(5)
 rescale(a)
 ```
