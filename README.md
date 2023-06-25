@@ -24,8 +24,8 @@ Please see the current list of [issues][FIXME] for ideas for contributing to thi
 repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
-Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). 
-This indicates that the maintainers will welcome a pull request fixing this issue.  
+Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg).
+This indicates that the maintainers will welcome a pull request fixing this issue.
 
 If you contribute to this lesson and would like to acknowledge specific funding support, please add it to the Funding section of the README below.
 
