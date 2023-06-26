@@ -201,7 +201,7 @@ If you want to include your readme in your docs, you can add something like this
 ```
 ````
 
-And you use `<!-- SPHINX-START ->>` to mark where you want your docs part of
+And you use `<!-- SPHINX-START -->` to mark where you want your docs part of
 your readme to start (generally after the title and badges).
 
 {% include links.md %}
