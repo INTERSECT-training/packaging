@@ -102,7 +102,7 @@ tests:
   strategy:
     fail-fast: false
     matrix:
-      python-version: ["3.7", "3.11"]
+      python-version: ["3.8", "3.11"]
       runs-on: [ubuntu-latest, windows-latest, macos-latest]
   name: Check Python ${{ matrix.python-version }} on ${{ matrix.runs-on }}
   runs-on: ${{ matrix.runs-on }}
@@ -159,7 +159,6 @@ And many other useful ones:
 - [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish): Publish Python packages to PyPI.
 - [pre-commit/action](https://github.com/pre-commit/action): Run pre-commit with built-in caching.
 - [conda-incubator/setup-miniconda](https://github.com/conda-incubator/setup-miniconda): Setup conda or mamba on GitHub Actions.
-- [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages): Deploy built files to to GitHub Pages
 - [ruby/setup-miniconda](https://github.com/ruby/setup-ruby) Setup Ruby if you need it for something.
 
 
