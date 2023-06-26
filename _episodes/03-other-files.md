@@ -52,10 +52,10 @@ $ touch README.md
 
 and then add these elements:
 
-~~~markdown
+````markdown
 # Package
 
-`Package` is a simple Python library that contains a single function for rescaling arrays.
+`package` is a simple Python library that contains a single function for rescaling arrays.
 
 ## Installation
 
@@ -82,7 +82,7 @@ Please make sure to update tests as appropriate.
 
 ## License
 TBD
-~~~
+````
 
 You can see more guidance on creating READMEs at <https://www.makeareadme.com>.
 
@@ -124,10 +124,10 @@ For an easy choice, we recommend using the **BSD 3-Clause License**, which inclu
 However, you should choose the specific license that best fits your needs.
 In addition, when working on a project with others or as part of a larger effort, you should check if your collaborators have already determined an appropriate license; for example, on work funded by a grant, a particular license may be mandated by the proposal/agreement.
 
-Create a `LICENSE.txt` file using
+Create a `LICENSE` file using
 
 ```bash
-$ touch LICENSE.txt
+$ touch LICENSE
 ```
 
 and copy the **exact** text of the [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), modifying only the year and names:
@@ -322,13 +322,20 @@ tagged versions:
 [0.1.1]: https://github.com/<username>/package/compare/v0.1.1...v0.1.0
 ```
 
+> <h2>Other locations</h2>
+>
+> Once we have things inside the `docs/` folder, `docs/changelog.md` is also a
+> good place, and keeps your outer directory a bit cleaner. But we'll put it
+> here for now so that we don't interfere with that lesson.
+{:.callout}
+
 ## Additional files for Git
 
 At this point, your package has most of the supplemental files that it needs to be
 shared with the world. However, there are some additional files you can add to help
 with your Git workflow.
 
-### gitignore
+### .gitignore
 
 After adding and committing the files above, you might have noticed that `git status`
 points out a few files/directories that you do not want it to track:
@@ -539,69 +546,6 @@ nothing to commit, working tree clean
 ```
 {: .gitignore}
 
-### pre-commit hook
-
-Adding the `.gitignore` file is helpful both for keeping your `git status` messages clean
-and also avoiding accidentally committing compiled or cache files.
-Another helpful step is to have Git run some checks prior to committing, to ensure things
-that go against standards and style preferences are not committed (and need to be fixed later).
-
-One way to do this is to use the [pre-commit](https://pre-commit.com) framework, which when
-installed can check for things like trailing whitespace, merge conflicts, and so on.
-It can also even perform a spellcheck for you.
-
-There are three steps needed: installing the pre-commit framework, creating the configuration
-file for pre-commit (`.pre-commit-config.yaml`), and then installing the Git hook scripts.
-
-You can install pre-commit itself using `pip`, [homebrew](https://brew.sh/) (on a Mac), or
-[conda](https://conda.io/). Let's assume you'll install with pip or pipx:
-
-```bash
-pip install pre-commit
-```
-
-Then, create a `.pre-commit-config.yaml` file. You can copy this example file:
-
-```yaml
-repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.3.0
-  hooks:
-  - id: check-added-large-files
-  - id: check-case-conflict
-  - id: check-merge-conflict
-  - id: check-symlinks
-  - id: debug-statements
-  - id: end-of-file-fixer
-  - id: mixed-line-ending
-  - id: trailing-whitespace
-
-- repo: https://github.com/codespell-project/codespell
-  rev: 'v2.1.0'
-  hooks:
-  - id: codespell
-```
-
-In this YAML file, we have a `repos` list, which has one or more items. Each `repo` points
-to a repository that holds a [supported hook](https://pre-commit.com/hooks.html). Here, we
-are using the hooks that come with `pre-commit` along with the `codespell` project.
-For each, you specify the version with the `rev` field, and then a list of `hooks`.
-
-For the `pre-commit` plugin,
- - `check-added-large-files`: checks for very large files being added
- - `check-case-conflict`: checks for file case conflicts on case-sensitive filesystems
- - `check-merge-conflict`: checks for text related to merge conflicts
- - `check-symlinks`: checks for symlinks to nowhere
- - `debug-statements`: checks for Python debugger imports and breakpoint calls
- - `end-of-file-fixer`: makes sure files end with newline
- - `mixed-line-ending`: fixes mixes between CRLF and LF line endings
- - `trailing-whitespace`: trims trailing whitespace from lines
-
-The `codespell` hook checks for common mispellings in source code and related files.
-
-There are additional plugins and hooks available, and there are also lots of
-[configuration options](https://pre-commit.com/#usage) you can customize.
-
 ## Summary
 
 At this point, if you have added all of these files, your package's file structure
@@ -609,19 +553,18 @@ should look something like this:
 
 ```bash
 .
-├── .git
+├── .git/
+├── .nox/
+├── .venv/
 ├── .gitignore
-├── .nox
-├── .pre-commit-config.yaml
-├── .venv
-├── docs
+├── docs/
 ├── noxfile.py
 ├── pyproject.toml
-├── src
-│   └── package
+├── src/
+│   └── package/
 │   │   ├── __init__.py
 │   │   └── rescale.py
-└── tests
+└── tests/
     └── test_rescale.py
 ```
 

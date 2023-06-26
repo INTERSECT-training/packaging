@@ -126,13 +126,13 @@ At this point, your package's file structure should look like this:
 
 ```bash
 .
-├── docs
+├── docs/
 ├── pyproject.toml
-├── src
-│   └── package
+├── src/
+│   └── package/
 │   │   ├── __init__.py
 │   │   └── rescale.py
-└── tests
+└── tests/
 ```
 
 ## Installing and using your package
@@ -209,14 +209,14 @@ Now, with the added test file and `noxfile.py`, your package's directory structu
 
 ```bash
 .
-├── docs
+├── docs/
 ├── noxfile.py
 ├── pyproject.toml
-├── src
-│   └── package
+├── src/
+│   └── package/
 │   │   ├── __init__.py
 │   │   └── rescale.py
-└── tests
+└── tests/
     └── test_rescale.py
 ```
 

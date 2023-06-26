@@ -107,10 +107,10 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Scientific/Engineering :: Mathematics",
@@ -154,7 +154,7 @@ The remaining fields actually change the usage of the package.
 This is an important and sometimes misunderstood field. It looks like this:
 
 ```toml
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 ```
 
 Pip will see if the current version of Python it's installing for passes this expression. If it doesn't, pip will start checking older versions of the package until it finds on that passes. This is how `pip install numpy` still works on Python 3.7, even though NumPy has already dropped support for it.
@@ -243,7 +243,7 @@ authors = [
 ]
 description = "A small example package"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

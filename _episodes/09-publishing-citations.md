@@ -192,39 +192,6 @@ it where you are publishing from so that the publish can happen via PyPI's
 trusted publishers. We are using Test PyPI for this exercise - remove the
 `with:` block to publish to real PyPI.
 
-## PyPI Tokens and GitHub Secrets
-
-To make a release from GitHub, you'll need to setup authentication with PyPI by
-generating a token.  Log into your test.pypi.org account and generate a token. If
-it's the first time you've uploaded the project (it will be if you are following
-along), then it will need to be account-scoped.  After you upload your first
-release, you can delete the old token and upload a project-scoped one instead,
-which is safer.
-
-![API token button]({{ page.root }}/fig/apitoken.png)
-
-Click your profile -> account settings, then click Add API token, under API
-tokens.
-
-![API token generation]({{ page.root }}/fig/maketoken.png)
-
-Give it a name so you can identify it later, and select "Entire
-account" (you should replace it after uploading a package with a scoped token
-for that package).
-
-![API token view]({{ page.root }}/fig/viewtoken.png)
-
-Now copy it and go to GitHub, to your repository's setting. Select Secrets ->
-Actions.  Click "New repository secret". Paste in your token here and give it
-the name `PYPI_PASSWORD`.
-
-![GitHub Actions Secrets page]({{ page.root }}/fig/ghasecret.png)
-
-You can now deploy to PyPI! Remember to delete your token and repeat this
-process with a scoped token one you've uploaded a package and can select it in
-the scope drop down.
-
-
 ## Making a release
 
 A release on GitHub corresponds to two things: a git tag, and a GitHub Release.

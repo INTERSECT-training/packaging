@@ -37,6 +37,7 @@ importing.
 > system works. Adding a `/src/<package>/tests` module using Python's `unittest`
 > that does some very quick checks to validate the package works is fine (though
 > it should not be your entire test suite!).
+{:.discussion}
 
 ### Pytest configuration
 
@@ -268,7 +269,7 @@ Here's how you run mypy, a first party and popular type checker, from pre-commit
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.3.0"
+  rev: "v1.4.0"
   hooks:
     - id: mypy
       files: src
