@@ -8,9 +8,9 @@ questions:
 objectives:
 - "Create a README for a software package"
 - "Choose a software license for a software package"
-- "Create a CHANGELOG for a package"
+- "Create a changelog for a package"
 keypoints:
-- "In addition to the source code and project specification, packages should include a README, LICENSE, and CHANGELOG."
+- "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
 - "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
 ---
@@ -92,7 +92,7 @@ You can see more guidance on creating READMEs at <https://www.makeareadme.com>.
 > very detailed documentation to this file. This should only be a high-level introduction,
 > with detailed theory, examples, and other information reserved for a true documentation
 > website.
-{: .callout}
+{:.callout}
 
 ## Choosing a software license
 
@@ -174,7 +174,7 @@ That's it!
 > Source Initiative have gone through a rigorous review process, including legal review,
 > to ensure that they are both consistent with the Open Source Definition and also are
 > legally valid.
-{: .callout}
+{:.callout}
 
 > ## Adding a license badge to README
 >

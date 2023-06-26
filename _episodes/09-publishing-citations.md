@@ -136,6 +136,16 @@ runner, and checking out the code, including the git history so the version can
 be computed with `fetch-depth: 0` (which can be removed if you are not using git
 versioning).
 
+> ## Test and upload action
+>
+> There's a great action for building and inspecting a pure Python package:
+> ```yaml
+> - uses: hynek/build-and-inspect-python-package@v1
+> ```
+> This action builds, runs various checkers, then uploads the package to `Packages`.
+> If you use this, you'll need to download the artifact from `name: Packages`.
+{:.callout}
+
 The next step builds the wheel and SDist. Pipx is a supported package manager on
 all GitHub Actions runners.
 
@@ -160,9 +170,9 @@ publish:
       name: artifact
       path: dist
 
-  - uses: pypa/gh-action-pypi-publish@v1.5.1
+  - uses: pypa/gh-action-pypi-publish@release/v1
     with:
-      password: ${{ secrets.pypi_password }}
+      repository-url: https://test.pypi.org/legacy/
 ```
 
 This job requires that the previous job completes successfully with `needs:`. It
@@ -177,9 +187,10 @@ Then we download the artifact. You need to tell it the `name:` to download
 default `artifact` so that's needed here. We want to unpack it into `./dist`, so
 we set the `path:` to that.
 
-Finally, we use the PyPA's publish action, which uses twine internally, and we
-set the password to a GitHub Secret, `PYPI_PASSWORD`, that we'll generate from
-PyPI and add next. We will be using TestPyPI for this exercise.
+Finally, we use the PyPA's publish action. You will need to go to PyPI and tell
+it where you are publishing from so that the publish can happen via PyPI's
+trusted publishers. We are using Test PyPI for this exercise - remove the
+`with:` block to publish to real PyPI.
 
 ## PyPI Tokens and GitHub Secrets
 
@@ -233,6 +244,34 @@ upload your package to TestPyPI!
 
 ## Adding Zenodo
 
+You can add a repository to <https://zenodo.org> to make it citable. Zenodo
+supports GitHub's `CITATION.cff` file, so adding one of those is a good idea if
+using Zenodo.
+
 ## The CITATION.cff file
+
+```yaml
+cff-version: 1.2.0
+message: "Please cite the following works when using this software."
+type: software
+title: Title
+abstract: Title
+authors:
+- family-names: ...
+  given-names: ...
+  orcid: ...
+  affiliation: ...
+doi: ...
+repository-code: ...
+url: ...
+keywords: ...
+license: ...
+```
+
+You can test your file by running:
+
+```bash
+pipx run cffconvert --validate
+```
 
 {% include links.md %}
