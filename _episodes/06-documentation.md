@@ -185,7 +185,7 @@ And you'll need this added to your `docs/index.md`:
 :hidden:
 :caption: API
 
-api/repo_review
+api/<package>
 ```
 ````
 
