@@ -252,4 +252,10 @@ This tells us that the output of the test function matches the expected result, 
 We now have a package that is installed, can be interacted with properly, and has a passing test.
 Next, we'll look at other files that should be included with your package.
 
+{: .solution }
+
+> ## Going further
+>
+> We selected a specific backend - hatching. It had a good default configuration, is fast, and has some powerful features and supports a growing ecosystem of plugins. There are other backends too, including ones for [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+
 {% include links.md %}
