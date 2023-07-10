@@ -252,7 +252,7 @@ version number. In hatchling, it looks like this:
 
 
 ```toml
-[build-backend]
+[build-system]
 requires = ["hatchling", "hatch-vcs"]
 
 [project]
