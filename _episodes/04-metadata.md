@@ -1,7 +1,7 @@
 ---
 title: "Metadata"
 teaching: 10
-exercises: 10
+exercises: 5
 questions:
 - "What metadata is important to add to your package?"
 - "How to I add common functionality, like executable scripts?"

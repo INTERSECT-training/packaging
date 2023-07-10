@@ -245,7 +245,7 @@ def tests(session: nox.Session) -> None:
 This adds a type annotation to the session object, so that IDE's and type
 checkers can help you write the code in the function. There's a docstring,
 which will print out nice help text when a user lists the sessions. And we pass
-through to pytest anything the user passes in via `session.posargs`
+through to pytest anything the user passes in via `session.posargs`.
 
 
 Let's try running it:

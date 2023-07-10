@@ -21,6 +21,15 @@ Unfortunately, packing has a _lot_ of historical cruft, bad practices that have
 easy solutions today but are still propagated. This material tries to correct
 that by showing you a clean, modern way to write and work with Python packages.
 
+{: .checklist }
+
+> ## See Also
+>
+> This is a tutorial. For reference material, you should bookmark the following guides:
+>
+> - [learn.scientific-python.org/development](https://learn.scientific-python.org/development)
+> - [packaging.python.org](https://packaging.python.org)
+
 
 > ## Prerequisites
 >

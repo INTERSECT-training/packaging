@@ -1,6 +1,6 @@
 ---
 title: "Other files that belong with your package"
-teaching: 20
+teaching: 15
 exercises: 0
 questions:
 - "What other files are important parts of your software package?"
