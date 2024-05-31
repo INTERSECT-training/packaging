@@ -44,7 +44,7 @@ If you would like to serve as a maintainer please [contact us](https://intersect
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION).
+To cite this lesson, please consult with [CITATION.cff](CITATION.cff).
 
 [lesson-example]: https://carpentries.github.io/lesson-example
 
