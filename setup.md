@@ -29,8 +29,8 @@ If you don't already have them, sign up for accounts on:
 
 ## Development Environment
 
-> ## If this is your first time, use `Cloud Setup`
-> If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud Setup**. After the session you can repeat the setup using the Local Setup instructions.
+> ## If this is your first time, use the `Cloud` instructions
+> If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud** setup instructions. After the session you can repeat the setup using the Local setup instructions.
 >
 > Support will be available for the rest of the week if you have trouble with setting up these tools locally!
 {:.caution}
@@ -73,7 +73,7 @@ Python 3.12.3
 
 If this command returns something like `command not found: python3` then install python using the instructions on[https://docs.pytest.org/en/stable/getting-started.html](https://docs.pytest.org/en/stable/getting-started.html).
 
-### Git & GitHub
+#### Git & GitHub
 
 You will need a GitHub account and an installation of Git.
 
