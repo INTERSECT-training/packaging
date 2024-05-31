@@ -6,8 +6,10 @@
       "extensions": [
         "ms-python.python",
         "donjayamanne.python-environment-manager",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "github.vscode-github-actions"
       ]
     }
-  }
+  },
+  "postCreateCommand": "pip install --user --upgrade pre-commit && pre-commit run && pre-commit install"
 }

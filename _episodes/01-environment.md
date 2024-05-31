@@ -221,7 +221,7 @@ changeable via keyword arguments to session.
 
 The session function will be given a `nox.Session` object that has various
 useful methods. `.install` will install things with pip, and `.run` will run a
-command in a sesson. The `.run` command will print a warning if you use an
+command in a session. The `.run` command will print a warning if you use an
 executable outside the virtual environment unless `external=True` is passed.
 Errors will exit the session.
 
