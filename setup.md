@@ -6,6 +6,7 @@ title: Setup
 > You will need accounts on:
 > - [https://github.com/](https://github.com/)
 > - [https://test.pypi.org/](https://test.pypi.org/)
+> - [https://zenodo.org/](https://zenodo.org/)
 >
 > These instructions serve to help set up:
 > - an editor,
@@ -26,6 +27,8 @@ If you don't already have them, sign up for accounts on:
 
 - [https://github.com/join](https://github.com/join) (required for the part on "continuous integration", optional for setting up a development environment)
 - [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/) (required for the part on publishing)
+- [https://zenodo.org/signup/](https://zenodo.org/signup/) (optional for the part on citation)
+
 
 ## Development Environment
 
