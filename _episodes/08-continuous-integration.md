@@ -91,7 +91,7 @@ example:
 
 
 would produce three jobs, with names `Job 1`, `Job 2`, and `Job 3`. Elsewhere,
-if you refer to the `exmaple` job, it will implicitly refer to all three.
+if you refer to the `example` job, it will implicitly refer to all three.
 
 This is commonly used to set Python and operating system versions:
 

@@ -6,8 +6,13 @@
       "extensions": [
         "ms-python.python",
         "donjayamanne.python-environment-manager",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "github.vscode-github-actions"
       ]
     }
-  }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/ruby:1": {  "version": "3.1.4" }
+  },
+  "postCreateCommand": "pip install --user --upgrade pre-commit && pre-commit run && pre-commit install"
 }

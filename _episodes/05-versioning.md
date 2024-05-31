@@ -160,7 +160,7 @@ Linux distros, for example), then you should try to support a few past releases
 of dependencies, and ideally run your tests at least once with the minimum
 versions of your dependencies. You can do this with a `constraints.txt` file,
 which specifies pins on the minimum versions of all your dependencies, and then
-add `-c constrainsts.txt` when pip installing.
+add `-c constraints.txt` when pip installing.
 
 #### Maximums:
 
