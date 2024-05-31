@@ -9,5 +9,6 @@
         "charliermarsh.ruff"
       ]
     }
-  }
+  },
+  "postCreateCommand": "pip install --user --upgrade pre-commit && pre-commit run && pre-commit install"
 }
