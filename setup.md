@@ -19,11 +19,6 @@ title: Setup
 {:.objectives}
 
 
-> ## If this is your first time, use `Cloud Setup`
-> If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud Setup**. After the session you can repeat the setup using the Local Setup instructions.
->
-> Support will be available for the rest of the week if you have trouble with setting up these tools locally!
-{:.caution}
 
 ## User Accounts
 
@@ -33,6 +28,12 @@ If you don't already have them, sign up for accounts on:
 - [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/) (required for the part on publishing)
 
 ## Development Environment
+
+> ## If this is your first time, use `Cloud Setup`
+> If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud Setup**. After the session you can repeat the setup using the Local Setup instructions.
+>
+> Support will be available for the rest of the week if you have trouble with setting up these tools locally!
+{:.caution}
 
 ### Cloud
 
