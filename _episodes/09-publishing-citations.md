@@ -77,7 +77,7 @@ you have more control over who can publish in GitHub.
 > Given what you've learned about `nox` and `build`, write a session that builds
 > packages for you.
 >
-> > # Solution
+> > ## Solution
 > > ```python
 > > import nox
 > >
