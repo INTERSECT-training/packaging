@@ -46,8 +46,6 @@ If you would like to serve as a maintainer please [contact us](https://intersect
 
 To cite this lesson, please consult with [CITATION.cff](CITATION.cff).
 
-[lesson-example]: https://carpentries.github.io/lesson-example
-
 ## Funding
 
 The INTERSECT project is supported by NSF awards [2017424](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2017424) and [2017259](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2017259).
