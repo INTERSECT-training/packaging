@@ -34,7 +34,6 @@ that by showing you a clean, modern way to write and work with Python packages.
 > ## Prerequisites
 >
 > * Basic Python
-> * Light familiarity with pytest may be helpful
 {: .prereq}
 
 {% include links.md %}
