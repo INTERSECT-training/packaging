@@ -21,6 +21,43 @@ Unfortunately, packing has a _lot_ of historical cruft, bad practices that have
 easy solutions today but are still propagated. This material tries to correct
 that by showing you a clean, modern way to write and work with Python packages.
 
+## Lesson Plan
+
+We're going to create a Python package from scratch, then publish it.
+We'll look at the following important groups of files:
+
+```files
+.   
+├── src/                     } Minimum to make the code 
+│   └── package/             } work and be installable
+│   │   ├── __init__.py      }
+│   │   └── rescale.py       } 
+├── tests/                   }
+│   └── test_rescale.py      }
+├── pyproject.toml           } < Deep dive into metadata and versioning
+│
+├── .git/                    } Store the history of the code
+├── .gitignore               }
+│
+├── .venv/                   } Environment to run the code
+│
+├── README                   } Tell people browsing the code what it's for,
+├── CHANGELOG                } how it's changed,
+├── LICENSE                  } under what conditions they can use it,
+├── CITATION.cff             } how they can cite it.
+│
+├── docs/                    } Document the code in more detail
+│   ├── index.md             }
+│   └── conf.py              }
+│
+├── .pre-commit-config.yaml  } Automate tasks which run _on_ the code
+├── noxfile.py               } like style-checks, tests, and publishing
+└── .github/                 } 
+    └── workflows/           }
+        ├── test.yaml        }
+        └── publish.yaml     }
+```
+
 {: .checklist }
 
 > ## See Also
