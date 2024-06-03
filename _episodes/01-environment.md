@@ -169,7 +169,6 @@ run a script of the same name, and will cache the temporary environment for a
 week. This means you have all of PyPI at your fingertips in one line on any
 computer that has pipx installed!
 
-
 > ## Install `pipx` and `cowsay`
 >
 > - Install `pipx` by following the [installation instructions](https://pipx.pypa.io/).
