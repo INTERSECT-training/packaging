@@ -121,16 +121,16 @@ and then provide the minimally required metadata, which include
 ```toml
 # contents of pyproject.toml
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "package"
 version = "0.1.0"
 dependencies = [
     "numpy"
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
 ```
 
 The package name given here, "package," matches the directory `package` that contains our project's code.
