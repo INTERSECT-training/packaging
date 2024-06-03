@@ -4,10 +4,9 @@ teaching: 15
 exercises: 0
 questions:
 - "What other files are important parts of your software package?"
-- "What software license should you use for your project?"
 objectives:
 - "Create a README for a software package"
-- "Choose a software license for a software package"
+- "Add a software license to a software package"
 - "Create a changelog for a package"
 keypoints:
 - "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
@@ -119,9 +118,13 @@ These two categories are "permissive" and "copyleft" licenses.
 Common permissive licenses include the [MIT License](https://choosealicense.com/licenses/mit/) and [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
 The [GNU General Public License v3.0 (or GNU GPLv3) License](https://choosealicense.com/licenses/gpl-3.0/) is a common copyleft license.
 
-Most research software uses permissive licenses like the [MIT License](https://choosealicense.com/licenses/mit/), [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), or the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
-For an easy choice, we recommend using the **BSD 3-Clause License**, which includes a specific clause preventing the names of creators/contributors from being used to endorse or promote derivatives, without permission.
-However, you should choose the specific license that best fits your needs.
+Most research software uses permissive licenses like the:
+- [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/)
+  which includes a specific clause preventing the names of creators/contributors
+  from being used to endorse or promote derivatives, without permission,
+- [MIT License](https://choosealicense.com/licenses/mit/), or the
+- [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
+
 In addition, when working on a project with others or as part of a larger effort, you should check if your collaborators have already determined an appropriate license; for example, on work funded by a grant, a particular license may be mandated by the proposal/agreement.
 
 Create a `LICENSE` file using
@@ -130,7 +133,9 @@ Create a `LICENSE` file using
 $ touch LICENSE
 ```
 
-and copy the **exact** text of the [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), modifying only the year and names:
+and copy the **exact** text of the license you chose, modifying only the year and names.
+
+For instance, for the [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/):
 
 ```
 BSD 3-Clause License
