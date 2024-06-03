@@ -225,14 +225,17 @@ dev = ["pytest"]
 
 ```
 
-You install the project with the optional dependency using `pip install --editable ".[dev]"`.
+You install the project with the optional dependency using:
+```bash
+pip install --editable ".[dev]"
+```
 
 You can run the tests using `pytest`:
 ```
 (.venv) % pytest
 ======================== test session starts ========================
 platform darwin -- Python 3.12.3, pytest-8.2.1, pluggy-1.5.0
-rootdir: /Users/John/Developer/packaging-example
+rootdir: /Users/john/Developer/packaging-example
 configfile: pyproject.toml
 collected 1 item
 
@@ -244,12 +247,14 @@ tests/test_rescale.py .                                       [100%]
 This tells us that the output of the test function matches the expected result, and therefore the test passes! 🎉
 
 We now have a package that is installed, can be interacted with properly, and has a passing test.
-Next, we'll look at other files that should be included with your package.
 
-{: .solution }
 
 > ## Going further
 >
-> We selected a specific backend - hatching. It had a good default configuration, is fast, and has some powerful features and supports a growing ecosystem of plugins. There are other backends too, including ones for [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+> We selected a specific backend - hatching.
+> It had a good default configuration, is fast, and has some powerful features and supports a growing ecosystem of plugins.
+> There are other backends too, including ones for
+> [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+{: .solution }
 
 {% include links.md %}
