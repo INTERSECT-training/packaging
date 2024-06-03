@@ -11,7 +11,17 @@ keypoints:
 - "There are a variety of useful bits of metadata you should add."
 ---
 
-In a previous lesson, we left the metadata in our `project.toml` quite minimal; we just had a name and a version. There are quite a few other fields that can really help your package on PyPI, however. We'll look at them, split into categories: Informational (like author, description) and Functional (like requirements). There's also a special `dynamic` field that lets you list values that are going to come from some other source.
+In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
+- a name and
+- a version.
+
+There are quite a few other fields that can really help your package on PyPI, however.
+We'll look at them, split into categories:
+- Informational: author, description, URL, etc.
+- Functional: requirements, tool configurations etc.
+
+There's also a special `dynamic` field that lets you list values
+that are going to come from some other source.
 
 ## Informational metadata
 
