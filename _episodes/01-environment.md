@@ -16,8 +16,13 @@ keypoints:
 - "Virtual environments solve the update problem"
 ---
 
-A Python installation includes a standard library of packages, but the real power of Python
-is available through additional packages which the user or developer can install and build on.
+One of Python's biggest strengths is its ecosystem of packages which build upon and extend
+the capabilities offered by the standard library.
+
+We'll look at how:
+- You should use virtual environments to manage the dependencies of different projects,
+- You can install packages you want to build on using `pip`, and
+- You can install Python applications you just want to use using `pipx`.
 
 ## Creating and Activating/Deactivating a Virtual Environment
 
