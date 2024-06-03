@@ -235,6 +235,17 @@ dynamic = ["version"]
 version.path = "src/package/__init__.py"
 ```
 
+... or if you want to get the version number from the newest `git` (version control system, "vcs") tag:
+
+```
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch]
+version.source = "vcs"
+```
+
 ## All together
 
 
