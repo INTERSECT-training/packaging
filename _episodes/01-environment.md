@@ -8,11 +8,11 @@ questions:
 - "How do you install and manage python applications?"
 objectives:
 - "Learn about virtual environments"
-- "Learn when to use pip and pipx"
+- "Learn how to install Python packages and applications using `pip` and `pipx`"
 keypoints:
-- "Virtual environments isolate software"
+- "Virtual environments isolate software dependencies"
 - "Use a different virtual environment for each project"
-- "Install Python applications using `pipx`"
+- "Install packages using `pip` and applications using `pipx`"
 - "Virtual environments solve the update problem"
 ---
 
