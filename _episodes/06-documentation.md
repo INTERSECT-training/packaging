@@ -150,7 +150,14 @@ python:
 > ````
 >
 > And you use `<!-- SPHINX-START -->` to mark where you want your docs part of
-> your readme to start (generally after the title and badges).
+> your `README.md` to start (generally after the title and badges).
+> ```markdown
+> # Package
+>
+> <!-- SPHINX-START -->
+>
+> `package` is a simple Python library that contains a single function for rescaling arrays.
+> ```
 
 {: .challenge}
 
