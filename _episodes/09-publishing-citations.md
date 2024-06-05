@@ -219,20 +219,17 @@ using Zenodo.
 
 ```yaml
 cff-version: 1.2.0
-message: "Please cite the following works when using this software."
-type: software
-title: Title
-abstract: Title
+message: "If you use this software, please cite it as below."
 authors:
-- family-names: ...
-  given-names: ...
-  orcid: ...
-  affiliation: ...
-doi: ...
-repository-code: ...
-url: ...
-keywords: ...
-license: ...
+  - family-names: Druskat
+    given-names: Stephan
+    orcid: https://orcid.org/1234-5678-9101-1121
+title: "My Research Software"
+version: 2.0.4
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.1234
+date-released: 2021-08-11
 ```
 
 You can test your file by running:
