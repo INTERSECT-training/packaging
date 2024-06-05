@@ -284,6 +284,17 @@ Here's how you run mypy, a first party and popular type checker, from pre-commit
       args: []
 ```
 
+You will need to add `additional_dependencies: [numpy]` as the pre-commit `mypy`
+runs in a separate virtual environment which doesn't have `numpy` installed.
+
+```
+  hooks:
+    - id: mypy
+      files: src
+      args: []
+      additional_dependencies: [numpy]
+```
+
 You can learn about configuring mypy in the
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/mypy/).  You also
 need to add any packages that have static types to `additional_dependencies: [...]`.
