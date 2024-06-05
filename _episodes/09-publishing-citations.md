@@ -119,14 +119,14 @@ jobs:
   dist:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Build SDist & wheel
       run: pipx run build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         path: dist/*
 ```
@@ -140,7 +140,7 @@ versioning).
 >
 > There's a great action for building and inspecting a pure Python package:
 > ```yaml
-> - uses: hynek/build-and-inspect-python-package@v1
+> - uses: hynek/build-and-inspect-python-package@v2
 > ```
 > This action builds, runs various checkers, then uploads the package to `Packages`.
 > If you use this, you'll need to download the artifact from `name: Packages`.
@@ -165,7 +165,7 @@ publish:
   if: github.event_name == 'release' && github.event.action == 'published'
 
   steps:
-  - uses: actions/download-artifact@v3
+  - uses: actions/download-artifact@v4
     with:
       name: artifact
       path: dist
