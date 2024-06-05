@@ -134,7 +134,7 @@ You can add pre-commit checks inside a `.pre-commit-config.yaml` file. There are
 ```yaml
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v4.4.0"
+    rev: "v4.6.0"
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -178,7 +178,7 @@ To use Black in pre-commit:
 ```yaml
 hooks:
   - repo: https://github.com/psf/black
-    rev: "23.3.0"
+    rev: "24.4.2"
     hooks:
       - id: black
 ```
@@ -206,7 +206,7 @@ To use Ruff from pre-commit:
 
 ```yaml
 - repo: https://github.com/charliermarsh/ruff-pre-commit
-  rev: "v0.0.271"
+  rev: "v0.4.8"
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
@@ -272,7 +272,7 @@ Here's how you run mypy, a first party and popular type checker, from pre-commit
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.4.0"
+  rev: "v1.10.0"
   hooks:
     - id: mypy
       files: src
