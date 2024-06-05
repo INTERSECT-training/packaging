@@ -233,6 +233,12 @@ unfixable = [
 ]
 ```
 
+
+> ## Replacement for Black
+> You can add an additional hook, `- id: ruff-format` which is meant to be a drop-in replacement for `black`.
+> Remove `black`'s pre-commit configuration if you do.
+{:.callout}
+
 You can a more complete suggested config at the
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style/#ruff).
 
