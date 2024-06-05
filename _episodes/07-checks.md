@@ -176,7 +176,6 @@ with any formatter), which was a great practical choice.
 To use Black in pre-commit:
 
 ```yaml
-hooks:
   - repo: https://github.com/psf/black
     rev: "24.4.2"
     hooks:
