@@ -9,8 +9,9 @@ objectives:
 - "Create a README for a software package"
 - "Choose a software license for a software package"
 - "Create a changelog for a package"
+- "Add a CITATION.cff file for a package"
 keypoints:
-- "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
+- "In addition to the source code and project specification, packages should include a README, LICENSE, Change Log and CITATION.cff."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
 - "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
 ---
@@ -357,6 +358,14 @@ You can test your file by running:
 ```bash
 pipx run cffconvert --validate
 ```
+
+#### DOI
+
+You can add a repository to <https://zenodo.org> to get a DOI once you publish. Follow the instructions in the
+[GitHub Documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+
+To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/)
+
 
 ## Additional files for Git
 
