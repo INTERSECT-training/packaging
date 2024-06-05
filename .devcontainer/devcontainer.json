@@ -7,7 +7,7 @@
         "ms-python.python",
         "donjayamanne.python-environment-manager",
         "charliermarsh.ruff",
-        "github.vscode-github-actsions"
+        "github.vscode-github-actions"
       ]
     }
   },
