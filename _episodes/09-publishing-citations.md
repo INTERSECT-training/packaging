@@ -40,6 +40,11 @@ executable would likely conflict with other things on your system.
 
 This produces the wheel and sdist in `./dist`.
 
+You can validate the files generated using
+```bash
+pipx run twine check dist/*
+```
+
 > ## Conda
 >
 > Building for conda is quite different. If you just have a pure Python package, you
