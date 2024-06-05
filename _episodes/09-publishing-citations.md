@@ -75,8 +75,13 @@ pipx run twine upload -r testpypi dist/*
 ```
 
 The `-r testpypi` tells twine to upload to TestPyPI instead of the real PyPI -
-remove this if you are not in a tutorial. You'll also need to setup a token to
-upload the package with. However, the best way to publish is from CI. This has
+remove this if you are not in a tutorial.
+
+> To run this locally, you'll also need to setup an API token to upload the package with.
+> Create a token at [https://test.pypi.org/manage/account/](https://test.pypi.org/manage/account/).
+{:.callout}
+
+However, the best way to publish is from CI. This has
 several benefits: you are always in a clean checkout, so you won't accidentally
 include added or changed files, you have a simpler deployment procedure, and
 you have more control over who can publish in GitHub.
