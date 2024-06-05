@@ -364,7 +364,7 @@ pipx run cffconvert --validate
 You can add a repository to <https://zenodo.org> to get a DOI once you publish. Follow the instructions in the
 [GitHub Documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
 
-To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/)
+To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/).
 
 
 ## Additional files for Git
