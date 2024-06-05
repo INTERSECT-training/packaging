@@ -113,7 +113,7 @@ procedure.
 Let's first set up a job that builds the file in a new workflow:
 
 ```yaml
-# .github/workflows/cd.yml
+# .github/workflows/publish.yml
 on:
   workflow_dispatch:
   release:
