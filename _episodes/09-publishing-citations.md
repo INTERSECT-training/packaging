@@ -14,17 +14,21 @@ keypoints:
 - "Zenodo and CITATION.cff are useful for citations"
 ---
 
+There are two major formats used to publish python packages:
+- **source distribution** (`sdist` for short):
+  - Contains most of your repository, including tests, and
+  - Requires your build backend (hatchling, in this case) to build.
+- **wheel**:
+  - The wheel is "built", the
+    contents are ready to unpack into standard locations (usually site-packages),
+    and does not contain configuration files like `pyproject.toml`.
+  - Usually you do not include things like tests in the wheel.
+  - Wheels also can contain binaries for packages with compiled portions.
+
+
 ## Building SDists and wheels
 
-The `build` package builds SDists (source distributions) and wheels (build
-distributions). The SDist usually contains most of your repository, and requires
-your build backend (hatchling, in this case) to build. The wheel is "built", the
-contents are ready to unpack into standard locations (usually site-packages),
-and does not contain configuration files like `pyproject.toml`. Usually you do
-not include things like tests in the wheel. Wheels also can contain binaries for
-packages with compiled portions.
-
-You can build an SDist and a wheel (from that SDist) with `pipx` & `build`:
+You can build an SDist and a wheel (from that SDist) with `pipx` and the `build` package:
 
 ```bash
 pipx run build
