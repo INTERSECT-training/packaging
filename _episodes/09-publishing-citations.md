@@ -225,7 +225,12 @@ upload your package to TestPyPI!
 
 ## Adding Zenodo
 
-You can add a repository to <https://zenodo.org> to make it citable. Zenodo
+You can add a repository to <https://zenodo.org> to make it citable.
+To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/)
+and follow the instructions here:
+[https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
+
+Zenodo
 supports GitHub's `CITATION.cff` file, so adding one of those is a good idea if
 using Zenodo.
 
