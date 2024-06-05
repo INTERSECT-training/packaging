@@ -120,7 +120,7 @@ even run it inside `nox`.
 You run pre-commit like this:
 
 ```bash
-pre-commit run -a
+pre-commit run --all-files
 ```
 
 This runs pre-commit on all files; the default is to just check staged changes
