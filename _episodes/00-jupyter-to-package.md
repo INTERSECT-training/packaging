@@ -140,7 +140,8 @@ The package name given here, "package," matches the directory `package` that con
 We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning,
 and how to specify this without manually writing it here.
 
-> The only elements of your package strictly **required** to install and import it are
+> ## Minimal Working Package
+> The only elements of your package strictly _required_ to install and import it are
 > the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
 {:.callout}
 
