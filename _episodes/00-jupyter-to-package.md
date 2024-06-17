@@ -27,12 +27,15 @@ Consider the `rescale()` function written as an exercise in the Software Carpent
 > Ensure you're in an empty git repository (see [Setup](../setup) for details).
 {:.callout}
 
-Create and activate your virtual environment
-(see [the episode on environments](../01-environment) for details):
+Create and activate your virtual environment:
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate
 ```
+
+> ## Don't skip creating a virtual environment
+> See [the episode on environments](../01-environment) for details.
+{:.caution}
 
 and install NumPy:
 ```bash
