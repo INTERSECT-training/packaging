@@ -211,14 +211,37 @@ computer that has pipx installed!
 {:.challenge}
 
 
-## Task runner (nox)
+## Task runner
+
+A task runner is a tool that lets you specify a set of tasks via a common
+interface.
 
 
-A task runner, like [make][] (fully general), [rake][] (Ruby general),
-[invoke][] (Python general), [tox][] (Python packages), or [nox][] (Python
-simi-general), is a tool that lets you specify a set of tasks via a common
-interface. These can be a crutch, allowing poor packaging practices to be
-employed behind a custom script, and they can hide what is actually happening.
+You can use a task runner to:
+- make it easy and simple for new contributors to run things
+- make specialized developer tasks easy.
+- avoid making single-use virtual environments for docs and other rarely run tasks.
+
+
+Examples include:
+- [make][] (fully general),
+- [rake][] (Ruby general),
+- [invoke][] (Python general),
+- [tox][] (Python packages), or
+- [nox][] (Python semi-general).
+
+> ## Task Runner as Crutch
+> Task runners can be a crutch, allowing poor packaging practices to be
+> employed behind a custom script, and they can hide what is actually happening.
+{:.caution}
+
+[nox]: https://nox.thea.codes
+[tox]: https://tox.readthedocs.io
+[invoke]: https://www.pyinvoke.org
+[rake]: https://ruby.github.io/rake/
+[make]: https://www.gnu.org/software/make/
+
+### Nox
 
 Nox has two strong points that help with this concern. First, it is very
 explicit, and even prints what it is doing as it operates. Unlike the older
@@ -236,22 +259,11 @@ is _much_ faster than explaining how to get setup or manually messing with
 virtual environments. It is also highly reproducible, creating and destroying
 the temporary environment each time by default.
 
-You should use nox to make it easy and simple for new contributors to run
-things. You should use nox to make specialized developer tasks easy. You should
-use nox to avoid making single-use virtual environments for docs and other
-rarely run tasks.
-
-[nox]: https://nox.thea.codes
-[tox]: https://tox.readthedocs.io
-[invoke]: https://www.pyinvoke.org
-[rake]: https://ruby.github.io/rake/
-[make]: https://www.gnu.org/software/make/
-
 Since nox is an application, you should install it with `pipx`. If you use
 Homebrew, you can install `nox` with that (Homebrew isolates Python apps it
 distributes too, just like pipx).
 
-## Running nox
+#### Running nox
 
 If you see a `noxfile.py` in a repository, that means nox is supported. You can start
 by checking to see what the different tasks (called `sessions` in nox) are provided
@@ -282,9 +294,10 @@ nox -s preview
 Will build and start up a preview of the site.
 
 If you need to pass options to the session, you can separate nox options with
-and the session options with `--`.
+and the session options with `--`,
+e.g. `nox -s preview -- --quiet` to pass the `--quiet` flag to the session named `preview`.
 
-## Writing a Noxfile
+#### Writing a Noxfile
 
 For this example, we'll need a minimal test file for pytest to run. Let's make
 this file in a local directory:
@@ -373,11 +386,11 @@ nox > Session tests was successful.
 
 
 > ## Passing arguments through
-> Try passing `-v` to pytest.
+> Try passing `--verbose` to pytest.
 >
 > > ## Solution
 > > ```bash
-> > nox -s tests -- -v
+> > nox -s tests -- --verbose
 > > ```
 > {:.solution}
 {:.challenge}
