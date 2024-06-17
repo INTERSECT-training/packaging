@@ -15,6 +15,6 @@
     "ghcr.io/devcontainers/features/ruby:1": {  "version": "3.1.4" },
     "ghcr.io/devcontainers-contrib/features/pre-commit:2" : {}
   },
-  "postCreateCommand": "pip install --upgrade pip && pre-commit install"
+  "postCreateCommand": "pre-commit install"
 }
 
