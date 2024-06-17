@@ -129,7 +129,7 @@ build-backend = "hatchling.build"
 name = "package"
 version = "0.1.0"
 dependencies = [
-    "numpy"
+  "numpy"
 ]
 ```
 
@@ -214,7 +214,7 @@ Here we add it to the `pyproject.toml.file, by adding an extra block below the d
 ```toml
 ...
 dependencies = [
-"numpy"
+  "numpy"
 ]
 
 [project.optional-dependencies]
