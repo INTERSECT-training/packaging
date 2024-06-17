@@ -35,7 +35,7 @@ python3 -m venv .venv
 
 > ## Don't skip creating a virtual environment
 > See [the episode on environments](../01-environment) for details.
-{:.caution}
+{:.callout}
 
 and install NumPy:
 ```bash
@@ -301,13 +301,12 @@ git push origin main
 > python3 -m pip install git+https://github.com/<your github username>/packaging-example
 > ```
 > Open a python console and call the rescale function with some data.
+>
+> Switch back to the original virtual environment before going onto the next lesson:
+> ```
+> . .venv/bin/activate
+> ```
 {:.challenge}
-
-
-Switch back to the original virtual environment before going onto the next lesson:
-```
-. .venv/bin/activate
-```
 
 You now have a package that is:
 - installed in editable mode in an isolated environment,
