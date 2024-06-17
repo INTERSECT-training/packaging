@@ -250,8 +250,69 @@ tests/test_rescale.py .                                       [100%]
 
 This tells us that the output of the test function matches the expected result, and therefore the test passes! 🎉
 
-We now have a package that is installed, can be interacted with properly, and has a passing test.
+## Publishing
 
+The easiest way to make your code available for others is to commit it all
+and push it to a public git repository.
+
+> ## Don't `git commit -a` before you've set up your `.gitignore`
+>
+> When working with git, it's common to want to commit everything which has been changed
+> using `git commit -a`.
+> That's not a good idea here, because that will commit our virtual environment and its files
+> which we don't want to do.
+>
+> - Until we have a `.gitignore` file, don't use `git commit -a`
+> - Even when we do have a `.gitignore` file,
+>   always check what you're committing using `git status`, before you do `git commit`
+> - Better still use a graphical tool which makes it easy to see at a glance
+>   what is is you're committing
+>
+{:.caution}
+
+Commit the relevant files, first the code:
+
+```bash
+git add src/package/{__init__,rescale}.py
+git add tests/test_rescale.py
+git commit -m "feat: add basic rescaling function
+```
+
+... then the metadata:
+```bash
+git add pyproject.toml
+git commit -m "chore: add minimal pyproject.toml"
+```
+
+... then push those to the `origin` remote repository.
+```bash
+git push origin main
+```
+
+
+> ## Check your package
+> Check that you can install your package and that it works as expected.
+>
+> If everything works, you should be able to install your package (in a new virtual environment):
+> ```
+> python3 -m venv .venv2
+> . .venv2/bin/activate
+> python3 -m pip install git+https://github.com/<your github username>/packaging-example
+> ```
+> Open a python console and call the rescale function with some data.
+{:.challenge}
+
+
+Switch back to the original virtual environment before going onto the next lesson:
+```
+. .venv/bin/activate
+```
+
+You now have a package that is
+- installed in editable mode in an isolated environment,
+- can be interacted with in tests and in an interactive console,
+- has a passing test, and
+- is installable by anyone.
 
 > ## Going further
 >
