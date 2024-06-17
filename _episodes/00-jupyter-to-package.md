@@ -218,7 +218,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+test = ["pytest"]
 
 [build-system]
 ...
@@ -227,7 +227,7 @@ dev = ["pytest"]
 
 You install the project with the optional dependency using:
 ```bash
-pip install --editable ".[dev]"
+pip install --editable ".[test]"
 ```
 
 You can run the tests using `pytest`:
