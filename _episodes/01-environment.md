@@ -409,4 +409,37 @@ nox > Session tests was successful.
 > {:.solution}
 {:.challenge}
 
+
+#### Backends
+
+It's possible to use different backends than `venv` and `pip` when running `nox`.
+`uv` is a fast package installer and resolver, written in Rust and designed to be a
+replacement for `pip`. Using it can lead to enormous performance gains,
+which can be useful when you create and destroy virtual environments with `nox`
+many times per day.
+
+- Update the top of your `noxfile.py`:
+  ```python
+  # noxfile.py
+
+  import nox
+
+  nox.needs_version = ">=2024.3.2"
+  nox.options.default_venv_backend = "uv"
+  ```
+- Install `uv` using your package manager ([installation instructions](https://github.com/astral-sh/uv)).
+
+You can also specify `nox.options.default_venv_backend = "uv|virtualenv"`
+which will fallback to `virtualenv` if `uv` is not installed
+
+> #### Alternative backends
+>
+> Try running your tests with the default `virtualenv` and the `uv|virtualenv` backend.
+>
+> How does the execution time change?
+{:.challenge}
+
+
+
+
 {% include links.md %}
