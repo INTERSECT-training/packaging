@@ -9,7 +9,8 @@ objectives:
 - "Create a README for a software package"
 - "Choose a software license for a software package"
 - "Create a changelog for a package"
-- "In addition to the source code and project specification, packages should include a README, LICENSE, and Change Log."
+keypoints:
+- "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
 - "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
 ---
