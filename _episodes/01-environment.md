@@ -87,6 +87,17 @@ The prompt will revert:
 > conda activate some_name
 > conda deactivate
 > ```
+>
+> Conda has inspired replacements like
+> [Mamba](https://github.com/mamba-org/mamba),
+> and more recently [Pixi](https://github.com/prefix-dev/pixi).
+> These typically aim to speed up creation of environments and
+> resolution of dependencies,
+> by using faster languages – where Conda is written in Python,
+> Mamba uses C++ and Pixi uses Rust.
+>
+> If you are using Conda, but the environment creation process takes too long,
+> consider trying Mamba or Pixi.
 {:.callout}
 
 ## Installing Packages
