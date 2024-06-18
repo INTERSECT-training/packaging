@@ -27,7 +27,7 @@ Consider the `rescale()` function written as an exercise in the Software Carpent
 > Ensure you're in an empty git repository (see [Setup](../setup) for details).
 {:.callout}
 
-Create and activate your virtual environment:
+Ensure you've created and activated your virtual environment:
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate
