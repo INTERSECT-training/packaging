@@ -340,8 +340,8 @@ You now have a package that is:
 - can be interacted with in tests and in an interactive console, and
 - has a passing test.
 
-However, it still lacks critical metadata which _permit_ other people to use it, or allow people to cite it.
-In the following episodes we'll look at at what else you need to make a fully fledged package.
+We now have a package that is installed, can be interacted with properly, and has a passing test.
+Next, we'll look at other files that should be included with your package.
 
 > ## Going further
 >
