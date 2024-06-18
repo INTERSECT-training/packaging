@@ -77,9 +77,7 @@ array([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])
 
 Let's create a Python package that contains this function.
 
-Make sure you're in the empty repository created in [Setup](../setup).
-
-Next, we want to create the necessary directory structure for your package.
+Create the necessary directory structure for your package.
 This includes:
 - a `src` ("source") directory, which will contain another directory called `package` for the source files of your package itself,
 - a `tests` directory, which will hold tests for your package and its modules/functions,
@@ -136,7 +134,7 @@ dependencies = [
 ]
 ```
 
-The package name given here, "package," matches the directory `package` that contains our project's code.
+The package name given here, "package," matches the directory `src/package` that contains the code.
 We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning,
 and how to specify this without manually writing it here.
 
