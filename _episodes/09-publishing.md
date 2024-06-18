@@ -223,6 +223,42 @@ might be helpful).
 When you release, this will trigger the GitHub Action workflow we developed and
 upload your package to TestPyPI!
 
-If you added Zenodo support, a DOI will be generated when you make a release.
+## Digital Object Identifier (DOI)
+
+You can add a repository to <https://zenodo.org> to get a DOI once you publish. Follow the instructions in the
+[GitHub Documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+
+To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/).
+
+## The CITATION.cff file
+
+From [https://citation-file-format.github.io/](https://citation-file-format.github.io/):
+> `CITATION.cff` files are plain text files with human- and machine-readable citation information for software (and datasets).
+> Code developers can include them in their repositories to let others know how to correctly cite their software.
+
+This file format is becoming a de-facto standard, and is supported by GitHub, Zenodo and Zotero.
+
+The CITATION.cff file looks like this:
+
+```yaml
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Druskat
+    given-names: Stephan
+    orcid: https://orcid.org/1234-5678-9101-1121
+title: "My Research Software"
+version: 2.0.4
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.1234
+date-released: 2021-08-11
+```
+
+You can validate your file by running:
+
+```bash
+pipx run cffconvert --validate
+```
 
 {% include links.md %}
