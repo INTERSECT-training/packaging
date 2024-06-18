@@ -20,24 +20,19 @@ and/or make available to others,
 it makes sense to package your functions into modules and ultimately a software package that can be installed.
 This lesson will walk you through that process.
 
+> ## Check Setup
+> - Ensure you're in an empty git repository (see [Setup](../setup) for details).
+> - Ensure you've created and activated your virtual environment (see [Environment](../01-environment) for details):
+> ```bash
+> . .venv/bin/activate
+> ```
+{:.callout}
+
 Consider the `rescale()` function written as an exercise in the Software Carpentry
 [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson.
 
-> ## Empty Repository
-> Ensure you're in an empty git repository (see [Setup](../setup) for details).
-{:.callout}
 
-Ensure you've created and activated your virtual environment:
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-```
-
-> ## Don't skip creating a virtual environment
-> See [the episode on environments](../01-environment) for details.
-{:.callout}
-
-and install NumPy:
+Install NumPy:
 ```bash
 pip install numpy
 ```
