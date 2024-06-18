@@ -279,10 +279,9 @@ This tells us that the output of the test function matches the expected result, 
 > {:.solution}
 {:.challenge}
 
-## Publishing
+## Commit and Push
 
-The easiest way to make your code available for others is to commit it all
-and push it to a public git repository.
+Don't forget to commit all your work using `git`.
 
 > ## Don't `git commit -a` before you've set up your `.gitignore`
 >
@@ -338,10 +337,10 @@ git push origin main
 
 You now have a package that is:
 - installed in editable mode in an isolated environment,
-- can be interacted with in tests and in an interactive console,
-- has a passing test, and
-- is installable by anyone.
+- can be interacted with in tests and in an interactive console, and
+- has a passing test.
 
+However, it still lacks critical metadata which _permit_ other people to use it, or allow people to cite it.
 In the following episodes we'll look at at what else you need to make a fully fledged package.
 
 > ## Going further
