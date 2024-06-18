@@ -126,8 +126,16 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Topic :: Scientific/Engineering :: Physics",
     "Typing :: Typed",
+    "Private :: Do Not Upload",
 ]
 ```
+
+> ## Prevent Inadvertent Publishing
+> By adding the "Private :: Do Not Upload" trove classifier here, we ensure that
+> the package will be
+> [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
+> If you want to upload to PyPI, you will need to remove that classifier.
+{:.callout}
 
 ### License (special mention)
 
