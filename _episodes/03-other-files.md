@@ -221,7 +221,7 @@ gives
 
 ```
 rescale.py:11: RuntimeWarning: invalid value encountered in divide
-  output_array = (input_array - L) / (H - L)
+  output_array = (input_array - low) / (high - low)
 array([nan, nan, nan, nan, nan])
 ```
 {: .output}
@@ -236,12 +236,12 @@ def rescale(input_array):
     Takes an array as input, and returns a corresponding array scaled so that 0
     corresponds to the minimum and 1 to the maximum value of the input array.
     """
-    L = np.min(input_array)
-    H = np.max(input_array)
-    if np.allclose(L, H):
-        output_array = input_array / L
+    low = np.min(input_array)
+    high = np.max(input_array)
+    if np.allclose(low, high):
+        output_array = input_array / low
     else:
-        output_array = (input_array - L) / (H - L)
+        output_array = (input_array - low) / (high - low)
     return output_array
 ```
 
