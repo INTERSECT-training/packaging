@@ -340,7 +340,6 @@ You now have a package that is:
 - can be interacted with in tests and in an interactive console, and
 - has a passing test.
 
-We now have a package that is installed, can be interacted with properly, and has a passing test.
 Next, we'll look at other files that should be included with your package.
 
 > ## Going further
