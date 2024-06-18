@@ -88,7 +88,7 @@ $ mkdir -p src/package tests docs
 > Putting the package directory and source code inside the `src` directory is not actually *required*.
 > - If you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
 > - However, this can cause several issues, such as running tests with the local version instead of the installed version.
-> - In addition, this package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
+> - In addition, the `src/` package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
 {:.callout}
 
 Inside `src/package`, create the files `__init__.py` and `rescale.py`:
