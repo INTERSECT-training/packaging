@@ -34,6 +34,8 @@ The contributing author(s) to this lesson are:
 
 * [Henry Schreiner](https://github.com/henryiii)
 * [Kyle Niemeyer](https://github.com/kyleniemeyer)
+* [John G. Holland](https://github.com/hollandjg)
+* [Maria Isabel Restrepo](https://github.com/mirestrepo)
 
 
 ## Maintainer(s)
