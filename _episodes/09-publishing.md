@@ -25,6 +25,19 @@ There are two major formats used to publish python packages:
   - Usually you do not include things like tests in the wheel.
   - Wheels also can contain binaries for packages with compiled portions.
 
+One additional "format" is available as soon as you have pushed your work to a platform like GitHub:
+- **repository**:
+  - Contains all of your repository, including tests, metadata, and its history,
+  - Requires your build backend (hatchling, in this case) to build.
+  - The source is distributed in the form of a repository accessible to the user.
+  - Installation: `pip install git+https://git.example.com/MyProject`
+    where `git+` tells `pip` how to interpret the repository.
+  - You can also specify particular revisions, like:
+    * `pip install git+https://git.example.com/MyProject.git@v1.0`
+    * `pip install git+https://git.example.com/MyProject.git@main`
+    * `pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709`
+    * `pip install git+https://git.example.com/MyProject.git@refs/pull/123/head`
+
 
 ## Building SDists and wheels
 
@@ -58,7 +71,7 @@ pipx run twine check dist/*
 {:.callout}
 
 
-## Manually publishing
+## Manual publishing
 
 > ## Do you need to publish to PyPI?
 >
