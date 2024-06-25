@@ -74,7 +74,7 @@ Python 3.12.3
 ```
 {:code}
 
-If this command returns something like `command not found: python3` then install python using the instructions on[https://docs.pytest.org/en/stable/getting-started.html](https://docs.pytest.org/en/stable/getting-started.html).
+If this command returns something like `command not found: python3` then install python using the instructions on[https://wiki.python.org/moin/BeginnersGuide/Download](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 #### Git & GitHub
 
