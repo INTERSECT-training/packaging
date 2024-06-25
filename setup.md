@@ -74,7 +74,12 @@ Python 3.12.3
 ```
 {:code}
 
-If this command returns something like `command not found: python3` then install python using the instructions on[https://wiki.python.org/moin/BeginnersGuide/Download](https://wiki.python.org/moin/BeginnersGuide/Download).
+If this command returns something like `command not found: python3` then you can install python using:
+- The instructions on [https://wiki.python.org/moin/BeginnersGuide/Download](https://wiki.python.org/moin/BeginnersGuide/Download), or
+- Tools like
+  [`asdf`](https://asdf-vm.com/),
+  [`mise`](https://mise.jdx.dev/lang/python), or
+  [`pyenv`](https://github.com/pyenv/pyenv).
 
 #### Git & GitHub
 
