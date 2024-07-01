@@ -234,12 +234,15 @@ You can use a task runner to:
 - avoid making single-use virtual environments for docs and other rarely run tasks.
 
 
-Examples include:
+Examples we'll cover include:
+- [nox][] (Python semi-general), and
+- [hatch][] (Python packages).
+
+Other examples are:
 - [make][] (fully general),
 - [rake][] (Ruby general),
-- [invoke][] (Python general),
-- [tox][] (Python packages), or
-- [nox][] (Python semi-general).
+- [invoke][] (Python general), and
+- [tox][] (Python packages).
 
 > ## Task Runner as Crutch
 > Task runners can be a crutch, allowing poor packaging practices to be
@@ -251,6 +254,7 @@ Examples include:
 [invoke]: https://www.pyinvoke.org
 [rake]: https://ruby.github.io/rake/
 [make]: https://www.gnu.org/software/make/
+[hatch]: https://hatch.pypa.io/
 
 ### Nox
 
