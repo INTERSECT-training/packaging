@@ -334,6 +334,22 @@ tagged versions:
 > here for now so that we don't interfere with that lesson.
 {:.callout}
 
+> ## Using GitHub Releases to track changes
+> If you use GitHub to manage your code and you use "Pull Requests" consistently,
+> you can use GitHub Releases as a starting point for a changelog.
+> When creating each release, you have the option to "Generate release notes", which
+> includes the titles of all the pull requests. People can view the releases and the
+> described changes on GitHub.
+>
+> These release notes only appear on GitHub, so if you migrate away from GitHub
+> you need to remember to migrate the changelog too.
+> In addition, this requires consistency and discipline with pull requests,
+> to ensure that every relevant change appears in its pull request name.
+> Even then the process is not fully automated – it will list the pull request titles,
+> but won't group and sort them as described above, a process which needs careful
+> manual intervention.
+{:.callout}
+
 ## Additional files for Git
 
 At this point, your package has most of the supplemental files that it needs to be
