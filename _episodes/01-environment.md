@@ -458,7 +458,31 @@ which will fallback to `virtualenv` if `uv` is not installed
 > How does the execution time change?
 {:.challenge}
 
+### Hatch
 
+Hatch is a Python "Project Manager" which can:
+- build packages,
+- manage virtual environments,
+- manage multiple python versions for a project,
+- run tests using `pytest`,
+- run static analysis on code using `ruff`,
+- **execute scripts with specific dependencies and python versions** (this is the "task runner" part)
+- publish packages to PyPI,
+- help bump version numbers of packages,
+- use templates to create new python projects
 
+To initialize an existing project for `hatch`,
+enter the directory containing the project and run the following:
+```bash
+hatch new --init
+```
+This will interactively guide you through the setup process.
+
+To run tests using `hatch`, run the following:
+```bash
+hatch test
+```
+This will create a python environment in which your tests will run
+and execute the tests.
 
 {% include links.md %}
