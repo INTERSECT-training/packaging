@@ -228,15 +228,19 @@ A task runner is a tool that lets you specify a set of tasks via a common
 interface.
 
 
-You can use a task runner to:
-- make it easy and simple for new contributors to run things
-- make specialized developer tasks easy.
+Use of a task runner is optional, but can be helpful to:
+- make it easy and simple for new contributors to run things,
+- make specialized developer tasks easy,
 - avoid making single-use virtual environments for docs and other rarely run tasks.
 
+Task runner preferences are subjective and diverse.
+Different people prefer different task runners because they are
+more flexible, simpler to understand, specialized to one language,
+general to many languages, and so on.
 
 Examples we'll cover include:
 - [nox][] (Python semi-general), and
-- [hatch][] (Python packages).
+- [hatch][] (specialized for Python package management).
 
 Other examples are:
 - [make][] (fully general),
