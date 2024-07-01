@@ -269,7 +269,7 @@ That may be enough for us to record the change, but how will a user of your pack
 functionality has changed? It's not exactly easy to hunt through Git logs and try to find which
 commit message(s) align with the changes since the last version.
 
-Instead, we can should [keep a changelog](https://keepachangelog.com) in a `CHANGELOG.md` file,
+Instead, we can [keep a changelog](https://keepachangelog.com) in a `CHANGELOG.md` file,
 also at the top level of your package's directory. In this Markdown-formatted file, you should
 record major changes to the package made since the last released version. Then, when you decide
 to release a new version, you add a new section to the file above this list of changes.
