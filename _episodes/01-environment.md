@@ -228,18 +228,25 @@ A task runner is a tool that lets you specify a set of tasks via a common
 interface.
 
 
-You can use a task runner to:
-- make it easy and simple for new contributors to run things
-- make specialized developer tasks easy.
+Use of a task runner is optional, but can be helpful to:
+- make it easy and simple for new contributors to run things,
+- make specialized developer tasks easy,
 - avoid making single-use virtual environments for docs and other rarely run tasks.
 
+Task runner preferences are subjective and diverse.
+Different people prefer different task runners because they are
+more flexible, simpler to understand, specialized to one language,
+general to many languages, and so on.
 
-Examples include:
+Examples we'll cover include:
+- [nox][] (Python semi-general), and
+- [hatch][] (specialized for Python package management).
+
+Other examples are:
 - [make][] (fully general),
 - [rake][] (Ruby general),
-- [invoke][] (Python general),
-- [tox][] (Python packages), or
-- [nox][] (Python semi-general).
+- [invoke][] (Python general), and
+- [tox][] (Python packages).
 
 > ## Task Runner as Crutch
 > Task runners can be a crutch, allowing poor packaging practices to be
@@ -251,6 +258,7 @@ Examples include:
 [invoke]: https://www.pyinvoke.org
 [rake]: https://ruby.github.io/rake/
 [make]: https://www.gnu.org/software/make/
+[hatch]: https://hatch.pypa.io/
 
 ### Nox
 
@@ -450,7 +458,75 @@ which will fallback to `virtualenv` if `uv` is not installed
 > How does the execution time change?
 {:.challenge}
 
+### Hatch
 
+Hatch is a Python "Project Manager" which can:
+- build packages,
+- manage virtual environments,
+- manage multiple python versions for a project,
+- run tests using `pytest`,
+- run static analysis on code using `ruff`,
+- **execute scripts with specific dependencies and python versions** (this is the "task runner" part)
+- publish packages to PyPI,
+- help bump version numbers of packages,
+- use templates to create new python projects
+
+To initialize an existing project for `hatch`,
+enter the directory containing the project and run the following:
+```bash
+hatch new --init
+```
+This will interactively guide you through the setup process.
+
+To run tests using `hatch`, run the following:
+```bash
+hatch test
+```
+This will:
+- create a python environment in which your tests will run, then
+- run the tests.
+
+Alongside built-in commands like `test`, `hatch` allows adding custom scripts.
+
+For instance, to add an environment and scripts
+for viewing and publishing the Material for MkDocs documentation,
+you can add the following lines to the `pyproject.toml` file:
+
+```toml
+[tool.hatch.envs.doc]
+dependencies = [
+  "mkdocs-material",
+  "mkdocstrings[python]"
+]
+
+[tool.hatch.envs.doc.scripts]
+serve = "mkdocs serve --dev-addr localhost:8000"
+build = "mkdocs build --clean --strict --verbose"
+deploy = "mkdocs gh-deploy"
+```
+
+This specifies a new environment `doc`
+with the `mkdocs-material` and `mkdocstrings` dependencies needed, and
+scripts `serve`, `build` and `deploy` defined within that environment.
+
+Then to view the documentation locally, run `hatch run <ENV>:<SCRIPT>`, e.g.:
+```bash
+hatch run doc:serve
+```
+to run the preview server, or
+```bash
+hatch run doc:build
+```
+to build the documentation, ready for deployment.
+
+The key benefits here are that:
+- these scripts run within an isolated environment,
+- the simple commands like `hatch run doc:serve` allow the developer to
+  use arguments like `--dev-addr localhost:8000` without needing to remember or think about them.
+
+The developer must decide whether these benefits outweigh
+the added complexity of an additional layer of abstraction,
+which will hinder debugging if something goes wrong.
 
 
 {% include links.md %}
