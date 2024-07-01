@@ -327,7 +327,7 @@ tagged versions:
 [0.1.1]: https://github.com/<username>/package/compare/v0.1.1...v0.1.0
 ```
 
-> <h2>Other locations</h2>
+> ## Other locations
 >
 > Once we have things inside the `docs/` folder, `docs/changelog.md` is also a
 > good place, and keeps your outer directory a bit cleaner. But we'll put it
