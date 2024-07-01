@@ -482,7 +482,51 @@ To run tests using `hatch`, run the following:
 ```bash
 hatch test
 ```
-This will create a python environment in which your tests will run
-and execute the tests.
+This will:
+- create a python environment in which your tests will run, then
+- run the tests.
+
+Alongside built-in commands like `test`, `hatch` allows adding custom scripts.
+
+For instance, to add an environment and scripts
+for viewing and publishing the Material for MkDocs documentation,
+you can add the following lines to the `pyproject.toml` file:
+
+```toml
+[tool.hatch.envs.doc]
+dependencies = [
+  "mkdocs-material",
+  "mkdocstrings[python]"
+]
+
+[tool.hatch.envs.doc.scripts]
+serve = "mkdocs serve --dev-addr localhost:8000"
+build = "mkdocs build --clean --strict --verbose"
+deploy = "mkdocs gh-deploy"
+```
+
+This specifies a new environment `doc`
+with the `mkdocs-material` and `mkdocstrings` dependencies needed, and
+scripts `serve`, `build` and `deploy` defined within that environment.
+
+Then to view the documentation locally, run `hatch run <ENV>:<SCRIPT>`, e.g.:
+```bash
+hatch run doc:serve
+```
+to run the preview server, or
+```bash
+hatch run doc:build
+```
+to build the documentation, ready for deployment.
+
+The key benefits here are that:
+- these scripts run within an isolated environment,
+- the simple commands like `hatch run doc:serve` allow the developer to
+  use arguments like `--dev-addr localhost:8000` without needing to remember or think about them.
+
+The developer must decide whether these benefits outweigh
+the added complexity of an additional layer of abstraction,
+which will hinder debugging if something goes wrong.
+
 
 {% include links.md %}
