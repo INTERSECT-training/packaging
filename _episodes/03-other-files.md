@@ -334,21 +334,41 @@ tagged versions:
 > here for now so that we don't interfere with that lesson.
 {:.callout}
 
-> ## Using GitHub Releases to track changes
-> If you use GitHub to manage your code and you use "Pull Requests" consistently,
-> you can use GitHub Releases as a starting point for a changelog.
-> When creating each release, you have the option to "Generate release notes", which
-> includes the titles of all the pull requests. People can view the releases and the
-> described changes on GitHub.
+> ## Automating Changelog Management
+> There are several tools which are intended to help manage a changelog.
+> Broadly speaking, they use specifically formatted commit messages
+> to generate the changelog.
+> They usually impose a specific way of working,
+> require consistency and discipline when writing the messages,
+> often need manual tweaking of the changelog after generation.
 >
-> These release notes only appear on GitHub, so if you migrate away from GitHub
-> you need to remember to migrate the changelog too.
-> In addition, this requires consistency and discipline with pull requests,
-> to ensure that every relevant change appears in its pull request name.
-> Even then the process is not fully automated – it will list the pull request titles,
-> but won't group and sort them as described above, a process which needs careful
-> manual intervention.
+> ### `commitizen`, "conventional commits" and SemVer
+> [`commitizen`][commitizen] is a release management tool which
+> helps developers to write [conventional commits][]
+> and can generate a grouped and sorted changelog (`commitizen changelog`).
+> Generating a new release, tagging it with an updated version number,
+> and generating a changelog
+> can be automated using [GitHub Actions][commitizen auto release].
+>
+> This requires:
+> - squashing each change into a single commit,
+> - consistency and discipline when writing commit messages.
+>
+> ### GitHub
+> GitHub can "generate release notes" with each release of code,
+> which is a list of the titles of the **pull requests** included in the release.
+> People can view the release notes on GitHub.
+>
+> These release notes:
+> - only appear on GitHub,
+> - aren't automatically grouped and sorted,
+> - only include changes which were part of a pull request title.
+>
 {:.callout}
+
+[conventional commits]: https://www.conventionalcommits.org/
+[commitizen]: https://commitizen-tools.github.io/commitizen/
+[commitizen auto release]: https://commitizen-tools.github.io/commitizen/tutorials/github_actions/
 
 ## Additional files for Git
 
