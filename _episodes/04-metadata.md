@@ -190,11 +190,87 @@ Your package likely will need other packages from PyPI to run.
 
 ```toml
 dependencies = [
+  "numpy",
+]
+```
+
+How you set versions on dependencies depends on what sort of package you are working on:
+
+* **Library**: something that can be imported. Support the widest range possible.
+* **App (CLI/GUI/TUI)**: Something that is installable but not importable. Wide range preferred, but not as important (assuming users use pipx and don't add it to "dev" environments or things like that).
+* **Application (deployment)**: Something like a website or analysis. Not installable. Versions should be fully locked.
+
+If you need a specific minimum version of a dependency, you can specify it like this:
+```toml
+dependencies = [
   "numpy>=1.18",
 ]
 ```
 
-You can list dependencies here without minimum versions, but if you have a lot of users, you might want minimum versions; pip will only upgrade an installed package if it's no longer viable via your requirements. You can also use a variety of markers to specify operating system specific packages.
+> ## Maximums
+> Adding an "upper cap" like "numpy>=1.18,<2.0" is only recommended if you
+> are fairly sure the next version will break your usage of the library.
+> For more information, see this article on
+> [bound version contsraints](https://iscinumpy.dev/post/bound-version-constraints/).
+
+
+##### Minimums:
+
+For libraries and apps, you should try to support a wide range of dependencies
+if possible, depending on how many users you expect. For a small number of
+users, simply requiring recent versions of everything is probably fine. If you
+expect a large number of users (enough that your package will be picked up by
+Linux distros, for example), then you should try to support a few past releases
+of dependencies, and ideally run your tests at least once with the minimum
+versions of your dependencies. You can do this with a `constraints.txt` file,
+which specifies pins on the minimum versions of all your dependencies, and then
+add `-c constraints.txt` when pip installing.
+
+##### Maximums:
+
+You can read an article on maximums
+[here](https://iscinumpy.dev/post/bound-version-constraints/). TL;DR: don't set
+maximums on your dependencies unless you are fairly sure the next version will
+break your usage of the library.  There are some special cases, mostly around
+how important a dependency is for you; if you are writing a pytest plugin, you
+are probably monitoring pytest pretty closely and can react to a breaking
+release. (But this is also true, maybe more true, if you don't cap!)
+
+
+#### Locking
+
+The solution to breaking updates from dependencies is specific for applications
+(like websites an analyses) - you should lock your environment! There are two
+ways to do this: manually with piptools, or using a locking package manager
+(like PDM or Poetry).
+
+##### Manual: piptools
+
+Set up a `requirements.in` file with your unpinned dependencies. For example:
+
+```txt
+# requirements.in
+packaging
+```
+
+Now, run pip-compile from pip-tools on your requirements.in to make a requirements.txt:
+
+```bash
+pipx run --spec pip-tools pip-compile requirements.in --generate-hashes
+```
+
+This will produce a `requirements.txt` with fully locked dependencies, including
+hashes.  You can always regenerate it when you want updates.
+
+
+##### Automatic
+
+Tools like PDM generate a lock file (in some custom format) when they set up
+environments. Just add these files to your repository, and they should be used
+automatically. You usually have an update command that will update the local
+environment and the lock file. (Other languages have similar tooling as well,
+like Rust, Ruby, NodeJS, etc.)
+
 
 > ## project.dependencies vs. build-system.requires
 >
@@ -203,6 +279,7 @@ You can list dependencies here without minimum versions, but if you have a lot o
 > > ## Answer
 > >
 > > `build-system.requires` describes what your project needs to "build", that is, produce an SDist or wheel. Installing a built wheel will _not_ install anything from `build-system.requires`, in fact, the `pyproject.toml` is not even present in the wheel! `project.dependencies`, on the other hand, is added to the wheel metadata, and pip will install anything in that field if not already present when installing your wheel.
+> {:.solution}
 {:.challenge}
 
 ### Optional Dependencies
