@@ -14,6 +14,19 @@ keypoints:
 - "Zenodo and CITATION.cff are useful for citations"
 ---
 
+If you want other people to be able to access your package,
+you need to publish it.
+
+In this episode we'll:
+- investigate the formats you can use to share your package:
+  source distribution and wheel,
+- publish those on the Python Package Index (PyPI),
+- add automation to your project to make publishing easier,
+- share the package on Zenodo to get a Digital Object Identifier
+  so that your work is more easily citeable.
+
+## Formats
+
 There are two major formats used to publish python packages:
 - **source distribution** (`sdist` for short):
   - Contains most of your repository, including tests, and
