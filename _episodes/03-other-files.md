@@ -11,7 +11,7 @@ objectives:
 keypoints:
 - "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
-- "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
+- "You can also include `.gitignore` to avoid from committing non-source files."
 ---
 
 We now have an installed, working Python package that provides some functionality.
