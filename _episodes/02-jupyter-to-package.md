@@ -144,6 +144,7 @@ and how to specify this without manually writing it here.
 > and supports a growing ecosystem of plugins.
 > There are other backends too, including ones for
 > [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+{:.callout}
 
 > ## Minimal Working Package
 > The only elements of your package strictly _required_ to install and import it are
@@ -290,20 +291,6 @@ This tells us that the output of the test function matches the expected result, 
 
 Don't forget to commit all your work using `git`.
 
-> ## Don't `git commit -a` before you've set up your `.gitignore`
->
-> When working with git, it's common to want to commit everything which has been changed
-> using `git commit -a`.
-> That's not a good idea here, because that will commit our virtual environment and its files
-> which we don't want to do.
->
-> - Until we have a `.gitignore` file, don't use `git commit -a`
-> - Even when we do have a `.gitignore` file,
->   always check what you're committing using `git status`, before you do `git commit`
-> - Better still use a graphical tool which makes it easy to see at a glance
->   what is is you're committing
->
-{:.caution}
 
 Commit the relevant files, first the code:
 
@@ -324,6 +311,20 @@ git commit -m "chore: add minimal pyproject.toml"
 git push origin main
 ```
 
+> ## Always `git add` individual files until you've set up your `.gitignore`
+>
+> When working with git, it's best to
+> - stage **individual files** using `git add FILENAME ...`,
+> - check what you're about to commit using `git status`, before you
+> - commit with `git commit -m "COMMIT MESSAGE"`.
+>
+> You can also use a graphical tool which makes it easy to see at a glance
+> what is is you're committing.
+>
+> Adding a `.gitignore` file (which we'll cover later), will help avoid
+> inadvertently committing files like the virtual environment directory,
+> and is a prerequisite for using `git commit -a` which commits everything.
+{:.callout}
 
 > ## Check your package
 > Check that you can install your package and that it works as expected.
