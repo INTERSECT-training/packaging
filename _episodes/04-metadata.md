@@ -11,7 +11,17 @@ keypoints:
 - "There are a variety of useful bits of metadata you should add."
 ---
 
-In a previous lesson, we left the metadata in our `project.toml` quite minimal; we just had a name and a version. There are quite a few other fields that can really help your package on PyPI, however. We'll look at them, split into categories: Informational (like author, description) and Functional (like requirements). There's also a special `dynamic` field that lets you list values that are going to come from some other source.
+In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
+- a name and
+- a version.
+
+There are quite a few other fields that can really help your package on PyPI, however.
+We'll look at them, split into categories:
+- Informational: author, description, URL, etc.
+- Functional: requirements, tool configurations etc.
+
+There's also a special `dynamic` field that lets you list values
+that are going to come from some other source.
 
 ## Informational metadata
 
@@ -116,8 +126,16 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Topic :: Scientific/Engineering :: Physics",
     "Typing :: Typed",
+    "Private :: Do Not Upload",
 ]
 ```
+
+> ## Prevent Inadvertent Publishing
+> By adding the "Private :: Do Not Upload" trove classifier here, we ensure that
+> the package will be
+> [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
+> If you want to upload to PyPI, you will need to remove that classifier.
+{:.callout}
 
 ### License (special mention)
 
@@ -248,6 +266,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Private :: Do Not Upload",
 ]
 
 [project.urls]
