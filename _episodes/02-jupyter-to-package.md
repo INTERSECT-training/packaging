@@ -133,6 +133,18 @@ The package name given here, "package," matches the directory `src/package` that
 We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning,
 and how to specify this without manually writing it here.
 
+> ## Build Backend
+> The build backend is a program which will convert the source files into a package
+> ready for distribution. It determines how your project will specify
+> its configuration, metadata and files.
+> You should choose one that suits your preferences.
+>
+> We selected a specific backend - hatching.
+> It had a good default configuration, is fast, has some powerful features,
+> and supports a growing ecosystem of plugins.
+> There are other backends too, including ones for
+> [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+
 > ## Minimal Working Package
 > The only elements of your package strictly _required_ to install and import it are
 > the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
@@ -336,13 +348,5 @@ You now have a package that is:
 - has a passing test.
 
 Next, we'll look at other files that should be included with your package.
-
-> ## Going further
->
-> We selected a specific backend - hatching.
-> It had a good default configuration, is fast, and has some powerful features and supports a growing ecosystem of plugins.
-> There are other backends too, including ones for
-> [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
-{: .solution }
 
 {% include links.md %}
