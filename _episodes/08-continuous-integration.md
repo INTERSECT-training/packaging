@@ -20,7 +20,7 @@ For example, you can use CI to run a test suite on every pull request.
 
 In this episode we will set up CI using GitHub Actions:
 - test the code on every pull request or merge to main,
-- run those tests under multiple versions of python.
+- run those tests under multiple versions of python, on Linux, Windows and macOS.
 
 ## GitHub Actions `workflows` directory
 
