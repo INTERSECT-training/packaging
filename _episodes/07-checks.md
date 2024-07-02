@@ -11,9 +11,9 @@ keypoints:
 - "Run tests and static checks on your codebase."
 ---
 
-This is intended to be a very light introduction to testing and static checks
-(also known as linters, formatters, and type checkers), focused on setting them up,
-not on how you write good tests, etc.
+In this episode we'll give an introduction to setting up your project for
+- tests with `pytest`, and
+- static checks (also known as linters, formatters, and type checkers).
 
 ## Testing
 
@@ -30,7 +30,7 @@ There are several options for test directory. The recommendation is `/tests`
 layout, you will have the best experience avoiding weird edge cases with package
 importing.
 
-> <h2>User runnable tests</h2>
+> ## User runnable tests
 >
 > Tests should distributed with your SDist, but not your wheel. Sometimes, you
 > might want some simple Tests a user can run in order to verify that their
