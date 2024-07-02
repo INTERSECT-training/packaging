@@ -303,7 +303,7 @@ git commit -m "feat: add basic rescaling function
 ... then the metadata:
 ```bash
 git add pyproject.toml
-git commit -m "chore: add minimal pyproject.toml"
+git commit -m "build: add minimal pyproject.toml"
 ```
 
 ... then push those to the `origin` remote repository.
@@ -324,6 +324,24 @@ git push origin main
 > Adding a `.gitignore` file (which we'll cover later), will help avoid
 > inadvertently committing files like the virtual environment directory,
 > and is a prerequisite for using `git commit -a` which commits everything.
+{:.callout}
+
+> ## Conventional commits
+> In this example, we use
+> [conventional commit messages](https://www.conventionalcommits.org/)
+> which look like `<type>: <description>`.
+>
+> Each commit should do one and only one "thing" to the code, for instance:
+> - add a new feature (type: `feat`), *or*
+> - fix a bug (type: `fix`), *or*
+> - rename a function (type: `refactor`), *or*
+> - add documentation (type: `docs`), *or*
+> - change something affecting the build system (type: `build`).
+>
+> By doing only one thing per commit, it's easier to:
+> - write the commit message,
+> - understand the history by looking at the `git log`, and
+> - revert individual changes you later decide could be done in a better way.
 {:.callout}
 
 > ## Check your package
