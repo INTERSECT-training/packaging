@@ -135,13 +135,16 @@ pip install <package>
 
 > ## Installing Packages in the "base" and "user" environment
 >
+> Be careful installing packages without an activated virtual environment.
+>
 > You will see two _very_ common recommendations when installing a package, neither of
 > which you should use unless you know what you're doing:
 >
 > ```bash
 > pip install <package>         # Use only in virtual environment!
 > ```
-> This will try to install globally, and if you don't have permission, will install to your
+> Unless you've activated a virtual environment,
+> this will try to install globally, and if you don't have permission, will install to your
 > user site packages. In global site packages, you can get conflicting versions
 > of libraries, you can't tell what you've installed for what, packages can
 > update and break your system; it's a mess. This is the *"update problem"*.
