@@ -88,16 +88,15 @@ The prompt will revert:
 > conda deactivate
 > ```
 >
-> Conda has inspired replacements like
-> [Mamba](https://github.com/mamba-org/mamba),
-> and more recently [Pixi](https://github.com/prefix-dev/pixi).
-> These typically aim to speed up creation of environments and
-> resolution of dependencies,
-> by using faster languages – where Conda is written in Python,
-> Mamba uses C++ and Pixi uses Rust.
+> Alternative implementations of `conda` are available and may be faster, like:
+> - [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)
+>    a single binary, also written in C++,
+> - [Pixi](https://github.com/prefix-dev/pixi) written in Rust.
 >
-> If you are using Conda, but the environment creation process takes too long,
-> consider trying Mamba or Pixi.
+> [Mamba](https://github.com/mamba-org/mamba), written in C++,
+> became very popular as its package resolver was much faster than the default in `conda`.
+> In 2023, `conda` incorporated the `libmamba` package resolver as its default,
+> largely eliminating the speed difference between `conda` and `mamba`.
 {:.callout}
 
 ## Installing Packages
