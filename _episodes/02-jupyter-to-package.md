@@ -174,7 +174,7 @@ From the top level of your project's directory, enter:
 $ pip install --editable .
 ```
 
-The `--editable` flag tells `pip` to install in editable mode, meaning that you can continue developing your package on your computer as you test it.
+The `--editable` flag tells `pip` to install in editable mode, meaning that you can continue developing your package on your computer as you test it. Note, you will often see the short option `-e`. 
 
 Then, in a Python shell or Jupyter Notebook, import your package and call the (single) function:
 
