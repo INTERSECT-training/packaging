@@ -168,7 +168,7 @@ At this point, your package's file structure should look like this:
 ## Installing and using your package
 
 Now that your package has the necessary elements, you can install it into your virtual environment (which should already be active).
-From the top level of your project's directory, enter
+From the top level of your project's directory, enter:
 
 ```bash
 $ pip install --editable .
