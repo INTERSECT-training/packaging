@@ -231,7 +231,7 @@ The command line name is the table key, and the form of the entry point is `pack
 
 ## Dynamic
 
-Any field from above that are specified by your build backend instead should be listed in the special `dynamic` field.
+Fields can be specified dynamically by your build backend. You specify fields to populate dynamically using the `dynamic` field.
 For example, if you want `hatchling` to read `__version__.py` from `src/package/__init__.py`:
 
 ```
