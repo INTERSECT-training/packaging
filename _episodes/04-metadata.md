@@ -175,9 +175,9 @@ This is an important and sometimes misunderstood field. It looks like this:
 requires-python = ">=3.8"
 ```
 
-Pip will see if the current version of Python it's installing for passes this expression. If it doesn't, pip will start checking older versions of the package until it finds on that passes. This is how `pip install numpy` still works on Python 3.7, even though NumPy has already dropped support for it.
+Pip will check if the Python version of the envrionment where the package being installed passes this expression. If it doesn't, pip will start checking older versions of the package until it finds one that passes. This is how `pip install numpy` still works on Python 3.7, even though NumPy has already dropped support for it.
 
-You need to make sure you always have this and it stays accurate, since you can't edit metadata after releasing - you can only yank or delete release(s) and try again.
+You need to make sure you always have this line and that it stays accurate, since you can't edit metadata after releasing - you can only yank or delete release(s) and try again.
 
 > ## Upper caps
 >
