@@ -121,6 +121,7 @@ If you have statically typed Python code, you can tell users about that, too.
 {:.callout}
 
 ```toml
+[project]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
