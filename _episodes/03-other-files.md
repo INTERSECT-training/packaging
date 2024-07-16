@@ -595,11 +595,9 @@ should look something like this:
 ```bash
 .
 ├── .git/
-├── .nox/
 ├── .venv/
 ├── .gitignore
 ├── docs/
-├── noxfile.py
 ├── pyproject.toml
 ├── src/
 │   └── package/
@@ -609,8 +607,8 @@ should look something like this:
     └── test_rescale.py
 ```
 
-The `.git`, `.nox`. and `.venv` directories would have been automatically generated
-by Git, Nox, and Virtualenv, respectively. You may also see additional directories
+The `.git` and `.venv` directories would have been automatically generated
+by Git and Virtualenv respectively. You may also see additional directories
 like `__pycache__` and `.pytest_cache`.
 
 {% include links.md %}
