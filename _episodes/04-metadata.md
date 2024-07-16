@@ -279,6 +279,9 @@ build-backend = "hatchling.build"
 [project]
 name = "package"
 version = "0.0.1"
+dependencies = [
+  "numpy"
+]
 authors = [
   { name="Example Author", email="author@example.com" },
 ]
@@ -291,6 +294,9 @@ classifiers = [
     "Operating System :: OS Independent",
     "Private :: Do Not Upload",
 ]
+
+[project.optional-dependencies]
+test = ["pytest"]
 
 [project.urls]
 "Homepage" = "https://github.com/pypa/sampleproject"
