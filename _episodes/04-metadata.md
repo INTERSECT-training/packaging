@@ -150,31 +150,39 @@ classifiers = [
 > If you want to upload to PyPI, you will need to remove that classifier.
 {:.callout}
 
-### License (special mention)
+### License
 
-There also is a license field, but that was rather inadequate; it didn't support
-multiple licenses, for example. Currently, it's best to indicate the license
-with a Trove Classifier, and make sure your file is called `LICENSE*` so build
-backends pick it up and include it in SDist and wheels. There's work on
-standardizing an update to the format in the future. You can manually specify a
-license file if you want:
+There are three ways to include your license:
+1. The preferred way to include a standard license
+   is to include a classifier starting with "License ::",
+    ```toml
+    [project]
+    classifiers = [
+      "License :: OSI Approved :: BSD License",
+    ]
+    ```
+2. The other way to include a standard license is to
+    put its name in the `license` field:
+    ```toml
+    [project]
+    license = {text = "MIT License"}
+    ```
+3. You may also put the license in a file named `LICENSE` or `LICENSE.txt`
+   and link it in the `license` field:
+   ```toml
+   [project]
+   license = {file = "LICENSE"}
+   ```
+   If you do this, after the [`build` step](../09-publishing-citations),
+   verify the contents of your SDist and Wheel(s) manually
+   to make sure the license file is included,
+   because some build backends may not support including the license
+   using this field.
 
-```toml
-license = {file = "LICENSE"}
-```
-
-However, some backends (like flit-core) ignore this field entirely. The
-canonical location for a standard license since the early 2000's has been Trove
-Classifiers.
-
-> ## Verify file contents
-> Always verify the contents of your SDist and Wheel(s) manually to make sure the license file is included.
->
-> ```bash
-> tar -tvf dist/package-0.0.1.tar.gz
-> unzip -l dist/package-0.0.1-py3-none-any.whl
-> ```
-{:.callout}
+   ```bash
+   tar -tvf dist/package-0.0.1.tar.gz
+   unzip -l dist/package-0.0.1-py3-none-any.whl
+   ```
 
 ## Functional metadata
 
