@@ -14,17 +14,47 @@ keypoints:
 - "Zenodo and CITATION.cff are useful for citations"
 ---
 
+If you want other people to be able to access your package,
+you need to publish it.
+
+In this episode we'll:
+- investigate the formats you can use to share your package:
+  source distribution and wheel,
+- publish those on the Python Package Index (PyPI),
+- add automation to your project to make publishing easier,
+- share the package on Zenodo to get a Digital Object Identifier
+  so that your work is more easily citeable.
+
+## Formats
+
+There are two major formats used to publish python packages:
+- **source distribution** (`sdist` for short):
+  - Contains most of your repository, including tests, and
+  - Requires your build backend (hatchling, in this case) to build.
+- **wheel**:
+  - The wheel is "built", the
+    contents are ready to unpack into standard locations (usually site-packages),
+    and does not contain configuration files like `pyproject.toml`.
+  - Usually you do not include things like tests in the wheel.
+  - Wheels also can contain binaries for packages with compiled portions.
+
+One additional "format" is available as soon as you have pushed your work to a platform like GitHub:
+- **repository**:
+  - Contains all of your repository, including tests, metadata, and its history,
+  - Requires your build backend (hatchling, in this case) to build.
+  - The source is distributed in the form of a repository accessible to the user.
+  - Installation: `pip install git+https://git.example.com/MyProject`
+    where `git+` tells `pip` how to interpret the repository.
+  - You can also specify particular revisions, like:
+    * `pip install git+https://git.example.com/MyProject.git@v1.0`
+    * `pip install git+https://git.example.com/MyProject.git@main`
+    * `pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709`
+    * `pip install git+https://git.example.com/MyProject.git@refs/pull/123/head`
+
+
 ## Building SDists and wheels
 
-The `build` package builds SDists (source distributions) and wheels (build
-distributions). The SDist usually contains most of your repository, and requires
-your build backend (hatchling, in this case) to build. The wheel is "built", the
-contents are ready to unpack into standard locations (usually site-packages),
-and does not contain configuration files like `pyproject.toml`. Usually you do
-not include things like tests in the wheel. Wheels also can contain binaries for
-packages with compiled portions.
-
-You can build an SDist and a wheel (from that SDist) with `pipx` & `build`:
+You can build an SDist and a wheel (from that SDist) with `pipx` and the `build` package:
 
 ```bash
 pipx run build
@@ -35,6 +65,11 @@ The executable is actually named `pyproject-build`, since installing a `build`
 executable would likely conflict with other things on your system.
 
 This produces the wheel and sdist in `./dist`.
+
+You can validate the files generated using
+```bash
+pipx run twine check dist/*
+```
 
 > ## Conda
 >
@@ -49,7 +84,7 @@ This produces the wheel and sdist in `./dist`.
 {:.callout}
 
 
-## Manually publishing
+## Manual publishing
 
 > ## Do you need to publish to PyPI?
 >
@@ -66,8 +101,13 @@ pipx run twine upload -r testpypi dist/*
 ```
 
 The `-r testpypi` tells twine to upload to TestPyPI instead of the real PyPI -
-remove this if you are not in a tutorial. You'll also need to setup a token to
-upload the package with. However, the best way to publish is from CI. This has
+remove this if you are not in a tutorial.
+
+> To run this locally, you'll also need to setup an API token to upload the package with.
+> Create a token at [https://test.pypi.org/manage/account/](https://test.pypi.org/manage/account/).
+{:.callout}
+
+However, the best way to publish is from CI. This has
 several benefits: you are always in a clean checkout, so you won't accidentally
 include added or changed files, you have a simpler deployment procedure, and
 you have more control over who can publish in GitHub.
@@ -77,7 +117,7 @@ you have more control over who can publish in GitHub.
 > Given what you've learned about `nox` and `build`, write a session that builds
 > packages for you.
 >
-> > # Solution
+> > ## Solution
 > > ```python
 > > import nox
 > >
@@ -99,7 +139,7 @@ procedure.
 Let's first set up a job that builds the file in a new workflow:
 
 ```yaml
-# .github/workflows/cd.yml
+# .github/workflows/publish.yml
 on:
   workflow_dispatch:
   release:
@@ -119,14 +159,14 @@ jobs:
   dist:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Build SDist & wheel
       run: pipx run build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         path: dist/*
 ```
@@ -140,7 +180,7 @@ versioning).
 >
 > There's a great action for building and inspecting a pure Python package:
 > ```yaml
-> - uses: hynek/build-and-inspect-python-package@v1
+> - uses: hynek/build-and-inspect-python-package@v2
 > ```
 > This action builds, runs various checkers, then uploads the package to `Packages`.
 > If you use this, you'll need to download the artifact from `name: Packages`.
@@ -165,7 +205,7 @@ publish:
   if: github.event_name == 'release' && github.event.action == 'published'
 
   steps:
-  - uses: actions/download-artifact@v3
+  - uses: actions/download-artifact@v4
     with:
       name: artifact
       path: dist
@@ -209,33 +249,39 @@ might be helpful).
 When you release, this will trigger the GitHub Action workflow we developed and
 upload your package to TestPyPI!
 
-## Adding Zenodo
+## Digital Object Identifier (DOI)
 
-You can add a repository to <https://zenodo.org> to make it citable. Zenodo
-supports GitHub's `CITATION.cff` file, so adding one of those is a good idea if
-using Zenodo.
+You can add a repository to <https://zenodo.org> to get a DOI once you publish. Follow the instructions in the
+[GitHub Documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+
+To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zenodo.org/).
 
 ## The CITATION.cff file
 
+From [https://citation-file-format.github.io/](https://citation-file-format.github.io/):
+> `CITATION.cff` files are plain text files with human- and machine-readable citation information for software (and datasets).
+> Code developers can include them in their repositories to let others know how to correctly cite their software.
+
+This file format is becoming a de-facto standard, and is supported by GitHub, Zenodo and Zotero.
+
+The CITATION.cff file looks like this:
+
 ```yaml
 cff-version: 1.2.0
-message: "Please cite the following works when using this software."
-type: software
-title: Title
-abstract: Title
+message: "If you use this software, please cite it as below."
 authors:
-- family-names: ...
-  given-names: ...
-  orcid: ...
-  affiliation: ...
-doi: ...
-repository-code: ...
-url: ...
-keywords: ...
-license: ...
+  - family-names: Druskat
+    given-names: Stephan
+    orcid: https://orcid.org/1234-5678-9101-1121
+title: "My Research Software"
+version: 2.0.4
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.1234
+date-released: 2021-08-11
 ```
 
-You can test your file by running:
+You can validate your file by running:
 
 ```bash
 pipx run cffconvert --validate

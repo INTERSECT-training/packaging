@@ -11,9 +11,9 @@ keypoints:
 - "Run tests and static checks on your codebase."
 ---
 
-This is intended to be a very light introduction to testing and static checks
-(also known as linters, formatters, and type checkers), focused on setting them up,
-not on how you write good tests, etc.
+In this episode we'll give an introduction to setting up your project for
+- tests with `pytest`, and
+- static checks (also known as linters, formatters, and type checkers).
 
 ## Testing
 
@@ -30,7 +30,7 @@ There are several options for test directory. The recommendation is `/tests`
 layout, you will have the best experience avoiding weird edge cases with package
 importing.
 
-> <h2>User runnable tests</h2>
+> ## User runnable tests
 >
 > Tests should distributed with your SDist, but not your wheel. Sometimes, you
 > might want some simple Tests a user can run in order to verify that their
@@ -55,20 +55,23 @@ testpaths = [
 ]
 ```
 
-The `minversion` will print a nicer error if your `pytest` is too old. The `addopts` setting will add
-whatever you put there to the command line when you run; `-ra` will print a
-summary "r"eport of "a"ll results, which gives you a quick way to review what
-tests failed and were skipped, and why. `--showlocals` will print locals in
-tracebacks.  `--strict-markers` will make sure you don't try to use an
-unspecified fixture. And `--strict-config` will error if you make a mistake in
-your config.  `xfail_strict` will change the default for `xfail` to fail the
+- The `minversion` will print a nicer error if your `pytest` is too old.
+- The `addopts` setting will add whatever you put there to the command line when you run;
+  - `-ra` will print a summary "r"eport of "a"ll results,
+    which gives you a quick way to review what tests failed and were skipped, and why.
+  - `--showlocals` will print locals in tracebacks.
+  - `--strict-markers` will make sure you don't try to use an unspecified fixture.
+  - And `--strict-config` will error if you make a mistake in your config.
+- `xfail_strict` will change the default for `xfail` to fail the
 tests if it doesn't fail - you can still override locally in a specific xfail
-for a flaky failure.  `filter_warnings` will cause all warnings to be errors
-(you can add allowed warnings here too, see below). `log_cli_level` will report
-`INFO` and above log messages on a failure.  Finally, `testpaths` will limit
-`pytest` to just looking in the folders given - useful if it tries to pick up
-things that are not tests from other directories.  [See the
-docs](https://docs.pytest.org/en/stable/customize.html) for more options.
+for a flaky failure.
+- `filter_warnings` will cause all warnings to be errors
+(you can add allowed warnings here too, see below).
+- `log_cli_level` will report `INFO` and above log messages on a failure.
+- Finally, `testpaths` will limit `pytest` to just looking in the folders given - useful if it tries to pick up
+things that are not tests from other directories.
+
+[See the docs](https://docs.pytest.org/en/stable/customize.html) for more options.
 
 pytest also checks the current and parent directories for a `conftest.py` file.
 If it finds them, they will get run outer-most to inner-most. These files let
@@ -117,7 +120,7 @@ even run it inside `nox`.
 You run pre-commit like this:
 
 ```bash
-pre-commit run -a
+pre-commit run --all-files
 ```
 
 This runs pre-commit on all files; the default is to just check staged changes
@@ -131,7 +134,7 @@ You can add pre-commit checks inside a `.pre-commit-config.yaml` file. There are
 ```yaml
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v4.4.0"
+    rev: "v4.6.0"
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -173,9 +176,8 @@ with any formatter), which was a great practical choice.
 To use Black in pre-commit:
 
 ```yaml
-hooks:
   - repo: https://github.com/psf/black
-    rev: "23.3.0"
+    rev: "24.4.2"
     hooks:
       - id: black
 ```
@@ -203,7 +205,7 @@ To use Ruff from pre-commit:
 
 ```yaml
 - repo: https://github.com/charliermarsh/ruff-pre-commit
-  rev: "v0.0.271"
+  rev: "v0.4.8"
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
@@ -230,6 +232,12 @@ unfixable = [
   "F841", # Removes unused variables
 ]
 ```
+
+
+> ## Replacement for Black
+> You can add an additional hook, `- id: ruff-format` which is meant to be a drop-in replacement for `black`.
+> Remove `black`'s pre-commit configuration if you do.
+{:.callout}
 
 You can a more complete suggested config at the
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style/#ruff).
@@ -269,11 +277,22 @@ Here's how you run mypy, a first party and popular type checker, from pre-commit
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.4.0"
+  rev: "v1.10.0"
   hooks:
     - id: mypy
       files: src
       args: []
+```
+
+You will need to add `additional_dependencies: [numpy]` as the pre-commit `mypy`
+runs in a separate virtual environment which doesn't have `numpy` installed.
+
+```
+  hooks:
+    - id: mypy
+      files: src
+      args: []
+      additional_dependencies: [numpy]
 ```
 
 You can learn about configuring mypy in the
