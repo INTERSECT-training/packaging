@@ -176,7 +176,7 @@ release. (But this is also true, maybe more true, if you don't cap!)
 ### Locking
 
 The solution to breaking updates from dependencies is specific for applications
-(like websites an analyses) - you should lock your environment! There are two
+(like websites and analyses) - you should lock your environment! There are two
 ways to do this: manually with piptools, or using a locking package manager
 (like PDM or Poetry).
 
