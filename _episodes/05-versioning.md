@@ -240,7 +240,7 @@ it looks like this:
 dynamic = ["version"]
 
 [tool.hatch]
-version.path = "src/<package>/__init__.py"
+version.path = "src/package/__init__.py"
 ```
 
 ### VCS versioning (hatchling)
