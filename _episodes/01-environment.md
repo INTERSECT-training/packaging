@@ -88,16 +88,15 @@ The prompt will revert:
 > conda deactivate
 > ```
 >
-> Conda has inspired replacements like
-> [Mamba](https://github.com/mamba-org/mamba),
-> and more recently [Pixi](https://github.com/prefix-dev/pixi).
-> These typically aim to speed up creation of environments and
-> resolution of dependencies,
-> by using faster languages – where Conda is written in Python,
-> Mamba uses C++ and Pixi uses Rust.
+> Alternative implementations of `conda` are available and may be faster, like:
+> - [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)
+>    a single binary, also written in C++,
+> - [Pixi](https://github.com/prefix-dev/pixi) written in Rust.
 >
-> If you are using Conda, but the environment creation process takes too long,
-> consider trying Mamba or Pixi.
+> [Mamba](https://github.com/mamba-org/mamba), written in C++,
+> became very popular as its package resolver was much faster than the default in `conda`.
+> In 2023, `conda` incorporated the `libmamba` package resolver as its default,
+> largely eliminating the speed difference between `conda` and `mamba`.
 {:.callout}
 
 ## Installing Packages
@@ -135,13 +134,16 @@ pip install <package>
 
 > ## Installing Packages in the "base" and "user" environment
 >
+> Be careful installing packages without an activated virtual environment.
+>
 > You will see two _very_ common recommendations when installing a package, neither of
 > which you should use unless you know what you're doing:
 >
 > ```bash
 > pip install <package>         # Use only in virtual environment!
 > ```
-> This will try to install globally, and if you don't have permission, will install to your
+> Unless you've activated a virtual environment,
+> this will try to install globally, and if you don't have permission, will install to your
 > user site packages. In global site packages, you can get conflicting versions
 > of libraries, you can't tell what you've installed for what, packages can
 > update and break your system; it's a mess. This is the *"update problem"*.

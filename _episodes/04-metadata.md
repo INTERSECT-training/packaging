@@ -11,7 +11,17 @@ keypoints:
 - "There are a variety of useful bits of metadata you should add."
 ---
 
-In a previous lesson, we left the metadata in our `project.toml` quite minimal; we just had a name and a version. There are quite a few other fields that can really help your package on PyPI, however. We'll look at them, split into categories: Informational (like author, description) and Functional (like requirements). There's also a special `dynamic` field that lets you list values that are going to come from some other source.
+In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
+- a name and
+- a version.
+
+There are quite a few other fields that can really help your package on PyPI, however.
+We'll look at them, split into categories:
+- Informational: author, description, URL, etc.
+- Functional: requirements, tool configurations etc.
+
+There's also a special `dynamic` field that lets you list values
+that are going to come from some other source.
 
 ## Informational metadata
 
@@ -94,56 +104,79 @@ Homepage = "https://pypi.org"
 
 ### Classifiers
 
-This is a collection of classifiers as listed at <https://pypi.org/classifiers/>. You select the classifiers that match
-your projects from there. Usually, this includes a "Development Status" to tell users how stable you think your project is, and a few things like "Intended Audience" and "Topic" to help with search engines. There are some important ones though: the "License" (s) is used to indicate your license. You also can give an idea of supported Python versions, Python implementations, and "Operating System"s as well. If you have statically typed Python code, you can tell users about that, too.
+This is a collection of
+["classifiers"](https://peps.python.org/pep-0301/#distutils-trove-classification).
+You select the classifiers that match your projects from <https://pypi.org/classifiers/>.
+Usually, this includes a "Development Status" to tell users how stable you think your project is,
+and a few things like "Intended Audience" and "Topic" to help with search engines.
+There are some important ones though: the "License" (s) is used to indicate your license.
+You also can give an idea of supported Python versions, Python implementations, and "Operating System"s as well.
+If you have statically typed Python code, you can tell users about that, too.
 
 ```toml
+[project]
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: BSD License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering",
-    "Topic :: Scientific/Engineering :: Information Analysis",
-    "Topic :: Scientific/Engineering :: Mathematics",
-    "Topic :: Scientific/Engineering :: Physics",
-    "Typing :: Typed",
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Typing :: Typed",
+  "Private :: Do Not Upload",
 ]
 ```
 
-### License (special mention)
-
-There also is a license field, but that was rather inadequate; it didn't support
-multiple licenses, for example. Currently, it's best to indicate the license
-with a Trove Classifier, and make sure your file is called `LICENSE*` so build
-backends pick it up and include it in SDist and wheels. There's work on
-standardizing an update to the format in the future. You can manually specify a
-license file if you want:
-
-```toml
-license = {file = "LICENSE"}
-```
-
-However, some backends (like flit-core) ignore this field entirely. The
-canonical location for a standard license since the early 2000's has been trove
-classifiers.
-
-> ## Verify file contents
-> Always verify the contents of your SDist and Wheel(s) manually to make sure the license file is included.
->
-> ```bash
-> tar -tvf dist/package-0.0.1.tar.gz
-> unzip -l dist/package-0.0.1-py3-none-any.whl
-> ```
+> ## Prevent Inadvertent Publishing
+> By adding the "Private :: Do Not Upload" classifier here, we ensure that
+> the package will be
+> [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
+> If you want to upload to PyPI, you will need to remove that classifier.
 {:.callout}
+
+### License
+
+There are three ways to include your license:
+1. The preferred way to include a standard license
+   is to include a classifier starting with "License ::",
+    ```toml
+    [project]
+    classifiers = [
+      "License :: OSI Approved :: BSD License",
+    ]
+    ```
+2. The other way to include a standard license is to
+    put its name in the `license` field:
+    ```toml
+    [project]
+    license = {text = "MIT License"}
+    ```
+3. You may also put the license in a file named `LICENSE` or `LICENSE.txt`
+   and link it in the `license` field:
+   ```toml
+   [project]
+   license = {file = "LICENSE"}
+   ```
+   If you do this, after the [`build` step](../09-publishing-citations),
+   verify the contents of your SDist and Wheel(s) manually
+   to make sure the license file is included,
+   because some build backends may not support including the license
+   using this field.
+
+   ```bash
+   tar -tvf dist/package-0.0.1.tar.gz
+   unzip -l dist/package-0.0.1-py3-none-any.whl
+   ```
 
 ## Functional metadata
 
@@ -157,13 +190,13 @@ This is an important and sometimes misunderstood field. It looks like this:
 requires-python = ">=3.8"
 ```
 
-Pip will see if the current version of Python it's installing for passes this expression. If it doesn't, pip will start checking older versions of the package until it finds on that passes. This is how `pip install numpy` still works on Python 3.7, even though NumPy has already dropped support for it.
+Pip will check if the Python version of the environment where the package being installed passes this expression. If it doesn't, pip will start checking older versions of the package until it finds one that passes. This is how `pip install numpy` still works on Python 3.7, even though NumPy has already dropped support for it.
 
-You need to make sure you always have this and it stays accurate, since you can't edit metadata after releasing - you can only yank or delete release(s) and try again.
+You need to make sure you always have this line and that it stays accurate, since you can't edit metadata after releasing - you can only yank or delete release(s) and try again.
 
 > ## Upper caps
 >
-> Upper caps are generally discouraged in the Python ecosystem, but they are (even more that usual) broken here, since this field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above procedures is not the right one for an upper cap! Never upper cap this and instead use Trove Classifiers to tell users what versions of Python your code was tested with.
+> Upper caps are generally discouraged in the Python ecosystem, but they are (even more than usual) broken when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
 {:.callout}
 
 ### Dependencies
@@ -185,6 +218,7 @@ You can list dependencies here without minimum versions, but if you have a lot o
 > > ## Answer
 > >
 > > `build-system.requires` describes what your project needs to "build", that is, produce an SDist or wheel. Installing a built wheel will _not_ install anything from `build-system.requires`, in fact, the `pyproject.toml` is not even present in the wheel! `project.dependencies`, on the other hand, is added to the wheel metadata, and pip will install anything in that field if not already present when installing your wheel.
+> {:.solution}
 {:.challenge}
 
 ### Optional Dependencies
@@ -213,7 +247,7 @@ The command line name is the table key, and the form of the entry point is `pack
 
 ## Dynamic
 
-Any field from above that are specified by your build backend instead should be listed in the special `dynamic` field.
+Fields can be specified dynamically by your build backend. You specify fields to populate dynamically using the `dynamic` field.
 For example, if you want `hatchling` to read `__version__.py` from `src/package/__init__.py`:
 
 ```
@@ -238,6 +272,9 @@ build-backend = "hatchling.build"
 [project]
 name = "package"
 version = "0.0.1"
+dependencies = [
+  "numpy"
+]
 authors = [
   { name="Example Author", email="author@example.com" },
 ]
@@ -248,7 +285,11 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Private :: Do Not Upload",
 ]
+
+[project.optional-dependencies]
+test = ["pytest"]
 
 [project.urls]
 "Homepage" = "https://github.com/pypa/sampleproject"

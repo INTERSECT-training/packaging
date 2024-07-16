@@ -28,10 +28,10 @@ kind: "lesson"
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 # Please don't change it: <USERNAME>/<PROJECT> is correct.
-repository: INTERSECT-training/packaging
+repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: ""
+email: "team@carpentries.org"
 
 # Sites.
 intersect_site: "https://intersect-training.org/"

@@ -4,15 +4,14 @@ teaching: 15
 exercises: 0
 questions:
 - "What other files are important parts of your software package?"
-- "What software license should you use for your project?"
 objectives:
 - "Create a README for a software package"
-- "Choose a software license for a software package"
+- "Add a software license to a software package"
 - "Create a changelog for a package"
 keypoints:
 - "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
 - "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
-- "You can also include `.gitignore` to avoid from committing non-source files and `.pre-commit-config.yaml` to automatically check simple issues with your code before committing it."
+- "You can also include `.gitignore` to avoid from committing non-source files."
 ---
 
 We now have an installed, working Python package that provides some functionality.
@@ -119,9 +118,13 @@ These two categories are "permissive" and "copyleft" licenses.
 Common permissive licenses include the [MIT License](https://choosealicense.com/licenses/mit/) and [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
 The [GNU General Public License v3.0 (or GNU GPLv3) License](https://choosealicense.com/licenses/gpl-3.0/) is a common copyleft license.
 
-Most research software uses permissive licenses like the [MIT License](https://choosealicense.com/licenses/mit/), [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), or the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
-For an easy choice, we recommend using the **BSD 3-Clause License**, which includes a specific clause preventing the names of creators/contributors from being used to endorse or promote derivatives, without permission.
-However, you should choose the specific license that best fits your needs.
+Most research software uses permissive licenses like the:
+- [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/)
+  which includes a specific clause preventing the names of creators/contributors
+  from being used to endorse or promote derivatives, without permission,
+- [MIT License](https://choosealicense.com/licenses/mit/), or the
+- [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
+
 In addition, when working on a project with others or as part of a larger effort, you should check if your collaborators have already determined an appropriate license; for example, on work funded by a grant, a particular license may be mandated by the proposal/agreement.
 
 Create a `LICENSE` file using
@@ -130,7 +133,9 @@ Create a `LICENSE` file using
 $ touch LICENSE
 ```
 
-and copy the **exact** text of the [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/), modifying only the year and names:
+and copy the **exact** text of the license you chose, modifying only the year and names.
+
+For instance, for the [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/):
 
 ```
 BSD 3-Clause License
@@ -216,7 +221,7 @@ gives
 
 ```
 rescale.py:11: RuntimeWarning: invalid value encountered in divide
-  output_array = (input_array - L) / (H - L)
+  output_array = (input_array - low) / (high - low)
 array([nan, nan, nan, nan, nan])
 ```
 {: .output}
@@ -231,12 +236,12 @@ def rescale(input_array):
     Takes an array as input, and returns a corresponding array scaled so that 0
     corresponds to the minimum and 1 to the maximum value of the input array.
     """
-    L = np.min(input_array)
-    H = np.max(input_array)
-    if np.allclose(L, H):
-        output_array = input_array / L
+    low = np.min(input_array)
+    high = np.max(input_array)
+    if np.allclose(low, high):
+        output_array = input_array / low
     else:
-        output_array = (input_array - L) / (H - L)
+        output_array = (input_array - low) / (high - low)
     return output_array
 ```
 
@@ -264,7 +269,7 @@ That may be enough for us to record the change, but how will a user of your pack
 functionality has changed? It's not exactly easy to hunt through Git logs and try to find which
 commit message(s) align with the changes since the last version.
 
-Instead, we can should [keep a changelog](https://keepachangelog.com) in a `CHANGELOG.md` file,
+Instead, we can [keep a changelog](https://keepachangelog.com) in a `CHANGELOG.md` file,
 also at the top level of your package's directory. In this Markdown-formatted file, you should
 record major changes to the package made since the last released version. Then, when you decide
 to release a new version, you add a new section to the file above this list of changes.
@@ -322,12 +327,48 @@ tagged versions:
 [0.1.1]: https://github.com/<username>/package/compare/v0.1.1...v0.1.0
 ```
 
-> <h2>Other locations</h2>
+> ## Other locations
 >
 > Once we have things inside the `docs/` folder, `docs/changelog.md` is also a
 > good place, and keeps your outer directory a bit cleaner. But we'll put it
 > here for now so that we don't interfere with that lesson.
 {:.callout}
+
+> ## Automating Changelog Management
+> There are several tools which are intended to help manage a changelog.
+> Broadly speaking, they use specifically formatted commit messages
+> to generate the changelog.
+> They usually impose a specific way of working,
+> require consistency and discipline when writing the messages,
+> often need manual tweaking of the changelog after generation.
+>
+> ### `commitizen`, "conventional commits" and SemVer
+> [`commitizen`][commitizen] is a release management tool which
+> helps developers to write [conventional commits][]
+> and can generate a grouped and sorted changelog (`commitizen changelog`).
+> Generating a new release, tagging it with an updated version number,
+> and generating a changelog
+> can be automated using [GitHub Actions][commitizen auto release].
+>
+> This requires:
+> - squashing each change into a single commit,
+> - consistency and discipline when writing commit messages.
+>
+> ### GitHub
+> GitHub can "generate release notes" with each release of code,
+> which is a list of the titles of the **pull requests** included in the release.
+> People can view the release notes on GitHub.
+>
+> These release notes:
+> - only appear on GitHub,
+> - aren't automatically grouped and sorted,
+> - only include changes which were part of a pull request title.
+>
+{:.callout}
+
+[conventional commits]: https://www.conventionalcommits.org/
+[commitizen]: https://commitizen-tools.github.io/commitizen/
+[commitizen auto release]: https://commitizen-tools.github.io/commitizen/tutorials/github_actions/
 
 ## Additional files for Git
 

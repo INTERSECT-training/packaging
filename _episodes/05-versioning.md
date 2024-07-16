@@ -176,7 +176,7 @@ release. (But this is also true, maybe more true, if you don't cap!)
 ### Locking
 
 The solution to breaking updates from dependencies is specific for applications
-(like websites an analyses) - you should lock your environment! There are two
+(like websites and analyses) - you should lock your environment! There are two
 ways to do this: manually with piptools, or using a locking package manager
 (like PDM or Poetry).
 
@@ -240,15 +240,38 @@ it looks like this:
 dynamic = ["version"]
 
 [tool.hatch]
-version.path = "src/<package>/__init__.py"
+version.path = "src/package/__init__.py"
 ```
 
 ### VCS versioning (hatchling)
 
-Technically, there's another source for the version: git tags. Some backends
-provide ways to use these as the single version source.  This also means every
-commit gets a unique version, since "commits past tag" is usually added to the
-version number. In hatchling, it looks like this:
+Technically, there's another source for the version: git tags.
+A tag is a marker for a particular commit in a git history.
+
+You can create a git tag on your last commit using `git tag <version>`:
+
+```bash
+git tag v0.1.0
+```
+
+> ## `git` Tags and Branches
+> A tag is like a branch but it doesn't move when you make a new commit.
+>
+> You can check out a particular tagged version using `git checkout`:
+> ```bash
+> git checkout v0.2.0
+> ```
+> but you will need to checkout a branch before you commit again, e.g.
+> ```bash
+> git checkout main
+> ```
+{:.callout}
+
+Some backends provide ways to use these as the single version source.
+This also means every commit gets a unique version,
+since "commits past tag" is usually added to the version number.
+
+In hatchling, it looks like this:
 
 
 ```toml
@@ -260,30 +283,55 @@ dynamic = ["version"]
 
 [tool.hatch]
 version.source = "vcs"
-build.hooks.vcs.version-file = "src/<package>/version.py"
+build.hooks.vcs.version-file = "src/package/_version.py"
 ```
 
-This will get the version from VCS, and will also write out a version file that
-you can then import `version` (or `__version__` in recent versions) from and
-provide as `__version__` for your package.
+When you run `pip install --editable ".[dev]"`, or build your package for distribution,
+a new file `src/package/_version.py` will be created.
 
+You can use the `__version__` from that file in your `__init__.py` file like this:
+```python
+# src/package/__init__.py
+from ._version import __version__
+```
+
+... allowing users to call
+```python
+import package
+
+package.__version__  # 'v0.1.0'
+```
+
+Ensure the `_version.py` file is not stored in the repository by adding it to the `.gitignore` file:
+
+```
+# Ignore dynamic version file
+src/package/_version.py
+```
+
+## Version Number in `git archive`
 If you also want git tarballs to contain the version, add the following to your `.gitattributes` file:
 
 ```txt
 .git_archival.txt  export-subst
 ```
 
-And the following `.git_archival` file:
+And the following `.git_archival.txt` file:
 
 ```txt
 node: $Format:%H$
 node-date: $Format:%cI$
 describe-name: $Format:%(describe:tags=true,match=*[0-9]*)$
-ref-names: $Format:%D$
 ```
 
 Now `git archive`'s output (like the tarballs GitHub provides) will also include
 the version information (for recent versions of git)!
+
+```bash
+git archive --output=./package_archive.tar --format=tar HEAD
+mkdir extract && tar -xvf package_archive.tar -C extract
+cat extract/.git_archival.txt
+```
 
 > ## Add a versioning system
 > Add one of the two single-version systems listed above to your package.
