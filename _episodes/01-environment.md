@@ -14,64 +14,51 @@ keypoints:
 - "A task runner makes it easier to contribute to software"
 ---
 
-You will see two _very_ common recommendations when installing a package:
 
-```bash
-pip install <package>         # Use only in virtual environment!
-pip install --user <package>  # Almost never use
-```
+One of Python's biggest strengths is its ecosystem of packages which build upon and extend
+the capabilities offered by the standard library.
 
-Don't use them unless you know exactly what you are doing! The first one will
-try to install globally, and if you don't have permission, will install to your
-user site packages. In global site packages, you can get conflicting versions
-of libraries, you can't tell what you've installed for what, packages can
-update and break your system; it's a mess. And user site packages are worse,
-because all installs of Python on your computer share it, so you might override
-and break things you didn't intend to. And with pip's new smart solver,
-updating packages inside a global environment can take many minutes and produce
-unexpectedly solves that are technically "correct" but don't work because it
-backsolved conflicts to before issues were discovered.
+We'll look at how:
+- You should use virtual environments to manage the dependencies of different projects,
+- You can install packages you want to build on using `pip`, and
+- You can install Python applications you just want to use using `pipx`.
 
-There is a solution: virtual environments (libraries) or pipx (applications).
+## Creating and Activating/Deactivating a Virtual Environment
 
-There are likely a _few_ libraries (ideally just `pipx`) that you just have to
-install globally. Go ahead, but be careful (and always use your system package
-manager instead if you can, like [`brew` on macOS](https://brew.sh) or the
-Windows ones -- Linux package managers tend to be too old to use for Python libraries).
-
-
-## Virtual Environments
-
-> The following uses the standard library `venv` module. The `virtualenv`
-> module can be installed from PyPI, and works identically, though is a bit
-> faster and provides newer pip by default.
-{:.callout}
+Whenever we're developing or working in Python, the best practice is to use a
+"virtual environment" which isolates the packages used for a particular project.
 
 Python 3 comes with the `venv` module built-in, which supports making virtual environments.
-To make one, you call the module with
-
+To make one, you call the module with:
 
 ```bash
 python3 -m venv .venv
 ```
 
-This creates links to Python and pip in `.venv/bin`, and creates a
-site-packages directory at `.venv/lib`. You can just use `.venv/bin/python` if
-you want, but many users prefer to source the activation script:
+This creates a new directory `.venv` containing:
+- `.venv/bin`
+  - A link to the Python version,
+  - A link to the Python package installer `pip`, and
+  - activation scripts.
+- `.venv/lib/site-packages` where packages will be installed.
+
+To activate the environment, source the activation script:
 
 ```bash
 . .venv/bin/activate
 ```
 
-(Shell specific, but there are activation scripts for all common shells here).
 Now `.venv/bin` has been added to your PATH, and usually your shell's prompt
-will be modified to indicate you are "in" a virtual environment. You can now
-use `python`, `pip`, and anything you install into the virtualenv without
-having to prefix it with `.venv/bin/`.
+will be modified to indicate you are "in" a virtual environment:
+```
+% . .venv/bin/activate
+(.venv) %
+```
 
-> Check the version of pip installed! If it's old, you might want to run `pip
-> install -U pip` or, for modern versions of Python, you can add
-> `--upgrade-deps` to the venv creation line.
+> ## Upgrade `pip`
+> Check the version of pip installed!
+> If it's old, you might want to run `pip install --upgrade pip` or,
+> for Python 3.9 or later, you can add `--upgrade-deps` to the venv creation line.
 {:.challenge}
 
 To "leave" the virtual environment, you
@@ -82,10 +69,17 @@ your shell:
 deactivate
 ```
 
+The prompt will revert:
+
+```
+(.venv) % deactivate
+%
+```
+
 > ## What about conda?
 >
-> The same concerns apply to Conda. You should avoid installing things to the
-> `base` environment, and instead make environments and use those above. Quick tips:
+> The same concerns apply to Conda. You should always make separate environments and
+> use those. Quick tips:
 >
 > ```bash
 > conda config --set auto_activate_base false  # turn off the default environment
@@ -93,32 +87,182 @@ deactivate
 > conda activate some_name
 > conda deactivate
 > ```
+>
+> Alternative implementations of `conda` are available and may be faster, like:
+> - [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)
+>    a single binary, also written in C++,
+> - [Pixi](https://github.com/prefix-dev/pixi) written in Rust.
+>
+> [Mamba](https://github.com/mamba-org/mamba), written in C++,
+> became very popular as its package resolver was much faster than the default in `conda`.
+> In 2023, `conda` incorporated the `libmamba` package resolver as its default,
+> largely eliminating the speed difference between `conda` and `mamba`.
 {:.callout}
 
+## Installing Packages
 
-## Pipx
+To install a package,
+first make sure the environment is activated using `. .venv/bin/activate` first,
+then call:
+
+```bash
+pip install <package>
+```
+
+> ## Install `numpy`
+>
+> - Install the numpy package into your virtual environment.
+> - Test it by opening a Python session and running `import numpy as np` then `np.arange(15).reshape(3, 5)`.
+>
+> > ## Solution
+> > ```
+> > % . .venv/bin/activate
+> > (.venv) % pip install numpy
+> > (.venv) % python
+> > Python 3.12.3 (main, Apr  9 2024, 08:09:14) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
+> > Type "help", "copyright", "credits" or "license" for more information.
+> > >>> import numpy as np
+> > >>> np.arange(15).reshape(3, 5)
+> > array([[ 0,  1,  2,  3,  4],
+> >        [ 5,  6,  7,  8,  9],
+> >        [10, 11, 12, 13, 14]])
+> > >>> exit()
+> > (.venv) %
+> > ```
+> {:.solution}
+{:.challenge}
+
+> ## Installing Packages in the "base" and "user" environment
+>
+> Be careful installing packages without an activated virtual environment.
+>
+> You will see two _very_ common recommendations when installing a package, neither of
+> which you should use unless you know what you're doing:
+>
+> ```bash
+> pip install <package>         # Use only in virtual environment!
+> ```
+> Unless you've activated a virtual environment,
+> this will try to install globally, and if you don't have permission, will install to your
+> user site packages. In global site packages, you can get conflicting versions
+> of libraries, you can't tell what you've installed for what, packages can
+> update and break your system; it's a mess. This is the *"update problem"*.
+>
+> ```bash
+> pip install --user <package>  # Almost never use
+> ```
+> This will install in your user directory. This is even worse worse,
+> because all installs of Python on your computer share it, so you might override
+> and break things you didn't intend to. And with pip's new smart solver,
+> updating packages inside a global environment can take many minutes and produce
+> unexpectedly solves that are technically "correct" but don't work because it
+> backsolved conflicts to before issues were discovered.
+>
+> There is a solution: virtual environments (libraries) or pipx (applications).
+>
+> There are likely a _few_ libraries (ideally just `pipx`) that you just have to
+> install globally. Go ahead, but be careful, and always use your system package
+> manager instead if you can, like
+> - [`brew` on macOS](https://brew.sh),
+> - [`winget`](https://learn.microsoft.com/en-us/windows/package-manager/winget/) or [`scoop`](https://scoop.sh/) on Windows,
+> - `apt-get` on Ubuntu.
+>
+{:.caution}
+
+## Installing Applications
 
 There are many Python packages that provide a command line interface and are
 not really intended to be imported (`pip`, for example, should not be
 imported). It is really inconvenient to have to set up venvs for every command
-line tool you want to install, however. `pipx`, from the makers of `pip`,
-solves this problem for you.  If you `pipx install` a package, it will be
-created inside a new virtual environment, and just the executable scripts will
-be exposed in your regular shell.
+line tool you want to install, however. [`pipx`](https://pipx.pypa.io/),
+from the makers of `pip`, solves this problem for you.
+
+If you `pipx install` a package, it will be
+created inside a new virtual environment, and
+just the executable scripts will be exposed in your regular shell.
 
 Pipx also has a `pipx run <package>` command, which will download a package and
 run a script of the same name, and will cache the temporary environment for a
 week. This means you have all of PyPI at your fingertips in one line on any
 computer that has pipx installed!
 
-## Task runner (nox)
+> ## Install `pipx` and `cowsay`
+>
+> - Install `pipx` by following the [installation instructions](https://pipx.pypa.io/).
+> - Test it by running `pipx run cowsay -t "venvs are the foo\!"`
+>
+> > ## Solution
+> >
+> > Ubuntu Linux:
+> > ```
+> > sudo apt update
+> > sudo apt install pipx
+> > pipx ensurepath
+> > ```
+> >
+> > macOS:
+> > ```
+> > brew install pipx
+> > pipx ensurepath
+> > ```
+> >
+> > Then:
+> > ```
+> > % pipx run cowsay -t "venvs are the foo\!"
+> >   __________________
+> > | venvs are the foo! |
+> >   ==================
+> >                   \
+> >                    \
+> >                      ^__^
+> >                      (oo)\_______
+> >                      (__)\       )\/\
+> >                          ||----w |
+> >                          ||     ||
+> > ```
+> {:.solution}
+{:.challenge}
 
 
-A task runner, like [make][] (fully general), [rake][] (Ruby general),
-[invoke][] (Python general), [tox][] (Python packages), or [nox][] (Python
-simi-general), is a tool that lets you specify a set of tasks via a common
-interface. These can be a crutch, allowing poor packaging practices to be
-employed behind a custom script, and they can hide what is actually happening.
+## Task runner
+
+A task runner is a tool that lets you specify a set of tasks via a common
+interface.
+
+
+Use of a task runner is optional, but can be helpful to:
+- make it easy and simple for new contributors to run things,
+- make specialized developer tasks easy,
+- avoid making single-use virtual environments for docs and other rarely run tasks.
+
+Task runner preferences are subjective and diverse.
+Different people prefer different task runners because they are
+more flexible, simpler to understand, specialized to one language,
+general to many languages, and so on.
+
+Examples we'll cover include:
+- [nox][] (Python semi-general), and
+- [hatch][] (specialized for Python package management).
+
+Other examples are:
+- [make][] (fully general),
+- [rake][] (Ruby general),
+- [invoke][] (Python general), and
+- [tox][] (Python packages).
+
+> ## Task Runner as Crutch
+> Task runners can be a crutch, allowing poor packaging practices to be
+> employed behind a custom script, and they can hide what is actually happening.
+{:.caution}
+
+[nox]: https://nox.thea.codes
+[tox]: https://tox.readthedocs.io
+[invoke]: https://www.pyinvoke.org
+[rake]: https://ruby.github.io/rake/
+[make]: https://www.gnu.org/software/make/
+[hatch]: https://hatch.pypa.io/
+
+### Nox
 
 Nox has two strong points that help with this concern. First, it is very
 explicit, and even prints what it is doing as it operates. Unlike the older
@@ -136,22 +280,11 @@ is _much_ faster than explaining how to get setup or manually messing with
 virtual environments. It is also highly reproducible, creating and destroying
 the temporary environment each time by default.
 
-You should use nox to make it easy and simple for new contributors to run
-things. You should use nox to make specialized developer tasks easy. You should
-use nox to avoid making single-use virtual environments for docs and other
-rarely run tasks.
-
-[nox]: https://nox.thea.codes
-[tox]: https://tox.readthedocs.io
-[invoke]: https://www.pyinvoke.org
-[rake]: https://ruby.github.io/rake/
-[make]: https://www.gnu.org/software/make/
-
 Since nox is an application, you should install it with `pipx`. If you use
 Homebrew, you can install `nox` with that (Homebrew isolates Python apps it
 distributes too, just like pipx).
 
-## Running nox
+#### Running nox
 
 If you see a `noxfile.py` in a repository, that means nox is supported. You can start
 by checking to see what the different tasks (called `sessions` in nox) are provided
@@ -182,9 +315,10 @@ nox -s preview
 Will build and start up a preview of the site.
 
 If you need to pass options to the session, you can separate nox options with
-and the session options with `--`.
+and the session options with `--`,
+e.g. `nox -s preview -- --quiet` to pass the `--quiet` flag to the session named `preview`.
 
-## Writing a Noxfile
+#### Writing a Noxfile
 
 For this example, we'll need a minimal test file for pytest to run. Let's make
 this file in a local directory:
@@ -273,11 +407,11 @@ nox > Session tests was successful.
 
 
 > ## Passing arguments through
-> Try passing `-v` to pytest.
+> Try passing `--verbose` to pytest.
 >
 > > ## Solution
 > > ```bash
-> > nox -s tests -- -v
+> > nox -s tests -- --verbose
 > > ```
 > {:.solution}
 {:.challenge}
@@ -295,5 +429,38 @@ nox > Session tests was successful.
 > > ```
 > {:.solution}
 {:.challenge}
+
+
+#### Backends
+
+It's possible to use different backends than `venv` and `pip` when running `nox`.
+`uv` is a fast package installer and resolver, written in Rust and designed to be a
+replacement for `pip`. Using it can lead to enormous performance gains,
+which can be useful when you create and destroy virtual environments with `nox`
+many times per day.
+
+- Update the top of your `noxfile.py`:
+  ```python
+  # noxfile.py
+
+  import nox
+
+  nox.needs_version = ">=2024.3.2"
+  nox.options.default_venv_backend = "uv"
+  ```
+- Install `uv` using your package manager ([installation instructions](https://github.com/astral-sh/uv)).
+
+You can also specify `nox.options.default_venv_backend = "uv|virtualenv"`
+which will fallback to `virtualenv` if `uv` is not installed
+
+> #### Alternative backends
+>
+> Try running your tests with the default `virtualenv` and the `uv|virtualenv` backend.
+>
+> How does the execution time change?
+{:.challenge}
+
+
+
 
 {% include links.md %}
