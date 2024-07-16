@@ -10,12 +10,22 @@ keypoints:
 - "Set up GitHub Actions on your project"
 ---
 
-Continuous Integration (CI) allows you to perform tasks on a server
-for various events on your repository (called triggers). For example,
-you can use GitHub Actions (GHA) to run a test suite on every pull request.
+Developers often need to run some tasks every time they update code.
+This might include running tests, or checking that the formatting
+conforms to a style guide.
 
-GHA is made up of workflows which consist of actions. Workflows are files
-in the `.github/workflows` folder ending in `.yml`.
+Continuous Integration (CI) allows the developer to automate running
+these kinds of tasks each time various "trigger" events occur on your repository.
+For example, you can use CI to run a test suite on every pull request.
+
+In this episode we will set up CI using GitHub Actions:
+- test the code on every pull request or merge to main,
+- run those tests under multiple versions of python, on Linux, Windows and macOS.
+
+## GitHub Actions `workflows` directory
+
+GitHub Actions is made up of workflows which consist of actions.
+Workflows are files in the `.github/workflows` folder ending in `.yml`.
 
 ## Triggers
 
@@ -47,9 +57,9 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -107,12 +117,12 @@ tests:
   name: Check Python ${{ matrix.python-version }} on ${{ matrix.runs-on }}
   runs-on: ${{ matrix.runs-on }}
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # Only needed if using setuptools-scm
+        fetch-depth: 0
 
     - name: Setup Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -146,7 +156,7 @@ GitHub Actions has the concept of actions, which are just GitHub repositories of
 There are some GitHub supplied ones:
 
 - [actions/checkout](https://github.com/actions/checkout): Almost always the first action. v2+ does not keep Git history unless `with: fetch-depth: 0` is included (important for SCM versioning). v1 works on very old docker images.
-- [actions/setup-python](https://github.com/actions/setup-python): Do not use v1; v2+ can setup any Python, including uninstalled ones and pre-releases. v4 requires a Python version to be selected.
+- [actions/setup-python](https://github.com/actions/setup-python): Do not use v1; v2+ can setup any Python, including uninstalled ones and pre-releases. v4+ requires a Python version to be selected.
 - [actions/cache](https://github.com/actions/cache): Can store files and restore them on future runs, with a settable key.
 - [actions/upload-artifact](https://github.com/actions/upload-artifact): Upload a file to be accessed from the UI or from a later job.
 - [actions/download-artifact](https://github.com/actions/download-artifact): Download a file that was previously uploaded, often for releasing. Match upload-artifact version.
