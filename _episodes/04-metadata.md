@@ -102,23 +102,16 @@ Homepage = "https://pypi.org"
 "Source Code" = "https://pypi.org"
 ```
 
-### Trove Classifiers
+### Classifiers
 
 This is a collection of
-["Trove classifiers"](https://peps.python.org/pep-0301/#distutils-trove-classification).
+["classifiers"](https://peps.python.org/pep-0301/#distutils-trove-classification).
 You select the classifiers that match your projects from <https://pypi.org/classifiers/>.
 Usually, this includes a "Development Status" to tell users how stable you think your project is,
 and a few things like "Intended Audience" and "Topic" to help with search engines.
 There are some important ones though: the "License" (s) is used to indicate your license.
 You also can give an idea of supported Python versions, Python implementations, and "Operating System"s as well.
 If you have statically typed Python code, you can tell users about that, too.
-
-> ## Why "Trove"?
-> Trove classifiers were initially developed as part of the
-> [Trove Project](http://www.catb.org/~esr/trove/),
-> "an attempt to create an open-source distributed archiving system
-> for use at large software archive sites."
-{:.callout}
 
 ```toml
 [project]
@@ -145,7 +138,7 @@ classifiers = [
 ```
 
 > ## Prevent Inadvertent Publishing
-> By adding the "Private :: Do Not Upload" Trove Classifier here, we ensure that
+> By adding the "Private :: Do Not Upload" classifier here, we ensure that
 > the package will be
 > [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
 > If you want to upload to PyPI, you will need to remove that classifier.
@@ -203,7 +196,7 @@ You need to make sure you always have this line and that it stays accurate, sinc
 
 > ## Upper caps
 >
-> Upper caps are generally discouraged in the Python ecosystem, but they are (even more than usual) broken when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use Trove Classifiers to tell users what versions of Python your code was tested with.
+> Upper caps are generally discouraged in the Python ecosystem, but they are (even more than usual) broken when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
 {:.callout}
 
 ### Dependencies
