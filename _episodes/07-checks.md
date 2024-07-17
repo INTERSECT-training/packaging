@@ -144,25 +144,17 @@ configurable in a modern configuration format (in `pyproject.toml`!). And it
 supports auto-fixes, something common outside of Python, but rare in the Python
 space before now.
 
-You'll need a bit of configuration in your `pyproject.toml`:
+You'll want a bit of configuration in your `pyproject.toml`:
 
 ```toml
 [tool.ruff]
-select = [
-  "E", "F", "W", # flake8
+src = ["src"]
+lint.extend-select = [
   "B",           # flake8-bugbear
   "I",           # isort
   "PGH",         # pygrep-hooks
   "RUF",         # Ruff-specific
   "UP",          # pyupgrade
-]
-extend-ignore = [
-  "E501",   # Line too long
-]
-target-version = "py38"
-src = ["src"]
-unfixable = [
-  "F841", # Removes unused variables
 ]
 ```
 
@@ -170,7 +162,6 @@ To use Ruff to check your code for style problems, run:
 ```bash
 pipx run ruff check
 ```
-
 
 To use Ruff instead of Black to format your code, run:
 ```bash
@@ -290,12 +281,14 @@ To configure Black within `.pre-commit-config.yaml`, add the following configura
 
 To configure Ruff within `.pre-commit-config.yaml`, add the following configuration:
 ```yaml
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.4.8"
-    hooks:
-      - id: ruff
-        args: ["--fix", "--show-fixes"]
+
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: "v0.5.2"
+  hooks:
+    - id: ruff
+      args: ["--fix", "--show-fixes"]
 ```
+
 
 > ## Replacement for Black
 > You can add an additional hook, `- id: ruff-format` which is meant to be a drop-in replacement for `black`.
