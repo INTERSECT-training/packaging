@@ -373,7 +373,7 @@ test = ["pytest"]
 [project.urls]
 "Homepage" = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
 "Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
-````
+```
 
 > ## Add metadata and check it.
 > Take your existing package and add more metadata to it. Install it, then use
