@@ -191,6 +191,8 @@ Also, an auto-formatter helps highlight errors in your code. If you forget a
 comma in a list, causing strings to auto-concatenate, the blacked form often
 makes it much easier to spot the error; this is just one example.
 
+For some examples of black, see the [Black Playground](https://black.vercel.app/)
+
 ### Ruff
 
 Ruff has recently exploded as the most popular linting tool for Python, and it's
