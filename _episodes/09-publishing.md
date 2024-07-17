@@ -112,23 +112,6 @@ several benefits: you are always in a clean checkout, so you won't accidentally
 include added or changed files, you have a simpler deployment procedure, and
 you have more control over who can publish in GitHub.
 
-> ## Create a noxfile to build
->
-> Given what you've learned about `nox` and `build`, write a session that builds
-> packages for you.
->
-> > ## Solution
-> > ```python
-> > import nox
-> >
-> > @nox.session()
-> > def build(session):
-> >     session.install("build")
-> >     session.run("python", "-m", "build")  # can use pyproject-build instead
-> > ```
-> {:.solution}
-{:.challenge}
-
 ## Building in GitHub Actions
 
 GitHub Actions can be used for any sort of automation task, not just building
