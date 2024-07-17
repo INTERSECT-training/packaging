@@ -9,7 +9,7 @@ objectives:
 - "Add a software LICENSE to a software package"
 - "Create a CHANGELOG for a package"
 keypoints:
-- "In Packages should include a README, LICENSE, and CHANGELOG."
+- "Packages should include a README, LICENSE, and CHANGELOG."
 - "Choose an existing software license"
 - "You can also include `.gitignore` to avoid from committing non-source files."
 ---
