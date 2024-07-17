@@ -36,7 +36,7 @@ The contributing author(s) to this lesson are:
 * [Kyle Niemeyer](https://github.com/kyleniemeyer)
 * [John G. Holland](https://github.com/hollandjg)
 * [Maria Isabel Restrepo](https://github.com/mirestrepo)
-
+* [George Dang](https://github.com/gtdang)
 
 ## Maintainer(s)
 
