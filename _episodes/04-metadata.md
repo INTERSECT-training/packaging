@@ -175,7 +175,7 @@ There are three ways to include your license:
 
    ```bash
    tar -tvf dist/example_package_YOUR_USERNAME_HERE-0.1.1.tar.gz
-   unzip -l dist/example_package_YOUR_USERNAME_HERE-0.1.1-py3-none-any.whl
+   unzip -l dist/example_package_YOUR_USERNAME_HERE-0.1.1-py2.py3-none-any.whl
    ```
 
 ## Functional metadata
