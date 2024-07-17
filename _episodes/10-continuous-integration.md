@@ -1,5 +1,5 @@
 ---
-title: "CI with GitHub Actions"
+title: "Continuous Integration"
 teaching: 10
 exercises: 10
 questions:

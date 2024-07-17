@@ -27,18 +27,7 @@ In this episode we'll:
 
 ## Formats
 
-There are two major formats used to publish python packages:
-- **source distribution** (`sdist` for short):
-  - Contains most of your repository, including tests, and
-  - Requires your build backend (hatchling, in this case) to build.
-- **wheel**:
-  - The wheel is "built", the
-    contents are ready to unpack into standard locations (usually site-packages),
-    and does not contain configuration files like `pyproject.toml`.
-  - Usually you do not include things like tests in the wheel.
-  - Wheels also can contain binaries for packages with compiled portions.
-
-One additional "format" is available as soon as you have pushed your work to a platform like GitHub:
+One "format" is available as soon as you have pushed your work to a platform like GitHub:
 - **repository**:
   - Contains all of your repository, including tests, metadata, and its history,
   - Requires your build backend (hatchling, in this case) to build.
@@ -51,6 +40,17 @@ One additional "format" is available as soon as you have pushed your work to a p
     * `pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709`
     * `pip install git+https://git.example.com/MyProject.git@refs/pull/123/head`
 
+If you want to share your work with a wider audience,
+there are two major formats used to publish python packages:
+- **source distribution** (`sdist` for short):
+  - Contains most of your repository, including tests, and
+  - Requires your build backend (hatchling, in this case) to build.
+- **wheel**:
+  - The wheel is "built", the
+    contents are ready to unpack into standard locations (usually site-packages),
+    and does not contain configuration files like `pyproject.toml`.
+  - Usually you do not include things like tests in the wheel.
+  - Wheels also can contain binaries for packages with compiled portions.
 
 ## Building SDists and wheels
 
