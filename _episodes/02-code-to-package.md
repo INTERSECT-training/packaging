@@ -1,15 +1,16 @@
 ---
-title: "Idea to Package"
+title: "Code to Package"
 teaching: 20
 exercises: 5
 questions:
-- "How do we take code in a Jupyter Notebook or Python script and turn that into a package?"
+- "How do we take code and turn that into a package?"
 - "What are the minimum elements required for a Python package?"
 - "How do you set up tests?"
 objectives:
 - "Create and install a Python package"
 - "Create and run a test"
 keypoints:
+- "Put your code and tests in a standard package structure"
 - "Use a `pyproject.toml` file to describe a Python package"
 ---
 

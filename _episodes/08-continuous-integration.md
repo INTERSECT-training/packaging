@@ -8,6 +8,7 @@ objectives:
 - "Use a CI service to run your tests"
 keypoints:
 - "Set up GitHub Actions on your project"
+- "Run your tests on multiple platforms and with multiple Python versions"
 ---
 
 Developers often need to run some tasks every time they update code.
