@@ -27,35 +27,35 @@ We're going to create a Python package from scratch, then publish it.
 We'll look at the following important groups of files:
 
 ```files
-.   
-├── src/                     } Minimum to make the code 
-│   └── package/             } work and be installable
-│   │   ├── __init__.py      }
-│   │   └── rescale.py       } 
-├── tests/                   }
-│   └── test_rescale.py      }
-├── pyproject.toml           } < Deep dive into metadata and versioning
+.
+├── src/                    ─┐
+│   └── package/             │
+│   │   ├── __init__.py      │
+│   │   └── rescale.py       ├─ Minimum to make the code
+├── tests/                   │  work and be installable
+│   └── test_rescale.py      │
+├── pyproject.toml          ─┘ ← Deep dive into metadata and versioning
 │
-├── .git/                    } Store the history of the code
-├── .gitignore               }
+├── .git/                   ─┬─ Store the history of the code
+├── .gitignore              ─┘
 │
-├── .venv/                   } Environment to run the code
+├── .venv/                  ─── Environment to run the code
 │
-├── README                   } Tell people browsing the code what it's for,
-├── CHANGELOG                } how it's changed,
-├── LICENSE                  } under what conditions they can use it,
-├── CITATION.cff             } how they can cite it.
+├── README                  ─┐
+├── CHANGELOG                ├─ Tell people browsing the code what it's for,
+├── LICENSE                  │  how it's changed, under what conditions they
+├── CITATION.cff            ─┘  can use it, and how they can cite it
 │
-├── docs/                    } Document the code in more detail
-│   ├── index.md             }
-│   └── conf.py              }
+├── docs/                   ─┐
+│   ├── index.md             ├─ Document the code in more detail
+│   └── conf.py             ─┘
 │
-├── .pre-commit-config.yaml  } Automate tasks which run _on_ the code
-├── noxfile.py               } like style-checks, tests, and publishing
-└── .github/                 } 
-    └── workflows/           }
-        ├── test.yaml        }
-        └── publish.yaml     }
+├── .pre-commit-config.yaml ─┐
+├── noxfile.py               │
+└── .github/                 ├─ Automate tasks which run _on_ the code
+    └── workflows/           │  like style-checks, tests, and publishing
+        ├── test.yaml        │
+        └── publish.yaml    ─┘
 ```
 
 {: .checklist }
