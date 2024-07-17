@@ -8,7 +8,8 @@ questions:
 objectives:
 - "Learn about the project table."
 keypoints:
-- "There are a variety of useful bits of metadata you should add."
+- "Add informational metadata to tell people about your package."
+- "Add functional metadata to tell people how to install and use your package."
 ---
 
 In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
