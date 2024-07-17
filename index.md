@@ -29,7 +29,7 @@ We'll look at the following important groups of files:
 ```files
 .
 ├── src/                    ─┐
-│   └── package/             │
+│   └── example_package_YOUR_USERNAME_HERE/
 │   │   ├── __init__.py      │
 │   │   └── rescale.py       ├─ Minimum to make the code
 ├── tests/                   │  work and be installable
