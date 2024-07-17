@@ -174,8 +174,8 @@ There are three ways to include your license:
    using this field.
 
    ```bash
-   tar -tvf dist/package-0.0.1.tar.gz
-   unzip -l dist/package-0.0.1-py3-none-any.whl
+   tar -tvf dist/example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
+   unzip -l dist/example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
    ```
 
 ## Functional metadata
@@ -225,7 +225,7 @@ check = ["flake8"]
 plot = ["matplotlib"]
 ```
 
-Now, you can run `pip install 'package[test,check]'`, and
+Now, you can run `pip install 'example-package-YOUR-USERNAME-HERE[test,check]'`, and
 pip will install both the required and optional dependencies `pytest` and `flake8`,
 but not `matplotlib`.
 
@@ -321,11 +321,11 @@ For example, if you want `hatchling` to read `__version__.py` from `src/package/
 
 ```
 [project]
-name = "package"
+name = "example-package-YOUR-USERNAME-HERE"
 dynamic = ["version"]
 
 [tool.hatch]
-version.path = "src/package/__init__.py"
+version.path = "src/example_package_YOUR_USERNAME_HERE/__init__.py"
 ```
 
 ## All together
@@ -339,7 +339,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "package"
+name = "example-package-YOUR-USERNAME-HERE"
 version = "0.0.1"
 dependencies = [
   "numpy"
@@ -373,7 +373,7 @@ test = ["pytest"]
 > > ## Solution
 > > ```bash
 > > pip install -e .
-> > pip show -v <package-name>
+> > pip show -v example-package-YOUR-USERNAME-HERE
 > > ```
 > {:.solution}
 {:.challenge}

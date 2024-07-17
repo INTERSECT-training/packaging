@@ -98,7 +98,7 @@ Create a new repository using GitHub desktop.
 - Open GitHub Desktop
 - Select File > New Repository
 - Specify the repository data:
-  - Name: package-example (use dashes `-`, don't use underscores `_` for this name)
+  - Name: example-package-YOUR-USERNAME-HERE (use dashes `-`, don't use underscores `_` for this name)
   - Local Path: pick somewhere which _isn't_ synced to a cloud provider like DropBox, OneDrive or iCloud – they can interfere with `git`.
   - Initialize the repository with a README.
   - Leave the .gitignore and License both as "None".

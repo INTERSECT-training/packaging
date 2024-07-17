@@ -155,7 +155,8 @@ version = "1.2.3"
 
 And placing it in your source code accessible as `__version__` on your package.
 You don't have to do that, since a user can use
-`importlib.metadata.version("<package_name>")` to get the version, but this is a
+`importlib.metadata.version("example-package-YOUR-USERNAME-HERE")`
+to get the version, but this is a
 very common practice and is useful if there is an issue and you need a hard copy
 of the version in the source for an improperly packaged file.
 
@@ -173,7 +174,7 @@ it looks like this:
 dynamic = ["version"]
 
 [tool.hatch]
-version.path = "src/package/__init__.py"
+version.path = "src/example_package_YOUR_USERNAME_HERE/__init__.py"
 ```
 
 ### VCS versioning (hatchling)
@@ -216,30 +217,30 @@ dynamic = ["version"]
 
 [tool.hatch]
 version.source = "vcs"
-build.hooks.vcs.version-file = "src/package/_version.py"
+build.hooks.vcs.version-file = "src/example_package_YOUR_USERNAME_HERE/_version.py"
 ```
 
 When you run `pip install --editable ".[dev]"`, or build your package for distribution,
-a new file `src/package/_version.py` will be created.
+a new file `src/example_package_YOUR_USERNAME_HERE/_version.py` will be created.
 
 You can use the `__version__` from that file in your `__init__.py` file like this:
 ```python
-# src/package/__init__.py
+# src/example_package_YOUR_USERNAME_HERE/__init__.py
 from ._version import __version__
 ```
 
 ... allowing users to call
 ```python
-import package
+import example_package_YOUR_USERNAME_HERE
 
-package.__version__  # 'v0.1.0'
+example_package_YOUR_USERNAME_HERE.__version__  # 'v0.1.0'
 ```
 
 Ensure the `_version.py` file is not stored in the repository by adding it to the `.gitignore` file:
 
 ```
 # Ignore dynamic version file
-src/package/_version.py
+src/example_package_YOUR_USERNAME_HERE/_version.py
 ```
 
 ## Version Number in `git archive`

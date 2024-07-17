@@ -79,10 +79,10 @@ This includes:
 - a `docs` directory, which will hold the files necessary for documenting your software package.
 
 ```bash
-$ mkdir -p src/package tests docs
+$ mkdir -p src/example_package_YOUR_USERNAME_HERE tests docs
 ```
 
-(The `-p` flag tells `mkdir` to create the `src` parent directory for `package`.)
+(The `-p` flag tells `mkdir` to create the `src` parent directory for `example_package_YOUR_USERNAME_HERE`.)
 
 > ## Directory Structure
 > Putting the package directory and source code inside the `src` directory is not actually *required*.
@@ -91,15 +91,15 @@ $ mkdir -p src/package tests docs
 > - In addition, the `src/` package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
 {:.callout}
 
-Inside `src/package`, create the files `__init__.py` and `rescale.py`:
+Inside `src/example_package_YOUR_USERNAME_HERE`, create the files `__init__.py` and `rescale.py`:
 
 - `__init__.py` is required to import this directory as a package, and should remain empty (for now).
   ```bash
-  $ touch src/package/__init__.py
+  $ touch src/example_package_YOUR_USERNAME_HERE/__init__.py
   ```
 - `rescale.py` is the module inside this package that will contain the `rescale()` function;
   ```bash
-  $ touch src/package/rescale.py
+  $ touch src/example_package_YOUR_USERNAME_HERE/rescale.py
   ```
 
 Copy the `rescale()` function into `rescale.py` file. (Don't forget the NumPy import!)
@@ -122,7 +122,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "package"
+name = "example-package-YOUR-USERNAME-HERE"
 version = "0.1.0"
 dependencies = [
   "numpy"
@@ -158,7 +158,7 @@ At this point, your package's file structure should look like this:
 ├── docs/
 ├── pyproject.toml
 ├── src/
-│   └── package/
+│   └── example_package_YOUR_USERNAME_HERE/
 │   │   ├── __init__.py
 │   │   └── rescale.py
 ├── tests/
@@ -180,7 +180,7 @@ Then, in a Python shell or Jupyter Notebook, import your package and call the (s
 
 ```python
 import numpy as np
-from package.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 rescale(np.linspace(0, 100, 5))
 ```
@@ -207,7 +207,7 @@ In this file, we need to import the package, and check that a call to the `resca
 ```python
 # contents of tests/test_rescale.py
 import numpy as np
-from package.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 
 def test_rescale():
@@ -266,7 +266,7 @@ Don't forget to commit all your work using `git`.
 Commit the relevant files, first the code:
 
 ```bash
-git add src/package/{__init__,rescale}.py
+git add src/example_package_YOUR_USERNAME_HERE/{__init__,rescale}.py
 git add tests/test_rescale.py
 git commit -m "feat: add basic rescaling function
 ```
@@ -322,7 +322,7 @@ git push origin main
 > ```
 > python3 -m venv .venv2
 > . .venv2/bin/activate
-> python3 -m pip install git+https://github.com/<your github username>/packaging-example
+> python3 -m pip install git+https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE
 > ```
 > Open a python console and call the rescale function with some data.
 >

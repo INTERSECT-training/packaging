@@ -54,7 +54,7 @@ and then add these elements:
 ````markdown
 # Package
 
-`package` is a simple Python library that contains a single function for rescaling arrays.
+`example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
 
 ## Installation
 
@@ -68,7 +68,7 @@ pip install .
 
 ```python
 import numpy as np
-from package.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 # rescales over 0 to 1
 rescale(np.linspace(0, 100, 5))
@@ -211,7 +211,7 @@ the array holds the same number repeated). For example:
 
 ```python
 import numpy as np
-from package.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -249,7 +249,7 @@ Now, when we call rescale (no need to reinstall or upgrade the package, since we
 
 ```python
 import numpy as np
-from package.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -300,7 +300,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2022-08-09
 ### Added
-- Created rescale() function and released package
+- Created rescale() function and released example_package_YOUR_USERNAME_HERE
 ```
 
 If at this point you want to increment the version to 0.1.1 to indicate this small fix
@@ -315,7 +315,7 @@ to the behavior, you would add a new section for this version:
 
 ## [0.1.0] - 2022-08-09
 ### Added
-- Created rescale() function and released package
+- Created rescale() function and released example_package_YOUR_USERNAME_HERE
 ```
 
 Note that the version numbers are shown as links in these examples, although the links
@@ -324,7 +324,7 @@ at the bottom of the file, using (for example) GitHub's ability to compare betwe
 tagged versions:
 
 ```markdown
-[0.1.1]: https://github.com/<username>/package/compare/v0.1.1...v0.1.0
+[0.1.1]: https://github.com/<username>/example-package-YOUR-USERNAME-HERE/compare/v0.1.1...v0.1.0
 ```
 
 > ## Other locations
@@ -386,7 +386,7 @@ On branch main
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 	__pycache__/
-	src/package/__pycache__/
+	src/example_package_YOUR_USERNAME_HERE/__pycache__/
 	tests/__pycache__/
 
 nothing added to commit but untracked files present (use "git add" to track)
@@ -600,7 +600,7 @@ should look something like this:
 ├── docs/
 ├── pyproject.toml
 ├── src/
-│   └── package/
+│   └── example_package_YOUR_USERNAME_HERE/
 │   │   ├── __init__.py
 │   │   └── rescale.py
 └── tests/
