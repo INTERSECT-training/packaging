@@ -85,6 +85,15 @@ $ mkdir -p src/example_package_YOUR_USERNAME_HERE tests docs
 
 (The `-p` flag tells `mkdir` to create the `src` parent directory for `example_package_YOUR_USERNAME_HERE`.)
 
+> ### Package naming
+>
+> The PEP8 style guide reccomends short, all-lowercase package names. The use of underscores is also discouraged.
+>
+> It's a good idea to keep package names short so that it is easier to remember and type.
+> We are straying from this convention in this tutorial to prevent naming conflicts.  
+> 
+{:.callout}
+
 > ## Directory Structure
 > Putting the package directory and source code inside the `src` directory is not actually *required*.
 > - If you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
