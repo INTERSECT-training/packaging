@@ -102,7 +102,7 @@ Homepage = "https://pypi.org"
 "Source Code" = "https://pypi.org"
 ```
 
-### Trove Classifiers
+### Classifiers
 
 This is a collection of
 ["classifiers"](https://peps.python.org/pep-0301/#distutils-trove-classification).
