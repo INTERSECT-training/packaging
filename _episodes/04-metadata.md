@@ -349,7 +349,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "example-package-YOUR-USERNAME-HERE"
-version = "0.0.1"
+version = "0.1.1"
 dependencies = [
   "numpy"
 ]
