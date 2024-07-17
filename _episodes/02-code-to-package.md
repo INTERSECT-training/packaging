@@ -87,11 +87,11 @@ $ mkdir -p src/example_package_YOUR_USERNAME_HERE tests docs
 
 > ### Package naming
 >
-> The PEP8 style guide reccomends short, all-lowercase package names. The use of underscores is also discouraged.
+> The PEP8 style guide recommends short, all-lowercase package names. The use of underscores is also discouraged.
 >
 > It's a good idea to keep package names short so that it is easier to remember and type.
-> We are straying from this convention in this tutorial to prevent naming conflicts.  
-> 
+> We are straying from this convention in this tutorial to prevent naming conflicts.
+>
 {:.callout}
 
 > ## Directory Structure
