@@ -1,7 +1,7 @@
 ---
 title: "Environments"
-teaching: 5
-exercises: 5
+teaching: 10
+exercises: 10
 questions:
 - "How do you install and manage packages?"
 objectives:
