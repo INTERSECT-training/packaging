@@ -6,11 +6,11 @@ questions:
 - "What other files are important parts of your software package?"
 objectives:
 - "Create a README for a software package"
-- "Add a software license to a software package"
-- "Create a changelog for a package"
+- "Add a software LICENSE to a software package"
+- "Create a CHANGELOG for a package"
 keypoints:
-- "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
-- "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
+- "In Packages should include a README, LICENSE, and CHANGELOG."
+- "Choose an existing software license"
 - "You can also include `.gitignore` to avoid from committing non-source files."
 ---
 
