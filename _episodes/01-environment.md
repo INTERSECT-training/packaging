@@ -73,6 +73,20 @@ The prompt will revert:
 %
 ```
 
+> ## Alternatives
+>
+> There are several alternatives that provide the same experience, but offer some
+> speed or update benefits. The installable `virtualenv` package provides the
+> same interface as the built-in `venv`, but is faster, has more options, and
+> has up-to-date embedded pip.
+>
+> Another alternative is `uv`, which is written in Rust, and `uv venv` is
+> actually faster than Python can even start up, though it doesn't install pip
+> by default (since you are supposed to use `uv pip`).
+>
+> Use the tool you prefer; the resulting venv works identically.
+{:.callout}
+
 > ## What about conda?
 >
 > The same concerns apply to Conda. You should always make separate environments and
