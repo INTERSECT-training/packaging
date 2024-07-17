@@ -258,35 +258,6 @@ tests/test_rescale.py .                                       [100%]
 
 This tells us that the output of the test function matches the expected result, and therefore the test passes! 🎉
 
-> ## Update `noxfile.py` with Tests
->
->
-> Take the `noxfile.py` you created in an earlier episode, and modify it to
->  - install `numpy`, necessary to run the package;
->  - install `pytest`, necessary to automatically find and run the test(s);
->  - install the package itself; and
->  - run the test(s)
->
-> > ## Solution
-> >
-> > ```python
-> > # contents of noxfile.py
-> > import nox
-> >
-> >
-> > @nox.session
-> > def tests(session):
-> >     session.install(".[test]")  # this installs all of the dependencies
-> >     session.run("pytest")
-> > ```
-> >
-> > Have `nox` run your tests with the command
-> >
-> > ```bash
-> > $ nox
-> > ```
-> {:.solution}
-{:.challenge}
 
 ## Commit and Push
 
