@@ -6,11 +6,11 @@ questions:
 - "What other files are important parts of your software package?"
 objectives:
 - "Create a README for a software package"
-- "Add a software license to a software package"
-- "Create a changelog for a package"
+- "Add a software LICENSE to a software package"
+- "Create a CHANGELOG for a package"
 keypoints:
-- "In addition to the source code and project specification, packages should include a README, LICENSE, and changelog."
-- "Do not create a custom software license or modify an existing license; instead, choose from the list of available licenses."
+- "Packages should include a README, LICENSE, and CHANGELOG."
+- "Choose an existing software license"
 - "You can also include `.gitignore` to avoid from committing non-source files."
 ---
 
@@ -595,11 +595,9 @@ should look something like this:
 ```bash
 .
 ├── .git/
-├── .nox/
 ├── .venv/
 ├── .gitignore
 ├── docs/
-├── noxfile.py
 ├── pyproject.toml
 ├── src/
 │   └── package/
@@ -609,8 +607,8 @@ should look something like this:
     └── test_rescale.py
 ```
 
-The `.git`, `.nox`. and `.venv` directories would have been automatically generated
-by Git, Nox, and Virtualenv, respectively. You may also see additional directories
+The `.git` and `.venv` directories would have been automatically generated
+by Git and Virtualenv respectively. You may also see additional directories
 like `__pycache__` and `.pytest_cache`.
 
 {% include links.md %}

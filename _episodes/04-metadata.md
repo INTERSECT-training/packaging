@@ -8,7 +8,8 @@ questions:
 objectives:
 - "Learn about the project table."
 keypoints:
-- "There are a variety of useful bits of metadata you should add."
+- "Add informational metadata to tell people about your package."
+- "Add functional metadata to tell people how to install and use your package."
 ---
 
 In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
@@ -196,7 +197,7 @@ You need to make sure you always have this line and that it stays accurate, sinc
 
 > ## Upper caps
 >
-> Upper caps are generally discouraged in the Python ecosystem, but they are (even more than usual) broken when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
+> Upper caps (like `">=3.8,<4` or `"~=3.8"`) are generally discouraged in the Python ecosystem, but they are broken (even more than usual) when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
 {:.callout}
 
 ### Dependencies

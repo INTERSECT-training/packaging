@@ -60,7 +60,8 @@ You can build an SDist and a wheel (from that SDist) with `pipx` and the `build`
 pipx run build
 ```
 
-The module is named build, so `python -m build` is how you'd run it from nox.
+The module is named build, so `python -m build` is how you'd run it from
+a task runner like nox or hatch.
 The executable is actually named `pyproject-build`, since installing a `build`
 executable would likely conflict with other things on your system.
 
@@ -111,23 +112,6 @@ However, the best way to publish is from CI. This has
 several benefits: you are always in a clean checkout, so you won't accidentally
 include added or changed files, you have a simpler deployment procedure, and
 you have more control over who can publish in GitHub.
-
-> ## Create a noxfile to build
->
-> Given what you've learned about `nox` and `build`, write a session that builds
-> packages for you.
->
-> > ## Solution
-> > ```python
-> > import nox
-> >
-> > @nox.session()
-> > def build(session):
-> >     session.install("build")
-> >     session.run("python", "-m", "build")  # can use pyproject-build instead
-> > ```
-> {:.solution}
-{:.challenge}
 
 ## Building in GitHub Actions
 
