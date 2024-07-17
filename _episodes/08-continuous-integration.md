@@ -53,6 +53,12 @@ for Linux, macOS, and Windows. We'll use `ubuntu-latest`.
 {% raw %}
 
 ```yaml
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -108,29 +114,36 @@ This is commonly used to set Python and operating system versions:
 {% raw %}
 
 ```yaml
-tests:
-  strategy:
-    fail-fast: false
-    matrix:
-      python-version: ["3.8", "3.11"]
-      runs-on: [ubuntu-latest, windows-latest, macos-latest]
-  name: Check Python ${{ matrix.python-version }} on ${{ matrix.runs-on }}
-  runs-on: ${{ matrix.runs-on }}
-  steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
-    - name: Setup Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.11"]
+        runs-on: [ubuntu-latest, windows-latest, macos-latest]
+    name: Check Python ${{ matrix.python-version }} on ${{ matrix.runs-on }}
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Install package
-      run: python -m pip install -e .[test]
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Test package
-      run: python -m pytest
+      - name: Install package
+        run: python -m pip install -e .[test]
+
+      - name: Test package
+        run: python -m pytest
 ```
 
 {% endraw %}
