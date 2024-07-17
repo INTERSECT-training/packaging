@@ -136,6 +136,9 @@ For some examples of black, see the [Black Playground](https://black.vercel.app/
 
 ### Ruff
 
+Ruff is a Python linter (a tool used to flag programming errors, bugs,
+stylistic errors and suspicious constructs) and code formatter.
+
 Ruff has recently exploded as the most popular linting tool for Python, and it's
 easy to see why. It's tens to hundreds of times faster than similar tools like
 flake8, and has dozens of popular flake8 plugins and other tools (like isort and
@@ -163,10 +166,13 @@ To use Ruff to check your code for style problems, run:
 pipx run ruff check
 ```
 
-To use Ruff instead of Black to format your code, run:
+To use Ruff to format your code, run:
 ```bash
 pipx run ruff format
 ```
+
+For examples of Ruff's formatting, see
+[its documentation](https://docs.astral.sh/ruff/formatter/#philosophy).
 
 You can a more complete suggested config at the
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style/#ruff).
