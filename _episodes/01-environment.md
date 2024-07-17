@@ -220,5 +220,5 @@ computer that has pipx installed!
 > {:.solution}
 {:.challenge}
 
-  
+
 {% include links.md %}
