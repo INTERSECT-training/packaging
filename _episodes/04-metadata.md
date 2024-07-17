@@ -156,11 +156,11 @@ There are three ways to include your license:
    ]
    ```
 2. The other way to include a standard license is to
-    put its name in the `license` field:
-    ```toml
-    [project]
-    license = {text = "MIT License"}
-    ```
+   put its name in the `license` field:
+   ```toml
+   [project]
+   license = {text = "MIT License"}
+   ```
 3. You may also put the license in a file named `LICENSE` or `LICENSE.txt`
    and link it in the `license` field:
    ```toml
@@ -174,8 +174,8 @@ There are three ways to include your license:
    using this field.
 
    ```bash
-   tar -tvf dist/example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
-   unzip -l dist/example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+   tar -tvf dist/example_package_YOUR_USERNAME_HERE-0.1.1.tar.gz
+   unzip -l dist/example_package_YOUR_USERNAME_HERE-0.1.1-py3-none-any.whl
    ```
 
 ## Functional metadata
