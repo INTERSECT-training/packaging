@@ -271,6 +271,8 @@ This tells us that the output of the test function matches the expected result, 
 ## Commit and Push
 
 Don't forget to commit all your work using `git`.
+(In the rest of the lesson, we won't remind you to do this,
+but you should still make small commits regularly.)
 
 
 Commit the relevant files, first the code:
