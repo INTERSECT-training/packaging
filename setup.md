@@ -42,7 +42,8 @@ If you don't already have them, sign up for accounts on:
 
 You can get all the prerequisites for this lesson by using a GitHub Codespace.
 
-- Create a new repository by going to [https://github.com/new](https://github.com/new).
+- Create a new repository called `example-package-YOUR-USERNAME-HERE`
+  by going to [https://github.com/new](https://github.com/new).
   - Ensure that the owner is you.
   - Initialize the repository with a README file by clicking the tickmark next to `Add a README file`.
 - After the repository is created, click on the `< > Code` button, click the `Codespaces` tab, and click `Create codespace on main`. This will create an editor with a shell, `python` and `git` pre-configured for you.
