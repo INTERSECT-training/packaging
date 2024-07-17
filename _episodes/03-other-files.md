@@ -52,7 +52,7 @@ $ touch README.md
 and then add these elements:
 
 ````markdown
-# Package
+# Example Package YOUR USERNAME HERE
 
 `example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
 
