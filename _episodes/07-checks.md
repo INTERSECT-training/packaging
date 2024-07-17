@@ -108,32 +108,6 @@ certain classes of bugs. Unlike a compiled language, like C, C++, or Rust, there
 is no required "compile" step, so think of this like that - an optional step you
 can add that can find things that don't make sense, invalid syntax, etc.
 
-### Black
-
-The defacto standard today for code formatting is Black. Unlike other
-auto-formatters, Black has very, very few configuration points - it's generally
-easy to recognized blacked code.  And once you are use to it, it is _faster_ to
-read blacked code, as you can start relying on indentation patterns around
-brackets and such. And while no standard will please everyone, Black's style was
-designed around minimizing conflicts when merging (which is already a benefit
-with any formatter), which was a great practical choice.
-
-To use Black, you can run:
-```bash
-pipx run black
-```
-
-While you can turn formatting on and off inline, generally try to write your
-code so that it formats well.  If something looks bad, maybe break it into two
-operations, using a variable. You'll likely find yourself writing better code
-with Black.
-
-Also, an auto-formatter helps highlight errors in your code. If you forget a
-comma in a list, causing strings to auto-concatenate, the blacked form often
-makes it much easier to spot the error; this is just one example.
-
-For some examples of black, see the [Black Playground](https://black.vercel.app/)
-
 ### Ruff
 
 Ruff is a Python linter (a tool used to flag programming errors, bugs,
@@ -276,15 +250,6 @@ The checks above, from the first-part `pre-commit/pre-commit-hooks` repo, are
 especially useful in the "installed" mode (where only staged changes are
 checked).
 
-To configure Black within `.pre-commit-config.yaml`, add the following configuration:
-
-```yaml
-  - repo: https://github.com/psf/black
-    rev: "24.4.2"
-    hooks:
-      - id: black
-```
-
 To configure Ruff within `.pre-commit-config.yaml`, add the following configuration:
 ```yaml
 
@@ -293,14 +258,8 @@ To configure Ruff within `.pre-commit-config.yaml`, add the following configurat
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
+    - id: ruff-format
 ```
-
-
-> ## Replacement for Black
-> You can add an additional hook, `- id: ruff-format` which is meant to be a drop-in replacement for `black`.
-> Remove `black`'s pre-commit configuration if you do.
-{:.callout}
-
 
 To configure mypy within `.pre-commit-config.yaml`, add the following configuration:
 
