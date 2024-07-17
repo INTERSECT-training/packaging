@@ -220,7 +220,7 @@ version.source = "vcs"
 build.hooks.vcs.version-file = "src/example_package_YOUR_USERNAME_HERE/_version.py"
 ```
 
-When you run `pip install --editable ".[dev]"`, or build your package for distribution,
+When you run `pip install --editable .`, or build your package for distribution,
 a new file `src/example_package_YOUR_USERNAME_HERE/_version.py` will be created.
 
 You can use the `__version__` from that file in your `__init__.py` file like this:
