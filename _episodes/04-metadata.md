@@ -225,8 +225,9 @@ check = ["flake8"]
 plot = ["matplotlib"]
 ```
 
-Now, you can run `pip install 'example-package-YOUR-USERNAME-HERE[test,check]'`, and
-pip will install both the required and optional dependencies `pytest` and `flake8`,
+Now you can run `pip install --editable '.[test,check]'`,
+(or `pip install 'example-package-YOUR-USERNAME-HERE[test,check]'` once it's published)
+and pip will install both the required and optional dependencies `pytest` and `flake8`,
 but not `matplotlib`.
 
 #### Setting minimum, maximum and specific versions of dependencies
