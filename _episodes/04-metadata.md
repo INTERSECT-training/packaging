@@ -94,13 +94,13 @@ A set of links to help users find various things for your code; some common ones
 
 ```toml
 # Inline form
-urls.Homepage = "https://pypi.org"
-urls."Source Code" = "https://pypi.org"
+urls.Homepage = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+urls."Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 
 # Sectional form
 [project.urls]
-Homepage = "https://pypi.org"
-"Source Code" = "https://pypi.org"
+Homepage = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+"Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 ```
 
 ### Classifiers
@@ -150,18 +150,18 @@ classifiers = [
 There are three ways to include your license:
 1. The preferred way to include a standard license
    is to include a classifier starting with "License ::",
-    ```toml
-    [project]
-    classifiers = [
-      "License :: OSI Approved :: BSD License",
-    ]
-    ```
+   ```toml
+   [project]
+   classifiers = [
+     "License :: OSI Approved :: BSD License",
+   ]
+   ```
 2. The other way to include a standard license is to
-    put its name in the `license` field:
-    ```toml
-    [project]
-    license = {text = "MIT License"}
-    ```
+   put its name in the `license` field:
+   ```toml
+   [project]
+   license = {text = "MIT License"}
+   ```
 3. You may also put the license in a file named `LICENSE` or `LICENSE.txt`
    and link it in the `license` field:
    ```toml
@@ -175,8 +175,8 @@ There are three ways to include your license:
    using this field.
 
    ```bash
-   tar -tvf dist/package-0.0.1.tar.gz
-   unzip -l dist/package-0.0.1-py3-none-any.whl
+   tar -tvf dist/example_package_YOUR_USERNAME_HERE-0.1.1.tar.gz
+   unzip -l dist/example_package_YOUR_USERNAME_HERE-0.1.1-py2.py3-none-any.whl
    ```
 
 ## Functional metadata
@@ -226,8 +226,17 @@ check = ["flake8"]
 plot = ["matplotlib"]
 ```
 
-Now, you can run `pip install 'package[test,check]'`, and
-pip will install both the required and optional dependencies `pytest` and `flake8`,
+Now you can run:
+```bash
+pip install --editable '.[test,check]'
+```
+
+or – once it's published,
+```bash
+pip install 'example-package-YOUR-USERNAME-HERE[test,check]'
+```
+
+– and pip will install both the required and optional dependencies `pytest` and `flake8`,
 but not `matplotlib`.
 
 #### Setting minimum, maximum and specific versions of dependencies
@@ -322,11 +331,11 @@ For example, if you want `hatchling` to read `__version__.py` from `src/package/
 
 ```
 [project]
-name = "package"
+name = "example-package-YOUR-USERNAME-HERE"
 dynamic = ["version"]
 
 [tool.hatch]
-version.path = "src/package/__init__.py"
+version.path = "src/example_package_YOUR_USERNAME_HERE/__init__.py"
 ```
 
 ## All together
@@ -340,8 +349,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "package"
-version = "0.0.1"
+name = "example-package-YOUR-USERNAME-HERE"
+version = "0.1.1"
 dependencies = [
   "numpy"
 ]
@@ -362,9 +371,9 @@ classifiers = [
 test = ["pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
-````
+"Homepage" = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+"Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
+```
 
 > ## Add metadata and check it.
 > Take your existing package and add more metadata to it. Install it, then use
@@ -374,7 +383,7 @@ test = ["pytest"]
 > > ## Solution
 > > ```bash
 > > pip install -e .
-> > pip show -v <package-name>
+> > pip show -v example-package-YOUR-USERNAME-HERE
 > > ```
 > {:.solution}
 {:.challenge}
