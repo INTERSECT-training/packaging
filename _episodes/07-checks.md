@@ -108,6 +108,93 @@ certain classes of bugs. Unlike a compiled language, like C, C++, or Rust, there
 is no required "compile" step, so think of this like that - an optional step you
 can add that can find things that don't make sense, invalid syntax, etc.
 
+### Ruff
+
+Ruff is a Python linter (a tool used to flag programming errors, bugs,
+stylistic errors and suspicious constructs) and code formatter.
+
+Ruff has recently exploded as the most popular linting tool for Python, and it's
+easy to see why. It's tens to hundreds of times faster than similar tools like
+flake8, and has dozens of popular flake8 plugins and other tools (like isort and
+pyupgrade) all well maintained and shipped in a single Rust binary. It is highly
+configurable in a modern configuration format (in `pyproject.toml`!). And it
+supports auto-fixes, something common outside of Python, but rare in the Python
+space before now.
+
+You'll want a bit of configuration in your `pyproject.toml`:
+
+```toml
+[tool.ruff]
+src = ["src"]
+lint.extend-select = [
+  "B",           # flake8-bugbear
+  "I",           # isort
+  "PGH",         # pygrep-hooks
+  "RUF",         # Ruff-specific
+  "UP",          # pyupgrade
+]
+```
+
+To use Ruff to check your code for style problems, run:
+```bash
+pipx run ruff check
+```
+
+To use Ruff to format your code, run:
+```bash
+pipx run ruff format
+```
+
+For examples of Ruff's formatting, see
+[its documentation](https://docs.astral.sh/ruff/formatter/#philosophy).
+
+You can a more complete suggested config at the
+[Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style/#ruff).
+
+### MyPy
+
+The biggest advancement since the development of Python 3 has been the addition of _optional_ static typing.
+Static checks in Python have a _huge_ disadvantage vs. a more "production" focused language like C++: you can't
+tell what types things are most of the time! For example, is this function well defined?
+
+```python
+def bit_count(x):
+    return x.bit_count()
+```
+
+A static checker _can't_ tell you, since it depends on how it is called. `bit_count("hello")` is an error, but you
+won't know that until it runs, hopefully in a test somewhere. However, now contrast that with this version:
+
+```python
+def bit_count(x: int) -> int:
+    return x.bit_count()
+```
+
+Now this is well defined; a type checker will tell you that this function is
+valid (and it will even be able to tell you it is invalid if you target any
+Python before 3.10, regardless of the version you are using to run the check!),
+and it will tell you if you try to call it with anything that's not an `int`,
+anywhere - regardless if the function is part of a test or not!
+
+You do have to add static types to function signatures and a _few_ variable
+definitions (usually variables can be inferred automatically), but the payoff is
+well worth it - a static type checker can catch many things, and doesn't require
+writing tests!
+
+To run mypy, you can call:
+```bash
+pipx run mypy --python-executable .venv/bin/python .
+```
+
+- mypy needs the argument  `--python-executable .venv/bin/python`
+  to access to the version of the Python interpreter you are using for your project.
+  It uses this to get access to type information for imported packages (like numpy).
+- You also need to give it a path to a directory containing files to check, in this case `.`.
+
+You can learn about configuring mypy in the
+[Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/mypy/).
+
+
 ### The pre-commit framework
 
 There's a tool called pre-commit that is used to run static checks. (Technically
@@ -163,119 +250,26 @@ The checks above, from the first-part `pre-commit/pre-commit-hooks` repo, are
 especially useful in the "installed" mode (where only staged changes are
 checked).
 
-### Black
-
-The defacto standard today for code formatting is Black. Unlike other
-auto-formatters, Black has very, very few configuration points - it's generally
-easy to recognized blacked code.  And once you are use to it, it is _faster_ to
-read blacked code, as you can start relying on indentation patterns around
-brackets and such. And while no standard will please everyone, Black's style was
-designed around minimizing conflicts when merging (which is already a benefit
-with any formatter), which was a great practical choice.
-
-To use Black in pre-commit:
-
+To configure Ruff within `.pre-commit-config.yaml`, add the following configuration:
 ```yaml
-  - repo: https://github.com/psf/black
-    rev: "24.4.2"
-    hooks:
-      - id: black
-```
 
-While you can turn formatting on and off inline, generally try to write your
-code so that it formats well.  If something looks bad, maybe break it into two
-operations, using a variable. You'll likely find yourself writing better code
-with Black.
-
-Also, an auto-formatter helps highlight errors in your code. If you forget a
-comma in a list, causing strings to auto-concatenate, the blacked form often
-makes it much easier to spot the error; this is just one example.
-
-For some examples of black, see the [Black Playground](https://black.vercel.app/)
-
-### Ruff
-
-Ruff has recently exploded as the most popular linting tool for Python, and it's
-easy to see why. It's tens to hundreds of times faster than similar tools like
-flake8, and has dozens of popular flake8 plugins and other tools (like isort and
-pyupgrade) all well maintained and shipped in a single Rust binary. It is highly
-configurable in a modern configuration format (in `pyproject.toml`!). And it
-supports auto-fixes, something common outside of Python, but rare in the Python
-space before now.
-
-To use Ruff from pre-commit:
-
-```yaml
 - repo: https://github.com/charliermarsh/ruff-pre-commit
   rev: "v0.5.2"
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
+    - id: ruff-format
 ```
 
-And you'll want a bit of configuration in your `pyproject.toml`:
-
-```toml
-[tool.ruff]
-src = ["src"]
-lint.extend-select = [
-  "B",           # flake8-bugbear
-  "I",           # isort
-  "PGH",         # pygrep-hooks
-  "RUF",         # Ruff-specific
-  "UP",          # pyupgrade
-]
-```
-
-
-> ## Replacement for Black
-> You can add an additional hook, `- id: ruff-format` which is meant to be a drop-in replacement for `black`.
-> Remove `black`'s pre-commit configuration if you do.
-{:.callout}
-
-You can a more complete suggested config at the
-[Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style/#ruff).
-
-
-### MyPy
-
-The biggest advancement since the development of Python 3 has been the addition of _optional_ static typing.
-Static checks in Python have a _huge_ disadvantage vs. a more "production" focused language like C++: you can't
-tell what types things are most of the time! For example, is this function well defined?
-
-```python
-def bit_count(x):
-    return x.bit_count()
-```
-
-A static checker _can't_ tell you, since it depends on how it is called. `bit_count("hello")` is an error, but you
-won't know that until it runs, hopefully in a test somewhere. However, now contrast that with this version:
-
-```python
-def bit_count(x: int) -> int:
-    return x.bit_count()
-```
-
-Now this is well defined; a type checker will tell you that this function is
-valid (and it will even be able to tell you it is invalid if you target any
-Python before 3.10, regardless of the version you are using to run the check!),
-and it will tell you if you try to call it with anything that's not an `int`,
-anywhere - regardless if the function is part of a test or not!
-
-You do have to add static types to function signatures and a _few_ variable
-definitions (usually variables can be inferred automatically), but the payoff is
-well worth it - a static type checker can catch many things, and doesn't require
-writing tests!
-
-Here's how you run mypy, a first party and popular type checker, from pre-commit:
+To configure mypy within `.pre-commit-config.yaml`, add the following configuration:
 
 ```yaml
-- repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.10.0"
-  hooks:
-    - id: mypy
-      files: src
-      args: []
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v1.10.0"
+    hooks:
+      - id: mypy
+        files: src
+        args: []
 ```
 
 You will need to add `additional_dependencies: [numpy]` as the pre-commit `mypy`
@@ -289,9 +283,7 @@ runs in a separate virtual environment which doesn't have `numpy` installed.
       additional_dependencies: [numpy]
 ```
 
-You can learn about configuring mypy in the
-[Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/mypy/).  You also
-need to add any packages that have static types to `additional_dependencies: [...]`.
+You need to add any other packages that have static types to `additional_dependencies: [...]`.
 
 ### Going further
 
