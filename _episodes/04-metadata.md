@@ -93,13 +93,13 @@ A set of links to help users find various things for your code; some common ones
 
 ```toml
 # Inline form
-urls.Homepage = "https://pypi.org"
-urls."Source Code" = "https://pypi.org"
+urls.Homepage = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+urls."Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 
 # Sectional form
 [project.urls]
-Homepage = "https://pypi.org"
-"Source Code" = "https://pypi.org"
+Homepage = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+"Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 ```
 
 ### Classifiers
@@ -361,8 +361,8 @@ classifiers = [
 test = ["pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE"
+"Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 ````
 
 > ## Add metadata and check it.
