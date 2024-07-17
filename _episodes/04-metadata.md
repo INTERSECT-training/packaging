@@ -149,12 +149,12 @@ classifiers = [
 There are three ways to include your license:
 1. The preferred way to include a standard license
    is to include a classifier starting with "License ::",
-    ```toml
-    [project]
-    classifiers = [
-      "License :: OSI Approved :: BSD License",
-    ]
-    ```
+   ```toml
+   [project]
+   classifiers = [
+     "License :: OSI Approved :: BSD License",
+   ]
+   ```
 2. The other way to include a standard license is to
     put its name in the `license` field:
     ```toml
