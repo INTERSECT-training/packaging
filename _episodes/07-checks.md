@@ -207,31 +207,23 @@ To use Ruff from pre-commit:
 
 ```yaml
 - repo: https://github.com/charliermarsh/ruff-pre-commit
-  rev: "v0.4.8"
+  rev: "v0.5.2"
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
 ```
 
-And you'll need a bit of configuration in your `pyproject.toml`:
+And you'll want a bit of configuration in your `pyproject.toml`:
 
 ```toml
 [tool.ruff]
-select = [
-  "E", "F", "W", # flake8
+src = ["src"]
+lint.extend-select = [
   "B",           # flake8-bugbear
   "I",           # isort
   "PGH",         # pygrep-hooks
   "RUF",         # Ruff-specific
   "UP",          # pyupgrade
-]
-extend-ignore = [
-  "E501",   # Line too long
-]
-target-version = "py38"
-src = ["src"]
-unfixable = [
-  "F841", # Removes unused variables
 ]
 ```
 
