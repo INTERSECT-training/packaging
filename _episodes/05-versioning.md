@@ -10,10 +10,9 @@ objectives:
 - "Know the different versioning schemes and drawbacks"
 - "Know how to set a version in a package"
 keypoints:
-- "SemVer is an abbreviated changelog"
-- "SemVer is not the solution to all problems"
 - "Packages should have a version attribute"
-- "You can single source your version"
+- "Semantic versioning is an abbreviated changelog, not the solution to all problems"
+- "You can use packaging tools so that the version number needs updating in one (and only one) place"
 ---
 
 Versioning is a surprisingly deep topic with some strong opinions floating
