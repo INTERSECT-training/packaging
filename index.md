@@ -4,27 +4,24 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-When you are programming, usually you are solving a problem - the programming
-is simply a means to an end. If that's the case, then packaging is a means to a
-means to an end. This often makes packaging the last thing you think about, but
-it's actually one of the most important parts of any work, as it's what makes
-code obtainable and reusable!
+What is a package?
+* An organized collection of modules containing functions and classes with a common purpose.
+* Packages allow developers to organize code in manageable and reusable structured units.
 
-Packaging is absolutely critical as soon as you:
+Why is packaging important in scientific research?
 
-* Work on more than one thing
-* Share your work with anyone (even if not as a package)
-* Work in more than one place
-* Upgrade or change anything on your computer
+* **Reusability:** Common code can be used across many projects
+* **Collaboration:** Distribute your work with collaborators
+* **Reproducibility:** Allows anyone to run code with the same dependencies to reproduce your results
+* **Portability:** Work in more than one place (e.g. distributed computing)
 
-Unfortunately, packing has a _lot_ of historical cruft, bad practices that have
-easy solutions today but are still propagated. This material tries to correct
-that by showing you a clean, modern way to write and work with Python packages.
+If you have used Python for scientific computation, you've likely encountered widely distributed open-source packages like [NumPy](https://numpy.org/), [SciPy](https://scipy.org/), or [Pandas](https://pandas.pydata.org/). However, it's important to note that packages can exist at many scales and contexts, ranging from personal and organizational use to wide public distributions.
+
+In this tutorial we'll walk through methods and tools used to create and distribute your own Python packages.
 
 ## Lesson Plan
 
-We're going to create a Python package from scratch, then publish it.
-We'll look at the following important groups of files:
+We're going to create a Python package from scratch, then publish it. Packages often include additional files for configuration, documentation, and automations. We'll look at the following important groups of files:
 
 ```files
 .
@@ -34,7 +31,7 @@ We'll look at the following important groups of files:
 │   │   └── rescale.py       ├─ Minimum to make the code
 ├── tests/                   │  work and be installable
 │   └── test_rescale.py      │
-├── pyproject.toml          ─┘ ← Deep dive into metadata and versioning
+├── pyproject.toml          ─┘ ← Metadata and versioning
 │
 ├── .git/                   ─┬─ Store the history of the code
 ├── .gitignore              ─┘
