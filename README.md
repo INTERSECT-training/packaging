@@ -20,8 +20,8 @@ bundle exec jekyll serve  # build and serve the website
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
 questions, concerns, or experience any difficulties along the way.
 
-Please see the current list of [issues](https://github.com/INTERSECT-training/packaging/issues) 
-for ideas for contributing to this repository. 
+Please see the current list of [issues](https://github.com/INTERSECT-training/packaging/issues)
+for ideas for contributing to this repository.
 For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
