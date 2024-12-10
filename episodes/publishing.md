@@ -2,17 +2,22 @@
 title: "Publishing package and citation"
 teaching: 10
 exercises: 5
-questions:
-- "How do I publish a package?"
-- "How do I make my work citable?"
-objectives:
-- "Learn about publishing a package on PyPI"
-- "Learn about making work citable"
-keypoints:
-- "CI can publish Python packages"
-- "Tagging and GitHub Releases are used to publish versions"
-- "Zenodo and CITATION.cff are useful for citations"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do I publish a package?
+- How do I make my work citable?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn about publishing a package on PyPI
+- Learn about making work citable
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 If you want other people to be able to access your package,
 you need to publish it.
@@ -72,28 +77,36 @@ You can validate the files generated using
 pipx run twine check dist/*
 ```
 
-> ## Conda
->
-> Building for conda is quite different. If you just have a pure Python package, you
-> should just use pip to install in conda environments until you have a conda package
-> that depends on your package and wants to add it into it's requirements.
->
-> If you do need to build a conda package, you'll need to either
-> [propose a new recipe](https://github.com/conda-forge/staged-recipes) to
-> conda-forge, or set up the build infrastructure yourself and publish to an
-> anaconda.org channel.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## Conda
+
+Building for conda is quite different. If you just have a pure Python package, you
+should just use pip to install in conda environments until you have a conda package
+that depends on your package and wants to add it into it's requirements.
+
+If you do need to build a conda package, you'll need to either
+[propose a new recipe](https://github.com/conda-forge/staged-recipes) to
+conda-forge, or set up the build infrastructure yourself and publish to an
+anaconda.org channel.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 ## Manual publishing
 
-> ## Do you need to publish to PyPI?
->
-> Not every package needs to go on PyPI. You can pip install directly from
-> git, or from a URL to a package hosted somewhere else, or you can set up
-> your own wheelhouse and point pip at that. Also an "application" like a
-> website or other code you deploy probably does not need to be on PyPI.
-{:.discussion}
+::::::::::::::::::::::::::::::::::::: discussion
+
+## Do you need to publish to PyPI?
+
+Not every package needs to go on PyPI. You can pip install directly from
+git, or from a URL to a package hosted somewhere else, or you can set up
+your own wheelhouse and point pip at that. Also an "application" like a
+website or other code you deploy probably does not need to be on PyPI.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 You can publish files manually with `twine`:
 
@@ -104,9 +117,13 @@ pipx run twine upload -r testpypi dist/*
 The `-r testpypi` tells twine to upload to TestPyPI instead of the real PyPI -
 remove this if you are not in a tutorial.
 
-> To run this locally, you'll also need to setup an API token to upload the package with.
-> Create a token at [https://test.pypi.org/manage/account/](https://test.pypi.org/manage/account/).
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+To run this locally, you'll also need to setup an API token to upload the package with.
+Create a token at [https://test.pypi.org/manage/account/](https://test.pypi.org/manage/account/).
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 However, the best way to publish is from CI. This has
 several benefits: you are always in a clean checkout, so you won't accidentally
@@ -160,15 +177,18 @@ runner, and checking out the code, including the git history so the version can
 be computed with `fetch-depth: 0` (which can be removed if you are not using git
 versioning).
 
-> ## Test and upload action
->
-> There's a great action for building and inspecting a pure Python package:
-> ```yaml
-> - uses: hynek/build-and-inspect-python-package@v2
-> ```
-> This action builds, runs various checkers, then uploads the package to `Packages`.
-> If you use this, you'll need to download the artifact from `name: Packages`.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## Test and upload action
+
+There's a great action for building and inspecting a pure Python package:
+```yaml
+- uses: hynek/build-and-inspect-python-package@v2
+```
+This action builds, runs various checkers, then uploads the package to `Packages`.
+If you use this, you'll need to download the artifact from `name: Packages`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 The next step builds the wheel and SDist. Pipx is a supported package manager on
 all GitHub Actions runners.
@@ -271,4 +291,16 @@ You can validate your file by running:
 pipx run cffconvert --validate
 ```
 
-{% include links.md %}
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- CI can publish Python packages
+- Tagging and GitHub Releases are used to publish versions
+- Zenodo and CITATION.cff are useful for citations
+
+::::::::::::::::::::::::::::::::::::::::::::::::

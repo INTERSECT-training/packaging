@@ -2,15 +2,24 @@
 title: "Metadata"
 teaching: 10
 exercises: 5
-questions:
-- "What metadata is important to add to your package?"
-- "How to I add common functionality, like executable scripts?"
-objectives:
-- "Learn about the project table."
-keypoints:
-- "Add informational metadata to tell people about your package."
-- "Add functional metadata to tell people how to install and use your package."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What metadata is important to add to your package?
+- How to I add common functionality, like executable scripts?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn about the project table.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 
 In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
 - a name and
@@ -136,12 +145,15 @@ classifiers = [
 ]
 ```
 
-> ## Prevent Inadvertent Publishing
-> By adding the "Private :: Do Not Upload" classifier here, we ensure that
-> the package will be
-> [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
-> If you want to upload to PyPI, you will need to remove that classifier.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## Prevent Inadvertent Publishing
+By adding the "Private :: Do Not Upload" classifier here, we ensure that
+the package will be
+[rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
+If you want to upload to PyPI, you will need to remove that classifier.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### License
 
@@ -193,10 +205,13 @@ Pip will check if the Python version of the environment where the package being 
 
 You need to make sure you always have this line and that it stays accurate, since you can't edit metadata after releasing - you can only yank or delete release(s) and try again.
 
-> ## Upper caps
->
-> Upper caps (like `">=3.8,<4` or `"~=3.8"`) are generally discouraged in the Python ecosystem, but they are broken (even more than usual) when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## Upper caps
+
+Upper caps (like `">=3.8,<4` or `"~=3.8"`) are generally discouraged in the Python ecosystem, but they are broken (even more than usual) when used with `requires-python` field. This field was added to help users drop old Python versions, and the idea it would be used to restrict newer versions was not considered. The above field is not the right one to set an upper cap! Never upper cap this field and instead use classifiers to tell users what versions of Python your code was tested with.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Dependencies
 
@@ -282,6 +297,8 @@ There are several ways to lock your dependencies completely:
     used automatically. There is usually an update command that will update the local
     environment and the lock file.)
 
+::::::::::::::::::::::::::::::::::::: callout
+
 > ## Pinning Dependencies with `pip-tools`
 > Set up a `requirements.in` file with your unpinned dependencies. For example:
 >
@@ -298,17 +315,25 @@ There are several ways to lock your dependencies completely:
 >
 > This will produce a `requirements.txt` with fully locked dependencies, including
 > hashes.  You can always regenerate it when you want updates.
-{:.callout}
 
-> ## project.dependencies vs. build-system.requires
->
-> What is the difference between `project.dependencies` vs. `build-system.requires`?
->
-> > ## Answer
-> >
-> > `build-system.requires` describes what your project needs to "build", that is, produce an SDist or wheel. Installing a built wheel will _not_ install anything from `build-system.requires`, in fact, the `pyproject.toml` is not even present in the wheel! `project.dependencies`, on the other hand, is added to the wheel metadata, and pip will install anything in that field if not already present when installing your wheel.
-> {:.solution}
-{:.challenge}
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## project.dependencies vs. build-system.requires
+
+What is the difference between `project.dependencies` vs. `build-system.requires`?
+
+::::::::::::::::::::::::::::::::::::: solution
+
+## Answer
+
+`build-system.requires` describes what your project needs to "build", that is, produce an SDist or wheel. Installing a built wheel will _not_ install anything from `build-system.requires`, in fact, the `pyproject.toml` is not even present in the wheel! `project.dependencies`, on the other hand, is added to the wheel metadata, and pip will install anything in that field if not already present when installing your wheel.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 ### Entry Points
@@ -373,18 +398,32 @@ test = ["pytest"]
 "Source Code" = "https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE"
 ```
 
-> ## Add metadata and check it.
-> Take your existing package and add more metadata to it. Install it, then use
-> `pip show -v <package>` to see the metadata. You can also look inside the wheel
-> or SDist to see the metadata.
->
-> > ## Solution
-> > ```bash
-> > pip install -e .
-> > pip show -v example-package-YOUR-USERNAME-HERE
-> > ```
-> {:.solution}
-{:.challenge}
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Add metadata and check it.
+Take your existing package and add more metadata to it. Install it, then use
+`pip show -v <package>` to see the metadata. You can also look inside the wheel
+or SDist to see the metadata.
+
+::::::::::::::::::::::::::::::::::::: solution
+
+## Solution
+```bash
+pip install -e .
+pip show -v example-package-YOUR-USERNAME-HERE
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-{% include links.md %}
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Add informational metadata to tell people about your package.
+- Add functional metadata to tell people how to install and use your package.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

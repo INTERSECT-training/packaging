@@ -2,18 +2,26 @@
 title: "Versioning"
 teaching: 10
 exercises: 5
-questions:
-- "How do you choose your versions?"
-- "How do you set version limits on dependencies?"
-- "How do you set a version?"
-objectives:
-- "Know the different versioning schemes and drawbacks"
-- "Know how to set a version in a package"
-keypoints:
-- "Packages should have a version attribute"
-- "Semantic versioning is an abbreviated changelog, not the solution to all problems"
-- "You can use packaging tools so that the version number needs updating in one (and only one) place"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do you choose your versions?
+- How do you set version limits on dependencies?
+- How do you set a version?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Know the different versioning schemes and drawbacks
+- Know how to set a version in a package
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 
 Versioning is a surprisingly deep topic with some strong opinions floating
 around. We will look at a couple of popular versioning schemes. We will also
@@ -53,13 +61,18 @@ package that has a lot of users and tries to follow SemVer pretty closely is
 Setuptools, which is on version 68 as of the time of writing. And minor/patch
 release still break some users.
 
-> #### Avoiding breakage
->
-> You can't be sure that a minor a patch release will not break you. No library
-> can follow SemVer close enough to be "true" SemVer unless they only release
-> major versions. "They didn't follow SemVer closely enough" is not a good argument
-> for any package causing breakage.
-{:.callout}
+
+::::::::::::::::::::::::::::::::::::: callout
+
+#### Avoiding breakage
+
+You can't be sure that a minor a patch release will not break you. No library
+can follow SemVer close enough to be "true" SemVer unless they only release
+major versions. "They didn't follow SemVer closely enough" is not a good argument
+for any package causing breakage.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 A more realistic form of SemVer, and a better way to think about it, is as an abbreviated changelog and author intent.
 In this form:
@@ -187,18 +200,22 @@ You can create a git tag on your last commit using `git tag <version>`:
 git tag v0.1.0
 ```
 
-> ## `git` Tags and Branches
-> A tag is like a branch but it doesn't move when you make a new commit.
->
-> You can check out a particular tagged version using `git checkout`:
-> ```bash
-> git checkout v0.2.0
-> ```
-> but you will need to checkout a branch before you commit again, e.g.
-> ```bash
-> git checkout main
-> ```
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## `git` Tags and Branches
+A tag is like a branch but it doesn't move when you make a new commit.
+
+You can check out a particular tagged version using `git checkout`:
+```bash
+git checkout v0.2.0
+```
+but you will need to checkout a branch before you commit again, e.g.
+```bash
+git checkout main
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 Some backends provide ways to use these as the single version source.
 This also means every commit gets a unique version,
@@ -266,9 +283,27 @@ mkdir extract && tar -xvf package_archive.tar -C extract
 cat extract/.git_archival.txt
 ```
 
-> ## Add a versioning system
-> Add one of the two single-version systems listed above to your package.
->
-{:.challenge}
+::::::::::::::::::::::::::::::::::::: challenge
 
-{% include links.md %}
+## Add a versioning system
+Add one of the two single-version systems listed above to your package.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Packages should have a version attribute
+- Semantic versioning is an abbreviated changelog, not the solution to all problems
+- You can use packaging tools so that the version number needs updating in one (and only one) place
+
+::::::::::::::::::::::::::::::::::::::::::::::::

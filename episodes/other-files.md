@@ -2,17 +2,22 @@
 title: "Other files that belong with your package"
 teaching: 15
 exercises: 0
-questions:
-- "What other files are important parts of your software package?"
-objectives:
-- "Create a README for a software package"
-- "Add a software LICENSE to a software package"
-- "Create a CHANGELOG for a package"
-keypoints:
-- "Packages should include a README, LICENSE, and CHANGELOG."
-- "Choose an existing software license"
-- "You can also include `.gitignore` to avoid from committing non-source files."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What other files are important parts of your software package?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Create a README for a software package
+- Add a software LICENSE to a software package
+- Create a CHANGELOG for a package
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 We now have an installed, working Python package that provides some functionality.
 Are we ready to push the code to GitHub (or your preferred code hosting service) for others to use and contribute to?
@@ -52,9 +57,9 @@ $ touch README.md
 and then add these elements:
 
 ````markdown
-# Example Package YOUR USERNAME HERE
+# Example Example Package YOUR USERNAME HERE YOUR USERNAME HERE
 
-`example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
+`example-example-package-YOUR-USERNAME-HERE-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
 
 ## Installation
 
@@ -68,7 +73,7 @@ pip install .
 
 ```python
 import numpy as np
-from example_package_YOUR_USERNAME_HERE.rescale import rescale
+from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
 
 # rescales over 0 to 1
 rescale(np.linspace(0, 100, 5))
@@ -85,13 +90,17 @@ TBD
 
 You can see more guidance on creating READMEs at <https://www.makeareadme.com>.
 
-> ## Keep your READMEs relatively brief
->
-> You should try to keep your README files *relatively* brief, rather than including
-> very detailed documentation to this file. This should only be a high-level introduction,
-> with detailed theory, examples, and other information reserved for a true documentation
-> website.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## Keep your READMEs relatively brief
+
+You should try to keep your README files *relatively* brief, rather than including
+very detailed documentation to this file. This should only be a high-level introduction,
+with detailed theory, examples, and other information reserved for a true documentation
+website.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Choosing a software license
 
@@ -170,37 +179,49 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 That's it!
 
-> ## Do not write your own license!
->
-> You should never try to write your own software license, or modify the text of an existing
-> license.
->
-> Although *we* are not lawyers, the licenses approved and maintained by the Open
-> Source Initiative have gone through a rigorous review process, including legal review,
-> to ensure that they are both consistent with the Open Source Definition and also are
-> legally valid.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-> ## Adding a license badge to README
->
-> Badges are a fun and informative way to quickly show information about your software package
-> in the README. [Shields.io](https://shields.io) is a resource for generating badge images
-> in SVG format, which can easily be added to the top of your README as links pointing to more
-> information.
->
-> Using [Shields.io](https://shields.io) (or an example found elsewhere), generate the Markdown
-> syntax for adding a badge describing the BSD 3-Clause License we chose for this example package.
->
-> > ## Solution
-> >
-> > The Markdown syntax for adding a badge describing the BSD 3-Clause License is:
-> >
-> > ```markdown
-> > [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
-> > ```
-> > and will render as [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
-> {: .solution}
-{: .challenge}
+## Do not write your own license!
+
+You should never try to write your own software license, or modify the text of an existing
+license.
+
+Although *we* are not lawyers, the licenses approved and maintained by the Open
+Source Initiative have gone through a rigorous review process, including legal review,
+to ensure that they are both consistent with the Open Source Definition and also are
+legally valid.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Adding a license badge to README
+
+Badges are a fun and informative way to quickly show information about your software package
+in the README. [Shields.io](https://shields.io) is a resource for generating badge images
+in SVG format, which can easily be added to the top of your README as links pointing to more
+information.
+
+Using [Shields.io](https://shields.io) (or an example found elsewhere), generate the Markdown
+syntax for adding a badge describing the BSD 3-Clause License we chose for this example package.
+
+::::::::::::::::::::::::::::::::::::: solution
+
+## Solution
+
+The Markdown syntax for adding a badge describing the BSD 3-Clause License is:
+
+```markdown
+[![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+```
+and will render as [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Keeping a CHANGELOG
 
@@ -211,7 +232,7 @@ the array holds the same number repeated). For example:
 
 ```python
 import numpy as np
-from example_package_YOUR_USERNAME_HERE.rescale import rescale
+from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -249,7 +270,7 @@ Now, when we call rescale (no need to reinstall or upgrade the package, since we
 
 ```python
 import numpy as np
-from example_package_YOUR_USERNAME_HERE.rescale import rescale
+from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -257,10 +278,9 @@ rescale(a)
 
 we get the desired behavior:
 
-```
+```output
 array([1., 1., 1., 1., 1.])
 ```
-{: .output}
 
 Great! Let's commit that change using Git, with a message and perhaps update the version to 0.1.1 to
 indicate the package has changed (more to come on that in a later episode on versioning).
@@ -300,7 +320,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2022-08-09
 ### Added
-- Created rescale() function and released example_package_YOUR_USERNAME_HERE
+- Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
 ```
 
 If at this point you want to increment the version to 0.1.1 to indicate this small fix
@@ -315,7 +335,7 @@ to the behavior, you would add a new section for this version:
 
 ## [0.1.0] - 2022-08-09
 ### Added
-- Created rescale() function and released example_package_YOUR_USERNAME_HERE
+- Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
 ```
 
 Note that the version numbers are shown as links in these examples, although the links
@@ -324,47 +344,54 @@ at the bottom of the file, using (for example) GitHub's ability to compare betwe
 tagged versions:
 
 ```markdown
-[0.1.1]: https://github.com/<username>/example-package-YOUR-USERNAME-HERE/compare/v0.1.1...v0.1.0
+[0.1.1]: https://github.com/<username>/example-example-package-YOUR-USERNAME-HERE-YOUR-USERNAME-HERE/compare/v0.1.1...v0.1.0
 ```
 
-> ## Other locations
->
-> Once we have things inside the `docs/` folder, `docs/changelog.md` is also a
-> good place, and keeps your outer directory a bit cleaner. But we'll put it
-> here for now so that we don't interfere with that lesson.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-> ## Automating Changelog Management
-> There are several tools which are intended to help manage a changelog.
-> Broadly speaking, they use specifically formatted commit messages
-> to generate the changelog.
-> They usually impose a specific way of working,
-> require consistency and discipline when writing the messages,
-> often need manual tweaking of the changelog after generation.
->
-> ### `commitizen`, "conventional commits" and SemVer
-> [`commitizen`][commitizen] is a release management tool which
-> helps developers to write [conventional commits][]
-> and can generate a grouped and sorted changelog (`commitizen changelog`).
-> Generating a new release, tagging it with an updated version number,
-> and generating a changelog
-> can be automated using [GitHub Actions][commitizen auto release].
->
-> This requires:
-> - squashing each change into a single commit,
-> - consistency and discipline when writing commit messages.
->
-> ### GitHub
-> GitHub can "generate release notes" with each release of code,
-> which is a list of the titles of the **pull requests** included in the release.
-> People can view the release notes on GitHub.
->
-> These release notes:
-> - only appear on GitHub,
-> - aren't automatically grouped and sorted,
-> - only include changes which were part of a pull request title.
->
-{:.callout}
+## Other locations
+
+Once we have things inside the `docs/` folder, `docs/changelog.md` is also a
+good place, and keeps your outer directory a bit cleaner. But we'll put it
+here for now so that we don't interfere with that lesson.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Automating Changelog Management
+There are several tools which are intended to help manage a changelog.
+Broadly speaking, they use specifically formatted commit messages
+to generate the changelog.
+They usually impose a specific way of working,
+require consistency and discipline when writing the messages,
+often need manual tweaking of the changelog after generation.
+
+### `commitizen`, "conventional commits" and SemVer
+[`commitizen`][commitizen] is a release management tool which
+helps developers to write [conventional commits][]
+and can generate a grouped and sorted changelog (`commitizen changelog`).
+Generating a new release, tagging it with an updated version number,
+and generating a changelog
+can be automated using [GitHub Actions][commitizen auto release].
+
+This requires:
+- squashing each change into a single commit,
+- consistency and discipline when writing commit messages.
+
+### GitHub
+GitHub can "generate release notes" with each release of code, which is a list of the titles of the **pull requests** included in the release.
+People can view the release notes on GitHub.
+
+These release notes:
+- only appear on GitHub,
+- aren't automatically grouped and sorted,
+- only include changes which were part of a pull request title.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 [conventional commits]: https://www.conventionalcommits.org/
 [commitizen]: https://commitizen-tools.github.io/commitizen/
@@ -585,7 +612,6 @@ $ git status
 On branch main
 nothing to commit, working tree clean
 ```
-{: .gitignore}
 
 ## Summary
 
@@ -600,7 +626,7 @@ should look something like this:
 ├── docs/
 ├── pyproject.toml
 ├── src/
-│   └── example_package_YOUR_USERNAME_HERE/
+│   └── example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE/
 │   │   ├── __init__.py
 │   │   └── rescale.py
 └── tests/
@@ -611,4 +637,14 @@ The `.git` and `.venv` directories would have been automatically generated
 by Git and Virtualenv respectively. You may also see additional directories
 like `__pycache__` and `.pytest_cache`.
 
-{% include links.md %}
+
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Packages should include a README, LICENSE, and CHANGELOG.
+- Choose an existing software license
+- You can also include `.gitignore` to avoid from committing non-source files.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
