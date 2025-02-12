@@ -2,14 +2,22 @@
 title: "Checks and tests"
 teaching: 10
 exercises: 10
-questions:
-- "How do you ensure your code will work well?"
-objectives:
-- "Learn about the basics of setting up tests."
-- "Learn about the basics of setting up static checks"
-keypoints:
-- "Run tests and static checks on your codebase."
 ---
+
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do you ensure your code will work well?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn about the basics of setting up tests.
+- Learn about the basics of setting up static checks
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 In this episode we'll give an introduction to setting up your project for
 - tests with `pytest`, and
@@ -30,14 +38,19 @@ There are several options for test directory. The recommendation is `/tests`
 layout, you will have the best experience avoiding weird edge cases with package
 importing.
 
-> ## User runnable tests
->
-> Tests should distributed with your SDist, but not your wheel. Sometimes, you
-> might want some simple Tests a user can run in order to verify that their
-> system works. Adding a `/src/<package>/tests` module using Python's `unittest`
-> that does some very quick checks to validate the package works is fine (though
-> it should not be your entire test suite!).
-{:.discussion}
+
+
+::::::::::::::::::::::::::::::::::::: discussion
+
+## User runnable tests
+
+Tests should distributed with your SDist, but not your wheel. Sometimes, you
+might want some simple Tests a user can run in order to verify that their
+system works. Adding a `/src/<package>/tests` module using Python's `unittest`
+that does some very quick checks to validate the package works is fine (though
+it should not be your entire test suite!).
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Pytest configuration
 
@@ -292,4 +305,11 @@ See the Style guide at
 for a lot more suggestions on static checking.
 
 
-{% include links.md %}
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Run tests and static checks on your codebase.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

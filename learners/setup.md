@@ -2,22 +2,26 @@
 title: Setup
 ---
 
-> ## Objectives
-> You will need accounts on:
-> - [https://github.com/](https://github.com/)
-> - [https://test.pypi.org/](https://test.pypi.org/)
-> - [https://zenodo.org/](https://zenodo.org/)
->
-> These instructions serve to help set up:
-> - an editor,
-> - a shell,
-> - python,
-> - git,
-> - an empty repository
->
-> either in the cloud (fast) or on a local computer (slow the first time).
->
-{:.objectives}
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+You will need accounts on:
+- [https://github.com/](https://github.com/)
+- [https://test.pypi.org/](https://test.pypi.org/)
+- [https://zenodo.org/](https://zenodo.org/)
+
+These instructions serve to help set up:
+- an editor,
+- a shell,
+- python,
+- git,
+- an empty repository
+
+either in the cloud (fast) or on a local computer (slow the first time).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
@@ -32,11 +36,16 @@ If you don't already have them, sign up for accounts on:
 
 ## Development Environment
 
-> ## If this is your first time, use the `Cloud` instructions
-> If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud** setup instructions. After the session you can repeat the setup using the Local setup instructions.
->
-> Support will be available for the rest of the week if you have trouble with setting up these tools locally!
-{:.caution}
+::::::::::::::::::::::::::::::::::::: caution
+
+## If this is your first time, use the `Cloud` instructions
+If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud** setup instructions. After the session you can repeat the setup using the Local setup instructions.
+
+Support will be available for the rest of the week if you have trouble with setting up these tools locally!
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ### Cloud
 
@@ -110,5 +119,3 @@ Create a new repository using GitHub desktop.
 - Click `Create repository`
 - Click `Publish repository` to make it available on GitHub.
 - Click `Open in Visual Studio Code` _or_ open Visual Studio Code and click File > Open folder and select the directory with your new repository.
-
-{% include links.md %}

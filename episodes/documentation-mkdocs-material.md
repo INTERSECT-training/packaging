@@ -1,14 +1,21 @@
 ---
-title: "Documentation with MkDocs Material"
+title: "Documentation with Sphinx"
 teaching: 10
 exercises: 10
-questions:
-- "How do I document my project?"
-objectives:
-- "Learn how to set up documentation using Material for MkDocs"
-keypoints:
-- "MkDocs is great for documentation"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do I document my project?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn how to set up documentation using Material for MkDocs
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 In this lesson, we'll outline creating a documentation webpage
 using the [MkDocs](https://www.mkdocs.org/) framework
@@ -38,11 +45,15 @@ docs = [
 
 ... then reinstall using `pip install --editable ".[docs]"`.
 
-> ## `doc` or `docs`
->
-> The [python packaging standard](https://packaging.python.org/en/latest/specifications/core-metadata/#provides-extra-multiple-use)
-> for the name of this extra is `doc`, whereas `docs` is ~3x more popular.
-{:.callout}
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## `doc` or `docs`
+
+The [python packaging standard](https://packaging.python.org/en/latest/specifications/core-metadata/#provides-extra-multiple-use)
+for the name of this extra is `doc`, whereas `docs` is ~3x more popular.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Template
 
@@ -73,13 +84,17 @@ theme:
   name: material
 ```
 
-> ## `site_url` is important
-> It is important to set the `site_url` because it's assumed to be set by a number of plugins.
->
-> It's set here to a [GitHub Pages](https://pages.github.com/) address –
-> you can set it to `https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE`
-> or any other domain where you want to publish.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## `site_url` is important
+It is important to set the `site_url` because it's assumed to be set by a number of plugins.
+
+It's set here to a [GitHub Pages](https://pages.github.com/) address –
+you can set it to `https://<your github username>.github.io/example-package-YOUR-USERNAME-HERE`
+or any other domain where you want to publish.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Preview
 
@@ -118,22 +133,25 @@ rescale(np.linspace(0, 100, 5))
 
 ````
 
-> ## `README.md` vs `index.md`
-> Often, similar information will be contained in the repository README
-> and the index page of the documentation – installation instructions,
-> basic usage, licensing etc., and so it's common to want to include
-> (parts of) the README in the index page.
->
-> Sphinx has built-in tools to allow you to include parts of another markdown file
-> directly, but MkDocs doesn't.
->
-> We'd recommend writing the `index.md` and `README.md` files separately,
-> so that you can vary the information and instructions you present
-> for the particular audience.
->
-> For instance, someone viewing the repository can be expected to know where to download
-> the source code from, whereas someone viewing the documentation website might not.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+## `README.md` vs `index.md`
+Often, similar information will be contained in the repository README
+and the index page of the documentation – installation instructions,
+basic usage, licensing etc., and so it's common to want to include
+(parts of) the README in the index page.
+
+Sphinx has built-in tools to allow you to include parts of another markdown file
+directly, but MkDocs doesn't.
+
+We'd recommend writing the `index.md` and `README.md` files separately,
+so that you can vary the information and instructions you present
+for the particular audience.
+
+For instance, someone viewing the repository can be expected to know where to download
+the source code from, whereas someone viewing the documentation website might not.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Add Code Reference
 
@@ -198,20 +216,27 @@ If you want to use https://readthedocs.org to build your docs, you'll need to ad
 
 ## Challenges
 
-> ## Adding a page
->
-> Try adding another page.
-{: .challenge}
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Adding a page
+
+Try adding another page.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-> ## Further reading
->
-> - [https://diataxis.fr/](https://diataxis.fr/) outlines an excellent framework
->   for planning documentation.
-> - [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/)
->   outlines all the options and many of the plugins available with Material for MkDocs,
->   including syntax highlighting, and making comprehensive code listings for projects with many files.
->
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-{% include links.md %}
+## Further reading
+
+- [https://diataxis.fr/](https://diataxis.fr/) outlines an excellent framework for planning documentation.
+- [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/) outlines all the options and many of the plugins available with Material for MkDocs, including syntax highlighting, and making comprehensive code listings for projects with many files.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- MkDocs is great for documentation
+
+::::::::::::::::::::::::::::::::::::::::::::::::

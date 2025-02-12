@@ -2,13 +2,21 @@
 title: "Documentation with Sphinx"
 teaching: 10
 exercises: 10
-questions:
-- "How do I document my project?"
-objectives:
-- "Learn how to set up documentation"
-keypoints:
-- "Sphinx is great for documentation"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do I document my project?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn how to set up documentation
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 In this lesson, we'll outline creating a documentation webpage using Sphinx.
 
@@ -26,16 +34,20 @@ You will:
 We'll start with the built-in template. Start by creating a `docs/` directory
 within your project (i.e. next to `src/`).
 
-{: .solution }
-> ## Why not Sphinx-Quickstart?
->
-> You _could_ use sphinx-quickstart to set up a basic template if you'd like.
->
-> ```bash
-> pipx run --spec sphinx sphinx-quickstart --no-makefile --no-batchfile --ext-autodoc --ext-intersphinx --extensions myst_parser --suffix .md docs
-> ```
->
-> But this will put Restructured Text into the `index.md` file, and doesn't really generate that much for you. You can instead add the `docs/conf.py` file yourself, which is what we'll do here.
+::::::::::::::::::::::::::::::::::::: spolier 
+
+## Why not Sphinx-Quickstart?
+
+You _could_ use sphinx-quickstart to set up a basic template if you'd like.
+
+```bash
+pipx run --spec sphinx sphinx-quickstart --no-makefile --no-batchfile --ext-autodoc --ext-intersphinx --extensions myst_parser --suffix .md docs
+```
+
+But this will put Restructured Text into the `index.md` file, and doesn't really generate that much for you. You can instead add the `docs/conf.py` file yourself, which is what we'll do here.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 You first file is a configuration file, `docs/conf.py`:
 
@@ -147,51 +159,68 @@ python:
         - docs
 ```
 
-{: .challenge}
+::::::::::::::::::::::::::::::::::::: challenge
 
-> ## Adding a page
->
-> Try adding a page. Remember to update your `index.md` table of contents.
+## Adding a page
 
-{: .challenge}
+Try adding a page. Remember to update your `index.md` table of contents.
 
-> ## Readme in docs
->
-> If you want to include your readme in your docs, you can add something like this:
->
-> ````md
-> ```{include} ../README.md
-> :start-after: <!-- SPHINX-START -->
-> ```
-> ````
->
-> And you use `<!-- SPHINX-START -->` to mark where you want your docs part of
-> your `README.md` to start (generally after the title and badges).
-> ```markdown
-> # Example Package YOUR USERNAME HERE
->
-> <!-- SPHINX-START -->
->
-> `example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
-> ```
+::::::::::::::::::::::::::::::::::::::::::::::::
 
-{: .challenge}
+::::::::::::::::::::::::::::::::::::: challenge
 
-> ## Selecting a nicer theme
->
-> A really nice theme, used by PyPA projects like pip and pipx, is `furo`. To use it, add this line to your `conf.py`:
->
-> ```python
-> html_theme = "furo"
-> ```
->
-> And add `"furo"` to your `docs` extra in your `pyproject.toml`.
+## Readme in docs
 
-{: .checklist }
+If you want to include your readme in your docs, you can add something like this:
 
-> ## Further reading
->
-> To see a more complete example, read [Scientific-Python's docs guide](https://learn.scientific-python.org/development/guides/docs/).
+````md
+```{include} ../README.md
+:start-after: <!-- SPHINX-START -->
+```
+````
+
+And you use `<!-- SPHINX-START -->` to mark where you want your docs part of
+your `README.md` to start (generally after the title and badges).
+```markdown
+# Example Package YOUR USERNAME HERE
+
+<!-- SPHINX-START -->
+
+`example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-{% include links.md %}
+::::::::::::::::::::::::::::::::::::: checklist
+
+## Selecting a nicer theme
+
+A really nice theme, used by PyPA projects like pip and pipx, is `furo`. To use it, add this line to your `conf.py`:
+
+```python
+html_theme = "furo"
+```
+
+And add `"furo"` to your `docs` extra in your `pyproject.toml`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Further reading
+
+To see a more complete example, read [Scientific-Python's docs guide](https://learn.scientific-python.org/development/guides/docs/).
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Sphinx is great for documentation
+
+::::::::::::::::::::::::::::::::::::::::::::::::

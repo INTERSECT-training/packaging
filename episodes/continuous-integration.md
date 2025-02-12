@@ -2,6 +2,27 @@
 title: "Continuous Integration"
 teaching: 10
 exercises: 10
+<<<<<<<< HEAD:episodes/continuous-integration.md
+---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do you ensure code keeps passing
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Use a CI service to run your tests
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+Developers often need to run some tasks every time they update code.
+This might include running tests, or checking that the formatting
+conforms to a style guide.
+
+========
 questions:
 - "How do you ensure code keeps passing"
 objectives:
@@ -15,6 +36,7 @@ Developers often need to run some tasks every time they update code.
 This might include running tests, or checking that the formatting
 conforms to a style guide.
 
+>>>>>>>> 9daa45e1661bdd97637ab402d79599816dd04f3b:episodes/10-continuous-integration.md
 Continuous Integration (CI) allows the developer to automate running
 these kinds of tasks each time various "trigger" events occur on your repository.
 For example, you can use CI to run a test suite on every pull request.
@@ -51,7 +73,7 @@ Let's set up a basic test. We will define a jobs dict, with a single job named
 "tests". For all jobs, you need to select an image to run on - there are images
 for Linux, macOS, and Windows. We'll use `ubuntu-latest`.
 
-{% raw %}
+
 
 ```yaml
 on:
@@ -77,8 +99,6 @@ jobs:
         run: python -m pytest
 ```
 
-{% endraw %}
-
 
 This has five steps:
 
@@ -96,7 +116,7 @@ You can parametrize values, such as Python version or operating system. Do do th
 
 For example:
 
-{% raw %}
+
 ```yaml
 example:
   strategy:
@@ -104,7 +124,7 @@ example:
       onetwothree: [1, 2, 3]
   name: Job ${{ matrix.onetwothree }}
 ```
-{% endraw %}
+
 
 
 would produce three jobs, with names `Job 1`, `Job 2`, and `Job 3`. Elsewhere,
@@ -112,7 +132,7 @@ if you refer to the `example` job, it will implicitly refer to all three.
 
 This is commonly used to set Python and operating system versions:
 
-{% raw %}
+
 
 ```yaml
 on:
@@ -147,7 +167,7 @@ jobs:
         run: python -m pytest
 ```
 
-{% endraw %}
+
 
 There are two special keys: `include:` will take a list of jobs to include one
 at a time. For example, you could add Python 3.9 on Linux (but not the others):
@@ -186,9 +206,20 @@ And many other useful ones:
 - [ruby/setup-miniconda](https://github.com/ruby/setup-ruby) Setup Ruby if you need it for something.
 
 
+::::::::::::::::::::::::::::::::::::: challenge
+
 ## Exercise
 
 Add a CI file for your package.
 
+::::::::::::::::::::::::::::::::::::::::::::::::
 
-{% include links.md %}
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Set up GitHub Actions on your project
+- Run your tests on multiple platforms and with multiple Python versions
+
+::::::::::::::::::::::::::::::::::::::::::::::::

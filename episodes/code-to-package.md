@@ -2,17 +2,25 @@
 title: "Code to Package"
 teaching: 20
 exercises: 5
-questions:
-- "How do we take code and turn that into a package?"
-- "What are the minimum elements required for a Python package?"
-- "How do you set up tests?"
-objectives:
-- "Create and install a Python package"
-- "Create and run a test"
-keypoints:
-- "Put your code and tests in a standard package structure"
-- "Use a `pyproject.toml` file to describe a Python package"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do we take code and turn that into a package?
+- What are the minimum elements required for a Python package?
+- How do you set up tests?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Create and install a Python package
+- Create and run a test
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 
 Much research software is initially developed by hacking away in an interactive setting,
 such as in a [Jupyter Notebook](https://jupyter.org) or a Python shell.
@@ -21,13 +29,17 @@ and/or make available to others,
 it makes sense to package your functions into modules and ultimately a software package that can be installed.
 This lesson will walk you through that process.
 
-> ## Check Setup
-> - Ensure you're in an empty git repository (see [Setup](../setup) for details).
-> - Ensure you've created and activated your virtual environment (see [Environment](../01-environment) for details):
-> ```bash
-> . .venv/bin/activate
-> ```
-{:.callout}
+
+::::::::::::::::::::::::::::::::::::: callout
+
+- Ensure you're in an empty git repository (see [Setup](../setup) for details).
+- Ensure you've created and activated your virtual environment (see [Environment](../01-environment) for details):
+```bash
+. .venv/bin/activate
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 Consider the `rescale()` function written as an exercise in the Software Carpentry
 [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson.
@@ -64,10 +76,10 @@ rescale(np.linspace(0, 100, 5))
 
 which provides the output:
 
-```
+```output
 array([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])
 ```
-{: .output}
+
 
 ## Create a minimal package
 
@@ -85,21 +97,26 @@ $ mkdir -p src/example_package_YOUR_USERNAME_HERE tests docs
 
 (The `-p` flag tells `mkdir` to create the `src` parent directory for `example_package_YOUR_USERNAME_HERE`.)
 
-> ### Package naming
->
-> The PEP8 style guide recommends short, all-lowercase package names. The use of underscores is also discouraged.
->
-> It's a good idea to keep package names short so that it is easier to remember and type.
-> We are straying from this convention in this tutorial to prevent naming conflicts.
->
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-> ## Directory Structure
-> Putting the package directory and source code inside the `src` directory is not actually *required*.
-> - If you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
-> - However, this can cause several issues, such as running tests with the local version instead of the installed version.
-> - In addition, the `src/` package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
-{:.callout}
+### Package naming
+
+The PEP8 style guide recommends short, all-lowercase package names. The use of underscores is also discouraged.
+
+It's a good idea to keep package names short so that it is easier to remember and type.
+We are straying from this convention in this tutorial to prevent naming conflicts.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Directory Structure
+Putting the package directory and source code inside the `src` directory is not actually *required*.
+- If you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
+- However, this can cause several issues, such as running tests with the local version instead of the installed version.
+- In addition, the `src/` package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Inside `src/example_package_YOUR_USERNAME_HERE`, create the files `__init__.py` and `rescale.py`:
 
@@ -143,23 +160,30 @@ The package name given here, "package," matches the directory `src/package` that
 We've chosen 0.1.0 as the starting version for this package; you'll see more in a later episode about versioning,
 and how to specify this without manually writing it here.
 
-> ## Build Backend
-> The build backend is a program which will convert the source files into a package
-> ready for distribution. It determines how your project will specify
-> its configuration, metadata and files.
-> You should choose one that suits your preferences.
->
-> We selected a specific backend - hatching.
-> It had a good default configuration, is fast, has some powerful features,
-> and supports a growing ecosystem of plugins.
-> There are other backends too, including ones for
-> [compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-> ## Minimal Working Package
-> The only elements of your package strictly _required_ to install and import it are
-> the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
-{:.callout}
+## Build Backend
+The build backend is a program which will convert the source files into a package
+ready for distribution. It determines how your project will specify
+its configuration, metadata and files.
+You should choose one that suits your preferences.
+
+We selected a specific backend - hatching.
+It had a good default configuration, is fast, has some powerful features,
+and supports a growing ecosystem of plugins.
+There are other backends too, including ones for
+[compiled projects](https://learn.scientific-python.org/development/guides/packaging-compiled).
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Minimal Working Package
+The only elements of your package strictly _required_ to install and import it are
+the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 At this point, your package's file structure should look like this:
 
@@ -195,10 +219,9 @@ from example_package_YOUR_USERNAME_HERE.rescale import rescale
 rescale(np.linspace(0, 100, 5))
 ```
 
-```
+```output
 array([0.  , 0.25, 0.5 , 0.75, 1.  ])
 ```
-{: .output}
 
 This matches the output we expected based on our interactive testing above! 😅
 
@@ -294,55 +317,70 @@ git commit -m "build: add minimal pyproject.toml"
 git push origin main
 ```
 
-> ## Always `git add` individual files until you've set up your `.gitignore`
->
-> When working with git, it's best to
-> - stage **individual files** using `git add FILENAME ...`,
-> - check what you're about to commit using `git status`, before you
-> - commit with `git commit -m "COMMIT MESSAGE"`.
->
-> You can also use a graphical tool which makes it easy to see at a glance
-> what is is you're committing.
->
-> Adding a `.gitignore` file (which we'll cover later), will help avoid
-> inadvertently committing files like the virtual environment directory,
-> and is a prerequisite for using `git commit -a` which commits everything.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
 
-> ## Conventional commits
-> In this example, we use
-> [conventional commit messages](https://www.conventionalcommits.org/)
-> which look like `<type>: <description>`.
->
-> Each commit should do one and only one "thing" to the code, for instance:
-> - add a new feature (type: `feat`), *or*
-> - fix a bug (type: `fix`), *or*
-> - rename a function (type: `refactor`), *or*
-> - add documentation (type: `docs`), *or*
-> - change something affecting the build system (type: `build`).
->
-> By doing only one thing per commit, it's easier to:
-> - write the commit message,
-> - understand the history by looking at the `git log`, and
-> - revert individual changes you later decide could be done in a better way.
-{:.callout}
+## Always `git add` individual files until you've set up your `.gitignore`
 
-> ## Check your package
-> Check that you can install your package and that it works as expected.
->
-> If everything works, you should be able to install your package (in a new virtual environment):
-> ```
-> python3 -m venv .venv2
-> . .venv2/bin/activate
-> python3 -m pip install git+https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE
-> ```
-> Open a python console and call the rescale function with some data.
->
-> Switch back to the original virtual environment before going onto the next lesson:
-> ```
-> . .venv/bin/activate
-> ```
-{:.challenge}
+When working with git, it's best to
+- stage **individual files** using `git add FILENAME ...`,
+- check what you're about to commit using `git status`, before you
+- commit with `git commit -m "COMMIT MESSAGE"`.
+
+You can also use a graphical tool which makes it easy to see at a glance
+what is is you're committing.
+
+Adding a `.gitignore` file (which we'll cover later), will help avoid
+inadvertently committing files like the virtual environment directory,
+and is a prerequisite for using `git commit -a` which commits everything.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Conventional commits
+In this example, we use
+[conventional commit messages](https://www.conventionalcommits.org/)
+which look like `<type>: <description>`.
+
+Each commit should do one and only one "thing" to the code, for instance:
+- add a new feature (type: `feat`), *or*
+- fix a bug (type: `fix`), *or*
+- rename a function (type: `refactor`), *or*
+- add documentation (type: `docs`), *or*
+- change something affecting the build system (type: `build`).
+
+By doing only one thing per commit, it's easier to:
+- write the commit message,
+- understand the history by looking at the `git log`, and
+- revert individual changes you later decide could be done in a better way.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Check your package
+Check that you can install your package and that it works as expected.
+
+If everything works, you should be able to install your package (in a new virtual environment):
+```
+python3 -m venv .venv2
+. .venv2/bin/activate
+python3 -m pip install git+https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE
+```
+Open a python console and call the rescale function with some data.
+
+Switch back to the original virtual environment before going onto the next lesson:
+```
+. .venv/bin/activate
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 You now have a package that is:
 - installed in editable mode in an isolated environment,
@@ -351,4 +389,18 @@ You now have a package that is:
 
 Next, we'll look at other files that should be included with your package.
 
-{% include links.md %}
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Put your code and tests in a standard package structure
+- Use a `pyproject.toml` file to describe a Python package
+
+::::::::::::::::::::::::::::::::::::::::::::::::

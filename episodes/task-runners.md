@@ -2,13 +2,20 @@
 title: "Task runners"
 teaching: 5
 exercises: 5
-questions:
-- "How can you ensure others run the same code you do?"
-objectives:
-- "Use a task runner to manage environments and run code"
-keypoints:
-- "A task runner makes it easier to contribute to software"
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How can you ensure others run the same code you do?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Use a task runner to manage environments and run code
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 A task runner is a tool that lets you specify a set of tasks via a common
 interface.
@@ -33,10 +40,14 @@ There are many other task runners for different languages, including:
 - [invoke][] (Python general), and
 - [tox][] (Python packages).
 
-> ## Task Runner as Crutch
-> Task runners can be a crutch, allowing poor packaging practices to be
-> employed behind a custom script, and they can hide what is actually happening.
-{:.caution}
+::::::::::::::::::::::::::::::::::::: caution
+
+## Task Runner as Crutch
+Task runners can be a crutch, allowing poor packaging practices to be
+employed behind a custom script, and they can hide what is actually happening.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 [nox]: https://nox.thea.codes
 [tox]: https://tox.readthedocs.io
@@ -45,10 +56,14 @@ There are many other task runners for different languages, including:
 [make]: https://www.gnu.org/software/make/
 [hatch]: https://hatch.pypa.io/
 
-> ## Further reading
-> See the [Scientific Python Development Guide page on task runners][scientific-python-task-runners]
-> for more information.
-{:.callout}
+::::::::::::::::::::::::::::::::::::: callout
+
+
+## Further reading
+See the [Scientific Python Development Guide page on task runners][scientific-python-task-runners]
+for more information.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 [scientific-python-task-runners]: https://learn.scientific-python.org/development/guides/tasks/
 
@@ -213,47 +228,60 @@ def tests(session):
     session.run("pytest")
 ```
 
-> ## Virtual environments
->
-> Nox is really just doing the same thing we would do manually (and printing all the steps except the
-> exact details of creating the virtual environment. You can see the virtual environment in `.nox/tests`!
-> How would you activate this environment?
->
-> > ## Solution
-> > ```bash
-> > . .nox/tests/bin/activate
-> > ```
-> {:.solution}
-{:.challenge}
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Virtual environments
+
+Nox is really just doing the same thing we would do manually (and printing all the steps except the
+exact details of creating the virtual environment. You can see the virtual environment in `.nox/tests`!
+How would you activate this environment?
+
+::::::::::::::::::::::::::::::::::::: solution
+
+## Solution
+```bash
+. .nox/tests/bin/activate
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-> ## Add documentation generation to your task runner (MkDocs)
->
-> Add the commands do preview and build your MkDocs documentation using `nox`.
->
-> > ## Solution
-> > Add a session to your `noxfile.py` to generate docs:
-> >
-> > ```python
-> > # noxfile.py
-> >
-> > import nox
-> >
-> > @nox.session()
-> > def preview_docs(session: nox.Session):
-> >     """Show the documentation preview."""
-> >     session.install(".[docs]")
-> >     session.run("mkdocs", "serve")
-> >
-> > @nox.session()
-> > def build_docs(session: nox.Session):
-> >     """Build the documentation."""
-> >     session.install(".[docs]")
-> >     session.run("mkdocs", "build")
-> > ```
-> > You now have working docs that you can generate and view cross platform with `nox -s preview_docs`!
-> {:.solution}
-{: .challenge}
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Add documentation generation to your task runner (MkDocs)
+
+Add the commands do preview and build your MkDocs documentation using `nox`.
+
+::::::::::::::::::::::::::::::::::::: solution
+
+## Solution
+Add a session to your `noxfile.py` to generate docs:
+
+```python
+# noxfile.py
+
+import nox
+
+@nox.session()
+def preview_docs(session: nox.Session):
+    """Show the documentation preview."""
+    session.install(".[docs]")
+    session.run("mkdocs", "serve")
+
+@nox.session()
+def build_docs(session: nox.Session):
+    """Build the documentation."""
+    session.install(".[docs]")
+    session.run("mkdocs", "build")
+```
+You now have working docs that you can generate and view cross platform with `nox -s preview_docs`!
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 
@@ -280,12 +308,17 @@ many times per day.
 You can also specify `nox.options.default_venv_backend = "uv|virtualenv"`
 which will fallback to `virtualenv` if `uv` is not installed
 
-> ## Alternative backends
->
-> Try running your tests with the default `virtualenv` and the `uv|virtualenv` backend.
->
-> How does the execution time change?
-{:.challenge}
+
+::::::::::::::::::::::::::::::::::::: callout
+
+## Alternative backends
+
+Try running your tests with the default `virtualenv` and the `uv|virtualenv` backend.
+
+How does the execution time change?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Hatch
 
@@ -359,4 +392,10 @@ which will hinder debugging if something goes wrong.
 
 
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::: keypoints 
+
+- A task runner makes it easier to contribute to software
+
+::::::::::::::::::::::::::::::::::::::::::::::::
