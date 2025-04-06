@@ -12,7 +12,7 @@ keypoints:
 - "Add functional metadata to tell people how to install and use your package."
 ---
 
-In a previous lesson, we left the metadata in our `project.toml` quite minimal, just:
+In a previous lesson, we left the metadata in our `pyproject.toml` quite minimal, just:
 - a name and
 - a version.
 
@@ -78,7 +78,7 @@ maintainers = [
 ]
 ```
 
-Note that TOML supports two ways two write tables and two ways to write arrays, so you might see this in a different form, but it should be recognizable.
+Note that TOML supports two ways to write tables and two ways to write arrays, so you might see this in a different form, but it should be recognizable.
 
 ### Keywords
 
