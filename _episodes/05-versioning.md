@@ -55,7 +55,7 @@ release still break some users.
 
 > #### Avoiding breakage
 >
-> You can't be sure that a minor a patch release will not break you. No library
+> You can't be sure that a minor patch release will not break you. No library
 > can follow SemVer close enough to be "true" SemVer unless they only release
 > major versions. "They didn't follow SemVer closely enough" is not a good argument
 > for any package causing breakage.
