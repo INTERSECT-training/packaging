@@ -4,7 +4,7 @@ teaching: 10
 exercises: 5
 questions:
 - "What metadata is important to add to your package?"
-- "How to I add common functionality, like executable scripts?"
+- "How do I add common functionality, like executable scripts?"
 objectives:
 - "Learn about the project table."
 keypoints:
