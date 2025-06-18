@@ -1,7 +1,5 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+site: sandpaper::sandpaper_site
 ---
 
 What is a package?
@@ -55,19 +53,21 @@ We're going to create a Python package from scratch, then publish it. Packages o
         └── publish.yaml    ─┘
 ```
 
-{: .checklist }
+:::::::::::::::::::::::::::::::::::::: checklist 
 
-> ## See Also
->
-> This is a tutorial. For reference material, you should bookmark the following guides:
->
-> - [learn.scientific-python.org/development](https://learn.scientific-python.org/development)
-> - [packaging.python.org](https://packaging.python.org)
+## See Also
 
+This is a tutorial. For reference material, you should bookmark the following guides:
 
-> ## Prerequisites
->
-> * Basic Python
-{: .prereq}
+- [learn.scientific-python.org/development](https://learn.scientific-python.org/development)
+- [packaging.python.org](https://packaging.python.org)
 
-{% include links.md %}
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::: prereq 
+
+## Prerequisites
+
+* Basic Python
+
+::::::::::::::::::::::::::::::::::::::::::::::::
