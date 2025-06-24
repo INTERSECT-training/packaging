@@ -10,6 +10,9 @@
     <loc>https://INTERSECT-training.github.io/packaging/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://INTERSECT-training.github.io/packaging/aio.html</loc>
+  </url>
+  <url>
     <loc>https://INTERSECT-training.github.io/packaging/checks.html</loc>
   </url>
   <url>
@@ -31,6 +34,9 @@
     <loc>https://INTERSECT-training.github.io/packaging/environment.html</loc>
   </url>
   <url>
+    <loc>https://INTERSECT-training.github.io/packaging/images.html</loc>
+  </url>
+  <url>
     <loc>https://INTERSECT-training.github.io/packaging/index.html</loc>
   </url>
   <url>
@@ -41,6 +47,9 @@
   </url>
   <url>
     <loc>https://INTERSECT-training.github.io/packaging/instructor/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://INTERSECT-training.github.io/packaging/instructor/aio.html</loc>
   </url>
   <url>
     <loc>https://INTERSECT-training.github.io/packaging/instructor/checks.html</loc>
@@ -64,7 +73,16 @@
     <loc>https://INTERSECT-training.github.io/packaging/instructor/environment.html</loc>
   </url>
   <url>
+    <loc>https://INTERSECT-training.github.io/packaging/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://INTERSECT-training.github.io/packaging/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://INTERSECT-training.github.io/packaging/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://INTERSECT-training.github.io/packaging/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://INTERSECT-training.github.io/packaging/instructor/metadata.html</loc>
@@ -83,6 +101,12 @@
   </url>
   <url>
     <loc>https://INTERSECT-training.github.io/packaging/instructor/versioning.html</loc>
+  </url>
+  <url>
+    <loc>https://INTERSECT-training.github.io/packaging/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://INTERSECT-training.github.io/packaging/key-points.html</loc>
   </url>
   <url>
     <loc>https://INTERSECT-training.github.io/packaging/metadata.html</loc>
