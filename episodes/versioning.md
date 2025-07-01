@@ -7,7 +7,6 @@ exercises: 5
 :::::::::::::::::::::::::::::::::::::: questions 
 
 - How do you choose your versions?
-- How do you set version limits on dependencies?
 - How do you set a version?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
