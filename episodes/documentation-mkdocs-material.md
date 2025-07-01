@@ -1,5 +1,5 @@
 ---
-title: "Documentation with Sphinx"
+title: "Documentation with MkDocs"
 teaching: 10
 exercises: 10
 ---
