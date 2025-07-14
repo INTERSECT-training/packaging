@@ -23,6 +23,7 @@ One of Python's biggest strengths is its ecosystem of packages which build upon 
 the capabilities offered by the standard library.
 
 We'll look at how:
+
 - You should use virtual environments to manage the dependencies of different projects,
 - You can install packages you want to build on using `pip`, and
 - You can install Python applications you just want to use using `pipx`.
@@ -40,6 +41,7 @@ python3 -m venv .venv
 ```
 
 This creates a new directory `.venv` containing:
+
 - `.venv/bin`
   - A link to the Python version,
   - A link to the Python package installer `pip`, and
@@ -116,6 +118,7 @@ conda deactivate
 ```
 
 Alternative implementations of `conda` are available and may be faster, like:
+
 - [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)
    a single binary, also written in C++,
 - [Pixi](https://github.com/prefix-dev/pixi) written in Rust.
