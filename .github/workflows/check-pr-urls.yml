@@ -27,7 +27,7 @@ jobs:
 
       # Run URL checks
       - name: URLs-checker
-        uses: urlstechie/urlchecker-action@0.0.33
+        uses: urlstechie/urlchecker-action@0.0.34
         with:
           # only include the changed files
           include_files: ${{ steps.files.outputs.added_modified }}
