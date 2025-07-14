@@ -4,7 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do I document my project?
 
@@ -16,11 +16,10 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
 In this lesson, we'll outline creating a documentation webpage using Sphinx.
 
 You will:
+
 - set up a basic documentation directory,
 - create a configuration including the modern MyST plugin to get markdown support,
 - start a preview server,
@@ -34,7 +33,7 @@ You will:
 We'll start with the built-in template. Start by creating a `docs/` directory
 within your project (i.e. next to `src/`).
 
-::::::::::::::::::::::::::::::::::::: spoiler 
+::::::::::::::::::::::::::::::::::::: spoiler
 
 ## Why not Sphinx-Quickstart?
 
@@ -47,7 +46,6 @@ pipx run --spec sphinx sphinx-quickstart --no-makefile --no-batchfile --ext-auto
 But this will put Restructured Text into the `index.md` file, and doesn't really generate that much for you. You can instead add the `docs/conf.py` file yourself, which is what we'll do here.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 You first file is a configuration file, `docs/conf.py`:
 
@@ -74,9 +72,9 @@ And add (a correct) `docs/index.md` yourself:
 
 ## Indices and tables
 
-* {ref}`genindex`
-* {ref}`modindex`
-* {ref}`search`
+- {ref}`genindex`
+- {ref}`modindex`
+- {ref}`search`
 ````
 
 As you add new pages, you will list them in the toctree above.
@@ -181,6 +179,7 @@ If you want to include your readme in your docs, you can add something like this
 
 And you use `<!-- SPHINX-START -->` to mark where you want your docs part of
 your `README.md` to start (generally after the title and badges).
+
 ```markdown
 # Example Package YOUR USERNAME HERE
 
@@ -190,7 +189,6 @@ your `README.md` to start (generally after the title and badges).
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ::::::::::::::::::::::::::::::::::::: checklist
 
@@ -206,7 +204,6 @@ And add `"furo"` to your `docs` extra in your `pyproject.toml`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Further reading
@@ -215,11 +212,7 @@ To see a more complete example, read [Scientific-Python's docs guide](https://le
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Sphinx is great for documentation
 
