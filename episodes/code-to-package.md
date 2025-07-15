@@ -38,7 +38,7 @@ This lesson will walk you through that process.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Consider the `rescale()` function written as an exercise in the Software Carpentry
-[Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson.
+[Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func.html) lesson.
 
 Install NumPy:
 
