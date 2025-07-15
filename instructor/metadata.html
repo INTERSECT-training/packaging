@@ -381,7 +381,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Metadata</h1>
-        <p>Last updated on 2025-06-18 |
+        <p>Last updated on 2025-07-15 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/metadata.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -418,13 +418,14 @@
 </div>
 </div>
 <p>In a previous lesson, we left the metadata in our
-<code>pyproject.toml</code> quite minimal, just: - a name and - a
-version.</p>
-<p>There are quite a few other fields that can really help your package
-on PyPI, however. We’ll look at them, split into categories: -
-Informational: author, description, URL, etc. - Functional:
-requirements, tool configurations etc.</p>
-<p>There’s also a special <code>dynamic</code> field that lets you list
+<code>pyproject.toml</code> quite minimal, just:</p>
+<ul><li>a name and</li>
+<li>a version.</li>
+</ul><p>There are quite a few other fields that can really help your package
+on PyPI, however. We’ll look at them, split into categories:</p>
+<ul><li>Informational: author, description, URL, etc.</li>
+<li>Functional: requirements, tool configurations etc.</li>
+</ul><p>There’s also a special <code>dynamic</code> field that lets you list
 values that are going to come from some other source.</p>
 <section><h2 class="section-heading" id="informational-metadata">Informational metadata<a class="anchor" aria-label="anchor" href="#informational-metadata"></a></h2>
 <hr class="half-width"><div class="section level3">
@@ -575,37 +576,61 @@ will need to remove that classifier.</p>
 </div>
 <div class="section level3">
 <h3 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a></h3>
-<p>There are three ways to include your license: 1. The preferred way to
-include a standard license is to include a classifier starting with
-“License ::”,
-<code>toml    [project]    classifiers = [      "License :: OSI Approved :: BSD License",    ]</code>
-2. The other way to include a standard license is to put its name in the
-<code>license</code> field:
-<code>toml    [project]    license = {text = "MIT License"}</code> 3.
-You may also put the license in a file named <code>LICENSE</code> or
-<code>LICENSE.txt</code> and link it in the <code>license</code> field:
-<code>toml    [project]    license = {file = "LICENSE"}</code> If you do
-this, after the <a href="publishing.html"><code>build</code> step</a>,
-verify the contents of your SDist and Wheel(s) manually to make sure the
-license file is included, because some build backends may not support
-including the license using this field.</p>
+<p>There are three ways to include your license:</p>
+<ol style="list-style-type: decimal"><li>
+<p>The preferred way to include a standard license is to include a
+classifier starting with “License ::”,</p>
 <div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="dt">classifiers</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="st">"License :: OSI Approved :: BSD License"</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+</div>
+</li>
+<li>
+<p>The other way to include a standard license is to put its name in
+the <code>license</code> field:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="dt">license</span> <span class="op">=</span> <span class="op">{</span><span class="dt">text</span><span class="op"> =</span> <span class="st">"MIT License"</span><span class="op">}</span></span></code></pre>
+</div>
+</li>
+<li>
+<p>You may also put the license in a file named <code>LICENSE</code>
+or <code>LICENSE.txt</code> and link it in the <code>license</code>
+field:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="dt">license</span> <span class="op">=</span> <span class="op">{</span><span class="dt">file</span><span class="op"> =</span> <span class="st">"LICENSE"</span><span class="op">}</span></span></code></pre>
+</div>
+<p>If you do this, after the <a href="publishing.html"><code>build</code> step</a>, verify the contents
+of your SDist and Wheel(s) manually to make sure the license file is
+included, because some build backends may not support including the
+license using this field.</p>
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-tvf</span> dist/example_package_YOUR_USERNAME_HERE-0.1.1.tar.gz</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">unzip</span> <span class="at">-l</span> dist/example_package_YOUR_USERNAME_HERE-0.1.1-py2.py3-none-any.whl</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-tvf</span> dist/example_package_YOUR_USERNAME_HERE-0.1.1.tar.gz</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">unzip</span> <span class="at">-l</span> dist/example_package_YOUR_USERNAME_HERE-0.1.1-py2.py3-none-any.whl</span></code></pre>
 </div>
-</div>
+</li>
+</ol></div>
 </section><section><h2 class="section-heading" id="functional-metadata">Functional metadata<a class="anchor" aria-label="anchor" href="#functional-metadata"></a></h2>
 <hr class="half-width"><p>The remaining fields actually change the usage of the package.</p>
 <div class="section level3">
 <h3 id="requires-python">Requires-Python<a class="anchor" aria-label="anchor" href="#requires-python"></a></h3>
 <p>This is an important and sometimes misunderstood field. It looks like
 this:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="dt">requires-python</span> <span class="op">=</span> <span class="st">"&gt;=3.8"</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="dt">requires-python</span> <span class="op">=</span> <span class="st">"&gt;=3.8"</span></span></code></pre>
 </div>
 <p>Pip will check if the Python version of the environment where the
 package being installed passes this expression. If it doesn’t, pip will
@@ -639,38 +664,38 @@ with.</p>
 <h3 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a></h3>
 <p>Your package likely will need other packages to run. You can add
 dependencies on other packages like this:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">[project]</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="dt">...</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="st">"numpy"</span><span class="op">,</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="dt">...</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  <span class="st">"numpy"</span><span class="op">,</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="op">]</span></span></code></pre>
 </div>
 <p>Sometimes you have dependencies that are only needed some of the
 time. These can be specified as optional dependencies. Unlike normal
 dependencies, these are specified in a table, with the key being the
 option you pass to pip to install it. For example:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">[project.optional-dependenices]</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest&gt;=6"</span><span class="op">]</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="dt">check</span> <span class="op">=</span> <span class="op">[</span><span class="st">"flake8"</span><span class="op">]</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="dt">plot</span> <span class="op">=</span> <span class="op">[</span><span class="st">"matplotlib"</span><span class="op">]</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">[project.optional-dependenices]</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest&gt;=6"</span><span class="op">]</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="dt">check</span> <span class="op">=</span> <span class="op">[</span><span class="st">"flake8"</span><span class="op">]</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="dt">plot</span> <span class="op">=</span> <span class="op">[</span><span class="st">"matplotlib"</span><span class="op">]</span></span></code></pre>
 </div>
 <p>Now you can run:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--editable</span> <span class="st">'.[test,check]'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--editable</span> <span class="st">'.[test,check]'</span></span></code></pre>
 </div>
 <p>or – once it’s published,</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="st">'example-package-YOUR-USERNAME-HERE[test,check]'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="st">'example-package-YOUR-USERNAME-HERE[test,check]'</span></span></code></pre>
 </div>
 <p>– and pip will install both the required and optional dependencies
 <code>pytest</code> and <code>flake8</code>, but not
@@ -695,41 +720,44 @@ that).</li>
 or an analysis. Not installable. Versions should be fully locked.</li>
 </ul><p>You can set ranges on your dependencies by specifying the ranges in
 the <code>pyproject.toml</code> file:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>  <span class="st">"tqdm"</span><span class="op">,</span>                <span class="co"># no specified range</span></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>  <span class="st">"numpy&gt;=1.18"</span><span class="op">,</span>         <span class="co"># lower cap</span></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>  <span class="st">"matplotlib&lt;4.0"</span><span class="op">,</span>      <span class="co"># upper cap</span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  <span class="st">"pandas&gt;1.4.2,&lt;=3.0"</span><span class="op">,</span>  <span class="co"># lower and upper caps</span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>  <span class="st">"seaborn==0.13.2"</span><span class="op">,</span>     <span class="co"># specific version</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  <span class="st">"tqdm"</span><span class="op">,</span>                <span class="co"># no specified range</span></span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="st">"numpy&gt;=1.18"</span><span class="op">,</span>         <span class="co"># lower cap</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  <span class="st">"matplotlib&lt;4.0"</span><span class="op">,</span>      <span class="co"># upper cap</span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="st">"pandas&gt;1.4.2,&lt;=3.0"</span><span class="op">,</span>  <span class="co"># lower and upper caps</span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>  <span class="st">"seaborn==0.13.2"</span><span class="op">,</span>     <span class="co"># specific version</span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="op">]</span></span></code></pre>
 </div>
 <p>If you have a range of versions supported, you should ideally run
 your tests at least once with the minimum versions of your dependencies.
-You can do this using: - a <code>constraints.txt</code> file, which
-specifies pins on the minimum versions of all your dependencies, and
-then use
+You can do this using:</p>
+<ul><li>a <code>constraints.txt</code> file, which specifies pins on the
+minimum versions of all your dependencies, and then use
 <code>pip install --constraint constraints.txt --editable .</code>
-before running your tests . - a tool like <code>uv</code> which supports
-installing with the lowest possible dependencies like this:
+before running your tests .</li>
+<li>a tool like <code>uv</code> which supports installing with the
+lowest possible dependencies like this:
 <code>uv pip install --resolution=lowest .</code> before running your
-tests</p>
-<p>Adding an “upper cap” like <code>"numpy&gt;=1.18,&lt;2.0"</code> is
+tests</li>
+</ul><p>Adding an “upper cap” like <code>"numpy&gt;=1.18,&lt;2.0"</code> is
 only recommended if you are fairly sure the next version will break your
 usage of the library. For more information, see this article on <a href="https://iscinumpy.dev/post/bound-version-constraints/" class="external-link">bound
 version constraints</a>.</p>
-<p>There are several ways to lock your dependencies completely: -
-specify the versions in the <code>pyproject.toml</code> file, or - allow
-ranges in the <code>pyproject.toml</code> file and - specify the
-versions for your development environment manually using
-<code>pip-tools</code>, or - using a locking package manager like PDM or
-Poetry. (Just add the lockfiles generated by the tools to your
-repository, and they should be used automatically. There is usually an
-update command that will update the local environment and the lock
-file.)</p>
-<div id="pinning-dependencies-with-pip-tools" class="callout">
+<p>There are several ways to lock your dependencies completely:</p>
+<ul><li>specify the versions in the <code>pyproject.toml</code> file,
+or</li>
+<li>allow ranges in the <code>pyproject.toml</code> file and
+<ul><li>specify the versions for your development environment manually using
+<code>pip-tools</code>, or</li>
+<li>using a locking package manager like PDM or Poetry. (Just add the
+lockfiles generated by the tools to your repository, and they should be
+used automatically. There is usually an update command that will update
+the local environment and the lock file.)</li>
+</ul></li>
+</ul><div id="pinning-dependencies-with-pip-tools" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -740,18 +768,18 @@ file.)</p>
 <div class="callout-content">
 <p>Set up a <code>requirements.in</code> file with your unpinned
 dependencies. For example:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">TXT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode txt" tabindex="0"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a># requirements.in</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>packaging</span></code></pre>
+<pre class="sourceCode txt" tabindex="0"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a># requirements.in</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>packaging</span></code></pre>
 </div>
 <p>Now, run pip-compile from pip-tools on your requirements.in to make a
 requirements.txt:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">pipx</span> run <span class="at">--spec</span> pip-tools pip-compile requirements.in <span class="at">--generate-hashes</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">pipx</span> run <span class="at">--spec</span> pip-tools pip-compile requirements.in <span class="at">--generate-hashes</span></span></code></pre>
 </div>
 <p>This will produce a <code>requirements.txt</code> with fully locked
 dependencies, including hashes. You can always regenerate it when you
@@ -801,11 +829,11 @@ command-line entry points (<code>scripts</code>), graphical entry points
 <code>main()</code> function inside <code>__main__.py</code> that you
 want to run to create a command <code>project-cli</code>. You’d
 write:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">[project.scripts]</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="dt">project-cli</span> <span class="op">=</span> <span class="st">"project.__main__:main"</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">[project.scripts]</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="dt">project-cli</span> <span class="op">=</span> <span class="st">"project.__main__:main"</span></span></code></pre>
 </div>
 <p>The command line name is the table key, and the form of the entry
 point is <code>package.module:function</code>. Now, when you install
@@ -827,38 +855,38 @@ version.path = "src/example_package_YOUR_USERNAME_HERE/__init__.py"</code></pre>
 </section><section><h2 class="section-heading" id="all-together">All together<a class="anchor" aria-label="anchor" href="#all-together"></a></h2>
 <hr class="half-width"><p>Now let’s take our previous example and expand it with more
 information. Here’s an example:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">[build-system]</span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"hatchling"</span><span class="op">]</span></span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="dt">build-backend</span> <span class="op">=</span> <span class="st">"hatchling.build"</span></span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="kw">[project]</span></span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"example-package-YOUR-USERNAME-HERE"</span></span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.1"</span></span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>  <span class="st">"numpy"</span></span>
-<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="dt">authors</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a>  <span class="op">{ </span><span class="dt">name</span><span class="op">=</span><span class="st">"Example Author"</span><span class="op">, </span><span class="dt">email</span><span class="op">=</span><span class="st">"author@example.com"</span><span class="op"> },</span></span>
-<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"A small example package"</span></span>
-<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a><span class="dt">readme</span> <span class="op">=</span> <span class="st">"README.md"</span></span>
-<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a><span class="dt">requires-python</span> <span class="op">=</span> <span class="st">"&gt;=3.8"</span></span>
-<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a><span class="dt">classifiers</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a>    <span class="st">"Programming Language :: Python :: 3"</span><span class="op">,</span></span>
-<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a>    <span class="st">"License :: OSI Approved :: MIT License"</span><span class="op">,</span></span>
-<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a>    <span class="st">"Operating System :: OS Independent"</span><span class="op">,</span></span>
-<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a>    <span class="st">"Private :: Do Not Upload"</span><span class="op">,</span></span>
-<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a></span>
-<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a><span class="kw">[project.optional-dependencies]</span></span>
-<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span>
-<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a></span>
-<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a><span class="kw">[project.urls]</span></span>
-<span id="cb20-28"><a href="#cb20-28" tabindex="-1"></a><span class="dt">"Homepage"</span> <span class="op">=</span> <span class="st">"https://&lt;your github username&gt;.github.io/example-package-YOUR-USERNAME-HERE"</span></span>
-<span id="cb20-29"><a href="#cb20-29" tabindex="-1"></a><span class="dt">"Source Code"</span> <span class="op">=</span> <span class="st">"https://github.com/&lt;your github username&gt;/example-package-YOUR-USERNAME-HERE"</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"hatchling"</span><span class="op">]</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="dt">build-backend</span> <span class="op">=</span> <span class="st">"hatchling.build"</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"example-package-YOUR-USERNAME-HERE"</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.1"</span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>  <span class="st">"numpy"</span></span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a><span class="dt">authors</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>  <span class="op">{ </span><span class="dt">name</span><span class="op">=</span><span class="st">"Example Author"</span><span class="op">, </span><span class="dt">email</span><span class="op">=</span><span class="st">"author@example.com"</span><span class="op"> },</span></span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"A small example package"</span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="dt">readme</span> <span class="op">=</span> <span class="st">"README.md"</span></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="dt">requires-python</span> <span class="op">=</span> <span class="st">"&gt;=3.8"</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="dt">classifiers</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>    <span class="st">"Programming Language :: Python :: 3"</span><span class="op">,</span></span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>    <span class="st">"License :: OSI Approved :: MIT License"</span><span class="op">,</span></span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>    <span class="st">"Operating System :: OS Independent"</span><span class="op">,</span></span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>    <span class="st">"Private :: Do Not Upload"</span><span class="op">,</span></span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="kw">[project.optional-dependencies]</span></span>
+<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a></span>
+<span id="cb23-27"><a href="#cb23-27" tabindex="-1"></a><span class="kw">[project.urls]</span></span>
+<span id="cb23-28"><a href="#cb23-28" tabindex="-1"></a><span class="dt">"Homepage"</span> <span class="op">=</span> <span class="st">"https://&lt;your github username&gt;.github.io/example-package-YOUR-USERNAME-HERE"</span></span>
+<span id="cb23-29"><a href="#cb23-29" tabindex="-1"></a><span class="dt">"Source Code"</span> <span class="op">=</span> <span class="st">"https://github.com/&lt;your github username&gt;/example-package-YOUR-USERNAME-HERE"</span></span></code></pre>
 </div>
 <div id="add-metadata-and-check-it." class="callout challenge">
 <div class="callout-square">
@@ -880,11 +908,11 @@ You can also look inside the wheel or SDist to see the metadata.</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">pip</span> show <span class="at">-v</span> example-package-YOUR-USERNAME-HERE</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">pip</span> show <span class="at">-v</span> example-package-YOUR-USERNAME-HERE</span></code></pre>
 </div>
 </div>
 </div>
@@ -965,7 +993,7 @@ any links that you are not going to use.
   "url": "https://INTERSECT-training.github.io/packaging/instructor/metadata.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/metadata.html",
   "dateCreated": "2025-07-15",
-  "dateModified": "2025-06-18",
+  "dateModified": "2025-07-15",
   "datePublished": "2025-07-15"
 }
 

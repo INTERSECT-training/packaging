@@ -384,7 +384,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Publishing package and citation</h1>
-        <p>Last updated on 2025-06-18 |
+        <p>Last updated on 2025-07-15 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/publishing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -423,39 +423,51 @@
 </div>
 <p>If you want other people to be able to access your package, you need
 to publish it.</p>
-<p>In this episode we’ll: - investigate the formats you can use to share
-your package: source distribution and wheel, - publish those on the
-Python Package Index (PyPI), - add automation to your project to make
-publishing easier, - share the package on Zenodo to get a Digital Object
-Identifier so that your work is more easily citeable.</p>
-<section><h2 class="section-heading" id="formats">Formats<a class="anchor" aria-label="anchor" href="#formats"></a></h2>
+<p>In this episode we’ll:</p>
+<ul><li>investigate the formats you can use to share your package: source
+distribution and wheel,</li>
+<li>publish those on the Python Package Index (PyPI),</li>
+<li>add automation to your project to make publishing easier,</li>
+<li>share the package on Zenodo to get a Digital Object Identifier so
+that your work is more easily citeable.</li>
+</ul><section><h2 class="section-heading" id="formats">Formats<a class="anchor" aria-label="anchor" href="#formats"></a></h2>
 <hr class="half-width"><p>One “format” is available as soon as you have pushed your work to a
-platform like GitHub: - <strong>repository</strong>: - Contains all of
-your repository, including tests, metadata, and its history, - Requires
-your build backend (hatchling, in this case) to build. - The source is
-distributed in the form of a repository accessible to the user. -
-Installation:
+platform like GitHub:</p>
+<ul><li>
+<strong>repository</strong>:
+<ul><li>Contains all of your repository, including tests, metadata, and its
+history,</li>
+<li>Requires your build backend (hatchling, in this case) to build.</li>
+<li>The source is distributed in the form of a repository accessible to
+the user.</li>
+<li>Installation:
 <code>pip install git+https://git.example.com/MyProject</code> where
 <code>git+</code> tells <code>pip</code> how to interpret the
-repository. - You can also specify particular revisions, like: *
-<code>pip install git+https://git.example.com/MyProject.git@v1.0</code>
-*
-<code>pip install git+https://git.example.com/MyProject.git@main</code>
-*
-<code>pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709</code>
-*
-<code>pip install git+https://git.example.com/MyProject.git@refs/pull/123/head</code></p>
-<p>If you want to share your work with a wider audience, there are two
-major formats used to publish python packages: - <strong>source
-distribution</strong> (<code>sdist</code> for short): - Contains most of
-your repository, including tests, and - Requires your build backend
-(hatchling, in this case) to build. - <strong>wheel</strong>: - The
-wheel is “built”, the contents are ready to unpack into standard
+repository.</li>
+<li>You can also specify particular revisions, like:
+<ul><li><code>pip install git+https://git.example.com/MyProject.git@v1.0</code></li>
+<li><code>pip install git+https://git.example.com/MyProject.git@main</code></li>
+<li><code>pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709</code></li>
+<li><code>pip install git+https://git.example.com/MyProject.git@refs/pull/123/head</code></li>
+</ul></li>
+</ul></li>
+</ul><p>If you want to share your work with a wider audience, there are two
+major formats used to publish python packages:</p>
+<ul><li>
+<strong>source distribution</strong> (<code>sdist</code> for short):
+<ul><li>Contains most of your repository, including tests, and</li>
+<li>Requires your build backend (hatchling, in this case) to build.</li>
+</ul></li>
+<li>
+<strong>wheel</strong>:
+<ul><li>The wheel is “built”, the contents are ready to unpack into standard
 locations (usually site-packages), and does not contain configuration
-files like <code>pyproject.toml</code>. - Usually you do not include
-things like tests in the wheel. - Wheels also can contain binaries for
-packages with compiled portions.</p>
-</section><section><h2 class="section-heading" id="building-sdists-and-wheels">Building SDists and wheels<a class="anchor" aria-label="anchor" href="#building-sdists-and-wheels"></a></h2>
+files like <code>pyproject.toml</code>.</li>
+<li>Usually you do not include things like tests in the wheel.</li>
+<li>Wheels also can contain binaries for packages with compiled
+portions.</li>
+</ul></li>
+</ul></section><section><h2 class="section-heading" id="building-sdists-and-wheels">Building SDists and wheels<a class="anchor" aria-label="anchor" href="#building-sdists-and-wheels"></a></h2>
 <hr class="half-width"><p>You can build an SDist and a wheel (from that SDist) with
 <code>pipx</code> and the <code>build</code> package:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -546,7 +558,7 @@ release can be a simple procedure.</p>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="at">  </span><span class="fu">release</span><span class="kw">:</span></span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="at">    </span><span class="fu">types</span><span class="kw">:</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> published</span></span></code></pre>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> published</span></span></code></pre>
 </div>
 <p>This has two triggers. The first, <code>workflow_dispatch</code>,
 allows you to manually trigger the workflow from the GitHub web UI for
@@ -562,16 +574,16 @@ releases later.</p>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="fu">dist</span><span class="kw">:</span></span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">        </span><span class="fu">fetch-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">          </span><span class="fu">fetch-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
 <span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build SDist &amp; wheel</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pipx run build</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build SDist &amp; wheel</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pipx run build</span></span>
 <span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="at">        </span><span class="fu">path</span><span class="kw">:</span><span class="at"> dist/*</span></span></code></pre>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> dist/*</span></span></code></pre>
 </div>
 <p>We’ve seen the setup before. We are calling the job
 <code>dist</code>, using an Ubuntu runner, and checking out the code,
@@ -618,14 +630,14 @@ well.</p>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.event_name == 'release' &amp;&amp; github.event.action == 'published'</span></span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">  </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="at">    </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> artifact</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="at">      </span><span class="fu">path</span><span class="kw">:</span><span class="at"> dist</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> artifact</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="at">        </span><span class="fu">path</span><span class="kw">:</span><span class="at"> dist</span></span>
 <span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> pypa/gh-action-pypi-publish@release/v1</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="at">    </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="at">      </span><span class="fu">repository-url</span><span class="kw">:</span><span class="at"> https://test.pypi.org/legacy/</span></span></code></pre>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> pypa/gh-action-pypi-publish@release/v1</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="at">        </span><span class="fu">repository-url</span><span class="kw">:</span><span class="at"> https://test.pypi.org/legacy/</span></span></code></pre>
 </div>
 <p>This job requires that the previous job completes successfully with
 <code>needs:</code>. It has an <code>if:</code> block as well that
@@ -663,11 +675,13 @@ the instructions in the <a href="https://docs.github.com/en/repositories/archivi
 Documentation</a>.</p>
 <p>To test the functionality, you can use the <a href="https://sandbox.zenodo.org/" class="external-link">Zenodo Sandbox</a>.</p>
 </section><section><h2 class="section-heading" id="the-citation-cff-file">The CITATION.cff file<a class="anchor" aria-label="anchor" href="#the-citation-cff-file"></a></h2>
-<hr class="half-width"><p>From <a href="https://citation-file-format.github.io/" class="external-link">https://citation-file-format.github.io/</a>:
-&gt; <code>CITATION.cff</code> files are plain text files with human-
-and machine-readable citation information for software (and datasets).
-&gt; Code developers can include them in their repositories to let
-others know how to correctly cite their software.</p>
+<hr class="half-width"><p>From <a href="https://citation-file-format.github.io/" class="external-link">https://citation-file-format.github.io/</a>:</p>
+<blockquote>
+<p><code>CITATION.cff</code> files are plain text files with human- and
+machine-readable citation information for software (and datasets). Code
+developers can include them in their repositories to let others know how
+to correctly cite their software.</p>
+</blockquote>
 <p>This file format is becoming a de-facto standard, and is supported by
 GitHub, Zenodo and Zotero.</p>
 <p>The CITATION.cff file looks like this:</p>
@@ -768,7 +782,7 @@ any links that you are not going to use.
   "url": "https://INTERSECT-training.github.io/packaging/instructor/publishing.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/publishing.html",
   "dateCreated": "2025-07-15",
-  "dateModified": "2025-06-18",
+  "dateModified": "2025-07-15",
   "datePublished": "2025-07-15"
 }
 

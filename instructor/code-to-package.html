@@ -381,7 +381,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Code to Package</h1>
-        <p>Last updated on 2025-06-18 |
+        <p>Last updated on 2025-07-15 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/code-to-package.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -444,7 +444,7 @@ walk you through that process.</p>
 </div>
 </div>
 <p>Consider the <code>rescale()</code> function written as an exercise
-in the Software Carpentry <a href="https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html" class="external-link">Programming
+in the Software Carpentry <a href="https://swcarpentry.github.io/python-novice-inflammation/08-func.html" class="external-link">Programming
 with Python</a> lesson.</p>
 <p>Install NumPy:</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -486,13 +486,15 @@ function:</p>
 <section><h2 class="section-heading" id="create-a-minimal-package">Create a minimal package<a class="anchor" aria-label="anchor" href="#create-a-minimal-package"></a></h2>
 <hr class="half-width"><p>Let’s create a Python package that contains this function.</p>
 <p>Create the necessary directory structure for your package. This
-includes: - a <code>src</code> (“source”) directory, which will contain
-another directory called <code>package</code> for the source files of
-your package itself, - a <code>tests</code> directory, which will hold
-tests for your package and its modules/functions, - a <code>docs</code>
-directory, which will hold the files necessary for documenting your
-software package.</p>
-<div class="codewrapper sourceCode" id="cb6">
+includes:</p>
+<ul><li>a <code>src</code> (“source”) directory, which will contain another
+directory called <code>package</code> for the source files of your
+package itself,</li>
+<li>a <code>tests</code> directory, which will hold tests for your
+package and its modules/functions,</li>
+<li>a <code>docs</code> directory, which will hold the files necessary
+for documenting your software package.</li>
+</ul><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> src/example_package_YOUR_USERNAME_HERE tests docs</span></code></pre>
@@ -523,15 +525,16 @@ to prevent naming conflicts.</p>
 <h3 class="callout-title">Directory Structure</h3>
 <div class="callout-content">
 <p>Putting the package directory and source code inside the
-<code>src</code> directory is not actually <em>required</em>. - If you
-put the <code>&lt;package_name&gt;</code> directory at the same level as
-<code>tests</code> and <code>docs</code> then you could actually import
-or call the package directory from that location. - However, this can
-cause several issues, such as running tests with the local version
-instead of the installed version. - In addition, the <code>src/</code>
-package structure matches that of compiled languages, and lets your
-package easily contain non-Python compiled code, if necessary.</p>
-</div>
+<code>src</code> directory is not actually <em>required</em>.</p>
+<ul><li>If you put the <code>&lt;package_name&gt;</code> directory at the
+same level as <code>tests</code> and <code>docs</code> then you could
+actually import or call the package directory from that location.</li>
+<li>However, this can cause several issues, such as running tests with
+the local version instead of the installed version.</li>
+<li>In addition, the <code>src/</code> package structure matches that of
+compiled languages, and lets your package easily contain non-Python
+compiled code, if necessary.</li>
+</ul></div>
 </div>
 </div>
 <p>Inside <code>src/example_package_YOUR_USERNAME_HERE</code>, create
@@ -563,11 +566,11 @@ file. Create this with</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> touch pyproject.toml</span></code></pre>
 </div>
-<p>and then provide the minimally required metadata, which include -
-information about the package itself (<code>name</code>,
-<code>version</code> and <code>dependencies</code>) and - build system
-(hatchling):</p>
-<div class="codewrapper sourceCode" id="cb10">
+<p>and then provide the minimally required metadata, which include</p>
+<ul><li>information about the package itself (<code>name</code>,
+<code>version</code> and <code>dependencies</code>) and</li>
+<li>build system (hatchling):</li>
+</ul><div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># contents of pyproject.toml</span></span>
@@ -765,11 +768,13 @@ make small commits regularly.)</p>
 until you’ve set up your <code>.gitignore</code>
 </h3>
 <div class="callout-content">
-<p>When working with git, it’s best to - stage <strong>individual
-files</strong> using <code>git add FILENAME ...</code>, - check what
-you’re about to commit using <code>git status</code>, before you -
-commit with <code>git commit -m "COMMIT MESSAGE"</code>.</p>
-<p>You can also use a graphical tool which makes it easy to see at a
+<p>When working with git, it’s best to</p>
+<ul><li>stage <strong>individual files</strong> using
+<code>git add FILENAME ...</code>,</li>
+<li>check what you’re about to commit using <code>git status</code>,
+before you</li>
+<li>commit with <code>git commit -m "COMMIT MESSAGE"</code>.</li>
+</ul><p>You can also use a graphical tool which makes it easy to see at a
 glance what is is you’re committing.</p>
 <p>Adding a <code>.gitignore</code> file (which we’ll cover later), will
 help avoid inadvertently committing files like the virtual environment
@@ -789,16 +794,24 @@ which commits everything.</p>
 messages</a> which look like
 <code>&lt;type&gt;: &lt;description&gt;</code>.</p>
 <p>Each commit should do one and only one “thing” to the code, for
-instance: - add a new feature (type: <code>feat</code>), <em>or</em> -
-fix a bug (type: <code>fix</code>), <em>or</em> - rename a function
-(type: <code>refactor</code>), <em>or</em> - add documentation (type:
-<code>docs</code>), <em>or</em> - change something affecting the build
-system (type: <code>build</code>).</p>
-<p>By doing only one thing per commit, it’s easier to: - write the
-commit message, - understand the history by looking at the
-<code>git log</code>, and - revert individual changes you later decide
-could be done in a better way.</p>
-</div>
+instance:</p>
+<ul><li>add a new feature (type: <code>feat</code>), <em>or</em>
+</li>
+<li>fix a bug (type: <code>fix</code>), <em>or</em>
+</li>
+<li>rename a function (type: <code>refactor</code>), <em>or</em>
+</li>
+<li>add documentation (type: <code>docs</code>), <em>or</em>
+</li>
+<li>change something affecting the build system (type:
+<code>build</code>).</li>
+</ul><p>By doing only one thing per commit, it’s easier to:</p>
+<ul><li>write the commit message,</li>
+<li>understand the history by looking at the <code>git log</code>,
+and</li>
+<li>revert individual changes you later decide could be done in a better
+way.</li>
+</ul></div>
 </div>
 </div>
 <div id="check-your-package" class="callout discussion">
@@ -823,10 +836,12 @@ next lesson:</p>
 </div>
 </div>
 </div>
-<p>You now have a package that is: - installed in editable mode in an
-isolated environment, - can be interacted with in tests and in an
-interactive console, and - has a passing test.</p>
-<p>Next, we’ll look at other files that should be included with your
+<p>You now have a package that is:</p>
+<ul><li>installed in editable mode in an isolated environment,</li>
+<li>can be interacted with in tests and in an interactive console,
+and</li>
+<li>has a passing test.</li>
+</ul><p>Next, we’ll look at other files that should be included with your
 package.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -903,7 +918,7 @@ any links that you are not going to use.
   "url": "https://INTERSECT-training.github.io/packaging/instructor/code-to-package.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/code-to-package.html",
   "dateCreated": "2025-07-15",
-  "dateModified": "2025-06-18",
+  "dateModified": "2025-07-15",
   "datePublished": "2025-07-15"
 }
 

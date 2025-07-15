@@ -380,7 +380,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Environments and task runners</h1>
-        <p>Last updated on 2025-06-18 |
+        <p>Last updated on 2025-07-15 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/environment.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -420,11 +420,14 @@
 <p>One of Python’s biggest strengths is its ecosystem of packages which
 build upon and extend the capabilities offered by the standard
 library.</p>
-<p>We’ll look at how: - You should use virtual environments to manage
-the dependencies of different projects, - You can install packages you
-want to build on using <code>pip</code>, and - You can install Python
-applications you just want to use using <code>pipx</code>.</p>
-<section><h2 class="section-heading" id="creating-and-activatingdeactivating-a-virtual-environment">Creating and Activating/Deactivating a Virtual Environment<a class="anchor" aria-label="anchor" href="#creating-and-activatingdeactivating-a-virtual-environment"></a></h2>
+<p>We’ll look at how:</p>
+<ul><li>You should use virtual environments to manage the dependencies of
+different projects,</li>
+<li>You can install packages you want to build on using
+<code>pip</code>, and</li>
+<li>You can install Python applications you just want to use using
+<code>pipx</code>.</li>
+</ul><section><h2 class="section-heading" id="creating-and-activatingdeactivating-a-virtual-environment">Creating and Activating/Deactivating a Virtual Environment<a class="anchor" aria-label="anchor" href="#creating-and-activatingdeactivating-a-virtual-environment"></a></h2>
 <hr class="half-width"><p>Whenever we’re developing or working in Python, the best practice is
 to use a “virtual environment” which isolates the packages used for a
 particular project.</p>
@@ -436,12 +439,17 @@ with:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span></code></pre>
 </div>
-<p>This creates a new directory <code>.venv</code> containing: -
-<code>.venv/bin</code> - A link to the Python version, - A link to the
-Python package installer <code>pip</code>, and - activation scripts. -
+<p>This creates a new directory <code>.venv</code> containing:</p>
+<ul><li>
+<code>.venv/bin</code>
+<ul><li>A link to the Python version,</li>
+<li>A link to the Python package installer <code>pip</code>, and</li>
+<li>activation scripts.</li>
+</ul></li>
+<li>
 <code>.venv/lib/site-packages</code> where packages will be
-installed.</p>
-<p>To activate the environment, source the activation script:</p>
+installed.</li>
+</ul><p>To activate the environment, source the activation script:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -514,9 +522,14 @@ environments and use those. Quick tips:</p>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre>
 </div>
 <p>Alternative implementations of <code>conda</code> are available and
-may be faster, like: - <a href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html" class="external-link">Micromamba</a>
-a single binary, also written in C++, - <a href="https://github.com/prefix-dev/pixi" class="external-link">Pixi</a> written in Rust.</p>
-<p><a href="https://github.com/mamba-org/mamba" class="external-link">Mamba</a>, written in
+may be faster, like:</p>
+<ul><li>
+<a href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html" class="external-link">Micromamba</a>
+a single binary, also written in C++,</li>
+<li>
+<a href="https://github.com/prefix-dev/pixi" class="external-link">Pixi</a> written in
+Rust.</li>
+</ul><p><a href="https://github.com/mamba-org/mamba" class="external-link">Mamba</a>, written in
 C++, became very popular as its package resolver was much faster than
 the default in <code>conda</code>. In 2023, <code>conda</code>
 incorporated the <code>libmamba</code> package resolver as its default,
@@ -611,11 +624,15 @@ discovered.</p>
 <p>There are likely a <em>few</em> libraries (ideally just
 <code>pipx</code>) that you just have to install globally. Go ahead, but
 be careful, and always use your system package manager instead if you
-can, like - <a href="https://brew.sh" class="external-link"><code>brew</code> on macOS</a>, -
+can, like</p>
+<ul><li>
+<a href="https://brew.sh" class="external-link"><code>brew</code> on macOS</a>,</li>
+<li>
 <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/" class="external-link"><code>winget</code></a>
-or <a href="https://scoop.sh/" class="external-link"><code>scoop</code></a> on Windows, -
-<code>apt-get</code> on Ubuntu.</p>
-</div>
+or <a href="https://scoop.sh/" class="external-link"><code>scoop</code></a> on Windows,</li>
+<li>
+<code>apt-get</code> on Ubuntu.</li>
+</ul></div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="installing-applications">Installing Applications<a class="anchor" aria-label="anchor" href="#installing-applications"></a></h2>
@@ -754,7 +771,7 @@ any links that you are not going to use.
   "url": "https://INTERSECT-training.github.io/packaging/instructor/environment.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/environment.html",
   "dateCreated": "2025-07-15",
-  "dateModified": "2025-06-18",
+  "dateModified": "2025-07-15",
   "datePublished": "2025-07-15"
 }
 

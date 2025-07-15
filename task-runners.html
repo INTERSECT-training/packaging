@@ -380,7 +380,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Task runners</h1>
-        <p>Last updated on 2025-06-18 |
+        <p>Last updated on 2025-07-15 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/task-runners.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -415,21 +415,33 @@
 </div>
 <p>A task runner is a tool that lets you specify a set of tasks via a
 common interface.</p>
-<p>Use of a task runner is optional, but can be helpful to: - make it
-easy and simple for new contributors to run things, - make specialized
-developer tasks easy, - avoid making single-use virtual environments for
-docs and other rarely run tasks.</p>
-<p>Task runner preferences are subjective and diverse. Different people
+<p>Use of a task runner is optional, but can be helpful to:</p>
+<ul><li>make it easy and simple for new contributors to run things,</li>
+<li>make specialized developer tasks easy,</li>
+<li>avoid making single-use virtual environments for docs and other
+rarely run tasks.</li>
+</ul><p>Task runner preferences are subjective and diverse. Different people
 prefer different task runners because they are more flexible, simpler to
 understand, specialized to one language, general to many languages, and
 so on.</p>
-<p>Examples we’ll cover include: - <a href="https://nox.thea.codes" class="external-link">nox</a> (Python semi-general), and - <a href="https://hatch.pypa.io/" class="external-link">hatch</a> (specialized for Python package
-management).</p>
-<p>There are many other task runners for different languages, including:
-- <a href="https://www.gnu.org/software/make/" class="external-link">make</a> (fully general),
-- <a href="https://www.pyinvoke.org" class="external-link">invoke</a> (Python general), and -
-<a href="https://tox.readthedocs.io" class="external-link">tox</a> (Python packages).</p>
-<div id="task-runner-as-crutch" class="callout caution">
+<p>Examples we’ll cover include:</p>
+<ul><li>
+<a href="https://nox.thea.codes" class="external-link">nox</a> (Python semi-general),
+and</li>
+<li>
+<a href="https://hatch.pypa.io/" class="external-link">hatch</a> (specialized for Python
+package management).</li>
+</ul><p>There are many other task runners for different languages,
+including:</p>
+<ul><li>
+<a href="https://www.gnu.org/software/make/" class="external-link">make</a> (fully
+general),</li>
+<li>
+<a href="https://www.pyinvoke.org" class="external-link">invoke</a> (Python general),
+and</li>
+<li>
+<a href="https://tox.readthedocs.io" class="external-link">tox</a> (Python packages).</li>
+</ul><div id="task-runner-as-crutch" class="callout caution">
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
@@ -730,14 +742,19 @@ the <code>uv|virtualenv</code> backend.</p>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="hatch">Hatch<a class="anchor" aria-label="anchor" href="#hatch"></a></h2>
-<hr class="half-width"><p>Hatch is a Python “Project Manager” which can: - build packages, -
-manage virtual environments, - manage multiple python versions for a
-project, - run tests using <code>pytest</code>, - run static analysis on
-code using <code>ruff</code>, - <strong>execute scripts with specific
-dependencies and python versions</strong> (this is the “task runner”
-part) - publish packages to PyPI, - help bump version numbers of
-packages, - use templates to create new python projects</p>
-<p>To initialize an existing project for <code>hatch</code>, enter the
+<hr class="half-width"><p>Hatch is a Python “Project Manager” which can:</p>
+<ul><li>build packages,</li>
+<li>manage virtual environments,</li>
+<li>manage multiple python versions for a project,</li>
+<li>run tests using <code>pytest</code>,</li>
+<li>run static analysis on code using <code>ruff</code>,</li>
+<li>
+<strong>execute scripts with specific dependencies and python
+versions</strong> (this is the “task runner” part)</li>
+<li>publish packages to PyPI,</li>
+<li>help bump version numbers of packages,</li>
+<li>use templates to create new python projects</li>
+</ul><p>To initialize an existing project for <code>hatch</code>, enter the
 directory containing the project and run the following:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -751,9 +768,10 @@ directory containing the project and run the following:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">hatch</span> test</span></code></pre>
 </div>
-<p>This will: - create a python environment in which your tests will
-run, then - run the tests.</p>
-<p>Alongside built-in commands like <code>test</code>,
+<p>This will:</p>
+<ul><li>create a python environment in which your tests will run, then</li>
+<li>run the tests.</li>
+</ul><p>Alongside built-in commands like <code>test</code>,
 <code>hatch</code> allows adding custom scripts.</p>
 <p>For instance, to add an environment and scripts for viewing and
 publishing the Material for MkDocs documentation, you can add the
@@ -790,12 +808,12 @@ needed, and scripts <code>serve</code>, <code>build</code> and
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">hatch</span> run doc:build</span></code></pre>
 </div>
 <p>to build the documentation, ready for deployment.</p>
-<p>The key benefits here are that: - these scripts run within an
-isolated environment, - the simple commands like
-<code>hatch run doc:serve</code> allow the developer to use arguments
-like <code>--dev-addr localhost:8000</code> without needing to remember
-or think about them.</p>
-<p>The developer must decide whether these benefits outweigh the added
+<p>The key benefits here are that:</p>
+<ul><li>these scripts run within an isolated environment,</li>
+<li>the simple commands like <code>hatch run doc:serve</code> allow the
+developer to use arguments like <code>--dev-addr localhost:8000</code>
+without needing to remember or think about them.</li>
+</ul><p>The developer must decide whether these benefits outweigh the added
 complexity of an additional layer of abstraction, which will hinder
 debugging if something goes wrong.</p>
 <div id="keypoints1" class="callout keypoints">
@@ -871,7 +889,7 @@ any links that you are not going to use.
   "url": "https://INTERSECT-training.github.io/packaging/task-runners.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/task-runners.html",
   "dateCreated": "2025-07-15",
-  "dateModified": "2025-06-18",
+  "dateModified": "2025-07-15",
   "datePublished": "2025-07-15"
 }
 

@@ -373,10 +373,12 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Setup</h1>
       
 
-<p>What is a package? * An organized collection of modules containing
-functions and classes with a common purpose. * Packages allow developers
-to organize code in manageable and reusable structured units.</p>
-<p>Why is packaging important in scientific research?</p>
+<p>What is a package?</p>
+<ul><li>An organized collection of modules containing functions and classes
+with a common purpose.</li>
+<li>Packages allow developers to organize code in manageable and
+reusable structured units.</li>
+</ul><p>Why is packaging important in scientific research?</p>
 <ul><li>
 <strong>Reusability:</strong> Common code can be used across many
 projects</li>
@@ -489,7 +491,7 @@ trouble with setting up these tools locally!</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="cloud">Cloud<a class="anchor" aria-label="anchor" href="#cloud"></a></h3>
+<h3 id="a--cloud">A. Cloud<a class="anchor" aria-label="anchor" href="#a--cloud"></a></h3>
 <p>You can get all the prerequisites for this lesson by using a GitHub
 Codespace.</p>
 <ul><li>Create a new repository called
@@ -505,29 +507,32 @@ an editor with a shell, <code>python</code> and <code>git</code>
 pre-configured for you.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="local">Local<a class="anchor" aria-label="anchor" href="#local"></a></h3>
+<h3 id="b--local">B. Local<a class="anchor" aria-label="anchor" href="#b--local"></a></h3>
 <p>If you want to run this example on your own computer, you will need
 to install the parts independently.</p>
 <div class="section level4">
-<h4 id="editor">Editor<a class="anchor" aria-label="anchor" href="#editor"></a></h4>
+<h4 id="i--editor">i. Editor<a class="anchor" aria-label="anchor" href="#i--editor"></a></h4>
 <p>We recommend using the text editor VSCode from <a href="https://code.visualstudio.com/" class="external-link">https://code.visualstudio.com/</a>
 for this lesson. We won’t be using any of its special features, so if
 you prefer a different editor, please use that.</p>
 </div>
 <div class="section level4">
-<h4 id="shell">Shell<a class="anchor" aria-label="anchor" href="#shell"></a></h4>
+<h4 id="ii--shell">ii. Shell<a class="anchor" aria-label="anchor" href="#ii--shell"></a></h4>
 <p>This lesson uses shell commands which you can run in a terminal
 emulator. Depending on the operating system you use, you have different
-options. - Linux – you can use any terminal emulator. Common options are
-<code>GNOME Terminal</code> and <code>Konsole (KDE)</code>. - macOS
-– you can use any terminal emulator. Common options are:
-<code>Terminal.app</code>, <code>iTerm2</code> - Windows – we recommend
-using the Windows Subsystem for Linux to install Linux (<a href="https://learn.microsoft.com/en-us/windows/wsl/install" class="external-link uri">https://learn.microsoft.com/en-us/windows/wsl/install</a>).
+options.</p>
+<ul><li>Linux – you can use any terminal emulator. Common options are
+<code>GNOME Terminal</code> and <code>Konsole (KDE)</code>.</li>
+<li>macOS – you can use any terminal emulator. Common options are:
+<code>Terminal.app</code>, <code>iTerm2</code>
+</li>
+<li>Windows – we recommend using the Windows Subsystem for Linux to
+install Linux (<a href="https://learn.microsoft.com/en-us/windows/wsl/install" class="external-link uri">https://learn.microsoft.com/en-us/windows/wsl/install</a>).
 You could also use Powershell, but some commands will be different and
-others unavailable.</p>
-</div>
+others unavailable.</li>
+</ul></div>
 <div class="section level4">
-<h4 id="python">Python<a class="anchor" aria-label="anchor" href="#python"></a></h4>
+<h4 id="iii--python">iii. Python<a class="anchor" aria-label="anchor" href="#iii--python"></a></h4>
 <p>You will need to have Python installed for this lesson.</p>
 <p>To check if python is available in your shell, call
 <code>python3 --version</code>. You should see some output like:</p>
@@ -537,26 +542,18 @@ others unavailable.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">%</span> python3 <span class="at">--version</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">Python</span> 3.12.3</span></code></pre>
 </div>
-<p>{:code}</p>
 <p>If this command returns something like
 <code>command not found: python3</code> then you can install python
 using the instructions on <a href="https://wiki.python.org/moin/BeginnersGuide/Download" class="external-link">https://wiki.python.org/moin/BeginnersGuide/Download</a>.</p>
 <p>Often, developers will need to manage multiple projects which might
 all use several different python versions. This is sometimes tricky, and
-there are specialized tools which can help, like:</p>
-<ul><li>
-<a href="https://asdf-vm.com/" class="external-link"><code>asdf</code></a>,</li>
-<li>
-<a href="https://hatch.pypa.io/latest/" class="external-link"><code>hatch</code></a>,</li>
-<li>
-<a href="https://mise.jdx.dev/lang/python" class="external-link"><code>mise</code></a>,</li>
-<li>
-<a href="https://rye.astral.sh/" class="external-link"><code>pdm</code></a>,</li>
-<li>
-<a href="https://github.com/pyenv/pyenv" class="external-link"><code>pyenv</code></a>,
-or</li>
-<li>
-<a href="https://rye.astral.sh/" class="external-link"><code>rye</code></a>.</li>
+there are specialized tools which can help:</p>
+<ul><li><a href="https://asdf-vm.com/" class="external-link"><code>asdf</code></a></li>
+<li><a href="https://hatch.pypa.io/latest/" class="external-link"><code>hatch</code></a></li>
+<li><a href="https://mise.jdx.dev/lang/python" class="external-link"><code>mise</code></a></li>
+<li><a href="https://rye.astral.sh/" class="external-link"><code>pdm</code></a></li>
+<li><a href="https://github.com/pyenv/pyenv" class="external-link"><code>pyenv</code></a></li>
+<li><a href="https://rye.astral.sh/" class="external-link"><code>rye</code></a></li>
 </ul></div>
 <div class="section level4">
 <h4 id="git-github">Git &amp; GitHub<a class="anchor" aria-label="anchor" href="#git-github"></a></h4>
@@ -567,22 +564,29 @@ GitHub – installation instructions at <a href="https://desktop.github.com/" cl
 </div>
 <div class="section level4">
 <h4 id="empty-repository">Empty repository<a class="anchor" aria-label="anchor" href="#empty-repository"></a></h4>
-<p>Create a new repository using GitHub desktop. - Open GitHub Desktop -
-Select File &gt; New Repository - Specify the repository data: - Name:
-example-package-YOUR-USERNAME-HERE (use dashes <code>-</code>, don’t use
-underscores <code>_</code> for this name) - Local Path: pick somewhere
-which <em>isn’t</em> synced to a cloud provider like DropBox, OneDrive
-or iCloud – they can interfere with <code>git</code>. - Initialize the
-repository with a README. - Leave the .gitignore and License both as
-“None”. - Click <code>Create repository</code> - Click
-<code>Publish repository</code> to make it available on GitHub. - Click
-<code>Open in Visual Studio Code</code> <em>or</em> open Visual Studio
-Code and click File &gt; Open folder and select the directory with your
-new repository. <!--
+<p>Create a new repository using GitHub desktop.</p>
+<ul><li>Open GitHub Desktop</li>
+<li>Select File &gt; New Repository</li>
+<li>Specify the repository data:
+<ul><li>Name: example-package-YOUR-USERNAME-HERE (use dashes <code>-</code>,
+don’t use underscores <code>_</code> for this name)</li>
+<li>Local Path: pick somewhere which <em>isn’t</em> synced to a cloud
+provider like DropBox, OneDrive or iCloud – they can interfere with
+<code>git</code>.</li>
+<li>Initialize the repository with a README.</li>
+<li>Leave the .gitignore and License both as “None”.</li>
+</ul></li>
+<li>Click <code>Create repository</code>
+</li>
+<li>Click <code>Publish repository</code> to make it available on
+GitHub.</li>
+<li>Click <code>Open in Visual Studio Code</code> <em>or</em> open
+Visual Studio Code and click File &gt; Open folder and select the
+directory with your new repository.</li>
+</ul><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></p>
-</div>
+ --></div>
 </div>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="environment.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>

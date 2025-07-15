@@ -423,12 +423,16 @@
 <p>In this lesson, we’ll outline creating a documentation webpage using
 the <a href="https://www.mkdocs.org/" class="external-link">MkDocs</a> framework with the <a href="https://squidfunk.github.io/mkdocs-material/" class="external-link">Material</a>
 theme.</p>
-<p>You will: - add the necessary dependencies to your
-<code>pyproject.toml</code> file, - set up a basic documentation
-directory, - create a configuration which comes with a table of contents
-by default, - start a preview server, - add a page which includes a code
-listing for your <code>rescale</code> function.</p>
-<section><h2 class="section-heading" id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a></h2>
+<p>You will:</p>
+<ul><li>add the necessary dependencies to your <code>pyproject.toml</code>
+file,</li>
+<li>set up a basic documentation directory,</li>
+<li>create a configuration which comes with a table of contents by
+default,</li>
+<li>start a preview server,</li>
+<li>add a page which includes a code listing for your
+<code>rescale</code> function.</li>
+</ul><section><h2 class="section-heading" id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a></h2>
 <hr class="half-width"><p>Start by installing the <code>material-mkdocs</code> package into you
 virtual environment.</p>
 <p>Add this to <code>pyproject.toml</code>:</p>
@@ -517,26 +521,28 @@ server”:</p>
 <h3 class="code-label">MD<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode md" tabindex="0"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">&lt;!--- docs/index.md --&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu"># Example Package YOUR USERNAME HERE</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="in">`example-package-YOUR-USERNAME-HERE`</span> is a simple Python library that contains a single function for rescaling arrays.</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="fu">## Installation</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>You can install the package by calling:</span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/<span class="op">&lt;</span>your github username<span class="op">&gt;</span>/example-package-YOUR-USERNAME-HERE</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="fu">## Usage</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu"># Example Package YOUR USERNAME HERE</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="in">`example-package-YOUR-USERNAME-HERE`</span> is a simple Python library that contains a single function for rescaling arrays.</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">## Installation</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>You can install the package by calling:</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/<span class="op">&lt;</span>your github username<span class="op">&gt;</span>/example-package-YOUR-USERNAME-HERE</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co"># rescales over 0 to 1</span></span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="fu">## Usage</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co"># rescales over 0 to 1</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <div id="readme.md-vs-index.md" class="callout">
 <div class="callout-square">
@@ -575,7 +581,7 @@ the package.</p>
 </h3>
 <pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># mkdocs.yml</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">-</span><span class="at"> mkdocstrings</span></span></code></pre>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mkdocstrings</span></span></code></pre>
 </div>
 </li>
 <li>
