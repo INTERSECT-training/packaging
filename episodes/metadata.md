@@ -4,7 +4,7 @@ teaching: 10
 exercises: 5
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - What metadata is important to add to your package?
 - How do I add common functionality, like executable scripts?
@@ -17,16 +17,14 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
 In a previous lesson, we left the metadata in our `pyproject.toml` quite minimal, just:
+
 - a name and
 - a version.
 
 There are quite a few other fields that can really help your package on PyPI, however.
 We'll look at them, split into categories:
+
 - Informational: author, description, URL, etc.
 - Functional: requirements, tool configurations etc.
 
@@ -52,17 +50,13 @@ version = "1.2.3"
 version = "0.2.1b1"
 ```
 
-
 ### Description
 
 A string with a short description of your project.
 
-
 ```toml
 description = "This is a very short summary of a very cool project."
 ```
-
-
 
 ### Readme
 
@@ -148,6 +142,7 @@ classifiers = [
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Prevent Inadvertent Publishing
+
 By adding the "Private :: Do Not Upload" classifier here, we ensure that
 the package will be
 [rejected when we try to upload it to PyPI](https://pypi.org/classifiers/#:~:text=To%20prevent%20a%20package%20from,beginning%20with%20%22Private%20%3A%3A%22.).
@@ -158,6 +153,7 @@ If you want to upload to PyPI, you will need to remove that classifier.
 ### License
 
 There are three ways to include your license:
+
 1. The preferred way to include a standard license
    is to include a classifier starting with "License ::",
    ```toml
@@ -174,10 +170,12 @@ There are three ways to include your license:
    ```
 3. You may also put the license in a file named `LICENSE` or `LICENSE.txt`
    and link it in the `license` field:
+
    ```toml
    [project]
    license = {file = "LICENSE"}
    ```
+
    If you do this, after the [`build` step](publishing.md),
    verify the contents of your SDist and Wheel(s) manually
    to make sure the license file is included,
@@ -240,11 +238,13 @@ plot = ["matplotlib"]
 ```
 
 Now you can run:
+
 ```bash
 pip install --editable '.[test,check]'
 ```
 
 or – once it's published,
+
 ```bash
 pip install 'example-package-YOUR-USERNAME-HERE[test,check]'
 ```
@@ -254,15 +254,16 @@ but not `matplotlib`.
 
 #### Setting minimum, maximum and specific versions of dependencies
 
-*Whether* you set versions on dependencies depends on what sort of package you are working on:
+_Whether_ you set versions on dependencies depends on what sort of package you are working on:
 
-* **Library**: something that can be imported. Support the widest range you are able to test.
+- **Library**: something that can be imported. Support the widest range you are able to test.
   If you have very few users, requiring recent versions of dependencies is probably fine.
   If you expect a large number of users, you should support (and test!) a few past releases of dependencies.
-* **App (CLI/GUI/TUI)**: Something that is installable but not importable. Wide range preferred, but not as important (assuming users use pipx and don't add it to "dev" environments or things like that).
-* **Application (deployment)**: Something like a website or an analysis. Not installable. Versions should be fully locked.
+- **App (CLI/GUI/TUI)**: Something that is installable but not importable. Wide range preferred, but not as important (assuming users use pipx and don't add it to "dev" environments or things like that).
+- **Application (deployment)**: Something like a website or an analysis. Not installable. Versions should be fully locked.
 
 You can set ranges on your dependencies by specifying the ranges in the `pyproject.toml` file:
+
 ```toml
 dependencies = [
   "tqdm",                # no specified range
@@ -276,6 +277,7 @@ dependencies = [
 If you have a range of versions supported, you should ideally
 run your tests at least once with the minimum versions of your dependencies.
 You can do this using:
+
 - a `constraints.txt` file,
   which specifies pins on the minimum versions of all your dependencies, and
   then use `pip install --constraint constraints.txt --editable .` before running your tests .
@@ -289,6 +291,7 @@ For more information, see this article on
 [bound version constraints](https://iscinumpy.dev/post/bound-version-constraints/).
 
 There are several ways to lock your dependencies completely:
+
 - specify the versions in the `pyproject.toml` file, or
 - allow ranges in the `pyproject.toml` file and
   - specify the versions for your development environment manually using `pip-tools`, or
@@ -300,6 +303,7 @@ There are several ways to lock your dependencies completely:
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Pinning Dependencies with `pip-tools`
+
 Set up a `requirements.in` file with your unpinned dependencies. For example:
 
 ```txt
@@ -314,10 +318,9 @@ pipx run --spec pip-tools pip-compile requirements.in --generate-hashes
 ```
 
 This will produce a `requirements.txt` with fully locked dependencies, including
-hashes.  You can always regenerate it when you want updates.
+hashes. You can always regenerate it when you want updates.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -334,7 +337,6 @@ What is the difference between `project.dependencies` vs. `build-system.requires
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ### Entry Points
 
@@ -362,7 +364,6 @@ version.path = "src/example_package_YOUR_USERNAME_HERE/__init__.py"
 ```
 
 ## All together
-
 
 Now let's take our previous example and expand it with more information. Here's an example:
 
@@ -401,6 +402,7 @@ test = ["pytest"]
 ::::::::::::::::::::::::::::::::::::: challenge
 
 ## Add metadata and check it.
+
 Take your existing package and add more metadata to it. Install it, then use
 `pip show -v <package>` to see the metadata. You can also look inside the wheel
 or SDist to see the metadata.
@@ -408,6 +410,7 @@ or SDist to see the metadata.
 ::::::::::::::::::::::::::::::::::::: solution
 
 ## Solution
+
 ```bash
 pip install -e .
 pip show -v example-package-YOUR-USERNAME-HERE
@@ -417,11 +420,7 @@ pip show -v example-package-YOUR-USERNAME-HERE
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Add informational metadata to tell people about your package.
 - Add functional metadata to tell people how to install and use your package.

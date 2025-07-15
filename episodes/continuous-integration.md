@@ -4,7 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do you ensure code keeps passing
 
@@ -16,31 +16,32 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 Developers often need to run some tasks every time they update code.
 This might include running tests, or checking that the formatting
 conforms to a style guide.
 
 ========
 questions:
+
 - "How do you ensure code keeps passing"
-objectives:
+  objectives:
 - "Use a CI service to run your tests"
-keypoints:
+  keypoints:
 - "Set up GitHub Actions on your project"
 - "Run your tests on multiple platforms and with multiple Python versions"
+
 ---
 
 Developers often need to run some tasks every time they update code.
 This might include running tests, or checking that the formatting
 conforms to a style guide.
 
->>>>>>>> 9daa45e1661bdd97637ab402d79599816dd04f3b:episodes/10-continuous-integration.md
 Continuous Integration (CI) allows the developer to automate running
 these kinds of tasks each time various "trigger" events occur on your repository.
 For example, you can use CI to run a test suite on every pull request.
 
 In this episode we will set up CI using GitHub Actions:
+
 - test the code on every pull request or merge to main,
 - run those tests under multiple versions of python, on Linux, Windows and macOS.
 
@@ -72,8 +73,6 @@ Let's set up a basic test. We will define a jobs dict, with a single job named
 "tests". For all jobs, you need to select an image to run on - there are images
 for Linux, macOS, and Windows. We'll use `ubuntu-latest`.
 
-
-
 ```yaml
 on:
   pull_request:
@@ -98,7 +97,6 @@ jobs:
         run: python -m pytest
 ```
 
-
 This has five steps:
 
 1. Checkout the source (your repo).
@@ -108,13 +106,11 @@ This has five steps:
 
 By default, if any step fails, the run immediately quits and fails.
 
-
 ## Running in a matrix
 
 You can parametrize values, such as Python version or operating system. Do do this, make a `strategy: matrix:` dict. Every key in that dict (except `include:` and `exclude` should be set with a list, and a job will be generated with every possible combination of values. You can access these values via the `matrix` variable; they do not "automatically" change anything.
 
 For example:
-
 
 ```yaml
 example:
@@ -124,14 +120,10 @@ example:
   name: Job ${{ matrix.onetwothree }}
 ```
 
-
-
 would produce three jobs, with names `Job 1`, `Job 2`, and `Job 3`. Elsewhere,
 if you refer to the `example` job, it will implicitly refer to all three.
 
 This is commonly used to set Python and operating system versions:
-
-
 
 ```yaml
 on:
@@ -165,8 +157,6 @@ jobs:
       - name: Test package
         run: python -m pytest
 ```
-
-
 
 There are two special keys: `include:` will take a list of jobs to include one
 at a time. For example, you could add Python 3.9 on Linux (but not the others):
@@ -204,7 +194,6 @@ And many other useful ones:
 - [conda-incubator/setup-miniconda](https://github.com/conda-incubator/setup-miniconda): Setup conda or mamba on GitHub Actions.
 - [ruby/setup-miniconda](https://github.com/ruby/setup-ruby) Setup Ruby if you need it for something.
 
-
 ::::::::::::::::::::::::::::::::::::: challenge
 
 ## Exercise
@@ -213,10 +202,7 @@ Add a CI file for your package.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Set up GitHub Actions on your project
 - Run your tests on multiple platforms and with multiple Python versions

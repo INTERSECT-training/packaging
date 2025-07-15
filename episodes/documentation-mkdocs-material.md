@@ -4,7 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do I document my project?
 
@@ -16,18 +16,17 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 In this lesson, we'll outline creating a documentation webpage
 using the [MkDocs](https://www.mkdocs.org/) framework
 with the [Material](https://squidfunk.github.io/mkdocs-material/) theme.
 
 You will:
+
 - add the necessary dependencies to your `pyproject.toml` file,
 - set up a basic documentation directory,
 - create a configuration which comes with a table of contents by default,
 - start a preview server,
 - add a page which includes a code listing for your `rescale` function.
-
 
 ## Dependencies
 
@@ -45,7 +44,6 @@ docs = [
 
 ... then reinstall using `pip install --editable ".[docs]"`.
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## `doc` or `docs`
@@ -58,11 +56,13 @@ for the name of this extra is `doc`, whereas `docs` is ~3x more popular.
 ## Template
 
 Create an empty site using:
+
 ```bash
 mkdocs new .
 ```
 
 This will create files and directories as follows:
+
 ```
 .
 ├─ docs/
@@ -87,6 +87,7 @@ theme:
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## `site_url` is important
+
 It is important to set the `site_url` because it's assumed to be set by a number of plugins.
 
 It's set here to a [GitHub Pages](https://pages.github.com/) address –
@@ -94,7 +95,6 @@ you can set it to `https://<your github username>.github.io/example-package-YOUR
 or any other domain where you want to publish.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Preview
 
@@ -110,6 +110,7 @@ And add (a correct) `docs/index.md` yourself:
 
 ````md
 <!--- docs/index.md -->
+
 # Example Package YOUR USERNAME HERE
 
 `example-package-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
@@ -117,6 +118,7 @@ And add (a correct) `docs/index.md` yourself:
 ## Installation
 
 You can install the package by calling:
+
 ```bash
 pip install git+https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE
 ```
@@ -130,12 +132,12 @@ from example_package_YOUR_USERNAME_HERE.rescale import rescale
 # rescales over 0 to 1
 rescale(np.linspace(0, 100, 5))
 ```
-
 ````
 
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## `README.md` vs `index.md`
+
 Often, similar information will be contained in the repository README
 and the index page of the documentation – installation instructions,
 basic usage, licensing etc., and so it's common to want to include
@@ -162,7 +164,7 @@ We'll add a new page to the documentation with the docstrings from the package.
   ```yaml
   # mkdocs.yml
   plugins:
-  - mkdocstrings
+    - mkdocstrings
   ```
 
 - Include the `mkdocstrings[python]` package in the `docs` dependencies of the pyprojects.toml:
@@ -185,7 +187,7 @@ We'll add a new page to the documentation with the docstrings from the package.
   ```
 
 - Stop the preview server using <kbd>Ctrl</kbd>-<kbd>C</kbd>
-- Reinstall using `pip install --editable ".[docs]"`  since we added a new dependency
+- Reinstall using `pip install --editable ".[docs]"` since we added a new dependency
 - Reload the documentation preview using `mkdocs serve`
 
 MkDocs automatically adds the additional page to your documentation.
@@ -193,6 +195,7 @@ MkDocs automatically adds the additional page to your documentation.
 ## Publish to GitHub Pages
 
 To publish the documentation to GitHub pages, run:
+
 ```bash
 mkdocs gh-deploy
 ```
@@ -224,7 +227,6 @@ Try adding another page.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Further reading
@@ -234,8 +236,7 @@ Try adding another page.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - MkDocs is great for documentation
 

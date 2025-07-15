@@ -4,7 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do you install and manage packages?
 - How can you ensure others run the same code you do?
@@ -18,11 +18,11 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 One of Python's biggest strengths is its ecosystem of packages which build upon and extend
 the capabilities offered by the standard library.
 
 We'll look at how:
+
 - You should use virtual environments to manage the dependencies of different projects,
 - You can install packages you want to build on using `pip`, and
 - You can install Python applications you just want to use using `pipx`.
@@ -40,6 +40,7 @@ python3 -m venv .venv
 ```
 
 This creates a new directory `.venv` containing:
+
 - `.venv/bin`
   - A link to the Python version,
   - A link to the Python package installer `pip`, and
@@ -54,22 +55,21 @@ To activate the environment, source the activation script:
 
 Now `.venv/bin` has been added to your PATH, and usually your shell's prompt
 will be modified to indicate you are "in" a virtual environment:
+
 ```
 % . .venv/bin/activate
 (.venv) %
 ```
 
-
-
-:::::::::::::::::::::::::::::::::::::: challenge 
+:::::::::::::::::::::::::::::::::::::: challenge
 
 ## Upgrade `pip`
+
 Check the version of pip installed!
 If it's old, you might want to run `pip install --upgrade pip` or,
 for Python 3.9 or later, you can add `--upgrade-deps` to the venv creation line.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 To "leave" the virtual environment, you
 undo those changes by running the deactivate function the activation added to
@@ -86,7 +86,7 @@ The prompt will revert:
 %
 ```
 
-:::::::::::::::::::::::::::::::::::::: callout 
+:::::::::::::::::::::::::::::::::::::: callout
 
 ## Alternatives
 
@@ -102,7 +102,8 @@ by default (since you are supposed to use `uv pip`).
 Use the tool you prefer; the resulting venv works identically.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::: callout 
+:::::::::::::::::::::::::::::::::::::: callout
+
 ## What about conda?
 
 The same concerns apply to Conda. You should always make separate environments and
@@ -116,8 +117,9 @@ conda deactivate
 ```
 
 Alternative implementations of `conda` are available and may be faster, like:
+
 - [Micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)
-   a single binary, also written in C++,
+  a single binary, also written in C++,
 - [Pixi](https://github.com/prefix-dev/pixi) written in Rust.
 
 [Mamba](https://github.com/mamba-org/mamba), written in C++,
@@ -126,7 +128,6 @@ In 2023, `conda` incorporated the `libmamba` package resolver as its default,
 largely eliminating the speed difference between `conda` and `mamba`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Installing Packages
 
@@ -138,15 +139,17 @@ then call:
 pip install <package>
 ```
 
+:::::::::::::::::::::::::::::::::::::: challenge
 
-:::::::::::::::::::::::::::::::::::::: challenge 
 ## Install `numpy`
 
 - Install the numpy package into your virtual environment.
 - Test it by opening a Python session and running `import numpy as np` then `np.arange(15).reshape(3, 5)`.
 
-:::::::::::::::::::::::::::: solution 
+:::::::::::::::::::::::::::: solution
+
 ## Solution
+
 ```
 % . .venv/bin/activate
 (.venv) % pip install numpy
@@ -161,12 +164,11 @@ array([[ 0,  1,  2,  3,  4],
 >>> exit()
 (.venv) %
 ```
+
 :::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-:::::::::::::::::::::::::::::::::::::: caution 
+:::::::::::::::::::::::::::::::::::::: caution
 
 ## Installing Packages in the "base" and "user" environment
 
@@ -178,15 +180,17 @@ which you should use unless you know what you're doing:
 ```bash
 pip install <package>         # Use only in virtual environment!
 ```
+
 Unless you've activated a virtual environment,
 this will try to install globally, and if you don't have permission, will install to your
 user site packages. In global site packages, you can get conflicting versions
 of libraries, you can't tell what you've installed for what, packages can
-update and break your system; it's a mess. This is the *"update problem"*.
+update and break your system; it's a mess. This is the _"update problem"_.
 
 ```bash
 pip install --user <package>  # Almost never use
 ```
+
 This will install in your user directory. This is even worse worse,
 because all installs of Python on your computer share it, so you might override
 and break things you didn't intend to. And with pip's new smart solver,
@@ -199,6 +203,7 @@ There is a solution: virtual environments (libraries) or pipx (applications).
 There are likely a _few_ libraries (ideally just `pipx`) that you just have to
 install globally. Go ahead, but be careful, and always use your system package
 manager instead if you can, like
+
 - [`brew` on macOS](https://brew.sh),
 - [`winget`](https://learn.microsoft.com/en-us/windows/package-manager/winget/) or [`scoop`](https://scoop.sh/) on Windows,
 - `apt-get` on Ubuntu.
@@ -222,20 +227,19 @@ run a script of the same name, and will cache the temporary environment for a
 week. This means you have all of PyPI at your fingertips in one line on any
 computer that has pipx installed!
 
-
-
-:::::::::::::::::::::::::::::::::::::: challenge 
+:::::::::::::::::::::::::::::::::::::: challenge
 
 ## Install `pipx` and `cowsay`
 
 - Install `pipx` by following the [installation instructions](https://pipx.pypa.io/).
 - Test it by running `pipx run cowsay -t "venvs are the foo\!"`
 
-:::::::::::::::::::::::::::: solution 
+:::::::::::::::::::::::::::: solution
 
 ## Solution
 
 Ubuntu Linux:
+
 ```command
 sudo apt update
 sudo apt install pipx
@@ -243,12 +247,14 @@ pipx ensurepath
 ```
 
 macOS:
+
 ```command
 brew install pipx
 pipx ensurepath
 ```
 
 Then:
+
 ```command
 % pipx run cowsay -t "venvs are the foo\!"
   __________________
@@ -266,9 +272,7 @@ Then:
 :::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Virtual environments isolate software
 - Virtual environments solve the update problem

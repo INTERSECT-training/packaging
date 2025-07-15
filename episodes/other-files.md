@@ -4,7 +4,7 @@ teaching: 15
 exercises: 0
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - What other files are important parts of your software package?
 
@@ -18,7 +18,6 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 We now have an installed, working Python package that provides some functionality.
 Are we ready to push the code to GitHub (or your preferred code hosting service) for others to use and contribute to?
 🛑 Not quite—we need to add a few more files at minimum to describe our package, and to actually make it open-source software.
@@ -28,7 +27,7 @@ Aside from the name of the package and docstring included with the (single) func
 We also haven't specified the terms and conditions under which the software may be downloaded, used, and/or modified.
 This means that if we posted it online right now, due to copyright laws (in the United States, at least) nobody else would actually be able to use or modify the code, since we haven't given explicit permission to do so.
 
-Lastly, as you continue working on your package, you will likely fix bugs and modify/add/remove functionality. Although these changes will *technically* be present in your Git logs—because you are committing regularly and writing descriptive commit messages, right? 😉—you should also maintain a file that describes these changes in a human-readable way.
+Lastly, as you continue working on your package, you will likely fix bugs and modify/add/remove functionality. Although these changes will _technically_ be present in your Git logs—because you are committing regularly and writing descriptive commit messages, right? 😉—you should also maintain a file that describes these changes in a human-readable way.
 
 ## Creating a README
 
@@ -36,17 +35,19 @@ A README is a plaintext file that sits at the top level of your package (next to
 Modern READMEs are typically written in Markdown, or occasionally reStructuredText (ReST), due to the additional formatting options that services like GitHub nicely render.
 
 A README is a form of software documentation, and should contain at minimum:
- - the name of your software package
- - a brief description of what your software does or provides
- - installation instructions
- - a brief usage example
- - the type of software license (with more information in a separate `LICENSE` file, described next)
+
+- the name of your software package
+- a brief description of what your software does or provides
+- installation instructions
+- a brief usage example
+- the type of software license (with more information in a separate `LICENSE` file, described next)
 
 In addition, a README may also contain:
- - badges near the top that quickly show key information, such as the latest version, whether the tests are currently passing
- - information about how people can contribute to your package
- - a [code of conduct](https://www.contributor-covenant.org) for people interacting around your project (in GitHub Issues or Pull Requests, for example)
- - contact information for authors and/or maintainers
+
+- badges near the top that quickly show key information, such as the latest version, whether the tests are currently passing
+- information about how people can contribute to your package
+- a [code of conduct](https://www.contributor-covenant.org) for people interacting around your project (in GitHub Issues or Pull Requests, for example)
+- contact information for authors and/or maintainers
 
 Create a README using
 
@@ -80,11 +81,13 @@ rescale(np.linspace(0, 100, 5))
 ```
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 TBD
 ````
 
@@ -94,13 +97,12 @@ You can see more guidance on creating READMEs at <https://www.makeareadme.com>.
 
 ## Keep your READMEs relatively brief
 
-You should try to keep your README files *relatively* brief, rather than including
+You should try to keep your README files _relatively_ brief, rather than including
 very detailed documentation to this file. This should only be a high-level introduction,
 with detailed theory, examples, and other information reserved for a true documentation
 website.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Choosing a software license
 
@@ -113,21 +115,23 @@ Others cannot use, copy, share/distribute, or modify your work without your perm
 This is often a good thing, because it means you can put your work out into the world, and copyright protects you as the creator and owner of the work.
 Open Source Guides has more about the [legal side of open source software](https://opensource.guide/legal/).
 
-However, if you have created research software and plan to share it openly, you *want* others to use your software, and possibly contribute to it. (Who doesn't love having other people fix the bugs in their code?)
+However, if you have created research software and plan to share it openly, you _want_ others to use your software, and possibly contribute to it. (Who doesn't love having other people fix the bugs in their code?)
 
 A software license provides the explicit permissions for others to use, modify, or share your code, and lays out the specific rules for any restrictions about how they can do those things.
 To pick a license, use resources like [Choose a License](https://choosealicense.com) or [Civic Commons "Choosing a License"](https://wiki.civiccommons.org/Choosing_a_License/) based on how you want others to interact with your software.
 You can also see the [full list of open-source licenses](https://opensource.org/licenses/category) approved by the Open Source Initiative, which maintains the Open Source Definition.
 
 For a new project, you essentially have one major choice to make:
- 1. Do you want to allow others to use your software in almost any way they want, or
- 2. Do you want to require others to share any uses of your project in an open way?
+
+1.  Do you want to allow others to use your software in almost any way they want, or
+2.  Do you want to require others to share any uses of your project in an open way?
 
 These two categories are "permissive" and "copyleft" licenses.
 Common permissive licenses include the [MIT License](https://choosealicense.com/licenses/mit/) and [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
 The [GNU General Public License v3.0 (or GNU GPLv3) License](https://choosealicense.com/licenses/gpl-3.0/) is a common copyleft license.
 
 Most research software uses permissive licenses like the:
+
 - [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/)
   which includes a specific clause preventing the names of creators/contributors
   from being used to endorse or promote derivatives, without permission,
@@ -186,14 +190,12 @@ That's it!
 You should never try to write your own software license, or modify the text of an existing
 license.
 
-Although *we* are not lawyers, the licenses approved and maintained by the Open
+Although _we_ are not lawyers, the licenses approved and maintained by the Open
 Source Initiative have gone through a rigorous review process, including legal review,
 to ensure that they are both consistent with the Open Source Definition and also are
 legally valid.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -216,12 +218,12 @@ The Markdown syntax for adding a badge describing the BSD 3-Clause License is:
 ```markdown
 [![License](https://img.shields.io/badge/license-BSD-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ```
+
 and will render as [![License](https://img.shields.io/badge/license-BSD-green.svg){alt=''}](https://opensource.org/licenses/BSD-3-Clause)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Keeping a CHANGELOG
 
@@ -245,6 +247,7 @@ rescale.py:11: RuntimeWarning: invalid value encountered in divide
   output_array = (input_array - low) / (high - low)
 array([nan, nan, nan, nan, nan])
 ```
+
 {: .output}
 
 This is probably not the desired output; instead, let's say we want to rescale all the
@@ -297,29 +300,35 @@ to release a new version, you add a new section to the file above this list of c
 Changes should be grouped together based on the type; suggestions for these come from the
 [Keep a Changelog project](https://keepachangelog.com/en/1.0.0/) by
 [Olivier Lacan](https://olivierlacan.com/):
- - `Added` for new features,
- - `Changed` for changes in existing functionality,
- - `Deprecated` for soon-to-be removed features,
- - `Removed` for now-removed features,
- - `Fixed` for any bug fixes, and
- - `Security` in case of vulnerabilities.
+
+- `Added` for new features,
+- `Changed` for changes in existing functionality,
+- `Deprecated` for soon-to-be removed features,
+- `Removed` for now-removed features,
+- `Fixed` for any bug fixes, and
+- `Security` in case of vulnerabilities.
 
 For example, our initial release was version 0.1.0, and we have now changed the functionality.
 Our CHANGELOG should look something like:
 
 ```markdown
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
 ### Changed
+
 - rescale function now scales constant arrays to 1
 
 ## [0.1.0] - 2022-08-09
+
 ### Added
+
 - Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
 ```
 
@@ -330,11 +339,15 @@ to the behavior, you would add a new section for this version:
 ## Unreleased
 
 ## [0.1.1] - 2022-08-10
+
 ### Changed
+
 - rescale function now scales constant arrays to 1
 
 ## [0.1.0] - 2022-08-09
+
 ### Added
+
 - Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
 ```
 
@@ -357,10 +370,10 @@ here for now so that we don't interfere with that lesson.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Automating Changelog Management
+
 There are several tools which are intended to help manage a changelog.
 Broadly speaking, they use specifically formatted commit messages
 to generate the changelog.
@@ -369,6 +382,7 @@ require consistency and discipline when writing the messages,
 often need manual tweaking of the changelog after generation.
 
 ### `commitizen`, "conventional commits" and SemVer
+
 [`commitizen`][commitizen] is a release management tool which
 helps developers to write [conventional commits][]
 and can generate a grouped and sorted changelog (`commitizen changelog`).
@@ -377,21 +391,22 @@ and generating a changelog
 can be automated using [GitHub Actions][commitizen auto release].
 
 This requires:
+
 - squashing each change into a single commit,
 - consistency and discipline when writing commit messages.
 
 ### GitHub
+
 GitHub can "generate release notes" with each release of code, which is a list of the titles of the **pull requests** included in the release.
 People can view the release notes on GitHub.
 
 These release notes:
+
 - only appear on GitHub,
 - aren't automatically grouped and sorted,
 - only include changes which were part of a pull request title.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 [conventional commits]: https://www.conventionalcommits.org/
 [commitizen]: https://commitizen-tools.github.io/commitizen/
@@ -418,6 +433,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+
 {: .output}
 
 Fortunately, you can instruct Git to ignore these files, and others that you will never
@@ -637,11 +653,7 @@ The `.git` and `.venv` directories would have been automatically generated
 by Git and Virtualenv respectively. You may also see additional directories
 like `__pycache__` and `.pytest_cache`.
 
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Packages should include a README, LICENSE, and CHANGELOG.
 - Choose an existing software license

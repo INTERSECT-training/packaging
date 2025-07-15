@@ -4,7 +4,7 @@ teaching: 10
 exercises: 5
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do I publish a package?
 - How do I make my work citable?
@@ -18,11 +18,11 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 If you want other people to be able to access your package,
 you need to publish it.
 
 In this episode we'll:
+
 - investigate the formats you can use to share your package:
   source distribution and wheel,
 - publish those on the Python Package Index (PyPI),
@@ -33,6 +33,7 @@ In this episode we'll:
 ## Formats
 
 One "format" is available as soon as you have pushed your work to a platform like GitHub:
+
 - **repository**:
   - Contains all of your repository, including tests, metadata, and its history,
   - Requires your build backend (hatchling, in this case) to build.
@@ -40,13 +41,14 @@ One "format" is available as soon as you have pushed your work to a platform lik
   - Installation: `pip install git+https://git.example.com/MyProject`
     where `git+` tells `pip` how to interpret the repository.
   - You can also specify particular revisions, like:
-    * `pip install git+https://git.example.com/MyProject.git@v1.0`
-    * `pip install git+https://git.example.com/MyProject.git@main`
-    * `pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709`
-    * `pip install git+https://git.example.com/MyProject.git@refs/pull/123/head`
+    - `pip install git+https://git.example.com/MyProject.git@v1.0`
+    - `pip install git+https://git.example.com/MyProject.git@main`
+    - `pip install git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709`
+    - `pip install git+https://git.example.com/MyProject.git@refs/pull/123/head`
 
 If you want to share your work with a wider audience,
 there are two major formats used to publish python packages:
+
 - **source distribution** (`sdist` for short):
   - Contains most of your repository, including tests, and
   - Requires your build backend (hatchling, in this case) to build.
@@ -73,6 +75,7 @@ executable would likely conflict with other things on your system.
 This produces the wheel and sdist in `./dist`.
 
 You can validate the files generated using
+
 ```bash
 pipx run twine check dist/*
 ```
@@ -92,8 +95,6 @@ anaconda.org channel.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
 ## Manual publishing
 
 ::::::::::::::::::::::::::::::::::::: discussion
@@ -106,7 +107,6 @@ your own wheelhouse and point pip at that. Also an "application" like a
 website or other code you deploy probably does not need to be on PyPI.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 You can publish files manually with `twine`:
 
@@ -123,7 +123,6 @@ To run this locally, you'll also need to setup an API token to upload the packag
 Create a token at [https://test.pypi.org/manage/account/](https://test.pypi.org/manage/account/).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 However, the best way to publish is from CI. This has
 several benefits: you are always in a clean checkout, so you won't accidentally
@@ -145,7 +144,7 @@ on:
   workflow_dispatch:
   release:
     types:
-    - published
+      - published
 ```
 
 This has two triggers. The first, `workflow_dispatch`, allows you to manually trigger the
@@ -160,16 +159,16 @@ jobs:
   dist:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Build SDist & wheel
-      run: pipx run build
+      - name: Build SDist & wheel
+        run: pipx run build
 
-    - uses: actions/upload-artifact@v4
-      with:
-        path: dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          path: dist/*
 ```
 
 We've seen the setup before. We are calling the job `dist`, using an Ubuntu
@@ -182,9 +181,11 @@ versioning).
 ## Test and upload action
 
 There's a great action for building and inspecting a pure Python package:
+
 ```yaml
 - uses: hynek/build-and-inspect-python-package@v2
 ```
+
 This action builds, runs various checkers, then uploads the package to `Packages`.
 If you use this, you'll need to download the artifact from `name: Packages`.
 
@@ -202,6 +203,7 @@ We could have combined the build and publish jobs if we really wanted to, but
 they are cleaner when separate, so we have a publish job as well.
 
 {% raw %}
+
 ```yaml
 publish:
   needs: [dist]
@@ -209,14 +211,14 @@ publish:
   if: github.event_name == 'release' && github.event.action == 'published'
 
   steps:
-  - uses: actions/download-artifact@v4
-    with:
-      name: artifact
-      path: dist
+    - uses: actions/download-artifact@v4
+      with:
+        name: artifact
+        path: dist
 
-  - uses: pypa/gh-action-pypi-publish@release/v1
-    with:
-      repository-url: https://test.pypi.org/legacy/
+    - uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
 ```
 
 This job requires that the previous job completes successfully with `needs:`. It
@@ -247,7 +249,7 @@ releases.
 Click Releases -> Draft a new release. Type in or select a tag; the recommended
 format is `v1.2.3`; that is, a "v" followed by a version number. Give it a
 title, like "Version 1.2.3"; keep this short so that it will be readable on the
-web UI.  Finally, fill in the description (there's an autogenerate button that
+web UI. Finally, fill in the description (there's an autogenerate button that
 might be helpful).
 
 When you release, this will trigger the GitHub Action workflow we developed and
@@ -263,6 +265,7 @@ To test the functionality, you can use the [Zenodo Sandbox](https://sandbox.zeno
 ## The CITATION.cff file
 
 From [https://citation-file-format.github.io/](https://citation-file-format.github.io/):
+
 > `CITATION.cff` files are plain text files with human- and machine-readable citation information for software (and datasets).
 > Code developers can include them in their repositories to let others know how to correctly cite their software.
 
@@ -291,13 +294,7 @@ You can validate your file by running:
 pipx run cffconvert --validate
 ```
 
-
-
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - CI can publish Python packages
 - Tagging and GitHub Releases are used to publish versions

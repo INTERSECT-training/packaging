@@ -4,7 +4,7 @@ teaching: 20
 exercises: 5
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do we take code and turn that into a package?
 - What are the minimum elements required for a Python package?
@@ -19,9 +19,6 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
 Much research software is initially developed by hacking away in an interactive setting,
 such as in a [Jupyter Notebook](https://jupyter.org) or a Python shell.
 However, at some point when you have a more-complicated workflow that you want to repeat,
@@ -29,23 +26,22 @@ and/or make available to others,
 it makes sense to package your functions into modules and ultimately a software package that can be installed.
 This lesson will walk you through that process.
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 - Ensure you're in an empty git repository (see [Setup](../learners/setup.md) for details).
 - Ensure you've created and activated your virtual environment (see [Environment](environment.md) for details):
+
 ```bash
 . .venv/bin/activate
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 Consider the `rescale()` function written as an exercise in the Software Carpentry
-[Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) lesson.
-
+[Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/08-func.html) lesson.
 
 Install NumPy:
+
 ```bash
 pip install numpy
 ```
@@ -80,13 +76,13 @@ which provides the output:
 array([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])
 ```
 
-
 ## Create a minimal package
 
 Let's create a Python package that contains this function.
 
 Create the necessary directory structure for your package.
 This includes:
+
 - a `src` ("source") directory, which will contain another directory called `package` for the source files of your package itself,
 - a `tests` directory, which will hold tests for your package and its modules/functions,
 - a `docs` directory, which will hold the files necessary for documenting your software package.
@@ -111,7 +107,9 @@ We are straying from this convention in this tutorial to prevent naming conflict
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Directory Structure
-Putting the package directory and source code inside the `src` directory is not actually *required*.
+
+Putting the package directory and source code inside the `src` directory is not actually _required_.
+
 - If you put the `<package_name>` directory at the same level as `tests` and `docs` then you could actually import or call the package directory from that location.
 - However, this can cause several issues, such as running tests with the local version instead of the installed version.
 - In addition, the `src/` package structure matches that of compiled languages, and lets your package easily contain non-Python compiled code, if necessary.
@@ -138,6 +136,7 @@ $ touch pyproject.toml
 ```
 
 and then provide the minimally required metadata, which include
+
 - information about the package itself (`name`, `version` and `dependencies`) and
 - build system (hatchling):
 
@@ -163,6 +162,7 @@ and how to specify this without manually writing it here.
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Build Backend
+
 The build backend is a program which will convert the source files into a package
 ready for distribution. It determines how your project will specify
 its configuration, metadata and files.
@@ -176,10 +176,10 @@ There are other backends too, including ones for
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Minimal Working Package
+
 The only elements of your package strictly _required_ to install and import it are
 the `pyproject.toml`, `__init__.py`, and `rescale.py` files.
 
@@ -237,6 +237,7 @@ touch tests/test_rescale.py
 ```
 
 In this file, we need to import the package, and check that a call to the `rescale` function with our known input returns the expected output:
+
 ```python
 # contents of tests/test_rescale.py
 import numpy as np
@@ -270,11 +271,13 @@ test = ["pytest"]
 ```
 
 You install the project with the "extra" using:
+
 ```bash
 pip install --editable ".[test]"
 ```
 
 You can run the tests using `pytest`:
+
 ```
 (.venv) % pytest
 ======================== test session starts ========================
@@ -290,13 +293,11 @@ tests/test_rescale.py .                                       [100%]
 
 This tells us that the output of the test function matches the expected result, and therefore the test passes! 🎉
 
-
 ## Commit and Push
 
 Don't forget to commit all your work using `git`.
 (In the rest of the lesson, we won't remind you to do this,
 but you should still make small commits regularly.)
-
 
 Commit the relevant files, first the code:
 
@@ -307,12 +308,14 @@ git commit -m "feat: add basic rescaling function
 ```
 
 ... then the metadata:
+
 ```bash
 git add pyproject.toml
 git commit -m "build: add minimal pyproject.toml"
 ```
 
 ... then push those to the `origin` remote repository.
+
 ```bash
 git push origin main
 ```
@@ -322,6 +325,7 @@ git push origin main
 ## Always `git add` individual files until you've set up your `.gitignore`
 
 When working with git, it's best to
+
 - stage **individual files** using `git add FILENAME ...`,
 - check what you're about to commit using `git status`, before you
 - commit with `git commit -m "COMMIT MESSAGE"`.
@@ -338,67 +342,60 @@ and is a prerequisite for using `git commit -a` which commits everything.
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## Conventional commits
+
 In this example, we use
 [conventional commit messages](https://www.conventionalcommits.org/)
 which look like `<type>: <description>`.
 
 Each commit should do one and only one "thing" to the code, for instance:
-- add a new feature (type: `feat`), *or*
-- fix a bug (type: `fix`), *or*
-- rename a function (type: `refactor`), *or*
-- add documentation (type: `docs`), *or*
+
+- add a new feature (type: `feat`), _or_
+- fix a bug (type: `fix`), _or_
+- rename a function (type: `refactor`), _or_
+- add documentation (type: `docs`), _or_
 - change something affecting the build system (type: `build`).
 
 By doing only one thing per commit, it's easier to:
+
 - write the commit message,
 - understand the history by looking at the `git log`, and
 - revert individual changes you later decide could be done in a better way.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
 ## Check your package
+
 Check that you can install your package and that it works as expected.
 
 If everything works, you should be able to install your package (in a new virtual environment):
+
 ```
 python3 -m venv .venv2
 . .venv2/bin/activate
 python3 -m pip install git+https://github.com/<your github username>/example-package-YOUR-USERNAME-HERE
 ```
+
 Open a python console and call the rescale function with some data.
 
 Switch back to the original virtual environment before going onto the next lesson:
+
 ```
 . .venv/bin/activate
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 You now have a package that is:
+
 - installed in editable mode in an isolated environment,
 - can be interacted with in tests and in an interactive console, and
 - has a passing test.
 
 Next, we'll look at other files that should be included with your package.
 
-
-
-
-
-
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Put your code and tests in a standard package structure
 - Use a `pyproject.toml` file to describe a Python package
