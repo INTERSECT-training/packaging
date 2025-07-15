@@ -30,6 +30,7 @@ jobs:
       # We maintain the list of the URLs excluded from checking in a separate file so that we can use
       # it in multiple workflows, while easily maintaining consistency.
       - name: Read exclude-urls list
+        if: steps.check_base.outputs.skip == 'false'
         id: exclude
         uses: juliangruber/read-file-action@v1
         with:
