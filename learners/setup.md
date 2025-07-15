@@ -56,7 +56,7 @@ You can get all the prerequisites for this lesson by using a GitHub Codespace.
 
 ### B. Local
 
-If you want to run this example on your own computer, you will need to install the parts independently.
+If you want to run this example on your own computer, you will need ensure you have the necessary software. Follow steps i-v below to install and configure your dev environment.
 
 #### i. Editor
 
@@ -94,7 +94,7 @@ This is sometimes tricky, and there are specialized tools which can help:
 - [`pyenv`](https://github.com/pyenv/pyenv)
 - [`rye`](https://rye.astral.sh/)
 
-#### Git & GitHub
+#### iv. Git & GitHub
 
 You will need a GitHub account and an installation of Git.
 
@@ -102,7 +102,7 @@ If you don't already have a GitHub account you can sign up at [https://github.co
 
 For beginners, we recommend using GitHub desktop when working with GitHub – installation instructions at [https://desktop.github.com/](https://desktop.github.com/).
 
-#### Empty repository
+#### v. Create an empty repository
 
 Create a new repository using GitHub desktop.
 
