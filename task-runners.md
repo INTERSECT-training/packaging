@@ -4,7 +4,7 @@ teaching: 5
 exercises: 5
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How can you ensure others run the same code you do?
 
@@ -16,12 +16,11 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 A task runner is a tool that lets you specify a set of tasks via a common
 interface.
 
-
 Use of a task runner is optional, but can be helpful to:
+
 - make it easy and simple for new contributors to run things,
 - make specialized developer tasks easy,
 - avoid making single-use virtual environments for docs and other rarely run tasks.
@@ -32,10 +31,12 @@ more flexible, simpler to understand, specialized to one language,
 general to many languages, and so on.
 
 Examples we'll cover include:
+
 - [nox][] (Python semi-general), and
 - [hatch][] (specialized for Python package management).
 
 There are many other task runners for different languages, including:
+
 - [make][] (fully general),
 - [invoke][] (Python general), and
 - [tox][] (Python packages).
@@ -43,11 +44,11 @@ There are many other task runners for different languages, including:
 ::::::::::::::::::::::::::::::::::::: caution
 
 ## Task Runner as Crutch
+
 Task runners can be a crutch, allowing poor packaging practices to be
 employed behind a custom script, and they can hide what is actually happening.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 [nox]: https://nox.thea.codes
 [tox]: https://tox.readthedocs.io
@@ -58,8 +59,8 @@ employed behind a custom script, and they can hide what is actually happening.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-
 ## Further reading
+
 See the [Scientific Python Development Guide page on task runners][scientific-python-task-runners]
 for more information.
 
@@ -109,6 +110,7 @@ Sessions defined in /github/pypa/packaging.python.org/noxfile.py:
 
 sessions marked with * are selected, sessions marked with - are skipped.
 ```
+
 {:.output}
 
 You can see that there are several different sessions. You can run them with `-s`:
@@ -166,7 +168,6 @@ Errors will exit the session.
 
 Let's expand this a little:
 
-
 ```python
 # noxfile.py
 import nox
@@ -185,7 +186,6 @@ This adds a type annotation to the session object, so that IDE's and type
 checkers can help you write the code in the function. There's a docstring,
 which will print out nice help text when a user lists the sessions. And we pass
 through to pytest anything the user passes in via `session.posargs`.
-
 
 Let's try running it:
 
@@ -208,6 +208,7 @@ test_nox.py .                                                                   
 ===================================== 1 passed in 0.05s =====================================
 nox > Session tests was successful.
 ```
+
 {:.output}
 
 You can pass arguments through to the `session.run` command
@@ -228,7 +229,6 @@ def tests(session):
     session.run("pytest")
 ```
 
-
 ::::::::::::::::::::::::::::::::::::: challenge
 
 ## Virtual environments
@@ -240,14 +240,13 @@ How would you activate this environment?
 ::::::::::::::::::::::::::::::::::::: solution
 
 ## Solution
+
 ```bash
 . .nox/tests/bin/activate
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -258,6 +257,7 @@ Add the commands do preview and build your MkDocs documentation using `nox`.
 ::::::::::::::::::::::::::::::::::::: solution
 
 ## Solution
+
 Add a session to your `noxfile.py` to generate docs:
 
 ```python
@@ -277,14 +277,11 @@ def build_docs(session: nox.Session):
     session.install(".[docs]")
     session.run("mkdocs", "build")
 ```
+
 You now have working docs that you can generate and view cross platform with `nox -s preview_docs`!
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
 
 ### Backends
 
@@ -295,6 +292,7 @@ which can be useful when you create and destroy virtual environments with `nox`
 many times per day.
 
 - Update the top of your `noxfile.py`:
+
   ```python
   # noxfile.py
 
@@ -303,11 +301,11 @@ many times per day.
   nox.needs_version = ">=2024.3.2"
   nox.options.default_venv_backend = "uv"
   ```
+
 - Install `uv` using your package manager ([installation instructions](https://github.com/astral-sh/uv)).
 
 You can also specify `nox.options.default_venv_backend = "uv|virtualenv"`
 which will fallback to `virtualenv` if `uv` is not installed
-
 
 ::::::::::::::::::::::::::::::::::::: callout
 
@@ -319,10 +317,10 @@ How does the execution time change?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ## Hatch
 
 Hatch is a Python "Project Manager" which can:
+
 - build packages,
 - manage virtual environments,
 - manage multiple python versions for a project,
@@ -335,16 +333,21 @@ Hatch is a Python "Project Manager" which can:
 
 To initialize an existing project for `hatch`,
 enter the directory containing the project and run the following:
+
 ```bash
 hatch new --init
 ```
+
 This will interactively guide you through the setup process.
 
 To run tests using `hatch`, run the following:
+
 ```bash
 hatch test
 ```
+
 This will:
+
 - create a python environment in which your tests will run, then
 - run the tests.
 
@@ -372,16 +375,21 @@ with the `mkdocs-material` and `mkdocstrings` dependencies needed, and
 scripts `serve`, `build` and `deploy` defined within that environment.
 
 Then to view the documentation locally, run `hatch run <ENV>:<SCRIPT>`, e.g.:
+
 ```bash
 hatch run doc:serve
 ```
+
 to run the preview server, or
+
 ```bash
 hatch run doc:build
 ```
+
 to build the documentation, ready for deployment.
 
 The key benefits here are that:
+
 - these scripts run within an isolated environment,
 - the simple commands like `hatch run doc:serve` allow the developer to
   use arguments like `--dev-addr localhost:8000` without needing to remember or think about them.
@@ -390,11 +398,7 @@ The developer must decide whether these benefits outweigh
 the added complexity of an additional layer of abstraction,
 which will hinder debugging if something goes wrong.
 
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - A task runner makes it easier to contribute to software
 

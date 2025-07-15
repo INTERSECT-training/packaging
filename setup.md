@@ -2,16 +2,18 @@
 title: Setup
 ---
 
-
 ::::::::::::::::::::::::::::::::::::: objectives
 
 ## Objectives
+
 You will need accounts on:
+
 - [https://github.com/](https://github.com/)
 - [https://test.pypi.org/](https://test.pypi.org/)
 - [https://zenodo.org/](https://zenodo.org/)
 
 These instructions serve to help set up:
+
 - an editor,
 - a shell,
 - python,
@@ -20,10 +22,7 @@ These instructions serve to help set up:
 
 either in the cloud (fast) or on a local computer (slow the first time).
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 ## User Accounts
 
@@ -33,21 +32,19 @@ If you don't already have them, sign up for accounts on:
 - [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/) (required for the part on publishing)
 - [https://zenodo.org/signup/](https://zenodo.org/signup/) (optional for the part on citation)
 
-
 ## Development Environment
 
 ::::::::::::::::::::::::::::::::::::: caution
 
 ## If this is your first time, use the `Cloud` instructions
+
 If you have not installed and used these tools before, then in the interests of time for the lesson, please use the **Cloud** setup instructions. After the session you can repeat the setup using the Local setup instructions.
 
 Support will be available for the rest of the week if you have trouble with setting up these tools locally!
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-### Cloud
+### A. Cloud
 
 You can get all the prerequisites for this lesson by using a GitHub Codespace.
 
@@ -57,22 +54,23 @@ You can get all the prerequisites for this lesson by using a GitHub Codespace.
   - Initialize the repository with a README file by clicking the tickmark next to `Add a README file`.
 - After the repository is created, click on the `< > Code` button, click the `Codespaces` tab, and click `Create codespace on main`. This will create an editor with a shell, `python` and `git` pre-configured for you.
 
-### Local
+### B. Local
 
 If you want to run this example on your own computer, you will need to install the parts independently.
 
-#### Editor
+#### i. Editor
 
 We recommend using the text editor VSCode from [https://code.visualstudio.com/](https://code.visualstudio.com/) for this lesson. We won't be using any of its special features, so if you prefer a different editor, please use that.
 
-#### Shell
+#### ii. Shell
 
 This lesson uses shell commands which you can run in a terminal emulator. Depending on the operating system you use, you have different options.
+
 - Linux – you can use any terminal emulator. Common options are `GNOME Terminal` and `Konsole (KDE)`.
 - macOS – you can use any terminal emulator. Common options are: `Terminal.app`, `iTerm2`
 - Windows – we recommend using the Windows Subsystem for Linux to install Linux (https://learn.microsoft.com/en-us/windows/wsl/install). You could also use Powershell, but some commands will be different and others unavailable.
 
-#### Python
+#### iii. Python
 
 You will need to have Python installed for this lesson.
 
@@ -82,21 +80,19 @@ To check if python is available in your shell, call `python3 --version`. You sho
 % python3 --version
 Python 3.12.3
 ```
-{:code}
 
 If this command returns something like `command not found: python3` then you can install python using
 the instructions on [https://wiki.python.org/moin/BeginnersGuide/Download](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 Often, developers will need to manage multiple projects which might all use several different python versions.
-This is sometimes tricky, and there are specialized tools which can help, like:
+This is sometimes tricky, and there are specialized tools which can help:
 
-- [`asdf`](https://asdf-vm.com/),
-- [`hatch`](https://hatch.pypa.io/latest/),
-- [`mise`](https://mise.jdx.dev/lang/python),
-- [`pdm`](https://rye.astral.sh/),
-- [`pyenv`](https://github.com/pyenv/pyenv), or
-- [`rye`](https://rye.astral.sh/).
-
+- [`asdf`](https://asdf-vm.com/)
+- [`hatch`](https://hatch.pypa.io/latest/)
+- [`mise`](https://mise.jdx.dev/lang/python)
+- [`pdm`](https://rye.astral.sh/)
+- [`pyenv`](https://github.com/pyenv/pyenv)
+- [`rye`](https://rye.astral.sh/)
 
 #### Git & GitHub
 
@@ -109,6 +105,7 @@ For beginners, we recommend using GitHub desktop when working with GitHub – in
 #### Empty repository
 
 Create a new repository using GitHub desktop.
+
 - Open GitHub Desktop
 - Select File > New Repository
 - Specify the repository data:

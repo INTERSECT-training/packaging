@@ -4,8 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do you ensure your code will work well?
 
@@ -18,8 +17,8 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 In this episode we'll give an introduction to setting up your project for
+
 - tests with `pytest`, and
 - static checks (also known as linters, formatters, and type checkers).
 
@@ -37,8 +36,6 @@ There are several options for test directory. The recommendation is `/tests`
 (with an `s`), at the root of your repository. Combined with `/src/<package>`
 layout, you will have the best experience avoiding weird edge cases with package
 importing.
-
-
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
@@ -76,13 +73,13 @@ testpaths = [
   - `--strict-markers` will make sure you don't try to use an unspecified fixture.
   - And `--strict-config` will error if you make a mistake in your config.
 - `xfail_strict` will change the default for `xfail` to fail the
-tests if it doesn't fail - you can still override locally in a specific xfail
-for a flaky failure.
+  tests if it doesn't fail - you can still override locally in a specific xfail
+  for a flaky failure.
 - `filter_warnings` will cause all warnings to be errors
-(you can add allowed warnings here too, see below).
+  (you can add allowed warnings here too, see below).
 - `log_cli_level` will report `INFO` and above log messages on a failure.
 - Finally, `testpaths` will limit `pytest` to just looking in the folders given - useful if it tries to pick up
-things that are not tests from other directories.
+  things that are not tests from other directories.
 
 [See the docs](https://docs.pytest.org/en/stable/customize.html) for more options.
 
@@ -109,7 +106,6 @@ becoming errors using the syntax
 `"<action>:Regex for warning message:Warning:package"`, where `<action>` can
 tends to be `default` (show the first time) or `ignore` (never show). The regex
 matches at the beginning of the error unless you prefix it with `.*`.
-
 
 ## Static checks
 
@@ -149,11 +145,13 @@ lint.extend-select = [
 ```
 
 To use Ruff to check your code for style problems, run:
+
 ```bash
 pipx run ruff check
 ```
 
 To use Ruff to format your code, run:
+
 ```bash
 pipx run ruff format
 ```
@@ -195,18 +193,18 @@ well worth it - a static type checker can catch many things, and doesn't require
 writing tests!
 
 To run mypy, you can call:
+
 ```bash
 pipx run mypy --python-executable .venv/bin/python .
 ```
 
-- mypy needs the argument  `--python-executable .venv/bin/python`
+- mypy needs the argument `--python-executable .venv/bin/python`
   to access to the version of the Python interpreter you are using for your project.
   It uses this to get access to type information for imported packages (like numpy).
 - You also need to give it a path to a directory containing files to check, in this case `.`.
 
 You can learn about configuring mypy in the
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/mypy/).
-
 
 ### The pre-commit framework
 
@@ -264,8 +262,8 @@ especially useful in the "installed" mode (where only staged changes are
 checked).
 
 To configure Ruff within `.pre-commit-config.yaml`, add the following configuration:
-```yaml
 
+```yaml
 - repo: https://github.com/charliermarsh/ruff-pre-commit
   rev: "v0.5.2"
   hooks:
@@ -277,12 +275,12 @@ To configure Ruff within `.pre-commit-config.yaml`, add the following configurat
 To configure mypy within `.pre-commit-config.yaml`, add the following configuration:
 
 ```yaml
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.10.0"
-    hooks:
-      - id: mypy
-        files: src
-        args: []
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: "v1.10.0"
+  hooks:
+    - id: mypy
+      files: src
+      args: []
 ```
 
 You will need to add `additional_dependencies: [numpy]` as the pre-commit `mypy`
@@ -304,11 +302,7 @@ See the Style guide at
 [Scientific-Python Development Guide](https://learn.scientific-python.org/development/guides/style)
 for a lot more suggestions on static checking.
 
-
-
-
-
-:::::::::::::::::::::::::::::::::::::: keypoints 
+:::::::::::::::::::::::::::::::::::::: keypoints
 
 - Run tests and static checks on your codebase.
 

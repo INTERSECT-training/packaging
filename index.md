@@ -3,15 +3,16 @@ site: sandpaper::sandpaper_site
 ---
 
 What is a package?
-* An organized collection of modules containing functions and classes with a common purpose.
-* Packages allow developers to organize code in manageable and reusable structured units.
+
+- An organized collection of modules containing functions and classes with a common purpose.
+- Packages allow developers to organize code in manageable and reusable structured units.
 
 Why is packaging important in scientific research?
 
-* **Reusability:** Common code can be used across many projects
-* **Collaboration:** Distribute your work with collaborators
-* **Reproducibility:** Allows anyone to run code with the same dependencies to reproduce your results
-* **Portability:** Work in more than one place (e.g. distributed computing)
+- **Reusability:** Common code can be used across many projects
+- **Collaboration:** Distribute your work with collaborators
+- **Reproducibility:** Allows anyone to run code with the same dependencies to reproduce your results
+- **Portability:** Work in more than one place (e.g. distributed computing)
 
 If you have used Python for scientific computation, you've likely encountered widely distributed open-source packages like [NumPy](https://numpy.org/), [SciPy](https://scipy.org/), or [Pandas](https://pandas.pydata.org/). However, it's important to note that packages can exist at many scales and contexts, ranging from personal and organizational use to wide public distributions.
 
@@ -53,7 +54,7 @@ We're going to create a Python package from scratch, then publish it. Packages o
         └── publish.yaml    ─┘
 ```
 
-:::::::::::::::::::::::::::::::::::::: checklist 
+:::::::::::::::::::::::::::::::::::::: checklist
 
 ## See Also
 
@@ -64,10 +65,10 @@ This is a tutorial. For reference material, you should bookmark the following gu
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::: prereq 
+:::::::::::::::::::::::::::::::::::::: prereq
 
 ## Prerequisites
 
-* Basic Python
+- Basic Python
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
