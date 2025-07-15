@@ -6,15 +6,6 @@ It was initially written by Henry Schreiner and Kyle Niemeyer during the [INTERS
 
 This repository builds a website that is live [here](https://intersect-training.org/packaging/).
 
-You can build this website with the following commands if you use rbenv:
-
-```bash
-rbenv install 3.1.2  # Build Ruby 3.1.2 from source
-rbenv local 3.1.2  # Use Ruby 3.1.2 in this folder
-bundle install  # Install all the Ruby requirements for Jekyll
-bundle exec jekyll serve  # build and serve the website
-```
-
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
@@ -30,14 +21,31 @@ This indicates that the maintainers will welcome a pull request fixing this issu
 
 If you contribute to this lesson and would like to acknowledge specific funding support, please add it to the Funding section of the README below.
 
+## Dev Environment
+
+This website is built using [The Carpentries Workbench](https://carpentries.github.io/workbench/)
+lesson infrastructure using R and the Pandoc markdown syntax. Please refer to
+the [setup documentation](https://carpentries.github.io/sandpaper-docs/index.html)
+to install necessary software to create a local dev environment.
+
+Once the necessary software is installed, navigate to the project directory and
+input the following command in RStudio's console or R in the terminal to build
+the website locally and preview changes. When you edit files, they will
+automatically be rebuilt to your website.
+
+```r
+sandpaper::serve()
+```
+
 ## Author(s)
+
 The contributing author(s) to this lesson are:
 
-* [Henry Schreiner](https://github.com/henryiii)
-* [Kyle Niemeyer](https://github.com/kyleniemeyer)
-* [John G. Holland](https://github.com/hollandjg)
-* [George Dang](https://github.com/gtdang)
-* [Maria Isabel Restrepo](https://github.com/mirestrepo)
+- [Henry Schreiner](https://github.com/henryiii)
+- [Kyle Niemeyer](https://github.com/kyleniemeyer)
+- [John G. Holland](https://github.com/hollandjg)
+- [George Dang](https://github.com/gtdang)
+- [Maria Isabel Restrepo](https://github.com/mirestrepo)
 
 ## Maintainer(s)
 
