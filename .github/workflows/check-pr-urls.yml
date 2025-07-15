@@ -9,10 +9,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
+
+      # On initial push, the `before` SHA is all zeros, so we skip the changed file check
+      # It will run on subsequent pushes to the same PR and on the PR check.
+      - name: Check if base commit is zero
+        id: check_base
+        run: |
+          if [[ "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
 
       - id: files
+        if: steps.check_base.outputs.skip == 'false'
         uses: masesgroup/retrieve-changed-files@v3
         with:
           format: "csv"
@@ -27,6 +37,7 @@ jobs:
 
       # Run URL checks
       - name: URLs-checker
+        if: steps.check_base.outputs.skip == 'false'
         uses: urlstechie/urlchecker-action@0.0.34
         with:
           # only include the changed files
