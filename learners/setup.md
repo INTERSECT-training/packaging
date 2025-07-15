@@ -87,12 +87,18 @@ the instructions on [https://wiki.python.org/moin/BeginnersGuide/Download](https
 Often, developers will need to manage multiple projects which might all use several different python versions.
 This is sometimes tricky, and there are specialized tools which can help:
 
-- [`asdf`](https://asdf-vm.com/)
+Language Version Management
+
+- [`pyenv`](https://github.com/pyenv/pyenv) - Only Python
+- [`asdf`](https://asdf-vm.com/) - Multiple languages
+- [`mise`](https://mise.jdx.dev/lang/python) - Multiple languages and task runner
+
+Project Management Tools - Many more features beyond version management
+
 - [`hatch`](https://hatch.pypa.io/latest/)
-- [`mise`](https://mise.jdx.dev/lang/python)
-- [`pdm`](https://rye.astral.sh/)
-- [`pyenv`](https://github.com/pyenv/pyenv)
-- [`rye`](https://rye.astral.sh/)
+- [`uv`](https://docs.astral.sh/uv/)
+- [`pdm`](https://pdm-project.org/en/latest/)
+- [`poetry`](https://python-poetry.org)
 
 #### iv. Git & GitHub
 
