@@ -15,6 +15,7 @@ exercises: 0
 - Create a README for a software package
 - Add a software LICENSE to a software package
 - Create a CHANGELOG for a package
+- Understand the .gitignore file
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
