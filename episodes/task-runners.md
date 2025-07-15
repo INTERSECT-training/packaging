@@ -100,7 +100,7 @@ by the noxfile author. For example, if we do this on `packaging.python.org`'s re
 nox -l  # or --list-sessions
 ```
 
-```
+```output
 Sessions defined in /github/pypa/packaging.python.org/noxfile.py:
 
 - translation -> Build the gettext .pot files.
@@ -110,8 +110,6 @@ Sessions defined in /github/pypa/packaging.python.org/noxfile.py:
 
 sessions marked with * are selected, sessions marked with - are skipped.
 ```
-
-{:.output}
 
 You can see that there are several different sessions. You can run them with `-s`:
 
@@ -193,7 +191,7 @@ Let's try running it:
 nox -s tests
 ```
 
-```
+```output
 nox > Running session tests
 nox > Creating virtual environment (virtualenv) using python3.10 in .nox/tests
 nox > python -m pip install pytest
@@ -208,8 +206,6 @@ test_nox.py .                                                                   
 ===================================== 1 passed in 0.05s =====================================
 nox > Session tests was successful.
 ```
-
-{:.output}
 
 You can pass arguments through to the `session.run` command
 by prefixing them with `--` on the command line.

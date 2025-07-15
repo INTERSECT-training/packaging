@@ -242,13 +242,11 @@ rescale(a)
 
 gives
 
-```
+```output
 rescale.py:11: RuntimeWarning: invalid value encountered in divide
   output_array = (input_array - low) / (high - low)
 array([nan, nan, nan, nan, nan])
 ```
-
-{: .output}
 
 This is probably not the desired output; instead, let's say we want to rescale all the
 values in this array to 1. We can modify the function to properly handle this situation:
@@ -423,7 +421,7 @@ with your Git workflow.
 After adding and committing the files above, you might have noticed that `git status`
 points out a few files/directories that you do not want it to track:
 
-```
+```output
 On branch main
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -433,8 +431,6 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-
-{: .output}
 
 Fortunately, you can instruct Git to ignore these files, and others that you will never
 want to track, using a `.gitignore` file, which goes at the main directory level of your package.
