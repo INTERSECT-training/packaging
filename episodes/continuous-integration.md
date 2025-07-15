@@ -36,10 +36,9 @@ Developers often need to run some tasks every time they update code.
 This might include running tests, or checking that the formatting
 conforms to a style guide.
 
-> > > > > > > > 9daa45e1661bdd97637ab402d79599816dd04f3b:episodes/10-continuous-integration.md
-> > > > > > > > Continuous Integration (CI) allows the developer to automate running
-> > > > > > > > these kinds of tasks each time various "trigger" events occur on your repository.
-> > > > > > > > For example, you can use CI to run a test suite on every pull request.
+Continuous Integration (CI) allows the developer to automate running
+these kinds of tasks each time various "trigger" events occur on your repository.
+For example, you can use CI to run a test suite on every pull request.
 
 In this episode we will set up CI using GitHub Actions:
 
