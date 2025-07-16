@@ -1,5 +1,5 @@
 ---
-title: "Environments and task runners"
+title: "Environments"
 teaching: 10
 exercises: 10
 ---
@@ -13,8 +13,9 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Learn about virtual environments
-- Use a task runner to manage environments and run code
+- Learn about and create virtual environments
+- Adding packages to a virtual environment
+- Installing python applications outside of the virtual environment
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -184,7 +185,7 @@ pip install <package>         # Use only in virtual environment!
 Unless you've activated a virtual environment,
 this will try to install globally, and if you don't have permission, will install to your
 user site packages. In global site packages, you can get conflicting versions
-of libraries, you can't tell what you've installed for what, packages can
+of libraries--you can't tell what you've installed for what, packages can
 update and break your system; it's a mess. This is the _"update problem"_.
 
 ```bash
@@ -216,7 +217,8 @@ There are many Python packages that provide a command line interface and are
 not really intended to be imported (`pip`, for example, should not be
 imported). It is really inconvenient to have to set up venvs for every command
 line tool you want to install, however. [`pipx`](https://pipx.pypa.io/),
-from the makers of `pip`, solves this problem for you.
+from the makers of `pip`, solves this problem for you. It is useful for utility
+applications you want to use across projects.
 
 If you `pipx install` a package, it will be
 created inside a new virtual environment, and
@@ -275,7 +277,7 @@ Then:
 :::::::::::::::::::::::::::::::::::::: keypoints
 
 - Virtual environments isolate software
-- Virtual environments solve the update problem
-- A task runner makes it easier to contribute to software
+- Virtual environments prevent breaking your global python environment when 
+installing or updating conflicting packages
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
