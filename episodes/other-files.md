@@ -59,9 +59,9 @@ $ touch README.md
 and then add these elements:
 
 ````markdown
-# Example Example Package YOUR USERNAME HERE YOUR USERNAME HERE
+# Example Package YOUR USERNAME HERE
 
-`example-example-package-YOUR-USERNAME-HERE-YOUR-USERNAME-HERE` is a simple Python library that contains a single function for rescaling arrays.
+`example-package-YOUR-USERNAME` is a simple Python library that contains a single function for rescaling arrays.
 
 ## Installation
 
@@ -75,7 +75,7 @@ pip install .
 
 ```python
 import numpy as np
-from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 # rescales over 0 to 1
 rescale(np.linspace(0, 100, 5))
@@ -235,7 +235,7 @@ the array holds the same number repeated). For example:
 
 ```python
 import numpy as np
-from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
+from example_package_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -272,7 +272,7 @@ Now, when we call rescale (no need to reinstall or upgrade the package, since we
 
 ```python
 import numpy as np
-from example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE.rescale import rescale
+from examplepackage_YOUR_USERNAME_HERE.rescale import rescale
 
 a = 2 * np.ones(5)
 rescale(a)
@@ -328,7 +328,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
+- Created rescale() function and released example_package_YOUR_USERNAME_HERE
 ```
 
 If at this point you want to increment the version to 0.1.1 to indicate this small fix
@@ -347,7 +347,7 @@ to the behavior, you would add a new section for this version:
 
 ### Added
 
-- Created rescale() function and released example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE
+- Created rescale() function and released example_package_YOUR_USERNAME_HERE
 ```
 
 Note that the version numbers are shown as links in these examples, although the links
@@ -639,7 +639,7 @@ should look something like this:
 ├── docs/
 ├── pyproject.toml
 ├── src/
-│   └── example_example_package_YOUR_USERNAME_HERE_YOUR_USERNAME_HERE/
+│   └── example_package_YOUR_USERNAME_HERE/
 │   │   ├── __init__.py
 │   │   └── rescale.py
 └── tests/
