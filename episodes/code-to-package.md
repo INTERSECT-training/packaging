@@ -148,7 +148,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "example-package-YOUR-USERNAME-HERE"
+name = "example_package_YOUR-USERNAME-HERE"
 version = "0.1.0"
 dependencies = [
   "numpy"
