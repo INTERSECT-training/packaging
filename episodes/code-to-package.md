@@ -168,7 +168,7 @@ ready for distribution. It determines how your project will specify
 its configuration, metadata and files.
 You should choose one that suits your preferences.
 
-We selected a specific backend - hatching.
+We selected a specific backend - hatchling.
 It had a good default configuration, is fast, has some powerful features,
 and supports a growing ecosystem of plugins.
 There are other backends too, including ones for
