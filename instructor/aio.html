@@ -639,7 +639,7 @@ using <code>. .venv/bin/activate</code> first, then call:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>% . .venv/bin/activate
 (.venv) % pip install numpy
@@ -753,7 +753,7 @@ installed!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Ubuntu Linux:</p>
 <pre class="command"><code>sudo apt update
@@ -799,7 +799,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-code-to-package"><p>Content from <a href="code-to-package.html">Code to Package</a></p>
 <hr>
-<p>Last updated on 2025-07-15 |
+<p>Last updated on 2025-10-01 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/code-to-package.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -1032,7 +1032,7 @@ writing it here.</p>
 into a package ready for distribution. It determines how your project
 will specify its configuration, metadata and files. You should choose
 one that suits your preferences.</p>
-<p>We selected a specific backend - hatching. It had a good default
+<p>We selected a specific backend - hatchling. It had a good default
 configuration, is fast, has some powerful features, and supports a
 growing ecosystem of plugins. There are other backends too, including
 ones for <a href="https://learn.scientific-python.org/development/guides/packaging-compiled" class="external-link">compiled
@@ -2075,7 +2075,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-metadata"><p>Content from <a href="metadata.html">Metadata</a></p>
 <hr>
-<p>Last updated on 2025-07-15 |
+<p>Last updated on 2025-10-01 |
 
         <a href="https://github.com/INTERSECT-training/packaging/edit/main/episodes/metadata.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 15 minutes</p>
@@ -2573,8 +2573,7 @@ command line and it will run your Python function.</p>
 <p>Fields can be specified dynamically by your build backend. You
 specify fields to populate dynamically using the <code>dynamic</code>
 field. For example, if you want <code>hatchling</code> to read
-<code>__version__.py</code> from
-<code>src/package/__init__.py</code>:</p>
+<code>__version__</code> from <code>src/package/__init__.py</code>:</p>
 <pre><code>[project]
 name = "example-package-YOUR-USERNAME-HERE"
 dynamic = ["version"]
@@ -5278,9 +5277,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://INTERSECT-training.github.io/packaging/instructor/aio.html",
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/aio.html",
-  "dateCreated": "2025-09-17",
-  "dateModified": "2025-09-30",
-  "datePublished": "2025-09-30"
+  "dateCreated": "2025-10-01",
+  "dateModified": "2025-10-01",
+  "datePublished": "2025-10-01"
 }
 
   </script><script>
