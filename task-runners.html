@@ -304,7 +304,7 @@
       </button>
     </div><!--/div.accordion-header-->
 
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#nox">Nox</a></li>
 <li><a href="#hatch">Hatch</a></li>
@@ -502,7 +502,7 @@ author. For example, if we do this on
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">nox</span> <span class="at">-l</span>  <span class="co"># or --list-sessions</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="ex">nox</span> <span class="at">-l</span>  <span class="co"># or --list-sessions</span></span></code></pre>
 </div>
 <pre><code>Sessions defined in /github/pypa/packaging.python.org/noxfile.py:
 
@@ -518,7 +518,7 @@ them with <code>-s</code>:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">nox</span> <span class="at">-s</span> preview</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">nox</span> <span class="at">-s</span> preview</span></code></pre>
 </div>
 <p>Will build and start up a preview of the site.</p>
 <p>If you need to pass options to the session, you can separate nox
@@ -533,11 +533,11 @@ Let’s make this file in a local directory:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># test_nox.py</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="kw">def</span> test_runs():</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>    <span class="cf">assert</span> <span class="va">True</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="co"># test_nox.py</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1" aria-label="code-block-4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1" aria-label="code-block-4-4"></a><span class="kw">def</span> test_runs():</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a>    <span class="cf">assert</span> <span class="va">True</span></span></code></pre>
 </div>
 <p>Let’s write our own noxfile. If you are familiar with pytest, this
 should look familiar as well; it’s intentionally rather close to pytest.
@@ -545,14 +545,14 @@ We’ll make a minimal session that runs pytest:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># noxfile.py</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="im">import</span> nox</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">@nox.session</span>()</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="kw">def</span> tests(session):</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    session.install(<span class="st">"pytest"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>    session.run(<span class="st">"pytest"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="co"># noxfile.py</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a><span class="im">import</span> nox</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1" aria-label="code-block-5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1" aria-label="code-block-5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1" aria-label="code-block-5-5"></a><span class="at">@nox.session</span>()</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1" aria-label="code-block-5-6"></a><span class="kw">def</span> tests(session):</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1" aria-label="code-block-5-7"></a>    session.install(<span class="st">"pytest"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1" aria-label="code-block-5-8"></a>    session.run(<span class="st">"pytest"</span>)</span></code></pre>
 </div>
 <p>A noxfile is valid Python, so we import nox. The session decorator
 tells nox that this function is going to be a session. By default, the
@@ -571,17 +571,17 @@ executable outside the virtual environment unless
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># noxfile.py</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="im">import</span> nox</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="at">@nox.session</span>()</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="kw">def</span> tests(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">    Run our tests.</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    session.install(<span class="st">"pytest"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    session.run(<span class="st">"pytest"</span>, <span class="op">*</span>session.posargs)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="co"># noxfile.py</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="im">import</span> nox</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1" aria-label="code-block-6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1" aria-label="code-block-6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a><span class="at">@nox.session</span>()</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1" aria-label="code-block-6-6"></a><span class="kw">def</span> tests(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1" aria-label="code-block-6-7"></a>    <span class="co">"""</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1" aria-label="code-block-6-8"></a><span class="co">    Run our tests.</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1" aria-label="code-block-6-9"></a><span class="co">    """</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1" aria-label="code-block-6-10"></a>    session.install(<span class="st">"pytest"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1" aria-label="code-block-6-11"></a>    session.run(<span class="st">"pytest"</span>, <span class="op">*</span>session.posargs)</span></code></pre>
 </div>
 <p>This adds a type annotation to the session object, so that IDE’s and
 type checkers can help you write the code in the function. There’s a
@@ -592,7 +592,7 @@ sessions. And we pass through to pytest anything the user passes in via
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">nox</span> <span class="at">-s</span> tests</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">nox</span> <span class="at">-s</span> tests</span></code></pre>
 </div>
 <pre><code>nox &gt; Running session tests
 nox &gt; Creating virtual environment (virtualenv) using python3.10 in .nox/tests
@@ -614,7 +614,7 @@ instance, to pass <code>--verbose</code> to pytest:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">nox</span> <span class="at">-s</span> tests <span class="at">--</span> <span class="at">--verbose</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">nox</span> <span class="at">-s</span> tests <span class="at">--</span> <span class="at">--verbose</span></span></code></pre>
 </div>
 <p>If you have specified your test dependencies using an the
 <code>test</code> extra, you can install all those dependencies more
@@ -622,10 +622,10 @@ simply:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="at">@nox.session</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="kw">def</span> tests(session):</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    session.install(<span class="st">".[test]"</span>)  <span class="co"># this installs all of the dependencies</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    session.run(<span class="st">"pytest"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="at">@nox.session</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="kw">def</span> tests(session):</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a>    session.install(<span class="st">".[test]"</span>)  <span class="co"># this installs all of the dependencies</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a>    session.run(<span class="st">"pytest"</span>)</span></code></pre>
 </div>
 <div id="virtual-environments" class="callout challenge">
 <div class="callout-square">
@@ -647,12 +647,12 @@ environment. You can see the virtual environment in
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="bu">.</span> .nox/tests/bin/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="bu">.</span> .nox/tests/bin/activate</span></code></pre>
 </div>
 </div>
 </div>
@@ -677,27 +677,27 @@ runner (MkDocs)</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Add a session to your <code>noxfile.py</code> to generate docs:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># noxfile.py</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="im">import</span> nox</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="at">@nox.session</span>()</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="kw">def</span> preview_docs(session: nox.Session):</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="co">"""Show the documentation preview."""</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    session.install(<span class="st">".[docs]"</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>    session.run(<span class="st">"mkdocs"</span>, <span class="st">"serve"</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="at">@nox.session</span>()</span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="kw">def</span> build_docs(session: nox.Session):</span>
-<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>    <span class="co">"""Build the documentation."""</span></span>
-<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>    session.install(<span class="st">".[docs]"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>    session.run(<span class="st">"mkdocs"</span>, <span class="st">"build"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="co"># noxfile.py</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1" aria-label="code-block-12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1" aria-label="code-block-12-3"></a><span class="im">import</span> nox</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1" aria-label="code-block-12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1" aria-label="code-block-12-5"></a><span class="at">@nox.session</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1" aria-label="code-block-12-6"></a><span class="kw">def</span> preview_docs(session: nox.Session):</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1" aria-label="code-block-12-7"></a>    <span class="co">"""Show the documentation preview."""</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1" aria-label="code-block-12-8"></a>    session.install(<span class="st">".[docs]"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1" aria-label="code-block-12-9"></a>    session.run(<span class="st">"mkdocs"</span>, <span class="st">"serve"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1" aria-label="code-block-12-10"></a></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1" aria-label="code-block-12-11"></a><span class="at">@nox.session</span>()</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1" aria-label="code-block-12-12"></a><span class="kw">def</span> build_docs(session: nox.Session):</span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1" aria-label="code-block-12-13"></a>    <span class="co">"""Build the documentation."""</span></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1" aria-label="code-block-12-14"></a>    session.install(<span class="st">".[docs]"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1" aria-label="code-block-12-15"></a>    session.run(<span class="st">"mkdocs"</span>, <span class="st">"build"</span>)</span></code></pre>
 </div>
 <p>You now have working docs that you can generate and view cross
 platform with <code>nox -s preview_docs</code>!</p>
@@ -719,12 +719,12 @@ virtual environments with <code>nox</code> many times per day.</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># noxfile.py</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="im">import</span> nox</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>nox.needs_version <span class="op">=</span> <span class="st">"&gt;=2024.3.2"</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>nox.options.default_venv_backend <span class="op">=</span> <span class="st">"uv"</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="co"># noxfile.py</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a><span class="im">import</span> nox</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1" aria-label="code-block-13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1" aria-label="code-block-13-5"></a>nox.needs_version <span class="op">=</span> <span class="st">"&gt;=2024.3.2"</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1" aria-label="code-block-13-6"></a>nox.options.default_venv_backend <span class="op">=</span> <span class="st">"uv"</span></span></code></pre>
 </div>
 </li>
 <li><p>Install <code>uv</code> using your package manager (<a href="https://github.com/astral-sh/uv" class="external-link">installation
@@ -766,14 +766,14 @@ directory containing the project and run the following:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">hatch</span> new <span class="at">--init</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">hatch</span> new <span class="at">--init</span></span></code></pre>
 </div>
 <p>This will interactively guide you through the setup process.</p>
 <p>To run tests using <code>hatch</code>, run the following:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">hatch</span> test</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="ex">hatch</span> test</span></code></pre>
 </div>
 <p>This will:</p>
 <ul><li>create a python environment in which your tests will run, then</li>
@@ -786,16 +786,16 @@ following lines to the <code>pyproject.toml</code> file:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">[tool.hatch.envs.doc]</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="st">"mkdocs-material"</span><span class="op">,</span></span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="st">"mkdocstrings[python]"</span></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="kw">[tool.hatch.envs.doc.scripts]</span></span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="dt">serve</span> <span class="op">=</span> <span class="st">"mkdocs serve --dev-addr localhost:8000"</span></span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="dt">build</span> <span class="op">=</span> <span class="st">"mkdocs build --clean --strict --verbose"</span></span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="dt">deploy</span> <span class="op">=</span> <span class="st">"mkdocs gh-deploy"</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="kw">[tool.hatch.envs.doc]</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a>  <span class="st">"mkdocs-material"</span><span class="op">,</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a>  <span class="st">"mkdocstrings[python]"</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1" aria-label="code-block-16-5"></a><span class="op">]</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1" aria-label="code-block-16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1" aria-label="code-block-16-7"></a><span class="kw">[tool.hatch.envs.doc.scripts]</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1" aria-label="code-block-16-8"></a><span class="dt">serve</span> <span class="op">=</span> <span class="st">"mkdocs serve --dev-addr localhost:8000"</span></span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1" aria-label="code-block-16-9"></a><span class="dt">build</span> <span class="op">=</span> <span class="st">"mkdocs build --clean --strict --verbose"</span></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1" aria-label="code-block-16-10"></a><span class="dt">deploy</span> <span class="op">=</span> <span class="st">"mkdocs gh-deploy"</span></span></code></pre>
 </div>
 <p>This specifies a new environment <code>doc</code> with the
 <code>mkdocs-material</code> and <code>mkdocstrings</code> dependencies
@@ -806,13 +806,13 @@ needed, and scripts <code>serve</code>, <code>build</code> and
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">hatch</span> run doc:serve</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a><span class="ex">hatch</span> run doc:serve</span></code></pre>
 </div>
 <p>to run the preview server, or</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">hatch</span> run doc:build</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="ex">hatch</span> run doc:build</span></code></pre>
 </div>
 <p>to build the documentation, ready for deployment.</p>
 <p>The key benefits here are that:</p>
@@ -876,7 +876,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.0" class="external-link">sandpaper (0.20.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.1" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -899,7 +899,7 @@ any links that you are not going to use.
   "identifier": "https://INTERSECT-training.github.io/packaging/task-runners.html",
   "dateCreated": "2025-10-01",
   "dateModified": "2025-07-15",
-  "datePublished": "2026-04-14"
+  "datePublished": "2026-04-21"
 }
 
   </script><script>

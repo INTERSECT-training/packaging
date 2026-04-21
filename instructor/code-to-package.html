@@ -223,7 +223,7 @@
       </button>
     </div><!--/div.accordion-header-->
 
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#create-a-minimal-package">Create a minimal package</a></li>
 <li><a href="#installing-and-using-your-package">Installing and using your package</a></li>
@@ -439,7 +439,7 @@ walk you through that process.</p>
 </ul><div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">.</span> .venv/bin/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="bu">.</span> .venv/bin/activate</span></code></pre>
 </div>
 </div>
 </div>
@@ -451,32 +451,32 @@ with Python</a> lesson.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">pip</span> install numpy</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="ex">pip</span> install numpy</span></code></pre>
 </div>
 <p>Then, in a Python shell or Jupyter Notebook, declare the
 function:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="kw">def</span> rescale(input_array):</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="co">"""Rescales an array from 0 to 1.</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">    Takes an array as input, and returns a corresponding array scaled so that 0</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">    corresponds to the minimum and 1 to the maximum value of the input array.</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    low <span class="op">=</span> np.<span class="bu">min</span>(input_array)</span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    high <span class="op">=</span> np.<span class="bu">max</span>(input_array)</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    output_array <span class="op">=</span> (input_array <span class="op">-</span> low) <span class="op">/</span> (high <span class="op">-</span> low)</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    <span class="cf">return</span> output_array</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1" aria-label="code-block-3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1" aria-label="code-block-3-4"></a><span class="kw">def</span> rescale(input_array):</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1" aria-label="code-block-3-5"></a>    <span class="co">"""Rescales an array from 0 to 1.</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1" aria-label="code-block-3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1" aria-label="code-block-3-7"></a><span class="co">    Takes an array as input, and returns a corresponding array scaled so that 0</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1" aria-label="code-block-3-8"></a><span class="co">    corresponds to the minimum and 1 to the maximum value of the input array.</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1" aria-label="code-block-3-9"></a><span class="co">    """</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1" aria-label="code-block-3-10"></a>    low <span class="op">=</span> np.<span class="bu">min</span>(input_array)</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1" aria-label="code-block-3-11"></a>    high <span class="op">=</span> np.<span class="bu">max</span>(input_array)</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1" aria-label="code-block-3-12"></a>    output_array <span class="op">=</span> (input_array <span class="op">-</span> low) <span class="op">/</span> (high <span class="op">-</span> low)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1" aria-label="code-block-3-13"></a>    <span class="cf">return</span> output_array</span></code></pre>
 </div>
 <p>and call the function with:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span></code></pre>
 </div>
 <p>which provides the output:</p>
 <div class="codewrapper">
@@ -498,7 +498,7 @@ for documenting your software package.</li>
 </ul><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> src/example_package_YOUR_USERNAME_HERE tests docs</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> src/example_package_YOUR_USERNAME_HERE tests docs</span></code></pre>
 </div>
 <p>(The <code>-p</code> flag tells <code>mkdir</code> to create the
 <code>src</code> parent directory for
@@ -548,7 +548,7 @@ a package, and should remain empty (for now).</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> touch src/example_package_YOUR_USERNAME_HERE/__init__.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">$</span> touch src/example_package_YOUR_USERNAME_HERE/__init__.py</span></code></pre>
 </div>
 </li>
 <li>
@@ -557,7 +557,7 @@ will contain the <code>rescale()</code> function;</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> touch src/example_package_YOUR_USERNAME_HERE/rescale.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">$</span> touch src/example_package_YOUR_USERNAME_HERE/rescale.py</span></code></pre>
 </div>
 </li>
 </ul><p>Copy the <code>rescale()</code> function into <code>rescale.py</code>
@@ -567,7 +567,7 @@ file. Create this with</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> touch pyproject.toml</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">$</span> touch pyproject.toml</span></code></pre>
 </div>
 <p>and then provide the minimally required metadata, which include</p>
 <ul><li>information about the package itself (<code>name</code>,
@@ -576,18 +576,18 @@ file. Create this with</p>
 </ul><div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># contents of pyproject.toml</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="kw">[build-system]</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"hatchling"</span><span class="op">]</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="dt">build-backend</span> <span class="op">=</span> <span class="st">"hatchling.build"</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="kw">[project]</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"example-package-YOUR-USERNAME-HERE"</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.0"</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  <span class="st">"numpy"</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="co"># contents of pyproject.toml</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a><span class="kw">[build-system]</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"hatchling"</span><span class="op">]</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1" aria-label="code-block-10-5"></a><span class="dt">build-backend</span> <span class="op">=</span> <span class="st">"hatchling.build"</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1" aria-label="code-block-10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1" aria-label="code-block-10-7"></a><span class="kw">[project]</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1" aria-label="code-block-10-8"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"example-package-YOUR-USERNAME-HERE"</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1" aria-label="code-block-10-9"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.0"</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1" aria-label="code-block-10-10"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1" aria-label="code-block-10-11"></a>  <span class="st">"numpy"</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1" aria-label="code-block-10-12"></a><span class="op">]</span></span></code></pre>
 </div>
 <p>The package name given here, “package,” matches the directory
 <code>src/package</code> that contains the code. We’ve chosen 0.1.0 as
@@ -633,15 +633,15 @@ this:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="bu">.</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="ex">├──</span> docs/</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="ex">├──</span> src/</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="ex">│</span>   └── example_package_YOUR_USERNAME_HERE/</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="ex">│</span>   │   ├── __init__.py</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="ex">│</span>   │   └── rescale.py</span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="ex">├──</span> tests/</span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="ex">└──</span> .venv/</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="bu">.</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a><span class="ex">├──</span> docs/</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a><span class="ex">├──</span> pyproject.toml</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1" aria-label="code-block-11-4"></a><span class="ex">├──</span> src/</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1" aria-label="code-block-11-5"></a><span class="ex">│</span>   └── example_package_YOUR_USERNAME_HERE/</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1" aria-label="code-block-11-6"></a><span class="ex">│</span>   │   ├── __init__.py</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1" aria-label="code-block-11-7"></a><span class="ex">│</span>   │   └── rescale.py</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1" aria-label="code-block-11-8"></a><span class="ex">├──</span> tests/</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1" aria-label="code-block-11-9"></a><span class="ex">└──</span> .venv/</span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="installing-and-using-your-package">Installing and using your package<a class="anchor" aria-label="anchor" href="#installing-and-using-your-package"></a></h2>
 <hr class="half-width"><p>Now that your package has the necessary elements, you can install it
@@ -650,7 +650,7 @@ top level of your project’s directory, enter:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">--editable</span> .</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="ex">$</span> pip install <span class="at">--editable</span> .</span></code></pre>
 </div>
 <p>The <code>--editable</code> flag tells <code>pip</code> to install in
 editable mode, meaning that you can continue developing your package on
@@ -661,10 +661,10 @@ call the (single) function:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1" aria-label="code-block-13-4"></a>rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -682,7 +682,7 @@ automatically run using <code>pytest</code>.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">touch</span> tests/test_rescale.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="fu">touch</span> tests/test_rescale.py</span></code></pre>
 </div>
 <p>In this file, we need to import the package, and check that a call to
 the <code>rescale</code> function with our known input returns the
@@ -690,16 +690,16 @@ expected output:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co"># contents of tests/test_rescale.py</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="kw">def</span> test_rescale():</span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>    np.testing.assert_allclose(</span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>        rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>)),</span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>        np.array([<span class="fl">0.0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">1.0</span>]),</span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>    )</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="co"># contents of tests/test_rescale.py</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a><span class="im">from</span> example_package_YOUR_USERNAME_HERE.rescale <span class="im">import</span> rescale</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1" aria-label="code-block-16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1" aria-label="code-block-16-6"></a><span class="kw">def</span> test_rescale():</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1" aria-label="code-block-16-7"></a>    np.testing.assert_allclose(</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1" aria-label="code-block-16-8"></a>        rescale(np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>)),</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1" aria-label="code-block-16-9"></a>        np.array([<span class="fl">0.0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">1.0</span>]),</span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1" aria-label="code-block-16-10"></a>    )</span></code></pre>
 </div>
 <p>To use pytest to run this (and other tests), we need to install
 <code>pytest</code>.</p>
@@ -709,22 +709,22 @@ block below the dependencies with an “extra” called
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="dt">...</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>  <span class="st">"numpy"</span></span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="kw">[project.optional-dependencies]</span></span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="kw">[build-system]</span></span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="dt">...</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a><span class="dt">...</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1" aria-label="code-block-17-3"></a>  <span class="st">"numpy"</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1" aria-label="code-block-17-4"></a><span class="op">]</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1" aria-label="code-block-17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1" aria-label="code-block-17-6"></a><span class="kw">[project.optional-dependencies]</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1" aria-label="code-block-17-7"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1" aria-label="code-block-17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1" aria-label="code-block-17-9"></a><span class="kw">[build-system]</span></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1" aria-label="code-block-17-10"></a><span class="dt">...</span></span></code></pre>
 </div>
 <p>You install the project with the “extra” using:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--editable</span> <span class="st">".[test]"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="ex">pip</span> install <span class="at">--editable</span> <span class="st">".[test]"</span></span></code></pre>
 </div>
 <p>You can run the tests using <code>pytest</code>:</p>
 <pre><code>(.venv) % pytest
@@ -747,22 +747,22 @@ make small commits regularly.)</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">git</span> add src/example_package_YOUR_USERNAME_HERE/<span class="dt">{__init__</span><span class="op">,</span><span class="dt">rescale}</span>.py</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">git</span> add tests/test_rescale.py</span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: add basic rescaling function</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="fu">git</span> add src/example_package_YOUR_USERNAME_HERE/<span class="dt">{__init__</span><span class="op">,</span><span class="dt">rescale}</span>.py</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a><span class="fu">git</span> add tests/test_rescale.py</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: add basic rescaling function</span></span></code></pre>
 </div>
 <p>… then the metadata:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">git</span> add pyproject.toml</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"build: add minimal pyproject.toml"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1" aria-label="code-block-21-1"></a><span class="fu">git</span> add pyproject.toml</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1" aria-label="code-block-21-2"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"build: add minimal pyproject.toml"</span></span></code></pre>
 </div>
 <p>… then push those to the <code>origin</code> remote repository.</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a><span class="fu">git</span> push origin main</span></code></pre>
 </div>
 <div id="always-git-add-individual-files-until-youve-set-up-your-.gitignore" class="callout">
 <div class="callout-square">
@@ -906,7 +906,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.0" class="external-link">sandpaper (0.20.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.1" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -929,7 +929,7 @@ any links that you are not going to use.
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/code-to-package.html",
   "dateCreated": "2025-10-01",
   "dateModified": "2025-10-01",
-  "datePublished": "2026-04-14"
+  "datePublished": "2026-04-21"
 }
 
   </script><script>

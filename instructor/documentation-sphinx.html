@@ -277,7 +277,7 @@
       </button>
     </div><!--/div.accordion-header-->
 
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#configuration">Configuration</a></li>
 <li><a href="#index">Index</a></li>
@@ -449,7 +449,7 @@ if you’d like.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">pipx</span> run <span class="at">--spec</span> sphinx sphinx-quickstart <span class="at">--no-makefile</span> <span class="at">--no-batchfile</span> <span class="at">--ext-autodoc</span> <span class="at">--ext-intersphinx</span> <span class="at">--extensions</span> myst_parser <span class="at">--suffix</span> .md docs</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="ex">pipx</span> run <span class="at">--spec</span> sphinx sphinx-quickstart <span class="at">--no-makefile</span> <span class="at">--no-batchfile</span> <span class="at">--ext-autodoc</span> <span class="at">--ext-intersphinx</span> <span class="at">--extensions</span> myst_parser <span class="at">--suffix</span> .md docs</span></code></pre>
 </div>
 <p>But this will put Restructured Text into the <code>index.md</code>
 file, and doesn’t really generate that much for you. You can instead add
@@ -464,30 +464,30 @@ here.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># docs/conf.py</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>project <span class="op">=</span> <span class="st">"example"</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>extensions <span class="op">=</span> [<span class="st">"myst_parser"</span>]</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>source_suffix <span class="op">=</span> [<span class="st">".rst"</span>, <span class="st">".md"</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="co"># docs/conf.py</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a>project <span class="op">=</span> <span class="st">"example"</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1" aria-label="code-block-2-4"></a>extensions <span class="op">=</span> [<span class="st">"myst_parser"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1" aria-label="code-block-2-5"></a>source_suffix <span class="op">=</span> [<span class="st">".rst"</span>, <span class="st">".md"</span>]</span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="index">Index<a class="anchor" aria-label="anchor" href="#index"></a></h2>
 <hr class="half-width"><p>And add (a correct) <code>docs/index.md</code> yourself:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MD<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode md" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu"># package</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="in">```{toctree}</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="in">:maxdepth: 2</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="in">:hidden:</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">## Indices and tables</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ss">- </span>{ref}<span class="in">`genindex`</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>{ref}<span class="in">`modindex`</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="ss">- </span>{ref}<span class="in">`search`</span></span></code></pre>
+<pre class="sourceCode md" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="fu"># package</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1" aria-label="code-block-3-3"></a><span class="in">```{toctree}</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1" aria-label="code-block-3-4"></a><span class="in">:maxdepth: 2</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1" aria-label="code-block-3-5"></a><span class="in">:hidden:</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1" aria-label="code-block-3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1" aria-label="code-block-3-7"></a><span class="in">```</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1" aria-label="code-block-3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1" aria-label="code-block-3-9"></a><span class="fu">## Indices and tables</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1" aria-label="code-block-3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1" aria-label="code-block-3-11"></a><span class="ss">- </span>{ref}<span class="in">`genindex`</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1" aria-label="code-block-3-12"></a><span class="ss">- </span>{ref}<span class="in">`modindex`</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1" aria-label="code-block-3-13"></a><span class="ss">- </span>{ref}<span class="in">`search`</span></span></code></pre>
 </div>
 <p>As you add new pages, you will list them in the toctree above.</p>
 </section><section><h2 class="section-heading" id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a></h2>
@@ -495,11 +495,11 @@ here.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">[project.optional-dependencies]</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="dt">docs</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="st">"myst_parser &gt;=0.13"</span><span class="op">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="st">"sphinx &gt;=4.0"</span><span class="op">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="kw">[project.optional-dependencies]</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a><span class="dt">docs</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1" aria-label="code-block-4-3"></a>  <span class="st">"myst_parser &gt;=0.13"</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1" aria-label="code-block-4-4"></a>  <span class="st">"sphinx &gt;=4.0"</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a><span class="op">]</span></span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="preview-server">Preview Server<a class="anchor" aria-label="anchor" href="#preview-server"></a></h2>
 <hr class="half-width"><p>You can install these dependencies using `pip install –editable
@@ -509,7 +509,7 @@ here.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">sphinx-autobuild</span> <span class="at">--open-browser</span> <span class="at">-b</span> html <span class="st">"./docs"</span> <span class="st">"_build/html"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">sphinx-autobuild</span> <span class="at">--open-browser</span> <span class="at">-b</span> html <span class="st">"./docs"</span> <span class="st">"_build/html"</span></span></code></pre>
 </div>
 <p>This will rebuild if you change files, as well.</p>
 </section><section><h2 class="section-heading" id="nox-session">Nox session<a class="anchor" aria-label="anchor" href="#nox-session"></a></h2>
@@ -517,31 +517,31 @@ here.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="at">@nox.session</span>(reuse_venv<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="kw">def</span> docs(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">    Build the docs. Use "--non-interactive" to avoid serving.</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    serve <span class="op">=</span> session.interactive</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    extra_installs <span class="op">=</span> [<span class="st">"sphinx-autobuild"</span>] <span class="cf">if</span> serve <span class="cf">else</span> []</span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>    session.install(<span class="st">"-e.[docs]"</span>, <span class="op">*</span>extra_installs)</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    session.chdir(<span class="st">"docs"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    shared_args <span class="op">=</span> (</span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>        <span class="st">"-n"</span>,  <span class="co"># nitpicky mode</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>        <span class="st">"-T"</span>,  <span class="co"># full tracebacks</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>        <span class="st">"-b=html"</span>,</span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>        <span class="st">"."</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>        <span class="ss">f"_build/html"</span>,</span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>        <span class="op">*</span>session.posargs,</span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>    )</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>    <span class="cf">if</span> serve:</span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>        session.run(<span class="st">"sphinx-autobuild"</span>, <span class="st">"--open-browser"</span>, <span class="op">*</span>shared_args)</span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>        session.run(<span class="st">"sphinx-build"</span>, <span class="st">"--keep-going"</span>, <span class="op">*</span>shared_args)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="at">@nox.session</span>(reuse_venv<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="kw">def</span> docs(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1" aria-label="code-block-6-3"></a>    <span class="co">"""</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1" aria-label="code-block-6-4"></a><span class="co">    Build the docs. Use "--non-interactive" to avoid serving.</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a><span class="co">    """</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1" aria-label="code-block-6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1" aria-label="code-block-6-7"></a>    serve <span class="op">=</span> session.interactive</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1" aria-label="code-block-6-8"></a>    extra_installs <span class="op">=</span> [<span class="st">"sphinx-autobuild"</span>] <span class="cf">if</span> serve <span class="cf">else</span> []</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1" aria-label="code-block-6-9"></a>    session.install(<span class="st">"-e.[docs]"</span>, <span class="op">*</span>extra_installs)</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1" aria-label="code-block-6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1" aria-label="code-block-6-11"></a>    session.chdir(<span class="st">"docs"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1" aria-label="code-block-6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1" aria-label="code-block-6-13"></a>    shared_args <span class="op">=</span> (</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1" aria-label="code-block-6-14"></a>        <span class="st">"-n"</span>,  <span class="co"># nitpicky mode</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1" aria-label="code-block-6-15"></a>        <span class="st">"-T"</span>,  <span class="co"># full tracebacks</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1" aria-label="code-block-6-16"></a>        <span class="st">"-b=html"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1" aria-label="code-block-6-17"></a>        <span class="st">"."</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1" aria-label="code-block-6-18"></a>        <span class="ss">f"_build/html"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1" aria-label="code-block-6-19"></a>        <span class="op">*</span>session.posargs,</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1" aria-label="code-block-6-20"></a>    )</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1" aria-label="code-block-6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1" aria-label="code-block-6-22"></a>    <span class="cf">if</span> serve:</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1" aria-label="code-block-6-23"></a>        session.run(<span class="st">"sphinx-autobuild"</span>, <span class="st">"--open-browser"</span>, <span class="op">*</span>shared_args)</span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1" aria-label="code-block-6-24"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1" aria-label="code-block-6-25"></a>        session.run(<span class="st">"sphinx-build"</span>, <span class="st">"--keep-going"</span>, <span class="op">*</span>shared_args)</span></code></pre>
 </div>
 <p>And you now have working docs that you can generate and view cross
 platform with <code>nox -s docs</code>!</p>
@@ -551,19 +551,19 @@ want the following <code>.readthedocs.yml</code>:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">build</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="at">  </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="st">"ubuntu-22.04"</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="at">  </span><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="at">    </span><span class="fu">python</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.11"</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">sphinx</span><span class="kw">:</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span><span class="at"> docs/conf.py</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="fu">python</span><span class="kw">:</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="at">  </span><span class="fu">install</span><span class="kw">:</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">method</span><span class="kw">:</span><span class="at"> pip</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="at">      </span><span class="fu">path</span><span class="kw">:</span><span class="at"> .</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="at">      </span><span class="fu">extra_requirements</span><span class="kw">:</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> docs</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="at">  </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="st">"ubuntu-22.04"</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a><span class="at">  </span><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1" aria-label="code-block-7-5"></a><span class="at">    </span><span class="fu">python</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.11"</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1" aria-label="code-block-7-6"></a><span class="fu">sphinx</span><span class="kw">:</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1" aria-label="code-block-7-7"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span><span class="at"> docs/conf.py</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1" aria-label="code-block-7-8"></a><span class="fu">python</span><span class="kw">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1" aria-label="code-block-7-9"></a><span class="at">  </span><span class="fu">install</span><span class="kw">:</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1" aria-label="code-block-7-10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">method</span><span class="kw">:</span><span class="at"> pip</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1" aria-label="code-block-7-11"></a><span class="at">      </span><span class="fu">path</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1" aria-label="code-block-7-12"></a><span class="at">      </span><span class="fu">extra_requirements</span><span class="kw">:</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1" aria-label="code-block-7-13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> docs</span></span></code></pre>
 </div>
 <div id="adding-a-page" class="callout discussion">
 <div class="callout-square">
@@ -591,9 +591,9 @@ something like this:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">MD<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode md" tabindex="0"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="in">```{include} ../README.md</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="in">:start-after: &lt;!-- SPHINX-START --&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode md" tabindex="0"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="in">```{include} ../README.md</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="in">:start-after: &lt;!-- SPHINX-START --&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="in">```</span></span></code></pre>
 </div>
 <p>And you use <code>&lt;!-- SPHINX-START --&gt;</code> to mark where
 you want your docs part of your <code>README.md</code> to start
@@ -601,11 +601,11 @@ you want your docs part of your <code>README.md</code> to start
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu"># Example Package YOUR USERNAME HERE</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co">&lt;!-- SPHINX-START --&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="in">`example-package-YOUR-USERNAME-HERE`</span> is a simple Python library that contains a single function for rescaling arrays.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="fu"># Example Package YOUR USERNAME HERE</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="co">&lt;!-- SPHINX-START --&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a><span class="in">`example-package-YOUR-USERNAME-HERE`</span> is a simple Python library that contains a single function for rescaling arrays.</span></code></pre>
 </div>
 </div>
 </div>
@@ -624,7 +624,7 @@ you want your docs part of your <code>README.md</code> to start
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>html_theme <span class="op">=</span> <span class="st">"furo"</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a>html_theme <span class="op">=</span> <span class="st">"furo"</span></span></code></pre>
 </div>
 <p>And add <code>"furo"</code> to your <code>docs</code> extra in your
 <code>pyproject.toml</code>.</p>
@@ -697,7 +697,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.0" class="external-link">sandpaper (0.20.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.20.1" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/intersect-training/varnish/tree/e710c947c6d59097e1568794dd0a0041e5db067d" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -720,7 +720,7 @@ any links that you are not going to use.
   "identifier": "https://INTERSECT-training.github.io/packaging/instructor/documentation-sphinx.html",
   "dateCreated": "2025-10-01",
   "dateModified": "2025-07-15",
-  "datePublished": "2026-04-14"
+  "datePublished": "2026-04-21"
 }
 
   </script><script>
